@@ -33,13 +33,13 @@ export const Playground: Story = {};
 export const FigmaVariants: Story = {
   render: () => (
     <div className="ds-page-header-variants">
-      <div><PageHeaderStatusBar /><PageHeader usage="Floating" /></div>
-      <PageHeader usage="Location" type="Transparent" />
-      <PageHeader usage="Location" type="Solid" />
-      <PageHeader usage="Dropdown" />
-      <PageHeader usage="HIH" />
-      <PageHeader usage="FamilyHub" textColour="Black" />
-      <PageHeader usage="FamilyHub" textColour="No heading" />
+      <div className="ds-page-header-variants__surface"><PageHeaderStatusBar /><PageHeader usage="Floating" /></div>
+      <div className="ds-page-header-variants__surface"><PageHeader usage="Location" type="Transparent" /></div>
+      <div className="ds-page-header-variants__surface"><PageHeader usage="Location" type="Solid" /></div>
+      <div className="ds-page-header-variants__surface"><PageHeader usage="Dropdown" /></div>
+      <div className="ds-page-header-variants__surface ds-page-header-variants__surface--glass"><PageHeader usage="HIH" /></div>
+      <div className="ds-page-header-variants__surface ds-page-header-variants__surface--glass"><PageHeader usage="FamilyHub" textColour="Black" /></div>
+      <div className="ds-page-header-variants__surface ds-page-header-variants__surface--glass"><PageHeader usage="FamilyHub" textColour="No heading" /></div>
     </div>
   )
 };

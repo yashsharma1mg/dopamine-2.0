@@ -117,12 +117,14 @@ export function PageHeader({
   usage = "Floating",
   ...props
 }: PageHeaderProps) {
-  const hasHeading = textColour === "Black";
+  const resolvedType = usage === "Location" ? type : "Transparent";
+  const resolvedTextColour = usage === "FamilyHub" ? textColour : "Black";
+  const hasHeading = resolvedTextColour === "Black";
   const locationTitle = locationName ?? (usage === "Floating" ? "Office" : "To Office");
 
   if (usage === "Floating") {
     return (
-      <div className={`ds-page-header ds-page-header--floating ${className}`.trim()} data-usage={usage} data-type={type} {...props}>
+      <div className={`ds-page-header ds-page-header--floating ${className}`.trim()} data-usage={usage} data-type="Transparent" {...props}>
         <button type="button" className="ds-page-header__floating-location" onClick={onLocationClick}>
           <Icon src={assets.location} />
           <span className="ds-page-header__floating-location-content"><strong>{locationTitle}</strong><span>{locationDetail.replace(" building, Gurugram", "...")}</span></span>
@@ -139,7 +141,7 @@ export function PageHeader({
   const isHih = usage === "HIH";
 
   return (
-    <div className={`ds-page-header ds-page-header--${usage.toLowerCase()} ds-page-header--${type.toLowerCase()} ${className}`.trim()} data-usage={usage} data-type={type} {...props}>
+    <div className={`ds-page-header ds-page-header--${usage.toLowerCase()} ds-page-header--${resolvedType.toLowerCase()} ${className}`.trim()} data-usage={usage} data-type={resolvedType} {...props}>
       <PageHeaderStatusBar />
       {isLocation ? (
         <div className="ds-page-header__location-row">
