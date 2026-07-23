@@ -16,7 +16,7 @@ export default function Home() {
           <Link className="button-link button-link-primary" href="/getting-started">Start building <span aria-hidden="true">→</span></Link>
           <Link className="button-link button-link-secondary" href="/foundations">Explore foundations</Link>
         </div>
-        <div className="system-stats" aria-label="Design system status">
+        <div className="system-stats" aria-label="Dopamine 2.0 status">
           <div><strong>{Object.keys(tokens).length}</strong><span>generated tokens</span></div>
           <div><strong>{foundationPages.length}</strong><span>foundation groups</span></div>
           <div><strong>{readyComponents.length}</strong><span>package-ready component</span></div>

@@ -4,13 +4,13 @@ import { create } from "storybook/theming";
 addons.setConfig({
   theme: create({
     base: "light",
-    brandTitle: "Internal Design System",
+    brandTitle: "Dopamine 2.0",
     brandUrl: "/",
-    colorPrimary: "#3568F4",
-    colorSecondary: "#2855D9",
-    appBg: "#F7F8FA",
+    colorPrimary: "#ff5443",
+    colorSecondary: "#414752",
+    appBg: "#f7f8fa",
     appContentBg: "#FFFFFF",
-    appBorderColor: "#DDE1E8",
-    appBorderRadius: 10
+    appBorderColor: "#dde2eb",
+    appBorderRadius: 8
   })
 });

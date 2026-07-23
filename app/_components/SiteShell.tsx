@@ -14,7 +14,7 @@ function Brand() {
   return (
     <Link className="brand" href="/">
       <span className="brand-mark" aria-hidden="true" />
-      <span>Design System</span>
+      <span>Dopamine 2.0</span>
     </Link>
   );
 }
@@ -36,7 +36,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
           <p className="nav-label">Build</p>
           {links.slice(4).map((link) => <Link className="nav-link" key={link.href} href={link.href}>{link.label}</Link>)}
         </nav>
-        <p className="nav-meta">Internal release · v0.1<br />Token source synchronized</p>
+        <p className="nav-meta">Dopamine 2.0 · v0.1<br />Token source synchronized</p>
       </aside>
       <header className="mobile-header">
         <Brand />
@@ -50,7 +50,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
       <div className="site-main">
         {children}
         <footer className="footer">
-          <span>Internal Design System · v0.1</span>
+          <span>Dopamine 2.0 · v0.1</span>
           <span>Tokens → Components → Product</span>
         </footer>
       </div>

@@ -24,19 +24,19 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: baseUrl,
     title: {
-      default: "Internal Design System",
-      template: "%s · Internal Design System"
+      default: "Dopamine 2.0",
+      template: "%s · Dopamine 2.0"
     },
     description:
       "A shared language for designers and developers: foundations, accessible React components, and implementation guidance.",
     openGraph: {
-      title: "Internal Design System",
+      title: "Dopamine 2.0",
       description: "One source. Every interface.",
-      images: [{ url: "/og.png", width: 1200, height: 630, alt: "Internal Design System" }]
+      images: [{ url: "/og.png", width: 1200, height: 630, alt: "Dopamine 2.0" }]
     },
     twitter: {
       card: "summary_large_image",
-      title: "Internal Design System",
+      title: "Dopamine 2.0",
       description: "One source. Every interface.",
       images: ["/og.png"]
     }

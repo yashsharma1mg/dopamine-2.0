@@ -1,4 +1,4 @@
-# Internal Design System
+# Dopamine 2.0
 
 A private documentation platform, Storybook, token pipeline, and registry-ready React package.
 
