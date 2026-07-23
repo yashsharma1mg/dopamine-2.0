@@ -62,6 +62,8 @@ export const FigmaVariants: Story = {
     const addedTextButtons = canvas.getAllByRole("button", { name: "1 added" });
     await expect(addedTextButtons[0]).toBeInTheDocument();
     await expect(addedTextButtons[0].querySelector("img")).toHaveAttribute("src", "/assets/dopamine/stepper-added-text.svg");
+    await expect(addedTextButtons[0]).toHaveStyle({ width: "110px" });
+    await expect(addedTextButtons[0].querySelector("span")).toHaveStyle({ whiteSpace: "nowrap" });
     await expect(canvas.getAllByRole("status", { name: "100 items" })[0].closest(".ds-stepper")).toHaveStyle({ gap: "4px", paddingInline: "16px", width: "120px" });
   }
 };
