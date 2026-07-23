@@ -102,9 +102,10 @@ export const componentManifests: ComponentManifest[] = [
       "Avoid vague labels such as Click here, Yes, or Submit when a clearer outcome exists."
     ],
     api: [
-      { name: "type", type: "fill | outline | ghost", defaultValue: "fill", description: "Visual container treatment." },
-      { name: "size", type: "medium | large", defaultValue: "large", description: "Figma size variant." },
-      { name: "style", type: "text | icon-leading | icon-trailing | underline", defaultValue: "text", description: "Label and icon composition." },
+      { name: "type", type: "Fill | Outline | Ghost", defaultValue: "Fill", description: "Figma visual container treatment." },
+      { name: "state", type: "Primary | Secondary | Inverse | Disabled", defaultValue: "Primary", description: "Figma state variant." },
+      { name: "size", type: "Medium | Large", defaultValue: "Large", description: "Figma size variant." },
+      { name: "style", type: "Text Only | Icon + Text | Text + Icon | Underline", defaultValue: "Text Only", description: "Figma content construct." },
       { name: "loading", type: "boolean", defaultValue: "false", description: "Shows progress and prevents activation." }
     ],
     links: {
@@ -133,7 +134,8 @@ export const componentManifests: ComponentManifest[] = [
     api: [
       { name: "quantity", type: "number", defaultValue: "—", description: "Current item quantity." },
       { name: "onQuantityChange", type: "(quantity: number) => void", defaultValue: "—", description: "Receives quantity changes." },
-      { name: "type", type: "filled | outline", defaultValue: "filled", description: "Figma visual variant." },
+      { name: "type", type: "Filled | Outline", defaultValue: "Filled", description: "Figma visual variant." },
+      { name: "state", type: "Add | Added- Text | Added- Number", defaultValue: "derived from quantity", description: "Figma state variant." },
       { name: "outOfStock", type: "boolean", defaultValue: "false", description: "Disables quantity actions." }
     ],
     links: {
@@ -158,7 +160,8 @@ export const componentManifests: ComponentManifest[] = [
     accessibility: ["Provides an accessible name for icon-only variants.", "Uses a native button and visible focus state."],
     contentGuidance: ["Keep the optional label short and action-oriented."],
     api: [
-      { name: "type", type: "add | added | fab | special", defaultValue: "add", description: "Figma component variant." },
+      { name: "type", type: "FAB | Special button | Added | Add", defaultValue: "Add", description: "Figma component variant." },
+      { name: "state", type: "Default | Disable | Single Added", defaultValue: "Default", description: "Figma state variant." },
       { name: "label", type: "string", defaultValue: "variant label", description: "Accessible or visible action label." },
       { name: "icon", type: "ReactNode", defaultValue: "+", description: "Optional action icon." }
     ],

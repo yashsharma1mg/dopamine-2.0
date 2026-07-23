@@ -1,7 +1,8 @@
-import { type HTMLAttributes, useId } from "react";
+import { type HTMLAttributes, type ReactNode, useId } from "react";
 
-export type StepperSize = "medium" | "large";
-export type StepperType = "filled" | "outline";
+export type StepperSize = "Medium" | "Large";
+export type StepperType = "Filled" | "Outline";
+export type StepperState = "Add" | "Added- Text" | "Added- Number";
 
 export type StepperProps = Omit<HTMLAttributes<HTMLDivElement>, "onChange"> & {
   quantity: number;
@@ -10,46 +11,74 @@ export type StepperProps = Omit<HTMLAttributes<HTMLDivElement>, "onChange"> & {
   max?: number;
   outOfStock?: boolean;
   size?: StepperSize;
+  state?: StepperState;
   type?: StepperType;
+  addIcon?: ReactNode;
+  disabledAddIcon?: ReactNode;
+  decrementIcon?: ReactNode;
+  incrementIcon?: ReactNode;
+  helperText?: ReactNode;
 };
 
 export function Stepper({
+  addIcon,
   className = "",
-  quantity,
-  onQuantityChange,
-  min = 0,
+  decrementIcon,
+  disabledAddIcon,
+  incrementIcon,
+  helperText = "Customise",
   max,
+  min = 0,
+  onQuantityChange,
   outOfStock = false,
-  size = "large",
-  type = "filled",
+  quantity,
+  size = "Large",
+  state = quantity <= min ? "Add" : "Added- Number",
+  type = "Filled",
   ...props
 }: StepperProps) {
   const labelId = useId();
-  const isEmpty = quantity <= min;
+  const isAdd = state === "Add";
+  const isText = state === "Added- Text";
   const decrement = () => onQuantityChange(Math.max(min, quantity - 1));
   const increment = () => onQuantityChange(max === undefined ? quantity + 1 : Math.min(max, quantity + 1));
 
-  if (isEmpty) {
+  if (isAdd || isText) {
     return (
-      <button
-        type="button"
-        className={`ds-stepper ds-stepper--add ${className}`.trim()}
+      <div
+        className={`ds-stepper-group ${className}`.trim()}
         data-size={size}
+        data-state={state}
         data-type={type}
-        disabled={outOfStock}
-        onClick={increment}
+        {...props}
       >
-        {outOfStock ? "Out of stock" : "Add"}
-      </button>
+        <button
+          type="button"
+          className={`ds-stepper ds-stepper--${isText ? "added-text" : "add"}`}
+          disabled={outOfStock}
+          onClick={increment}
+        >
+          <span>{outOfStock ? "OUT OF STOCK" : isText ? "ADDED" : "ADD"}</span>
+          {!outOfStock ? addIcon : disabledAddIcon}
+        </button>
+        <span className="ds-stepper__helper">{helperText}</span>
+      </div>
     );
   }
 
   return (
-    <div className={`ds-stepper ${className}`.trim()} data-size={size} data-type={type} {...props}>
-      <span id={labelId} className="sr-only">Quantity</span>
-      <button type="button" aria-label="Decrease quantity" aria-describedby={labelId} disabled={outOfStock} onClick={decrement}>−</button>
-      <output aria-live="polite" aria-label={`${quantity} items`}>{quantity}</output>
-      <button type="button" aria-label="Increase quantity" aria-describedby={labelId} disabled={outOfStock || (max !== undefined && quantity >= max)} onClick={increment}>+</button>
+    <div className={`ds-stepper-group ${className}`.trim()} data-size={size} data-state={state} data-type={type} {...props}>
+      <div className="ds-stepper">
+        <span id={labelId} className="sr-only">Quantity</span>
+        <button type="button" aria-label="Decrease quantity" aria-describedby={labelId} disabled={outOfStock} onClick={decrement}>
+          {decrementIcon}
+        </button>
+        <output aria-live="polite" aria-label={`${quantity} items`}>{quantity}</output>
+        <button type="button" aria-label="Increase quantity" aria-describedby={labelId} disabled={outOfStock || (max !== undefined && quantity >= max)} onClick={increment}>
+          {incrementIcon}
+        </button>
+      </div>
+      <span className="ds-stepper__helper">{helperText}</span>
     </div>
   );
 }

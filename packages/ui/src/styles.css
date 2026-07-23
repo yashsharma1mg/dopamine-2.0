@@ -4,16 +4,17 @@
 .ds-stepper,
 .ds-stepper button,
 .ds-fab {
+  box-sizing: border-box;
   font-family: var(--font-family-body), system-ui, sans-serif;
 }
 
 .ds-button {
   align-items: center;
   appearance: none;
-  background: var(--component-button-fill-primary-background);
+  background: var(--semantic-color-branding-1mg);
   border: 1px solid transparent;
   border-radius: var(--radius-8);
-  color: var(--component-button-fill-primary-foreground);
+  color: var(--semantic-color-content-inverse-primary);
   cursor: pointer;
   display: inline-flex;
   font-size: var(--font-size-body-14);
@@ -21,39 +22,80 @@
   gap: var(--space-4);
   justify-content: center;
   line-height: var(--font-line-height-20);
-  min-height: 40px;
-  padding: var(--space-8) var(--space-16);
-  transition: background-color 140ms ease, border-color 140ms ease, color 140ms ease;
+  min-width: 104px;
+  padding: var(--space-12) var(--space-16);
   white-space: nowrap;
 }
 
-.ds-button[data-size="medium"] { min-height: 36px; padding-inline: var(--space-12); }
-.ds-button[data-type="outline"] { background: var(--component-button-outline-background); border-color: var(--component-button-outline-border); color: var(--component-button-outline-foreground); }
-.ds-button[data-type="ghost"] { background: transparent; color: var(--component-button-ghost-foreground); }
-.ds-button[data-style="underline"] { background: transparent; border-radius: 0; color: var(--component-button-ghost-foreground); padding-inline: 0; text-decoration: underline; text-underline-offset: var(--space-4); }
+.ds-button[data-type="Fill"],
+.ds-button[data-type="Outline"] { height: 44px; }
+.ds-button[data-size="Medium"][data-type="Fill"],
+.ds-button[data-size="Medium"][data-type="Outline"] { height: 40px; padding-block: var(--space-10); }
+.ds-button[data-type="Fill"][data-state="Secondary"] { background: var(--semantic-color-content-primary); }
+.ds-button[data-type="Fill"][data-state="Inverse"] { background: var(--semantic-color-background-primary); color: var(--semantic-color-content-primary); }
+.ds-button[data-type="Outline"] { background: var(--semantic-color-background-primary); border-color: var(--semantic-color-border-subtle); color: var(--semantic-color-branding-1mg); }
+.ds-button[data-type="Outline"][data-state="Secondary"] { color: var(--semantic-color-content-primary); }
+.ds-button[data-type="Outline"][data-state="Inverse"] { background: transparent; border-color: var(--semantic-color-content-inverse-primary); color: var(--semantic-color-content-inverse-primary); }
+.ds-button[data-type="Ghost"] { background: transparent; border-color: transparent; color: var(--semantic-color-branding-1mg); min-width: 0; padding-inline: 0; }
+.ds-button[data-type="Ghost"][data-state="Secondary"] { color: var(--semantic-color-content-primary); }
+.ds-button[data-type="Ghost"][data-state="Inverse"] { color: var(--semantic-color-content-inverse-primary); }
+.ds-button[data-style="Underline"] { min-width: 0; padding-inline: 0; text-decoration: underline; text-underline-offset: var(--space-4); }
+.ds-button[data-state="Disabled"] { background: var(--semantic-color-background-moderate); border-color: transparent; color: var(--semantic-color-content-disabled); }
+.ds-button[data-state="Disabled"][data-type="Ghost"] { background: transparent; color: var(--semantic-color-content-disabled); }
 .ds-button:focus-visible,
 .ds-stepper button:focus-visible,
 .ds-fab:focus-visible { box-shadow: var(--shadow-focus); outline: 2px solid var(--semantic-color-focus-ring); outline-offset: 2px; }
 .ds-button:disabled,
 .ds-stepper button:disabled,
-.ds-fab:disabled { cursor: not-allowed; opacity: 0.56; }
+.ds-fab:disabled { cursor: not-allowed; }
 .ds-button__spinner { animation: ds-button-spin 700ms linear infinite; border: 2px solid currentColor; border-right-color: transparent; border-radius: var(--radius-24); height: 16px; width: 16px; }
 .ds-button__label { overflow: hidden; text-overflow: ellipsis; }
+.ds-button img { display: block; height: 20px; width: 20px; }
 
-.ds-stepper { align-items: center; background: var(--component-stepper-fill-background); border-radius: var(--radius-8); color: var(--component-stepper-fill-foreground); display: inline-grid; grid-template-columns: repeat(3, 1fr); min-height: 40px; overflow: hidden; }
-.ds-stepper[data-type="outline"] { background: var(--component-stepper-outline-background); border: 1px solid var(--component-stepper-outline-border); color: var(--component-stepper-outline-foreground); }
-.ds-stepper button { appearance: none; background: transparent; border: 0; color: inherit; cursor: pointer; font-size: var(--font-size-body-16); font-weight: var(--font-weight-bold); min-height: 40px; min-width: 40px; }
-.ds-stepper output { font-size: var(--font-size-body-14); font-weight: var(--font-weight-bold); min-width: 32px; text-align: center; }
-.ds-stepper--add { appearance: none; border: 0; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; padding: var(--space-8) var(--space-16); }
-.ds-stepper--add[data-type="outline"] { border: 1px solid var(--component-stepper-outline-border); }
-.ds-stepper[data-size="medium"], .ds-stepper[data-size="medium"] button { min-height: 36px; }
+.ds-stepper-group { align-items: center; display: inline-flex; flex-direction: column; gap: var(--space-2); }
+.ds-stepper {
+  align-items: center;
+  background: var(--semantic-color-branding-1mg);
+  border: 1px solid transparent;
+  border-radius: var(--radius-8);
+  color: var(--semantic-color-content-inverse-primary);
+  display: inline-grid;
+  font-size: var(--font-size-body-14);
+  font-weight: var(--font-weight-bold);
+  gap: var(--space-4);
+  grid-template-columns: 20px minmax(24px, 1fr) 20px;
+  height: 44px;
+  line-height: var(--font-line-height-20);
+  padding: var(--space-12) var(--space-16);
+  width: 110px;
+  overflow: hidden;
+}
 
-.ds-fab { align-items: center; appearance: none; background: var(--component-floating-action-button-background); border: 1px solid var(--semantic-color-border-subtle); border-radius: var(--radius-8); box-shadow: var(--shadow-level-1); color: var(--component-floating-action-button-foreground); cursor: pointer; display: inline-flex; gap: var(--space-4); justify-content: center; min-height: 32px; min-width: 32px; padding: var(--space-8); }
-.ds-fab[data-type="added"] { background: var(--component-floating-action-button-selected-background); border-color: transparent; color: var(--component-floating-action-button-selected-foreground); min-width: 56px; }
-.ds-fab[data-type="fab"] { background: var(--semantic-color-background-subtle); border: 0; border-radius: var(--radius-24); min-height: 40px; min-width: 40px; }
-.ds-fab[data-type="special"] { background: var(--semantic-color-content-primary); border: 0; color: var(--semantic-color-content-inverse-primary); min-width: 81px; padding: var(--space-4) var(--space-12); }
-.ds-fab__icon { font-size: var(--font-size-body-16); font-weight: var(--font-weight-bold); line-height: 1; }
+.ds-stepper-group[data-size="Medium"] .ds-stepper { height: 40px; padding-block: var(--space-10); }
+.ds-stepper-group[data-type="Outline"] .ds-stepper { background: var(--semantic-color-background-primary); border-color: var(--semantic-color-border-subtle); color: var(--semantic-color-branding-1mg); width: 112px; }
+.ds-stepper button { align-items: center; appearance: none; background: transparent; border: 0; color: inherit; cursor: pointer; display: inline-flex; height: 20px; justify-content: center; padding: 0; width: 20px; }
+.ds-stepper output { align-self: center; color: inherit; font: inherit; min-width: 0; text-align: center; }
+.ds-stepper--add,
+.ds-stepper--added-text { align-items: center; appearance: none; background: var(--semantic-color-branding-1mg); border: 0; border-radius: var(--radius-8); color: var(--semantic-color-content-inverse-primary); cursor: pointer; display: inline-flex; font-size: var(--font-size-body-14); font-weight: var(--font-weight-bold); gap: var(--space-4); height: 44px; justify-content: center; line-height: var(--font-line-height-20); min-width: 104px; padding: var(--space-12) var(--space-16); }
+.ds-stepper-group[data-size="Medium"] .ds-stepper--add, .ds-stepper-group[data-size="Medium"] .ds-stepper--added-text { height: 40px; padding-block: var(--space-10); }
+.ds-stepper-group[data-type="Outline"] .ds-stepper--add, .ds-stepper-group[data-type="Outline"] .ds-stepper--added-text { background: var(--semantic-color-background-primary); border-color: var(--semantic-color-border-subtle); color: var(--semantic-color-branding-1mg); min-width: 110px; }
+.ds-stepper--add:disabled { background: var(--semantic-color-background-moderate); color: var(--semantic-color-content-disabled); min-width: 110px; }
+.ds-stepper img { display: block; height: 20px; width: 20px; }
+.ds-stepper--add img, .ds-stepper--added-text img { height: 20px; width: 20px; }
+.ds-stepper__helper { color: var(--semantic-color-content-tertiary); font-size: var(--font-size-tag-11); font-weight: var(--font-weight-regular); line-height: var(--font-line-height-16); text-align: center; }
 
-.sr-only { height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+.ds-fab { align-items: center; appearance: none; background: var(--semantic-color-background-primary); border: 1px solid var(--semantic-color-border-subtle); border-radius: var(--radius-8); box-shadow: var(--shadow-action); color: var(--semantic-color-content-primary); cursor: pointer; display: inline-flex; gap: var(--space-4); justify-content: center; padding: var(--space-8); }
+.ds-fab[data-type="Add"] { height: 32px; width: 32px; }
+.ds-fab[data-type="Added"] { background: var(--semantic-color-branding-1mg); border: 0; box-shadow: var(--shadow-compact-added); color: var(--semantic-color-content-inverse-primary); height: 28px; width: 56px; padding: var(--space-4) var(--space-8); }
+.ds-fab[data-type="FAB"] { background: var(--semantic-color-background-subtle); border: 0; border-radius: var(--radius-24); box-shadow: none; height: 40px; padding: var(--space-10); width: 40px; }
+.ds-fab[data-type="Special button"] { background: var(--semantic-color-content-primary); border: 0; box-shadow: none; color: var(--semantic-color-content-inverse-primary); height: 24px; padding: var(--space-4) var(--space-12); width: 81px; }
+.ds-fab[data-type="Added"][data-state="Disable"] { background: var(--semantic-color-background-disabled); color: var(--semantic-color-content-inverse-primary); }
+.ds-fab[data-type="Add"][data-state="Single Added"] { background: var(--semantic-color-branding-1mg); border-color: transparent; color: var(--semantic-color-content-inverse-primary); }
+.ds-fab__icon { display: inline-flex; height: 16px; width: 16px; }
+.ds-fab__icon img { display: block; height: 100%; width: 100%; }
+.ds-fab__label { font-size: var(--font-size-body-14); font-weight: var(--font-weight-bold); line-height: var(--font-line-height-20); }
+.ds-fab[data-type="Special button"] .ds-fab__label { font-size: var(--font-size-body-12); font-weight: var(--font-weight-regular); line-height: var(--font-line-height-16); }
+
+.sr-only { clip: rect(0, 0, 0, 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; white-space: nowrap; width: 1px; }
 @keyframes ds-button-spin { to { transform: rotate(360deg); } }
-@media (prefers-reduced-motion: reduce) { .ds-button { transition: none; } .ds-button__spinner { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .ds-button__spinner { animation: none; } }

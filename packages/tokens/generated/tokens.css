@@ -159,7 +159,7 @@
   --semantic-color-branding-corporate: var(--base-color-corporate-horizon-blue-30);
   --semantic-color-focus-ring: var(--base-color-brand-coral);
   --component-button-fill-primary-background: var(--semantic-color-branding-1mg);
-  --component-button-fill-primary-foreground: var(--semantic-color-content-primary);
+  --component-button-fill-primary-foreground: var(--semantic-color-content-inverse-primary);
   --component-button-outline-background: var(--semantic-color-background-primary);
   --component-button-outline-border: var(--semantic-color-border-subtle);
   --component-button-outline-foreground: var(--semantic-color-content-primary);
@@ -167,19 +167,20 @@
   --component-button-disabled-foreground: var(--semantic-color-content-disabled);
   --component-button-disabled-background: var(--semantic-color-background-moderate);
   --component-stepper-fill-background: var(--semantic-color-branding-1mg);
-  --component-stepper-fill-foreground: var(--semantic-color-content-primary);
+  --component-stepper-fill-foreground: var(--semantic-color-content-inverse-primary);
   --component-stepper-outline-background: var(--semantic-color-background-primary);
   --component-stepper-outline-border: var(--semantic-color-border-subtle);
   --component-stepper-outline-foreground: var(--semantic-color-branding-1mg);
   --component-floating-action-button-background: var(--semantic-color-background-primary);
   --component-floating-action-button-selected-background: var(--semantic-color-branding-1mg);
-  --component-floating-action-button-selected-foreground: var(--semantic-color-content-primary);
+  --component-floating-action-button-selected-foreground: var(--semantic-color-content-inverse-primary);
   --component-floating-action-button-foreground: var(--semantic-color-content-primary);
   --component-floating-action-button-inverse-foreground: var(--semantic-color-content-inverse-primary);
   --space-0: 0px;
   --space-2: 2px;
   --space-4: 4px;
   --space-8: 8px;
+  --space-10: 10px;
   --space-12: 12px;
   --space-16: 16px;
   --space-20: 20px;
@@ -232,5 +233,7 @@
   --shadow-level-1-inverse-y: 0 -2px 4px 0 rgba(39,43,51,0.06);
   --shadow-level-2: 0 4px 12px 0 rgba(39,43,51,0.08);
   --shadow-level-2-inverse-y: 0 -4px 12px 0 rgba(39,43,51,0.08);
+  --shadow-action: 0 4px 4px 0 rgba(0,0,0,0.08);
+  --shadow-compact-added: 0 2px 2px 0 rgba(39,43,51,0.06);
   --shadow-focus: 0 0 0 3px rgba(255,84,67,0.32);
 }

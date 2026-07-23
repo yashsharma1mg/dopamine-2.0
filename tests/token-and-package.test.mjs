@@ -24,7 +24,7 @@ test("the package exposes the pilot components without runtime dependencies", as
   const packageJson = JSON.parse(await readFile(new URL("packages/ui/package.json", root), "utf8"));
   const { Button, FloatingActionButton, Stepper } = await import(new URL("packages/ui/dist/index.js", root));
   const html = renderToStaticMarkup(
-    createElement(Button, { loading: true, type: "fill" }, "Save changes")
+    createElement(Button, { loading: true, type: "Fill" }, "Save changes")
   );
 
   assert.equal(packageJson.dependencies, undefined);
