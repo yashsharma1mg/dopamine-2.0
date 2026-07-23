@@ -31,17 +31,23 @@ test("renders the finished documentation home", async () => {
 });
 
 test("renders foundation and component deep links", async () => {
-  const [foundation, component] = await Promise.all([
+  const [foundation, iconography, component] = await Promise.all([
     render("/foundations/colours"),
+    render("/foundations/iconography"),
     render("/components/button")
   ]);
   assert.equal(foundation.status, 200);
+  assert.equal(iconography.status, 200);
   assert.equal(component.status, 200);
 
   const foundationHtml = await foundation.text();
+  const iconographyHtml = await iconography.text();
   const componentHtml = await component.text();
   assert.match(foundationHtml, /Base colours/);
   assert.match(foundationHtml, /semantic\.color\.branding\.1mg/);
+  assert.match(iconographyHtml, /Dopamine 2\.0 iconography catalogue/);
+  assert.match(iconographyHtml, /Arrows and Chevrons/);
+  assert.match(iconographyHtml, /double-chevron-right/);
   assert.match(componentHtml, /Interactive playground/);
   assert.match(componentHtml, /storybook\/iframe\.html\?id=components-button--playground/);
 });

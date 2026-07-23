@@ -61,7 +61,25 @@ export const foundationPages = [
     name: "Shadows",
     summary: "Purposeful elevation for raised controls, floating surfaces, and focus.",
     group: "Core"
+  },
+  {
+    slug: "iconography",
+    name: "Iconography",
+    summary: "A 24px icon library organised by purpose and coloured through component tokens.",
+    group: "Core"
   }
+] as const;
+
+export const iconographyCategories = [
+  { name: "Arrows and Chevrons", icons: ["arrow-right", "arrow-left", "arrow up-right", "chevron-down", "chevron-up", "chevron-right", "chevron-left", "double-chevron-right", "double-chevron-left", "double-chevron-down"] },
+  { name: "Actions", icons: ["tick", "subtract", "add", "cross", "edit"] },
+  { name: "Location", icons: ["Location pin", "Location pin off", "House/home/address", "Office/work/building"] },
+  { name: "Alerts", icons: ["information", "help"] },
+  { name: "Medical", icons: ["consultation", "lab-test", "hearing", "Vaccine/Vaccination", "prescription"] },
+  { name: "General", icons: ["left-to-right-list-bullet", "grid", "hamburger-menu", "kebab-menu", "search", "filter", "delete", "reorder", "category", "discount", "coupon", "language", "rapid", "lock", "clock", "date-time", "timer", "sort", "unlock", "home", "cart", "bag", "phone", "navigation", "Search history", "Retry / Redo", "care plan", "error", "customer support", "Rating/star", "notification", "QR code/scan", "Payment/card", "Call/ringing", "Tag/offer/coupon", "Logout", "Update", "copy", "Rain/weather"] },
+  { name: "Files", icons: ["download", "document-download", "health-records", "document-upload", "Document/Paper/Report", "profile-user-person", "health plan"] },
+  { name: "Media", icons: ["play", "pause", "sound-on", "sound-off", "camera", "gallery"] },
+  { name: "Insights", icons: ["insights", "trends", "bar-graph", "trend up", "trend down"] }
 ] as const;
 
 export const componentManifests: ComponentManifest[] = [

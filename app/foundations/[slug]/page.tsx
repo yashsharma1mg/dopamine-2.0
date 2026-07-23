@@ -3,7 +3,7 @@ import type { CSSProperties } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CopyToken } from "@/app/_components/CopyToken";
-import { foundationPages } from "@/packages/content/src";
+import { foundationPages, iconographyCategories } from "@/packages/content/src";
 import tokenSource from "@/packages/tokens/tokens.json";
 
 type TokenLeaf = {
@@ -70,6 +70,38 @@ export default async function FoundationDetailPage({ params }: { params: Promise
   const { slug } = await params;
   const foundation = foundationPages.find((item) => item.slug === slug);
   if (!foundation) notFound();
+
+  if (slug === "iconography") {
+    return (
+      <main className="page">
+        <header className="page-header">
+          <div className="breadcrumb"><Link href="/foundations">Foundations</Link><span>/</span><span>{foundation.name}</span></div>
+          <span className="section-kicker">{foundation.group} foundation</span>
+          <h1>{foundation.name}</h1>
+          <p>{foundation.summary} Use the named Figma glyph, then inherit its colour from the containing component’s semantic token.</p>
+        </header>
+
+        <section className="iconography-figure" aria-label="Dopamine 2.0 icon catalogue from Figma">
+          <img alt="Dopamine 2.0 iconography catalogue, grouped by purpose" height="1989" src="/assets/dopamine/iconography-catalogue.png" width="2000" />
+        </section>
+
+        <section className="foundation-group">
+          <h2>Icon reference</h2>
+          <p>Every icon is drawn on a 24px grid. Copy the exact Figma name below when referring to an asset; do not hardcode an icon colour. The icon inherits the semantic colour of the button, action, or surface that contains it.</p>
+          <div className="icon-category-grid">
+            {iconographyCategories.map((category) => (
+              <article className="icon-category" key={category.name}>
+                <h3>{category.name}</h3>
+                <ul>
+                  {category.icons.map((icon) => <li key={icon}><CopyToken name={icon} /></li>)}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </section>
+      </main>
+    );
+  }
 
   const sections =
     slug === "colours"
