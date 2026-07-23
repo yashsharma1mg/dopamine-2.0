@@ -1,0 +1,10 @@
+html,
+body {
+  background: var(--semantic-color-surface-canvas);
+  color: var(--semantic-color-text-default);
+  font-family: var(--font-family-sans);
+}
+
+.docs-story {
+  background: var(--semantic-color-surface-canvas);
+}

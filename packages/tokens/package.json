@@ -1,0 +1,11 @@
+{
+  "name": "@internal/design-tokens",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./generated/tokens.js",
+    "./tokens.css": "./generated/tokens.css",
+    "./tokens.json": "./tokens.json"
+  }
+}

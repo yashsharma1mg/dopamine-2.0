@@ -1,0 +1,76 @@
+import Link from "next/link";
+import { componentManifests, foundationPages, readyComponents } from "@/packages/content/src";
+
+export default function Home() {
+  return (
+    <main>
+      <section className="hero">
+        <div className="hero-grid" aria-hidden="true" />
+        <div className="eyebrow"><span className="pulse-dot" /> Foundation release · 0.1</div>
+        <h1>A shared language for every interface.</h1>
+        <p className="hero-copy">
+          Tokens, components, and guidance that keep design intent intact from Figma to production React.
+        </p>
+        <div className="hero-actions">
+          <Link className="button-link button-link-primary" href="/getting-started">Start building <span aria-hidden="true">→</span></Link>
+          <Link className="button-link button-link-secondary" href="/foundations">Explore foundations</Link>
+        </div>
+        <div className="system-stats" aria-label="Design system status">
+          <div><strong>80</strong><span>generated tokens</span></div>
+          <div><strong>{foundationPages.length}</strong><span>foundation groups</span></div>
+          <div><strong>{readyComponents.length}</strong><span>package-ready component</span></div>
+          <div><strong>{componentManifests.length}</strong><span>components tracked</span></div>
+        </div>
+      </section>
+
+      <section className="content-section">
+        <div className="section-heading">
+          <div>
+            <span className="section-kicker">One source, three layers</span>
+            <h2>Decisions remain traceable.</h2>
+          </div>
+          <p>Every component choice points back to an intentional token, not a copied visual value.</p>
+        </div>
+        <div className="layer-grid">
+          <article className="layer-card">
+            <span className="layer-index">01</span>
+            <h3>Base</h3>
+            <p>Raw palette values and scales. Reference material for the system, never direct component inputs.</p>
+            <code>base.color.blue.500</code>
+          </article>
+          <article className="layer-card featured">
+            <span className="layer-index">02</span>
+            <h3>Semantic</h3>
+            <p>Meaning-bearing roles that survive theme and brand changes. The default choice for product UI.</p>
+            <code>semantic.color.surface.brand</code>
+          </article>
+          <article className="layer-card">
+            <span className="layer-index">03</span>
+            <h3>Component</h3>
+            <p>Slot-specific decisions for stable component contracts and auditable state changes.</p>
+            <code>component.button.primary.background</code>
+          </article>
+        </div>
+      </section>
+
+      <section className="content-section split-section">
+        <div>
+          <span className="section-kicker">Use the system</span>
+          <h2>From install to interface in three lines.</h2>
+          <p className="section-copy">The package ships ESM, declarations, tokens, and one stylesheet. React remains a peer dependency.</p>
+          <Link className="text-link" href="/getting-started">Read installation guidance <span aria-hidden="true">→</span></Link>
+        </div>
+        <pre className="code-panel"><span className="code-comment"># install the packed release</span>{"\n"}npm install ./internal-design-system.tgz{"\n\n"}<span className="code-keyword">import</span> {"{"} Button {"}"} <span className="code-keyword">from</span> <span className="code-string">&quot;@internal/design-system&quot;</span>;{"\n"}<span className="code-keyword">import</span> <span className="code-string">&quot;@internal/design-system/styles.css&quot;</span>;</pre>
+      </section>
+
+      <section className="content-section release-strip">
+        <div>
+          <span className="section-kicker">Next component intake</span>
+          <h2>Figma → spec → audit → package.</h2>
+        </div>
+        <p>The platform is ready for the approved component links. Each enters through the same governed release path.</p>
+        <Link className="button-link button-link-dark" href="/contributing">View the workflow</Link>
+      </section>
+    </main>
+  );
+}

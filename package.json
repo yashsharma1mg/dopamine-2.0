@@ -1,0 +1,61 @@
+{
+  "name": "internal-design-system",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "overrides": {
+    "postcss": "8.5.22",
+    "sharp": "0.35.3"
+  },
+  "scripts": {
+    "dev": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext dev",
+    "build": "npm run generate:tokens && npm run build:ui && npm run build:storybook && WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext build",
+    "start": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext start",
+    "storybook": "storybook dev -p 6006 --no-open",
+    "build:storybook": "storybook build -o public/storybook --quiet",
+    "test:storybook": "vitest run --project=storybook",
+    "generate:tokens": "node scripts/generate-tokens.mjs",
+    "check:tokens": "node scripts/generate-tokens.mjs --check",
+    "build:ui": "tsc -p packages/ui/tsconfig.build.json && node scripts/copy-ui-css.mjs",
+    "pack:ui": "node scripts/prepare-artifacts.mjs && npm pack ./packages/ui --pack-destination ./artifacts",
+    "test": "npm run check:tokens && npm run build:ui && npm run test:storybook && node --test tests/token-and-package.test.mjs",
+    "test:site": "node --test tests/rendered-html.test.mjs",
+    "lint": "eslint . --ignore-pattern dist --ignore-pattern .next --ignore-pattern public/storybook",
+    "db:generate": "drizzle-kit generate"
+  },
+  "dependencies": {
+    "drizzle-orm": "0.45.2",
+    "next": "^16.2.11",
+    "react": "19.2.6",
+    "react-dom": "19.2.6"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "1.37.1",
+    "@cloudflare/workers-types": "4.20260702.1",
+    "@storybook/addon-a11y": "^10.1.0",
+    "@storybook/addon-docs": "^10.1.0",
+    "@storybook/addon-vitest": "^10.1.0",
+    "@storybook/react-vite": "^10.1.0",
+    "@tailwindcss/postcss": "4.2.1",
+    "@types/node": "22.19.19",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "6.0.2",
+    "@vitejs/plugin-rsc": "0.5.26",
+    "@vitest/browser-playwright": "^4.0.0",
+    "drizzle-kit": "0.31.10",
+    "eslint": "9.39.4",
+    "eslint-config-next": "^16.2.11",
+    "react-server-dom-webpack": "19.2.6",
+    "storybook": "^10.1.0",
+    "tailwindcss": "4.2.1",
+    "typescript": "5.9.3",
+    "vinext": "0.0.50",
+    "vite": "8.0.13",
+    "vitest": "^4.0.0",
+    "wrangler": "4.92.0"
+  },
+  "type": "module"
+}
