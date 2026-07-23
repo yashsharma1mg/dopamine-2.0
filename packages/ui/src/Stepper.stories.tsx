@@ -1,13 +1,14 @@
 import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { expect, userEvent, within } from "storybook/test";
+import { Icon } from "./Icon";
 import { Stepper } from "./Stepper";
 
 const assets = {
-  addIcon: <img alt="" src="/assets/dopamine/stepper-add.svg" />,
-  disabledAddIcon: <img alt="" src="/assets/dopamine/stepper-add-disabled.svg" />,
-  decrementIcon: <img alt="" src="/assets/dopamine/stepper-decrement.svg" />,
-  incrementIcon: <img alt="" src="/assets/dopamine/stepper-increment.svg" />
+  addIcon: <Icon src="/assets/dopamine/stepper-add.svg" />,
+  disabledAddIcon: <Icon src="/assets/dopamine/stepper-add-disabled.svg" />,
+  decrementIcon: <Icon src="/assets/dopamine/stepper-decrement.svg" />,
+  incrementIcon: <Icon src="/assets/dopamine/stepper-increment.svg" />
 };
 
 const meta = {

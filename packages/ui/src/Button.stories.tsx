@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { expect, fn, userEvent, within } from "storybook/test";
 import { Button } from "./Button";
+import { Icon } from "./Icon";
 
-const icon = (name: string) => <img alt="" height="20" src={`/assets/dopamine/${name}.svg`} width="20" />;
+const icon = (name: string) => <Icon src={`/assets/dopamine/${name}.svg`} />;
 
 const meta = {
   title: "Components/Button",

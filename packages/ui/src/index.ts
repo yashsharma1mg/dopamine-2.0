@@ -1,5 +1,7 @@
 export { Button } from "./Button.js";
 export type { ButtonProps, ButtonSize, ButtonState, ButtonStyle, ButtonType } from "./Button.js";
+export { Icon } from "./Icon.js";
+export type { IconProps } from "./Icon.js";
 export { Stepper } from "./Stepper.js";
 export type { StepperProps, StepperSize, StepperState, StepperType } from "./Stepper.js";
 export { FloatingActionButton } from "./FloatingActionButton.js";

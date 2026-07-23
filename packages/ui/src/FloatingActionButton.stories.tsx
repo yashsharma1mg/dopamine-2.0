@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { expect, fn, userEvent, within } from "storybook/test";
 import { FloatingActionButton } from "./FloatingActionButton";
+import { Icon } from "./Icon";
 
-const icon = (name: string) => <img alt="" src={`/assets/dopamine/${name}.svg`} />;
+const icon = (name: string) => <Icon size={16} src={`/assets/dopamine/${name}.svg`} />;
 
 const meta = {
   title: "Components/Floating Action Button",
