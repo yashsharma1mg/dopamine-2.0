@@ -46,6 +46,10 @@ function cssVariable(name: string) {
   return `var(--${name.replaceAll(".", "-")})`;
 }
 
+function iconAsset(name: string) {
+  return `/assets/dopamine/icons/${name.toLowerCase().replaceAll("/", "-").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}.svg`;
+}
+
 function TokenTable({ items, colour = false }: { items: TokenLeaf[]; colour?: boolean }) {
   return (
     <div className="token-table-wrap">
@@ -81,21 +85,22 @@ export default async function FoundationDetailPage({ params }: { params: Promise
           <p>{foundation.summary} Use the named Figma glyph, then inherit its colour from the containing component’s semantic token.</p>
         </header>
 
-        <section className="iconography-figure" aria-label="Dopamine 2.0 icon catalogue from Figma">
-          <img alt="Dopamine 2.0 iconography catalogue, grouped by purpose" height="1989" src="/assets/dopamine/iconography-catalogue.png" width="2000" />
-        </section>
-
         <section className="foundation-group">
           <h2>Icon reference</h2>
-          <p>Every icon is drawn on a 24px grid. Copy the exact Figma name below when referring to an asset; do not hardcode an icon colour. The icon inherits the semantic colour of the button, action, or surface that contains it.</p>
+          <p>Every icon is a Figma-exported SVG on a 24px grid. Copy the exact Figma name below when referring to an asset; do not hardcode an icon colour. The icon inherits the semantic colour of the button, action, or surface that contains it.</p>
           <div className="icon-category-grid">
             {iconographyCategories.map((category) => (
-              <article className="icon-category" key={category.name}>
+              <section className="icon-category" key={category.name}>
                 <h3>{category.name}</h3>
-                <ul>
-                  {category.icons.map((icon) => <li key={icon}><CopyToken name={icon} /></li>)}
-                </ul>
-              </article>
+                <div className="icon-glyph-grid">
+                  {category.icons.map((icon) => (
+                    <article className="icon-tile" key={icon}>
+                      <span className="icon-glyph"><img alt="" height="24" src={iconAsset(icon)} width="24" /></span>
+                      <CopyToken name={icon} />
+                    </article>
+                  ))}
+                </div>
+              </section>
             ))}
           </div>
         </section>

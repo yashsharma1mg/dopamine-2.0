@@ -45,9 +45,10 @@ test("renders foundation and component deep links", async () => {
   const componentHtml = await component.text();
   assert.match(foundationHtml, /Base colours/);
   assert.match(foundationHtml, /semantic\.color\.branding\.1mg/);
-  assert.match(iconographyHtml, /Dopamine 2\.0 iconography catalogue/);
   assert.match(iconographyHtml, /Arrows and Chevrons/);
+  assert.match(iconographyHtml, /assets\/dopamine\/icons\/arrow-right\.svg/);
   assert.match(iconographyHtml, /double-chevron-right/);
+  assert.equal(new Set(iconographyHtml.match(/assets\/dopamine\/icons\/[^"']+\.svg/g) ?? []).size, 83);
   assert.match(componentHtml, /Interactive playground/);
   assert.match(componentHtml, /storybook\/iframe\.html\?id=components-button--playground/);
 });
