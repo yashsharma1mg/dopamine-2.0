@@ -62,6 +62,7 @@
 .ds-button__label { overflow: hidden; text-overflow: ellipsis; }
 
 .ds-stepper-group { align-items: center; display: inline-flex; flex-direction: column; font-family: var(--font-family-body), system-ui, sans-serif; gap: var(--space-2); width: 110px; }
+.ds-stepper-group[data-state="Added- Number"][data-type="Filled"] { width: 120px; }
 .ds-stepper-group[data-state="Added- Number"][data-type="Outline"] { width: 112px; }
 .ds-stepper {
   align-items: center;
@@ -77,6 +78,7 @@
   line-height: var(--font-line-height-20);
   min-width: 110px;
   padding: var(--space-12) var(--space-16);
+  justify-content: center;
   width: 100%;
   overflow: hidden;
 }

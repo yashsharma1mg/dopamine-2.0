@@ -56,6 +56,7 @@ export const FigmaVariants: Story = {
     const canvas = within(canvasElement);
     await expect(canvas.getAllByRole("button", { name: "ADD" })[1]).toHaveStyle({ borderWidth: "1px" });
     await expect(canvas.getByRole("button", { name: "1 added" })).toBeInTheDocument();
+    await expect(canvas.getAllByRole("status", { name: "100 items" })[0].closest(".ds-stepper")).toHaveStyle({ gap: "4px", paddingInline: "16px", width: "120px" });
   }
 };
 
