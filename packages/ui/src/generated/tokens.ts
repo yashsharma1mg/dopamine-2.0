@@ -233,7 +233,7 @@ export const tokens = {
   "shadow.level-1-inverse-y": "0 -2px 4px 0 rgba(39,43,51,0.06)",
   "shadow.level-2": "0 4px 12px 0 rgba(39,43,51,0.08)",
   "shadow.level-2-inverse-y": "0 -4px 12px 0 rgba(39,43,51,0.08)",
-  "shadow.action": "0 4px 4px 0 rgba(0,0,0,0.08)",
+  "shadow.action": "0 4px 2px 0 rgba(0,0,0,0.08)",
   "shadow.compact-added": "0 2px 2px 0 rgba(39,43,51,0.06)",
   "shadow.focus": "0 0 0 3px rgba(255,84,67,0.32)"
 } as const;

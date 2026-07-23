@@ -31,11 +31,18 @@ export const Playground: Story = {
 export const FigmaVariants: Story = {
   render: (args) => <div style={{ alignItems: "center", display: "flex", flexWrap: "wrap", gap: 12 }}>
     <FloatingActionButton {...args} icon={icon("fab-add")} type="Add" />
+    <FloatingActionButton {...args} icon={icon("fab-add-disabled")} state="Disable" type="Add" />
     <FloatingActionButton {...args} icon={icon("fab-tick")} state="Single Added" type="Add" />
     <FloatingActionButton {...args} icon={icon("fab-added")} type="Added" />
+    <FloatingActionButton {...args} icon={icon("fab-added-disabled")} state="Disable" type="Added" />
     <FloatingActionButton {...args} icon={icon("fab-action")} type="FAB" />
-    <FloatingActionButton {...args} type="Special button" />
-  </div>
+    <FloatingActionButton {...args} icon={undefined} type="Special button" />
+  </div>,
+  play: async ({ canvasElement }) => {
+    const specialButton = within(canvasElement).getByRole("button", { name: "Order Now" });
+    await expect(specialButton).toHaveTextContent("Order Now");
+    await expect(specialButton.querySelector(".ds-fab__icon")).toBeNull();
+  }
 };
 
 export const Disabled: Story = { args: { icon: icon("fab-added-disabled"), state: "Disable", type: "Added" } };

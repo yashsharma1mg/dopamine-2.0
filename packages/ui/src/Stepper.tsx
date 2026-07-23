@@ -50,6 +50,7 @@ export function Stepper({
         data-size={size}
         data-state={state}
         data-type={type}
+        data-out-of-stock={outOfStock || undefined}
         {...props}
       >
         <button
@@ -58,7 +59,7 @@ export function Stepper({
           disabled={outOfStock}
           onClick={increment}
         >
-          <span>{outOfStock ? "OUT OF STOCK" : isText ? "ADDED" : "ADD"}</span>
+          <span>{isText ? "1 added" : "ADD"}</span>
           {!outOfStock ? addIcon : disabledAddIcon}
         </button>
         <span className="ds-stepper__helper">{helperText}</span>
@@ -67,7 +68,7 @@ export function Stepper({
   }
 
   return (
-    <div className={`ds-stepper-group ${className}`.trim()} data-size={size} data-state={state} data-type={type} {...props}>
+    <div className={`ds-stepper-group ${className}`.trim()} data-size={size} data-state={state} data-type={type} data-out-of-stock={outOfStock || undefined} {...props}>
       <div className="ds-stepper">
         <span id={labelId} className="sr-only">Quantity</span>
         <button type="button" aria-label="Decrease quantity" aria-describedby={labelId} disabled={outOfStock} onClick={decrement}>

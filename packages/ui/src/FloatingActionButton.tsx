@@ -27,7 +27,7 @@ export const FloatingActionButton = forwardRef<HTMLButtonElement, FloatingAction
       aria-label={isLabelled ? undefined : label ?? defaultLabel}
       {...props}
     >
-      {icon && <span className="ds-fab__icon" aria-hidden="true">{icon}</span>}
+      {icon && type !== "Special button" && <span className="ds-fab__icon" aria-hidden="true">{icon}</span>}
       {isLabelled && <span className="ds-fab__label">{label ?? defaultLabel}</span>}
     </button>
   );
