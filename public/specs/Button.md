@@ -2,12 +2,10 @@
 
 Status: ready
 
-The Button triggers an immediate action. It uses the native `button` element, semantic and component tokens, a 44px minimum touch target, visible keyboard focus, and explicit loading and disabled behavior.
+The Button triggers an immediate action. It uses the native `button` element, Dopamine semantic and component tokens, visible keyboard focus, and explicit loading and disabled behavior.
 
-Variants: primary, secondary, ghost, danger.
+Figma: [Button section](https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=4021-1652&t=2b3pGoo58LPx32e2-4).
 
-Sizes: small, medium, large.
+Types: fill, outline, ghost. Styles: text only, icon + text, text + icon, underline.
 
-Required states: default, hover, pressed, focus visible, loading, disabled.
-
-Figma source will be attached when the approved component link is supplied.
+Sizes: medium, large. Required states: primary, secondary, inverse, disabled, loading.

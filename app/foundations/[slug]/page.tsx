@@ -87,7 +87,9 @@ export default async function FoundationDetailPage({ params }: { params: Promise
         ? name.startsWith("space.")
         : slug === "radius"
           ? name.startsWith("radius.")
-          : name.startsWith("shadow.")
+          : slug === "layout"
+            ? name.startsWith("layout.")
+            : name.startsWith("shadow.")
   );
 
   return (
@@ -116,6 +118,8 @@ export default async function FoundationDetailPage({ params }: { params: Promise
                     ? ({ "--demo-radius": token.value } as CSSProperties)
                     : slug === "shadows"
                       ? ({ "--demo-shadow": token.value } as CSSProperties)
+                      : slug === "layout"
+                        ? ({ "--demo-size": token.value } as CSSProperties)
                       : ({ fontFamily: token.name.includes("family") ? token.value : undefined, fontSize: token.name.includes("size") ? token.value : undefined, fontWeight: token.name.includes("weight") ? token.value : undefined } as CSSProperties);
               return (
                 <article className="specimen" key={token.name}>
@@ -123,6 +127,7 @@ export default async function FoundationDetailPage({ params }: { params: Promise
                     {slug === "spacing" && <span className="spacing-bar" style={style} />}
                     {slug === "radius" && <span className="radius-box" style={style} />}
                     {slug === "shadows" && <span className="shadow-box" style={style} />}
+                    {slug === "layout" && <span className="spacing-bar" style={style} />}
                     {slug === "typography" && <span style={style}>Ag</span>}
                   </div>
                   <CopyToken name={`token.${token.name}`} />

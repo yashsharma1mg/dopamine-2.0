@@ -17,6 +17,14 @@
       "types": "./dist/Button.d.ts",
       "import": "./dist/Button.js"
     },
+    "./stepper": {
+      "types": "./dist/Stepper.d.ts",
+      "import": "./dist/Stepper.js"
+    },
+    "./floating-action-button": {
+      "types": "./dist/FloatingActionButton.d.ts",
+      "import": "./dist/FloatingActionButton.js"
+    },
     "./tokens": {
       "types": "./dist/generated/tokens.d.ts",
       "import": "./dist/generated/tokens.js"

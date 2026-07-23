@@ -11,15 +11,15 @@ const meta = {
     onClick: fn()
   },
   argTypes: {
-    variant: {
+    type: {
       control: "select",
-      options: ["primary", "secondary", "ghost", "danger"],
-      description: "Sets the action’s visual emphasis."
+      options: ["fill", "outline", "ghost"],
+      description: "Sets the Figma container treatment."
     },
     size: {
       control: "inline-radio",
-      options: ["sm", "md", "lg"],
-      description: "Sets the button’s minimum touch target and padding."
+      options: ["medium", "large"],
+      description: "Sets the Figma size variant."
     },
     loading: {
       control: "boolean",
@@ -56,9 +56,9 @@ export const Playground: Story = {
 export const Variants: Story = {
   render: (args) => (
     <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
-      {(["primary", "secondary", "ghost", "danger"] as const).map((variant) => (
-        <Button {...args} key={variant} variant={variant}>
-          {variant[0].toUpperCase() + variant.slice(1)}
+      {(["fill", "outline", "ghost"] as const).map((type) => (
+        <Button {...args} key={type} type={type}>
+          {type[0].toUpperCase() + type.slice(1)}
         </Button>
       ))}
     </div>
@@ -68,7 +68,7 @@ export const Variants: Story = {
 export const Sizes: Story = {
   render: (args) => (
     <div style={{ alignItems: "center", display: "flex", flexWrap: "wrap", gap: 12 }}>
-      {(["sm", "md", "lg"] as const).map((size) => (
+      {(["medium", "large"] as const).map((size) => (
         <Button {...args} key={size} size={size}>
           Size {size}
         </Button>

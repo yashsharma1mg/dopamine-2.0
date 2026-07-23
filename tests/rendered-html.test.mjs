@@ -26,7 +26,7 @@ test("renders the finished documentation home", async () => {
   const html = await response.text();
   assert.match(html, /<title>Internal Design System<\/title>/i);
   assert.match(html, /A shared language for every interface/);
-  assert.match(html, /80/);
+  assert.match(html, /generated tokens/);
   assert.doesNotMatch(html, /codex-preview|taking shape|react-loading-skeleton/i);
 });
 
@@ -41,7 +41,7 @@ test("renders foundation and component deep links", async () => {
   const foundationHtml = await foundation.text();
   const componentHtml = await component.text();
   assert.match(foundationHtml, /Base colours/);
-  assert.match(foundationHtml, /semantic\.color\.surface\.brand/);
+  assert.match(foundationHtml, /semantic\.color\.branding\.1mg/);
   assert.match(componentHtml, /Interactive playground/);
   assert.match(componentHtml, /storybook\/iframe\.html\?id=components-button--playground/);
 });

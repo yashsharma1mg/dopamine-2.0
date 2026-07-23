@@ -36,7 +36,7 @@ export default function GettingStartedPage() {
           <section className="docs-section" id="tokens">
             <h2>Use tokens outside components</h2>
             <p>Prefer semantic CSS variables in application layout. Base values exist for reference and token construction, not direct product use.</p>
-            <pre className="code-panel">.product-card {"{"}{"\n  "}background: var(--semantic-color-surface-default);{"\n  "}border: 1px solid var(--semantic-color-border-subtle);{"\n  "}border-radius: var(--radius-lg);{"\n  "}padding: var(--space-6);{"\n}"}</pre>
+            <pre className="code-panel">.product-card {"{"}{"\n  "}background: var(--semantic-color-background-primary);{"\n  "}border: 1px solid var(--semantic-color-border-subtle);{"\n  "}border-radius: var(--radius-12);{"\n  "}padding: var(--space-24);{"\n}"}</pre>
           </section>
         </div>
         <aside className="page-toc" aria-label="On this page">

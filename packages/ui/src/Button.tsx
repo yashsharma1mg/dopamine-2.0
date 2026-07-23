@@ -1,11 +1,14 @@
 import { forwardRef, type ButtonHTMLAttributes, type ReactNode } from "react";
 
-export type ButtonVariant = "primary" | "secondary" | "ghost" | "danger";
-export type ButtonSize = "sm" | "md" | "lg";
+export type ButtonType = "fill" | "outline" | "ghost";
+export type ButtonSize = "medium" | "large";
+export type ButtonStyle = "text" | "icon-leading" | "icon-trailing" | "underline";
 
-export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  variant?: ButtonVariant;
+export type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "type"> & {
+  type?: ButtonType;
+  htmlType?: ButtonHTMLAttributes<HTMLButtonElement>["type"];
   size?: ButtonSize;
+  style?: ButtonStyle;
   loading?: boolean;
   leadingIcon?: ReactNode;
   trailingIcon?: ReactNode;
@@ -18,10 +21,11 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
     disabled,
     leadingIcon,
     loading = false,
-    size = "md",
+    size = "large",
+    style = "text",
     trailingIcon,
-    type = "button",
-    variant = "primary",
+    type: buttonType = "fill",
+    htmlType = "button",
     ...props
   },
   ref
@@ -29,10 +33,11 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
   return (
     <button
       ref={ref}
-      type={type}
+      type={htmlType}
       className={`ds-button ${className}`.trim()}
       data-size={size}
-      data-variant={variant}
+      data-style={style}
+      data-type={buttonType}
       disabled={disabled || loading}
       aria-busy={loading || undefined}
       {...props}

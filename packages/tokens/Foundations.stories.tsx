@@ -18,11 +18,11 @@ collect(tokenSource);
 function ColourOverview() {
   const groups = ["base.color", "semantic.color", "component.button"];
   return (
-    <div style={{ color: "var(--semantic-color-text-default)", fontFamily: "var(--font-family-sans)", maxWidth: 920 }}>
-      <h1 style={{ color: "var(--semantic-color-text-strong)", fontSize: 36, letterSpacing: "-0.04em", marginBottom: 8 }}>
+    <div style={{ color: "var(--semantic-color-content-primary)", fontFamily: "var(--font-family-sans)", maxWidth: 920 }}>
+      <h1 style={{ color: "var(--semantic-color-content-primary)", fontSize: 36, letterSpacing: "-0.04em", marginBottom: 8 }}>
         Colour architecture
       </h1>
-      <p style={{ color: "var(--semantic-color-text-muted)", lineHeight: 1.6, marginBottom: 32 }}>
+      <p style={{ color: "var(--semantic-color-content-secondary)", lineHeight: 1.6, marginBottom: 32 }}>
         Base values become semantic intent, then component-specific decisions. Components never consume base colours directly.
       </p>
       <div style={{ display: "grid", gap: 28 }}>
@@ -37,7 +37,7 @@ function ColourOverview() {
                     key={name}
                     style={{
                       alignItems: "center",
-                      background: "var(--semantic-color-surface-default)",
+                      background: "var(--semantic-color-background-primary)",
                       border: "1px solid var(--semantic-color-border-subtle)",
                       borderRadius: 10,
                       display: "grid",
@@ -49,9 +49,9 @@ function ColourOverview() {
                     <span style={{ background: `var(--${name.replaceAll(".", "-")})`, border: "1px solid rgba(16,19,26,.08)", borderRadius: 7, height: 32 }} />
                     <span>
                       <code>{name}</code>
-                      <small style={{ color: "var(--semantic-color-text-muted)", display: "block", marginTop: 3 }}>{description}</small>
+                      <small style={{ color: "var(--semantic-color-content-secondary)", display: "block", marginTop: 3 }}>{description}</small>
                     </span>
-                    <code style={{ color: "var(--semantic-color-text-muted)", fontSize: 12 }}>{value}</code>
+                    <code style={{ color: "var(--semantic-color-content-secondary)", fontSize: 12 }}>{value}</code>
                   </div>
                 ))}
             </div>

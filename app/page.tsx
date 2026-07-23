@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { componentManifests, foundationPages, readyComponents } from "@/packages/content/src";
+import { tokens } from "@/packages/tokens/generated/tokens";
 
 export default function Home() {
   return (
@@ -16,7 +17,7 @@ export default function Home() {
           <Link className="button-link button-link-secondary" href="/foundations">Explore foundations</Link>
         </div>
         <div className="system-stats" aria-label="Design system status">
-          <div><strong>80</strong><span>generated tokens</span></div>
+          <div><strong>{Object.keys(tokens).length}</strong><span>generated tokens</span></div>
           <div><strong>{foundationPages.length}</strong><span>foundation groups</span></div>
           <div><strong>{readyComponents.length}</strong><span>package-ready component</span></div>
           <div><strong>{componentManifests.length}</strong><span>components tracked</span></div>
@@ -36,19 +37,19 @@ export default function Home() {
             <span className="layer-index">01</span>
             <h3>Base</h3>
             <p>Raw palette values and scales. Reference material for the system, never direct component inputs.</p>
-            <code>base.color.blue.500</code>
+            <code>base.color.brand.coral</code>
           </article>
           <article className="layer-card featured">
             <span className="layer-index">02</span>
             <h3>Semantic</h3>
             <p>Meaning-bearing roles that survive theme and brand changes. The default choice for product UI.</p>
-            <code>semantic.color.surface.brand</code>
+            <code>semantic.color.branding.1mg</code>
           </article>
           <article className="layer-card">
             <span className="layer-index">03</span>
             <h3>Component</h3>
             <p>Slot-specific decisions for stable component contracts and auditable state changes.</p>
-            <code>component.button.primary.background</code>
+            <code>component.button.fill.primary.background</code>
           </article>
         </div>
       </section>
@@ -68,7 +69,7 @@ export default function Home() {
           <span className="section-kicker">Next component intake</span>
           <h2>Figma → spec → audit → package.</h2>
         </div>
-        <p>The platform is ready for the approved component links. Each enters through the same governed release path.</p>
+        <p>Button, Stepper, and FAB have entered the governed release path from their supplied Figma sections.</p>
         <Link className="button-link button-link-dark" href="/contributing">View the workflow</Link>
       </section>
     </main>

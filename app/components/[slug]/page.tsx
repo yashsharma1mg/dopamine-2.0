@@ -61,16 +61,12 @@ export default async function ComponentDetailPage({ params }: { params: Promise<
           </section>
           <section className="docs-section" id="api">
             <h2>API</h2>
-            <pre className="code-panel">{component.importExample}{"\n\n"}&lt;Button variant=&quot;primary&quot; size=&quot;md&quot;&gt;Continue&lt;/Button&gt;</pre>
+            <pre className="code-panel">{component.importExample}</pre>
             <div className="token-table-wrap">
               <table className="api-table">
                 <thead><tr><th>Prop</th><th>Type</th><th>Default</th><th>Purpose</th></tr></thead>
                 <tbody>
-                  <tr><td><code>variant</code></td><td><code>primary | secondary | ghost | danger</code></td><td><code>primary</code></td><td>Visual emphasis and intent.</td></tr>
-                  <tr><td><code>size</code></td><td><code>sm | md | lg</code></td><td><code>md</code></td><td>Touch target and horizontal padding.</td></tr>
-                  <tr><td><code>loading</code></td><td><code>boolean</code></td><td><code>false</code></td><td>Shows progress and prevents duplicate activation.</td></tr>
-                  <tr><td><code>leadingIcon</code></td><td><code>ReactNode</code></td><td>—</td><td>Optional supporting icon before the label.</td></tr>
-                  <tr><td><code>trailingIcon</code></td><td><code>ReactNode</code></td><td>—</td><td>Optional directional icon after the label.</td></tr>
+                  {component.api.map((prop) => <tr key={prop.name}><td><code>{prop.name}</code></td><td><code>{prop.type}</code></td><td><code>{prop.defaultValue}</code></td><td>{prop.description}</td></tr>)}
                 </tbody>
               </table>
             </div>
@@ -89,7 +85,7 @@ export default async function ComponentDetailPage({ params }: { params: Promise<
               <li><a className="text-link" href={component.links.specification}>Implementation specification ↗</a></li>
               <li><a className="text-link" href={component.links.audit}>Token Police audit ↗</a></li>
               <li><a className="text-link" href={component.links.source}>Storybook documentation ↗</a></li>
-              <li>Figma source will be attached when the approved component link is supplied.</li>
+              {component.links.figma && <li><a className="text-link" href={component.links.figma} target="_blank">Figma source ↗</a></li>}
             </ul>
           </section>
         </div>
