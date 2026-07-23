@@ -2,11 +2,6 @@ import { addons } from "storybook/manager-api";
 import { create } from "storybook/theming";
 
 addons.setConfig({
-  layout: {
-    showPanel: false,
-    showTabs: false,
-    showToolbar: false
-  },
   theme: create({
     base: "light",
     brandTitle: "Dopamine 2.0",
