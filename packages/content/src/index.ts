@@ -162,6 +162,38 @@ export const componentManifests: ComponentManifest[] = [
     }
   },
   {
+    slug: "page-header",
+    name: "Page Header",
+    summary: "A 360px mobile header for location, navigation, and Family Hub contexts.",
+    category: "Navigation",
+    status: "ready",
+    storyId: "components-page-header--playground",
+    packageName: "@internal/design-system",
+    importExample: 'import { PageHeader } from "@internal/design-system";',
+    anatomy: ["Status bar", "Leading navigation or location action", "Title and subtitle", "Contextual actions"],
+    variants: ["Floating", "Location", "Dropdown", "HIH", "FamilyHub"],
+    sizes: ["360px mobile width"],
+    states: ["Solid", "Transparent", "Black heading", "No heading", "You", "Family"],
+    usage: {
+      do: ["Use Floating or Location on the homepage.", "Use Dropdown for transient pages.", "Use the transparent Dropdown over a non-white surface."],
+      dont: ["Do not use this desktop-first or beyond its 360px mobile contract.", "Do not replace the supplied icon assets with arbitrary glyphs."]
+    },
+    accessibility: ["All actions are labelled native buttons.", "The Family Hub selector exposes tab semantics.", "Keyboard focus uses the Dopamine focus-ring token."],
+    contentGuidance: ["Keep the heading brief and the subtitle to a single line.", "Use concise location names and truncate long location detail naturally."],
+    api: [
+      { name: "usage", type: "Floating | Location | Dropdown | HIH | FamilyHub", defaultValue: "Floating", description: "Figma header composition." },
+      { name: "type", type: "Solid | Transparent", defaultValue: "Transparent", description: "Surface treatment used by Location." },
+      { name: "textColour", type: "Black | No heading", defaultValue: "Black", description: "Shows or removes the Family Hub heading." },
+      { name: "activeTab", type: "You | Family", defaultValue: "You", description: "Current Family Hub tab." }
+    ],
+    links: {
+      figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6391-533&t=2b3pGoo58LPx32e2-4",
+      specification: "/specs/PageHeader.md",
+      audit: "/audits/PageHeader.md",
+      source: "/storybook/?path=/docs/components-page-header--docs"
+    }
+  },
+  {
     slug: "floating-action-button",
     name: "Floating Action Button",
     summary: "A compact action control for add and added states.",

@@ -6,5 +6,7 @@ export { Stepper } from "./Stepper.js";
 export type { StepperProps, StepperSize, StepperState, StepperType } from "./Stepper.js";
 export { FloatingActionButton } from "./FloatingActionButton.js";
 export type { FloatingActionButtonProps, FloatingActionButtonState, FloatingActionButtonType } from "./FloatingActionButton.js";
+export { PageHeader, PageHeaderStatusBar } from "./PageHeader.js";
+export type { PageHeaderProps, PageHeaderTab, PageHeaderTextColour, PageHeaderType, PageHeaderUsage } from "./PageHeader.js";
 export { tokens } from "./generated/tokens.js";
 export type { TokenName } from "./generated/tokens.js";
