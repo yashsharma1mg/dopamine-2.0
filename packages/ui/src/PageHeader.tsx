@@ -125,13 +125,18 @@ export function PageHeader({
   if (usage === "Floating") {
     return (
       <div className={`ds-page-header ds-page-header--floating ${className}`.trim()} data-usage={usage} data-type="Transparent" {...props}>
-        <button type="button" className="ds-page-header__floating-location" onClick={onLocationClick}>
-          <Icon src={assets.location} />
-          <span className="ds-page-header__floating-location-content"><strong>{locationTitle}</strong><span>{locationDetail.replace(" building, Gurugram", "...")}</span></span>
-          <Icon className="ds-page-header__location-chevron" src={assets.locationChevron} />
-        </button>
-        <HeaderIconButton label="Profile" onClick={onProfileClick}><Icon src={assets.profile} /></HeaderIconButton>
-        <CartButton cartCount={cartCount} onCartClick={onCartClick} />
+        <div className="ds-page-header__floating-inner">
+          <PageHeaderStatusBar />
+          <div className="ds-page-header__floating-row">
+            <button type="button" className="ds-page-header__floating-location" onClick={onLocationClick}>
+              <Icon src={assets.location} />
+              <span className="ds-page-header__floating-location-content"><strong>{locationTitle}</strong><span>{locationDetail.replace(" building, Gurugram", "...")}</span></span>
+              <Icon className="ds-page-header__location-chevron" src={assets.locationChevron} />
+            </button>
+            <HeaderIconButton label="Profile" onClick={onProfileClick}><Icon src={assets.profile} /></HeaderIconButton>
+            <CartButton cartCount={cartCount} onCartClick={onCartClick} />
+          </div>
+        </div>
       </div>
     );
   }
@@ -139,6 +144,7 @@ export function PageHeader({
   const isLocation = usage === "Location";
   const isFamilyHub = usage === "FamilyHub";
   const isHih = usage === "HIH";
+  const hasGlassActions = isHih || isFamilyHub;
 
   return (
     <div className={`ds-page-header ds-page-header--${usage.toLowerCase()} ds-page-header--${resolvedType.toLowerCase()} ${className}`.trim()} data-usage={usage} data-type={resolvedType} {...props}>
@@ -156,7 +162,7 @@ export function PageHeader({
         </div>
       ) : (
         <div className="ds-page-header__standard-row">
-          <HeaderIconButton label="Go back" onClick={onBack}><Icon src={assets.arrowLeft} /></HeaderIconButton>
+          <HeaderIconButton label="Go back" className={hasGlassActions ? "ds-page-header__glass" : ""} onClick={onBack}><Icon src={assets.arrowLeft} /></HeaderIconButton>
           {hasHeading ? <div className="ds-page-header__copy"><strong>{heading}</strong><span>{subtitle}<Icon className="ds-page-header__inline-chevron" src={assets.chevron} size={18} /></span></div> : null}
           {isHih ? <HeaderIconButton label="More options" className="ds-page-header__glass" onClick={onMoreClick}><Icon src={assets.kebab} /></HeaderIconButton> : null}
           {isFamilyHub ? (

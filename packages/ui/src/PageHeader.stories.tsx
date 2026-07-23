@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { PageHeader, PageHeaderStatusBar } from "./PageHeader";
+import { PageHeader } from "./PageHeader";
 
 const meta = {
   title: "Components/Page Header",
@@ -33,7 +33,7 @@ export const Playground: Story = {};
 export const FigmaVariants: Story = {
   render: () => (
     <div className="ds-page-header-variants">
-      <div className="ds-page-header-variants__surface"><PageHeaderStatusBar /><PageHeader usage="Floating" /></div>
+      <div className="ds-page-header-variants__surface"><PageHeader usage="Floating" /></div>
       <div className="ds-page-header-variants__surface"><PageHeader usage="Location" type="Transparent" /></div>
       <div className="ds-page-header-variants__surface"><PageHeader usage="Location" type="Solid" /></div>
       <div className="ds-page-header-variants__surface"><PageHeader usage="Dropdown" /></div>
@@ -47,7 +47,7 @@ export const FigmaVariants: Story = {
 export const Usage: Story = {
   render: () => (
     <div className="ds-page-header-usage">
-      <section><h2>Homepage</h2><div className="ds-page-header-phone ds-page-header-phone--mint"><PageHeaderStatusBar /><PageHeader usage="Floating" /></div></section>
+      <section><h2>Homepage</h2><div className="ds-page-header-phone ds-page-header-phone--mint"><PageHeader usage="Floating" /></div></section>
       <section><h2>Homepage</h2><div className="ds-page-header-phone"><PageHeader usage="Location" type="Solid" /></div></section>
       <section><h2>Transient</h2><div className="ds-page-header-phone"><PageHeader usage="Dropdown" /></div></section>
       <section><h2>Transient / Transparent</h2><div className="ds-page-header-phone ds-page-header-phone--mint"><PageHeader usage="Dropdown" /></div></section>
