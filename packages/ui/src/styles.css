@@ -99,6 +99,7 @@
 .ds-stepper__add-icon { -webkit-mask-size: 6.55331px 10.6385px; mask-size: 6.55331px 10.6385px; }
 .ds-stepper__decrement-icon { -webkit-mask-size: 13.2883px 13.2883px; mask-size: 13.2883px 13.2883px; }
 .ds-stepper__increment-icon { -webkit-mask-size: 15.1024px 15.1024px; mask-size: 15.1024px 15.1024px; }
+.ds-stepper__added-text-icon { display: block; flex: 0 0 20px; height: 20px; width: 20px; }
 .ds-stepper__helper { color: var(--semantic-color-content-tertiary); font-size: var(--font-size-tag-11); font-weight: var(--font-weight-regular); line-height: var(--font-line-height-16); text-align: center; }
 
 .ds-fab { align-items: center; appearance: none; background: var(--semantic-color-background-primary); border: 1px solid var(--semantic-color-border-subtle); border-radius: var(--radius-8); box-shadow: var(--shadow-action); color: var(--semantic-color-content-primary); cursor: pointer; display: inline-flex; gap: var(--space-4); justify-content: center; padding: var(--space-8); }

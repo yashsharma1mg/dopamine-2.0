@@ -14,7 +14,9 @@ export type StepperProps = Omit<HTMLAttributes<HTMLDivElement>, "onChange"> & {
   state?: StepperState;
   type?: StepperType;
   addIcon?: ReactNode;
+  addedTextIcon?: ReactNode;
   disabledAddIcon?: ReactNode;
+  disabledAddedTextIcon?: ReactNode;
   decrementIcon?: ReactNode;
   incrementIcon?: ReactNode;
   helperText?: ReactNode;
@@ -22,9 +24,11 @@ export type StepperProps = Omit<HTMLAttributes<HTMLDivElement>, "onChange"> & {
 
 export function Stepper({
   addIcon,
+  addedTextIcon,
   className = "",
   decrementIcon,
   disabledAddIcon,
+  disabledAddedTextIcon,
   incrementIcon,
   helperText = "Customise",
   max,
@@ -60,7 +64,9 @@ export function Stepper({
           onClick={increment}
         >
           <span>{isText ? "1 added" : "ADD"}</span>
-          {!outOfStock ? addIcon : disabledAddIcon}
+          {outOfStock
+            ? isText ? (disabledAddedTextIcon ?? disabledAddIcon) : disabledAddIcon
+            : isText ? (addedTextIcon ?? addIcon) : addIcon}
         </button>
         <span className="ds-stepper__helper">{helperText}</span>
       </div>

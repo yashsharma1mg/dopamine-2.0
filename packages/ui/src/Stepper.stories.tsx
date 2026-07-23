@@ -6,7 +6,9 @@ import { Stepper } from "./Stepper";
 
 const assets = {
   addIcon: <Icon className="ds-stepper__add-icon" src="/assets/dopamine/stepper-add.svg" />,
+  addedTextIcon: <img alt="" className="ds-stepper__added-text-icon" src="/assets/dopamine/stepper-added-text.svg" />,
   disabledAddIcon: <Icon className="ds-stepper__add-icon" src="/assets/dopamine/stepper-add-disabled.svg" />,
+  disabledAddedTextIcon: <img alt="" className="ds-stepper__added-text-icon" src="/assets/dopamine/stepper-added-text-disabled.svg" />,
   decrementIcon: <Icon className="ds-stepper__decrement-icon" src="/assets/dopamine/stepper-decrement.svg" />,
   incrementIcon: <Icon className="ds-stepper__increment-icon" src="/assets/dopamine/stepper-increment.svg" />
 };
@@ -51,13 +53,17 @@ export const FigmaVariants: Story = {
     <Stepper {...assets} onQuantityChange={() => {}} quantity={100} state="Added- Number" type="Filled" />
     <Stepper {...assets} onQuantityChange={() => {}} quantity={100} state="Added- Number" type="Outline" />
     <Stepper {...assets} onQuantityChange={() => {}} quantity={1} state="Added- Text" type="Filled" />
+    <Stepper {...assets} onQuantityChange={() => {}} outOfStock quantity={1} state="Added- Text" type="Filled" />
+    <Stepper {...assets} onQuantityChange={() => {}} quantity={1} size="Medium" state="Added- Text" type="Filled" />
   </div>,
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     await expect(canvas.getAllByRole("button", { name: "ADD" })[1]).toHaveStyle({ borderWidth: "1px" });
-    await expect(canvas.getByRole("button", { name: "1 added" })).toBeInTheDocument();
+    const addedTextButtons = canvas.getAllByRole("button", { name: "1 added" });
+    await expect(addedTextButtons[0]).toBeInTheDocument();
+    await expect(addedTextButtons[0].querySelector("img")).toHaveAttribute("src", "/assets/dopamine/stepper-added-text.svg");
     await expect(canvas.getAllByRole("status", { name: "100 items" })[0].closest(".ds-stepper")).toHaveStyle({ gap: "4px", paddingInline: "16px", width: "120px" });
   }
 };
 
-export const OutOfStock: Story = { args: { outOfStock: true, quantity: 100, state: "Added- Number" } };
+export const OutOfStock: Story = { args: { outOfStock: true, quantity: 1, state: "Added- Text" } };
