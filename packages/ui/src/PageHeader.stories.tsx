@@ -22,7 +22,7 @@ const meta = {
     textColour: { control: "select", options: ["Black", "No heading"] },
     activeTab: { control: "inline-radio", options: ["You", "Family"] }
   },
-  decorators: [(Story) => <div className="ds-page-header-story"><Story /></div>]
+  decorators: [(Story, context) => <div className="ds-page-header-story" data-surface={["HIH", "FamilyHub"].includes(context.args.usage) ? "filled" : "plain"}><Story /></div>]
 } satisfies Meta<typeof PageHeader>;
 
 export default meta;

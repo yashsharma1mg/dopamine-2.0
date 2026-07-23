@@ -163,7 +163,7 @@ export function PageHeader({
       ) : (
         <div className="ds-page-header__standard-row">
           <HeaderIconButton label="Go back" className={hasGlassActions ? "ds-page-header__glass" : ""} onClick={onBack}><Icon src={assets.arrowLeft} /></HeaderIconButton>
-          {hasHeading ? <div className="ds-page-header__copy"><strong>{heading}</strong><span>{subtitle}<Icon className="ds-page-header__inline-chevron" src={assets.chevron} size={18} /></span></div> : null}
+          {hasHeading ? <div className="ds-page-header__copy"><strong>{heading}</strong><span>{subtitle}<span className="ds-page-header__subtitle-chevron" aria-hidden="true"><img src={assets.chevron} alt="" /></span></span></div> : null}
           {isHih ? <HeaderIconButton label="More options" className="ds-page-header__glass" onClick={onMoreClick}><Icon src={assets.kebab} /></HeaderIconButton> : null}
           {isFamilyHub ? (
             <div className="ds-page-header__family-actions">
