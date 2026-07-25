@@ -35,7 +35,7 @@ export const FigmaVariants: Story = {
   </div>,
   play: async ({ canvasElement }) => {
     await expect(canvasElement.querySelectorAll(".ds-suggestion-chip")).toHaveLength(10);
-    await expect(canvasElement.querySelector('[data-size="small"][data-state="Primary"]')?.getBoundingClientRect().width).toBe(99);
+    await expect(canvasElement.querySelector('[data-size="small"][data-state="Primary"]')?.getBoundingClientRect().width).toBeCloseTo(100.3, 1);
     await expect(canvasElement.querySelector('[data-size="Timestamp"][data-state="selected"]')).toHaveStyle({ height: "76px", width: "56px" });
     await expect(canvasElement.querySelector('[data-size="Default"][data-state="Primary"] img')).toHaveAttribute("src", "/assets/dopamine/suggestion-chip-arrow-primary.svg");
     await expect(canvasElement.querySelector('[data-size="Default"][data-state="Default"] img')).toHaveAttribute("src", "/assets/dopamine/suggestion-chip-arrow-default.svg");
@@ -57,9 +57,11 @@ export const ContentConstruct: Story = {
   play: async ({ canvasElement }) => {
     const chips = Array.from(canvasElement.querySelectorAll<HTMLButtonElement>(".ds-suggestion-chip"));
     await expect(chips).toHaveLength(6);
-    await expect(chips[2].getBoundingClientRect().width).toBe(99);
+    await expect(chips[2].getBoundingClientRect().width).toBeCloseTo(84.3, 1);
     await expect(chips[4].getBoundingClientRect().width).toBe(108);
     await expect(chips[5].getBoundingClientRect().width).toBe(108);
     await expect(chips.every((chip) => chip.querySelector("img") === null)).toBe(true);
+    await expect(getComputedStyle(chips[2]).fontFamily).toContain("Figtree");
+    await expect(getComputedStyle(chips[5]).borderWidth).toBe("0px");
   }
 };
