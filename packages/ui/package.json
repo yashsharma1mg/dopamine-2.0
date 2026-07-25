@@ -1,7 +1,7 @@
 {
-  "name": "@internal/design-system",
+  "name": "@dopamine2.0/ui",
   "version": "0.1.0",
-  "description": "Internal React component library and design tokens.",
+  "description": "Dopamine2.0 React component library and design tokens.",
   "private": true,
   "type": "module",
   "files": ["dist"],
@@ -24,6 +24,10 @@
     "./floating-action-button": {
       "types": "./dist/FloatingActionButton.d.ts",
       "import": "./dist/FloatingActionButton.js"
+    },
+    "./suggestion-chip": {
+      "types": "./dist/SuggestionChip.d.ts",
+      "import": "./dist/SuggestionChip.js"
     },
     "./tokens": {
       "types": "./dist/generated/tokens.d.ts",

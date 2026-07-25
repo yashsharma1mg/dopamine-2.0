@@ -4,7 +4,7 @@ import { create } from "storybook/theming";
 addons.setConfig({
   theme: create({
     base: "light",
-    brandTitle: "Dopamine 2.0",
+    brandTitle: "Dopamine2.0",
     brandUrl: "/",
     colorPrimary: "#ff5443",
     colorSecondary: "#414752",

@@ -28,7 +28,7 @@ const meta = {
     disabled: { control: "boolean" }
   },
   parameters: {
-    docs: { description: { component: "Figma variants for the Dopamine 2.0 button component." } },
+    docs: { description: { component: "Figma variants for the Dopamine2.0 button component." } },
     a11y: { config: { rules: [{ id: "color-contrast", enabled: false }] } }
   }
 } satisfies Meta<typeof Button>;

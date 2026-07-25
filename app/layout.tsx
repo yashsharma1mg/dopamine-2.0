@@ -24,19 +24,19 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: baseUrl,
     title: {
-      default: "Dopamine 2.0",
-      template: "%s · Dopamine 2.0"
+      default: "Dopamine2.0",
+      template: "%s · Dopamine2.0"
     },
     description:
       "A shared language for designers and developers: foundations, accessible React components, and implementation guidance.",
     openGraph: {
-      title: "Dopamine 2.0",
+      title: "Dopamine2.0",
       description: "One source. Every interface.",
-      images: [{ url: "/og.png", width: 1200, height: 630, alt: "Dopamine 2.0" }]
+      images: [{ url: "/og.png", width: 1200, height: 630, alt: "Dopamine2.0" }]
     },
     twitter: {
       card: "summary_large_image",
-      title: "Dopamine 2.0",
+      title: "Dopamine2.0",
       description: "One source. Every interface.",
       images: ["/og.png"]
     }

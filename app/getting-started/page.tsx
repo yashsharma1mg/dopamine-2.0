@@ -21,17 +21,17 @@ export default function GettingStartedPage() {
           <section className="docs-section" id="install">
             <h2>1. Install the package</h2>
             <p>Create the package archive from this repository, then install it in a React application.</p>
-            <pre className="code-panel">npm run pack:ui{"\n"}npm install ./internal-design-system-0.1.0.tgz</pre>
+            <pre className="code-panel">npm run pack:ui{"\n"}npm install ./dopamine2.0-ui-0.1.0.tgz</pre>
           </section>
           <section className="docs-section" id="styles">
             <h2>2. Load the system styles</h2>
             <p>Import the stylesheet once at your application entry point. It contains generated token variables and component styles.</p>
-            <pre className="code-panel"><span className="code-keyword">import</span> <span className="code-string">&quot;@internal/design-system/styles.css&quot;</span>;</pre>
+            <pre className="code-panel"><span className="code-keyword">import</span> <span className="code-string">&quot;@dopamine2.0/ui/styles.css&quot;</span>;</pre>
           </section>
           <section className="docs-section" id="component">
             <h2>3. Render a component</h2>
             <p>Components ship as typed ESM exports. React and React DOM stay in the consuming application.</p>
-            <pre className="code-panel"><span className="code-keyword">import</span> {"{"} Button {"}"} <span className="code-keyword">from</span> <span className="code-string">&quot;@internal/design-system&quot;</span>;{"\n\n"}<span className="code-keyword">export function</span> SaveAction() {"{"}{"\n  "}<span className="code-keyword">return</span> &lt;Button&gt;Save changes&lt;/Button&gt;;{"\n}"}</pre>
+            <pre className="code-panel"><span className="code-keyword">import</span> {"{"} Button {"}"} <span className="code-keyword">from</span> <span className="code-string">&quot;@dopamine2.0/ui&quot;</span>;{"\n\n"}<span className="code-keyword">export function</span> SaveAction() {"{"}{"\n  "}<span className="code-keyword">return</span> &lt;Button&gt;Save changes&lt;/Button&gt;;{"\n}"}</pre>
           </section>
           <section className="docs-section" id="tokens">
             <h2>Use tokens outside components</h2>

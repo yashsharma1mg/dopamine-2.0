@@ -90,8 +90,8 @@ export const componentManifests: ComponentManifest[] = [
     category: "Actions",
     status: "ready",
     storyId: "components-button--playground",
-    packageName: "@internal/design-system",
-    importExample: 'import { Button } from "@internal/design-system";',
+    packageName: "@dopamine2.0/ui",
+    importExample: 'import { Button } from "@dopamine2.0/ui";',
     anatomy: ["Container", "Optional leading icon", "Label", "Optional trailing icon", "Loading indicator"],
     variants: ["Fill", "Outline", "Ghost", "Text with icon", "Underline"],
     sizes: ["Medium", "Large"],
@@ -140,8 +140,8 @@ export const componentManifests: ComponentManifest[] = [
     category: "Actions",
     status: "ready",
     storyId: "components-stepper--playground",
-    packageName: "@internal/design-system",
-    importExample: 'import { Stepper } from "@internal/design-system";',
+    packageName: "@dopamine2.0/ui",
+    importExample: 'import { Stepper } from "@dopamine2.0/ui";',
     anatomy: ["Add action", "Decrease action", "Quantity output", "Increase action"],
     variants: ["Filled", "Outline"],
     sizes: ["Medium", "Large"],
@@ -168,8 +168,8 @@ export const componentManifests: ComponentManifest[] = [
     category: "Navigation",
     status: "ready",
     storyId: "components-page-header--playground",
-    packageName: "@internal/design-system",
-    importExample: 'import { PageHeader } from "@internal/design-system";',
+    packageName: "@dopamine2.0/ui",
+    importExample: 'import { PageHeader } from "@dopamine2.0/ui";',
     anatomy: ["Status bar", "Leading navigation or location action", "Title and subtitle", "Contextual actions"],
     variants: ["Floating", "Location", "Dropdown", "HIH", "FamilyHub"],
     sizes: ["360px mobile width"],
@@ -200,8 +200,8 @@ export const componentManifests: ComponentManifest[] = [
     category: "Actions",
     status: "ready",
     storyId: "components-floating-action-button--playground",
-    packageName: "@internal/design-system",
-    importExample: 'import { FloatingActionButton } from "@internal/design-system";',
+    packageName: "@dopamine2.0/ui",
+    importExample: 'import { FloatingActionButton } from "@dopamine2.0/ui";',
     anatomy: ["Action container", "Icon", "Optional label"],
     variants: ["Add", "Added", "FAB", "Special button"],
     sizes: ["32px action", "40px FAB", "56px labelled action"],
@@ -218,6 +218,39 @@ export const componentManifests: ComponentManifest[] = [
     links: {
       figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=4023-2838&t=2b3pGoo58LPx32e2-4",
       specification: "/specs/FloatingActionButton.md", audit: "/audits/FloatingActionButton.md", source: "/storybook/?path=/docs/components-floating-action-button--docs"
+    }
+  },
+  {
+    slug: "suggestion-chip",
+    name: "Suggestion Chip",
+    summary: "A compact choice, filter, or timestamp control with a clear selected and disabled state.",
+    category: "Selection",
+    status: "ready",
+    storyId: "components-suggestion-chip--playground",
+    packageName: "@dopamine2.0/ui",
+    importExample: 'import { SuggestionChip } from "@dopamine2.0/ui";',
+    anatomy: ["Optional leading arrow", "Text label", "Optional trailing counter", "Timestamp content"],
+    variants: ["Primary", "Default", "disable", "disable+select", "default timestamp", "selected timestamp"],
+    sizes: ["Default (108 × 32px)", "small (99 × 28px)", "Timestamp (56 × 76px)"],
+    states: ["Primary", "Default", "Disabled", "Disabled selected", "Timestamp selected"],
+    usage: {
+      do: ["Use a concise label that names a category, filter, or option.", "Use timestamp chips only for date selection."],
+      dont: ["Do not use a suggestion chip for a primary page action.", "Do not use the selected treatment when the option cannot be changed."]
+    },
+    accessibility: ["Uses a native button with a visible keyboard focus ring.", "Disabled variants set the native disabled state.", "Timestamp chips expose their selection through aria-pressed."],
+    contentGuidance: ["Keep standard labels to one short phrase.", "Use a single digit counter where possible.", "Keep day, date, and month abbreviations consistent across a date group."],
+    api: [
+      { name: "size", type: "Default | small | Timestamp", defaultValue: "Default", description: "Figma size variant." },
+      { name: "state", type: "Primary | Default | disable | disable+select | default | selected", defaultValue: "Primary", description: "Figma state variant." },
+      { name: "showLeadingIcon", type: "boolean", defaultValue: "true", description: "Shows the Figma left-arrow asset." },
+      { name: "showTrailingCounter", type: "boolean", defaultValue: "true", description: "Shows the 16px counter on standard chips." },
+      { name: "counter", type: "number", defaultValue: "1", description: "Standard-chip counter value." }
+    ],
+    links: {
+      figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6353-389&t=2b3pGoo58LPx32e2-4",
+      specification: "/specs/SuggestionChip.md",
+      audit: "/audits/SuggestionChip.md",
+      source: "/storybook/?path=/docs/components-suggestion-chip--docs"
     }
   }
 ];

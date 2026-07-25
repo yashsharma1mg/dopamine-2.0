@@ -16,7 +16,7 @@ export default function Home() {
           <Link className="button-link button-link-primary" href="/getting-started">Start building <span aria-hidden="true">→</span></Link>
           <Link className="button-link button-link-secondary" href="/foundations">Explore foundations</Link>
         </div>
-        <div className="system-stats" aria-label="Dopamine 2.0 status">
+        <div className="system-stats" aria-label="Dopamine2.0 status">
           <div><strong>{Object.keys(tokens).length}</strong><span>generated tokens</span></div>
           <div><strong>{foundationPages.length}</strong><span>foundation groups</span></div>
           <div><strong>{readyComponents.length}</strong><span>package-ready component</span></div>
@@ -61,7 +61,7 @@ export default function Home() {
           <p className="section-copy">The package ships ESM, declarations, tokens, and one stylesheet. React remains a peer dependency.</p>
           <Link className="text-link" href="/getting-started">Read installation guidance <span aria-hidden="true">→</span></Link>
         </div>
-        <pre className="code-panel"><span className="code-comment"># install the packed release</span>{"\n"}npm install ./internal-design-system.tgz{"\n\n"}<span className="code-keyword">import</span> {"{"} Button {"}"} <span className="code-keyword">from</span> <span className="code-string">&quot;@internal/design-system&quot;</span>;{"\n"}<span className="code-keyword">import</span> <span className="code-string">&quot;@internal/design-system/styles.css&quot;</span>;</pre>
+        <pre className="code-panel"><span className="code-comment"># install the packed release</span>{"\n"}npm install ./dopamine2.0-ui-0.1.0.tgz{"\n\n"}<span className="code-keyword">import</span> {"{"} Button {"}"} <span className="code-keyword">from</span> <span className="code-string">&quot;@dopamine2.0/ui&quot;</span>;{"\n"}<span className="code-keyword">import</span> <span className="code-string">&quot;@dopamine2.0/ui/styles.css&quot;</span>;</pre>
       </section>
 
       <section className="content-section release-strip">

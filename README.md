@@ -1,4 +1,4 @@
-# Dopamine 2.0
+# Dopamine2.0
 
 A private documentation platform, Storybook, token pipeline, and registry-ready React package.
 
