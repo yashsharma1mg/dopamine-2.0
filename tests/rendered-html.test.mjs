@@ -24,7 +24,7 @@ test("renders the finished documentation home", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   const html = await response.text();
-  assert.match(html, /<title>Dopamine 2\.0<\/title>/i);
+  assert.match(html, /<title>Dopamine2\.0<\/title>/i);
   assert.match(html, /A shared language for every interface/);
   assert.match(html, /generated tokens/);
   assert.doesNotMatch(html, /codex-preview|taking shape|react-loading-skeleton/i);

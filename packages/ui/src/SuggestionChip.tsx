@@ -16,10 +16,18 @@ export type SuggestionChipProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 
 };
 
 const arrows = {
-  Primary: "/assets/dopamine/suggestion-chip-arrow-primary.svg",
-  Default: "/assets/dopamine/suggestion-chip-arrow-default.svg",
-  disable: "/assets/dopamine/suggestion-chip-arrow-disabled.svg",
-  "disable+select": "/assets/dopamine/suggestion-chip-arrow-disabled-selected.svg"
+  Default: {
+    Primary: "/assets/dopamine/suggestion-chip-arrow-primary.svg",
+    Default: "/assets/dopamine/suggestion-chip-arrow-default.svg",
+    disable: "/assets/dopamine/suggestion-chip-arrow-disabled.svg",
+    "disable+select": "/assets/dopamine/suggestion-chip-arrow-disabled-selected.svg"
+  },
+  small: {
+    Primary: "/assets/dopamine/suggestion-chip-arrow-primary.svg",
+    Default: "/assets/dopamine/suggestion-chip-arrow-default.svg",
+    disable: "/assets/dopamine/suggestion-chip-arrow-disabled-small.svg",
+    "disable+select": "/assets/dopamine/suggestion-chip-arrow-disabled-selected.svg"
+  }
 } as const;
 
 export const SuggestionChip = forwardRef<HTMLButtonElement, SuggestionChipProps>(function SuggestionChip(
@@ -42,13 +50,18 @@ export const SuggestionChip = forwardRef<HTMLButtonElement, SuggestionChipProps>
   const isTimestamp = size === "Timestamp";
   const isDisabled = disabled || state === "disable" || state === "disable+select";
   const hasCounter = size === "Default" && showTrailingCounter && ["Primary", "Default", "disable", "disable+select"].includes(state);
-  const arrow = arrows[state as keyof typeof arrows] ?? arrows.Primary;
+  const arrow = !isTimestamp ? arrows[size === "small" ? "small" : "Default"][state as keyof typeof arrows.Default] : undefined;
+  const usesSplitContent = size === "Default" && (state === "disable" || state === "disable+select");
+  const icon = showLeadingIcon && arrow ? <span className="ds-suggestion-chip__icon" aria-hidden="true"><img src={arrow} alt="" /></span> : null;
+  const label = <span className="ds-suggestion-chip__label">{children}</span>;
+  const trailingCounter = hasCounter ? <span className="ds-suggestion-chip__counter">{counter}</span> : null;
 
   return (
     <button
       ref={ref}
       type="button"
       className={`ds-suggestion-chip ${className}`.trim()}
+      data-has-leading-icon={!isTimestamp && showLeadingIcon ? "true" : "false"}
       data-size={size}
       data-state={state}
       disabled={isDisabled}
@@ -59,11 +72,7 @@ export const SuggestionChip = forwardRef<HTMLButtonElement, SuggestionChipProps>
         <span className="ds-suggestion-chip__timestamp"><span>{day}</span><strong>{date}</strong><span>{month}</span></span>
       ) : (
         <span className="ds-suggestion-chip__content">
-          <span className="ds-suggestion-chip__label-group">
-            {showLeadingIcon ? <span className="ds-suggestion-chip__icon" aria-hidden="true"><img src={arrow} alt="" /></span> : null}
-            <span className="ds-suggestion-chip__label">{children}</span>
-          </span>
-          {hasCounter ? <span className="ds-suggestion-chip__counter">{counter}</span> : null}
+          {usesSplitContent ? <>{icon}{label}{trailingCounter}</> : <><span className="ds-suggestion-chip__label-group">{icon}{label}</span>{trailingCounter}</>}
         </span>
       )}
     </button>

@@ -35,6 +35,31 @@ export const FigmaVariants: Story = {
   </div>,
   play: async ({ canvasElement }) => {
     await expect(canvasElement.querySelectorAll(".ds-suggestion-chip")).toHaveLength(10);
+    await expect(canvasElement.querySelector('[data-size="small"][data-state="Primary"]')?.getBoundingClientRect().width).toBe(99);
     await expect(canvasElement.querySelector('[data-size="Timestamp"][data-state="selected"]')).toHaveStyle({ height: "76px", width: "56px" });
+    await expect(canvasElement.querySelector('[data-size="Default"][data-state="Primary"] img')).toHaveAttribute("src", "/assets/dopamine/suggestion-chip-arrow-primary.svg");
+    await expect(canvasElement.querySelector('[data-size="Default"][data-state="Default"] img')).toHaveAttribute("src", "/assets/dopamine/suggestion-chip-arrow-default.svg");
+    await expect(canvasElement.querySelector('[data-size="Default"][data-state="disable"] img')).toHaveAttribute("src", "/assets/dopamine/suggestion-chip-arrow-disabled.svg");
+    await expect(canvasElement.querySelector('[data-size="small"][data-state="disable"] img')).toHaveAttribute("src", "/assets/dopamine/suggestion-chip-arrow-disabled-small.svg");
+    await expect(canvasElement.querySelector('[data-size="Default"][data-state="disable+select"] img')).toHaveAttribute("src", "/assets/dopamine/suggestion-chip-arrow-disabled-selected.svg");
+  }
+};
+
+export const ContentConstruct: Story = {
+  render: (args) => <div className="ds-suggestion-chip-variants">
+    <SuggestionChip {...args} showLeadingIcon={false} showTrailingCounter={false} />
+    <SuggestionChip {...args} showLeadingIcon={false} showTrailingCounter={false} state="Default" />
+    <SuggestionChip {...args} showLeadingIcon={false} size="small" state="Primary" />
+    <SuggestionChip {...args} showLeadingIcon={false} size="small" state="Default" />
+    <SuggestionChip {...args} showLeadingIcon={false} showTrailingCounter={false} state="disable" />
+    <SuggestionChip {...args} showLeadingIcon={false} showTrailingCounter={false} state="disable+select" />
+  </div>,
+  play: async ({ canvasElement }) => {
+    const chips = Array.from(canvasElement.querySelectorAll<HTMLButtonElement>(".ds-suggestion-chip"));
+    await expect(chips).toHaveLength(6);
+    await expect(chips[2].getBoundingClientRect().width).toBe(87);
+    await expect(chips[4].getBoundingClientRect().width).toBe(108);
+    await expect(chips[5].getBoundingClientRect().width).toBe(108);
+    await expect(chips.every((chip) => chip.querySelector("img") === null)).toBe(true);
   }
 };
