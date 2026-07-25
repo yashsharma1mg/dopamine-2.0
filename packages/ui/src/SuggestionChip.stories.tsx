@@ -57,7 +57,7 @@ export const ContentConstruct: Story = {
   play: async ({ canvasElement }) => {
     const chips = Array.from(canvasElement.querySelectorAll<HTMLButtonElement>(".ds-suggestion-chip"));
     await expect(chips).toHaveLength(6);
-    await expect(chips[2].getBoundingClientRect().width).toBe(87);
+    await expect(chips[2].getBoundingClientRect().width).toBe(99);
     await expect(chips[4].getBoundingClientRect().width).toBe(108);
     await expect(chips[5].getBoundingClientRect().width).toBe(108);
     await expect(chips.every((chip) => chip.querySelector("img") === null)).toBe(true);

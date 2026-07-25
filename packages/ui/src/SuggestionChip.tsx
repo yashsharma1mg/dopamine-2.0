@@ -61,7 +61,6 @@ export const SuggestionChip = forwardRef<HTMLButtonElement, SuggestionChipProps>
       ref={ref}
       type="button"
       className={`ds-suggestion-chip ${className}`.trim()}
-      data-has-leading-icon={!isTimestamp && showLeadingIcon ? "true" : "false"}
       data-size={size}
       data-state={state}
       disabled={isDisabled}
