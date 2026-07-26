@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { componentManifests, foundationPages, readyComponents } from "@/packages/content/src";
+import { foundationPages, readyComponents, trackedComponentCount } from "@/packages/content/src";
 import { tokens } from "@/packages/tokens/generated/tokens";
 
 export default function Home() {
@@ -14,13 +14,12 @@ export default function Home() {
         </p>
         <div className="hero-actions">
           <Link className="button-link button-link-primary" href="/getting-started">Start building <span aria-hidden="true">→</span></Link>
-          <Link className="button-link button-link-secondary" href="/foundations">Explore foundations</Link>
         </div>
         <div className="system-stats" aria-label="Dopamine2.0 status">
           <div><strong>{Object.keys(tokens).length}</strong><span>generated tokens</span></div>
           <div><strong>{foundationPages.length}</strong><span>foundation groups</span></div>
-          <div><strong>{readyComponents.length}</strong><span>package-ready component</span></div>
-          <div><strong>{componentManifests.length}</strong><span>components tracked</span></div>
+          <div><strong>{readyComponents.length}</strong><span>package-ready components</span></div>
+          <div><strong>{trackedComponentCount}</strong><span>components tracked</span></div>
         </div>
       </section>
 

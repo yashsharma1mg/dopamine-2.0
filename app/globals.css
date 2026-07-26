@@ -15,10 +15,15 @@ html {
   scroll-behavior: smooth;
 }
 
+:root {
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+}
+
 body {
+  -webkit-font-smoothing: antialiased;
   background: var(--semantic-color-background-subtle);
   color: var(--semantic-color-content-primary);
-  font-family: var(--font-family-sans);
+  font-family: var(--font-family-sans), system-ui, -apple-system, sans-serif;
   margin: 0;
 }
 
@@ -43,7 +48,7 @@ input {
 
 .site-sidebar {
   background: color-mix(in srgb, var(--semantic-color-background-primary) 88%, transparent);
-  border-right: 1px solid var(--semantic-color-border-subtle);
+  border-right: 1px solid var(--semantic-color-stroke-subtle);
   bottom: 0;
   display: flex;
   flex-direction: column;
@@ -66,32 +71,18 @@ input {
 
 .brand-mark {
   background: var(--semantic-color-branding-1mg);
-  border-radius: var(--radius-4);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+  border-radius: var(--radius-8);
+  color: var(--semantic-color-content-inverse-primary);
   display: grid;
+  font-size: 16px;
+  font-weight: var(--font-weight-bold);
   height: 28px;
   place-items: center;
-  position: relative;
   width: 28px;
 }
 
-.brand-mark::before,
-.brand-mark::after {
-  background: white;
-  border-radius: 1px;
-  content: "";
-  position: absolute;
-  transform: rotate(45deg);
-}
-
 .brand-mark::before {
-  height: 12px;
-  width: 3px;
-}
-
-.brand-mark::after {
-  height: 3px;
-  width: 12px;
+  content: "D";
 }
 
 .nav-group {
@@ -125,7 +116,7 @@ input {
 }
 
 .nav-meta {
-  border-top: 1px solid var(--semantic-color-border-subtle);
+  border-top: 1px solid var(--semantic-color-stroke-subtle);
   color: var(--semantic-color-content-tertiary);
   font-size: var(--font-size-body-12);
   line-height: 1.5;
@@ -157,8 +148,8 @@ main {
 
 .hero-grid {
   background-image:
-    linear-gradient(to right, color-mix(in srgb, var(--semantic-color-border-subtle) 52%, transparent) 1px, transparent 1px),
-    linear-gradient(to bottom, color-mix(in srgb, var(--semantic-color-border-subtle) 52%, transparent) 1px, transparent 1px);
+    linear-gradient(to right, color-mix(in srgb, var(--semantic-color-stroke-subtle) 52%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--semantic-color-stroke-subtle) 52%, transparent) 1px, transparent 1px);
   background-size: 48px 48px;
   inset: 0 -40px;
   mask-image: linear-gradient(to bottom, black, transparent 88%);
@@ -199,7 +190,7 @@ main {
 
 .pulse-dot {
   background: var(--base-color-wellness-green-60);
-  border-radius: var(--radius-24);
+  border-radius: 999px;
   box-shadow: 0 0 0 4px var(--base-color-wellness-green-97);
   height: 7px;
   width: 7px;
@@ -207,10 +198,10 @@ main {
 
 .hero h1 {
   color: var(--semantic-color-content-primary);
-  font-size: clamp(50px, 7vw, 88px);
+  font-size: clamp(46px, 6vw, 76px);
   font-weight: var(--font-weight-bold);
-  letter-spacing: -0.065em;
-  line-height: 0.98;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
   margin: var(--space-24) 0;
   max-width: 880px;
   position: relative;
@@ -269,7 +260,7 @@ main {
 
 .button-link-secondary {
   background: var(--semantic-color-background-primary);
-  border-color: var(--semantic-color-border-subtle);
+  border-color: var(--semantic-color-stroke-subtle);
   color: var(--semantic-color-content-primary);
 }
 
@@ -279,8 +270,8 @@ main {
 }
 
 .system-stats {
-  border-bottom: 1px solid var(--semantic-color-border-subtle);
-  border-top: 1px solid var(--semantic-color-border-subtle);
+  border-bottom: 1px solid var(--semantic-color-stroke-subtle);
+  border-top: 1px solid var(--semantic-color-stroke-subtle);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   margin-top: 112px;
@@ -290,7 +281,7 @@ main {
 }
 
 .system-stats div {
-  border-right: 1px solid var(--semantic-color-border-subtle);
+  border-right: 1px solid var(--semantic-color-stroke-subtle);
   display: grid;
   gap: 3px;
   padding-left: var(--space-8);
@@ -315,7 +306,7 @@ main {
 }
 
 .content-section {
-  border-top: 1px solid var(--semantic-color-border-subtle);
+  border-top: 1px solid var(--semantic-color-stroke-subtle);
   padding: 96px 0;
 }
 
@@ -333,10 +324,10 @@ main {
 .page-header h1,
 .component-hero h1 {
   color: var(--semantic-color-content-primary);
-  font-size: clamp(34px, 5vw, 52px);
+  font-size: clamp(32px, 4vw, 46px);
   font-weight: var(--font-weight-bold);
-  letter-spacing: -0.045em;
-  line-height: 1.06;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
   margin: var(--space-12) 0 0;
 }
 
@@ -355,7 +346,7 @@ main {
 
 .layer-card {
   background: var(--semantic-color-background-primary);
-  border: 1px solid var(--semantic-color-border-subtle);
+  border: 1px solid var(--semantic-color-stroke-subtle);
   border-radius: var(--radius-12);
   min-height: 290px;
   padding: var(--space-24);
@@ -387,7 +378,7 @@ main {
   background: color-mix(in srgb, currentColor 8%, transparent);
   border-radius: var(--radius-4);
   display: block;
-  font-family: var(--font-geist-mono);
+  font-family: var(--font-mono);
   font-size: 11px;
   overflow: hidden;
   padding: 10px;
@@ -395,7 +386,7 @@ main {
 }
 
 .layer-index {
-  font-family: var(--font-geist-mono);
+  font-family: var(--font-mono);
   font-size: var(--font-size-body-12);
   opacity: 0.5;
 }
@@ -422,7 +413,7 @@ main {
   border-radius: var(--radius-12);
   box-shadow: var(--shadow-level-2);
   color: #e7e9ed;
-  font-family: var(--font-geist-mono);
+  font-family: var(--font-mono);
   font-size: 13px;
   line-height: 1.8;
   margin: 0;
@@ -459,7 +450,7 @@ main {
 }
 
 .page-header {
-  border-bottom: 1px solid var(--semantic-color-border-subtle);
+  border-bottom: 1px solid var(--semantic-color-stroke-subtle);
   padding: 100px 0 var(--space-40);
 }
 
@@ -492,7 +483,7 @@ main {
 .card-link,
 .content-card {
   background: var(--semantic-color-background-primary);
-  border: 1px solid var(--semantic-color-border-subtle);
+  border: 1px solid var(--semantic-color-stroke-subtle);
   border-radius: var(--radius-12);
   padding: var(--space-24);
 }
@@ -504,7 +495,7 @@ main {
 
 @media (hover: hover) and (pointer: fine) {
   .card-link:hover {
-    border-color: var(--semantic-color-border-selected);
+    border-color: var(--semantic-color-stroke-selected);
     transform: translateY(-2px);
   }
 }
@@ -543,7 +534,7 @@ main {
 
 .search-field {
   background: var(--semantic-color-background-primary);
-  border: 1px solid var(--semantic-color-border-subtle);
+  border: 1px solid var(--semantic-color-stroke-subtle);
   border-radius: var(--radius-8);
   color: var(--semantic-color-content-primary);
   min-height: 46px;
@@ -552,14 +543,14 @@ main {
 }
 
 .search-field:focus-visible {
-  border-color: var(--semantic-color-border-selected);
+  border-color: var(--semantic-color-stroke-selected);
   box-shadow: var(--shadow-focus);
   outline: 0;
 }
 
 .status-pill {
   align-items: center;
-  border-radius: var(--radius-24);
+  border-radius: 999px;
   display: inline-flex;
   font-size: 10px;
   font-weight: var(--font-weight-bold);
@@ -609,7 +600,7 @@ main {
 
 .story-frame-shell {
   background: var(--semantic-color-background-primary);
-  border: 1px solid var(--semantic-color-border-subtle);
+  border: 1px solid var(--semantic-color-stroke-subtle);
   border-radius: var(--radius-12);
   overflow: hidden;
 }
@@ -617,7 +608,7 @@ main {
 .story-frame-toolbar {
   align-items: center;
   background: var(--semantic-color-background-subtle);
-  border-bottom: 1px solid var(--semantic-color-border-subtle);
+  border-bottom: 1px solid var(--semantic-color-stroke-subtle);
   display: flex;
   font-size: var(--font-size-body-12);
   justify-content: space-between;
@@ -644,7 +635,7 @@ main {
 }
 
 .docs-section {
-  border-top: 1px solid var(--semantic-color-border-subtle);
+  border-top: 1px solid var(--semantic-color-stroke-subtle);
   padding: var(--space-40) 0;
 }
 
@@ -685,8 +676,8 @@ main {
 
 .pill-list li {
   background: var(--semantic-color-background-primary);
-  border: 1px solid var(--semantic-color-border-subtle);
-  border-radius: var(--radius-24);
+  border: 1px solid var(--semantic-color-stroke-subtle);
+  border-radius: 999px;
   color: var(--semantic-color-content-primary);
   font-size: var(--font-size-body-12);
   padding: 8px 11px;
@@ -700,7 +691,7 @@ main {
 }
 
 .guidance-card {
-  border: 1px solid var(--semantic-color-border-subtle);
+  border: 1px solid var(--semantic-color-stroke-subtle);
   border-radius: var(--radius-8);
   padding: var(--space-8);
 }
@@ -724,7 +715,7 @@ main {
 .api-table td,
 .token-table th,
 .token-table td {
-  border-bottom: 1px solid var(--semantic-color-border-subtle);
+  border-bottom: 1px solid var(--semantic-color-stroke-subtle);
   padding: var(--space-12);
   text-align: left;
   vertical-align: top;
@@ -740,7 +731,7 @@ main {
 
 .api-table code,
 .token-table code {
-  font-family: var(--font-geist-mono);
+  font-family: var(--font-mono);
   font-size: 11px;
 }
 
@@ -779,7 +770,7 @@ main {
 
 .token-table-wrap {
   background: var(--semantic-color-background-primary);
-  border: 1px solid var(--semantic-color-border-subtle);
+  border: 1px solid var(--semantic-color-stroke-subtle);
   border-radius: var(--radius-12);
   margin-top: var(--space-24);
   overflow-x: auto;
@@ -799,7 +790,7 @@ main {
   border: 0;
   color: var(--semantic-color-branding-1mg);
   cursor: pointer;
-  font-family: var(--font-geist-mono);
+  font-family: var(--font-mono);
   padding: 0;
   text-align: left;
 }
@@ -818,7 +809,7 @@ main {
 
 .icon-category {
   background: var(--semantic-color-background-primary);
-  border: 1px solid var(--semantic-color-border-subtle);
+  border: 1px solid var(--semantic-color-stroke-subtle);
   border-radius: var(--radius-12);
   padding: var(--space-20);
 }
@@ -840,7 +831,7 @@ main {
 .icon-tile {
   align-items: flex-start;
   background: var(--semantic-color-background-primary);
-  border: 1px solid var(--semantic-color-border-subtle);
+  border: 1px solid var(--semantic-color-stroke-subtle);
   border-radius: var(--radius-8);
   display: flex;
   flex-direction: column;
@@ -880,7 +871,7 @@ main {
 
 .specimen {
   background: var(--semantic-color-background-primary);
-  border: 1px solid var(--semantic-color-border-subtle);
+  border: 1px solid var(--semantic-color-stroke-subtle);
   border-radius: var(--radius-12);
   min-height: 170px;
   overflow: hidden;
@@ -902,7 +893,7 @@ main {
 
 .radius-box {
   background: var(--semantic-color-background-subtle);
-  border: 1px solid var(--semantic-color-border-selected);
+  border: 1px solid var(--semantic-color-stroke-selected);
   border-radius: var(--demo-radius);
   height: 72px;
   width: 112px;
@@ -923,7 +914,7 @@ main {
 }
 
 .workflow li {
-  border-top: 1px solid var(--semantic-color-border-subtle);
+  border-top: 1px solid var(--semantic-color-stroke-subtle);
   counter-increment: workflow;
   display: grid;
   gap: var(--space-16);
@@ -934,7 +925,7 @@ main {
 .workflow li::before {
   color: var(--semantic-color-content-tertiary);
   content: "0" counter(workflow);
-  font-family: var(--font-geist-mono);
+  font-family: var(--font-mono);
   font-size: var(--font-size-body-12);
 }
 
@@ -948,7 +939,7 @@ main {
 }
 
 .footer {
-  border-top: 1px solid var(--semantic-color-border-subtle);
+  border-top: 1px solid var(--semantic-color-stroke-subtle);
   color: var(--semantic-color-content-tertiary);
   display: flex;
   font-size: var(--font-size-body-12);
@@ -970,7 +961,7 @@ main {
   .mobile-header {
     align-items: center;
     background: color-mix(in srgb, var(--semantic-color-background-primary) 92%, transparent);
-    border-bottom: 1px solid var(--semantic-color-border-subtle);
+    border-bottom: 1px solid var(--semantic-color-stroke-subtle);
     display: flex;
     justify-content: space-between;
     padding: var(--space-12) var(--space-16);
@@ -992,7 +983,7 @@ main {
 
   .mobile-menu {
     background: var(--semantic-color-background-primary);
-    border: 1px solid var(--semantic-color-border-subtle);
+    border: 1px solid var(--semantic-color-stroke-subtle);
     border-radius: var(--radius-8);
     box-shadow: var(--shadow-level-2);
     display: grid;

@@ -257,6 +257,23 @@ export const componentManifests: ComponentManifest[] = [
 
 export const readyComponents = componentManifests.filter(({ status }) => status === "ready");
 
+// Components mapped from Figma and available in Storybook (specs/ + cache/) but not
+// yet promoted to a full manifest entry. Counted in library totals below.
+export const draftComponents = [
+  "Input Field",
+  "Toggle",
+  "Checkbox",
+  "Radio",
+  "Search Bar",
+  "Action Bar",
+  "Event Banner",
+  "Navigation",
+  "Sticky"
+] as const;
+
+// Every component in the library: fully-manifested + mapped-in-Storybook.
+export const trackedComponentCount = componentManifests.length + draftComponents.length;
+
 export function getComponent(slug: string) {
   return componentManifests.find((component) => component.slug === slug);
 }
