@@ -29,7 +29,9 @@
 .ds-htabs *,
 .ds-vtabs,
 .ds-vtabs *,
-.ds-swipe {
+.ds-swipe,
+.ds-snackbar,
+.ds-snackbar * {
   box-sizing: border-box;
   font-family: var(--font-family-body), system-ui, sans-serif;
 }
@@ -801,6 +803,29 @@
 /* Swipe Indicator */
 .ds-swipe { background: var(--semantic-color-background-moderate); border-radius: 999px; height: 2px; max-width: 100%; overflow: hidden; position: relative; }
 .ds-swipe__fill { background: var(--semantic-color-content-primary); border-radius: 999px; height: 2px; position: absolute; top: 0; transition: left 200ms ease, width 200ms ease; }
+
+/* Snackbar */
+.ds-snackbar {
+  align-items: flex-start;
+  border-radius: var(--radius-8);
+  box-shadow: var(--shadow-level-2);
+  color: var(--semantic-color-content-inverse-primary);
+  display: flex;
+  gap: var(--space-16);
+  max-width: 100%;
+  padding: var(--space-12);
+  width: 328px;
+}
+.ds-snackbar__body { align-items: center; display: flex; flex: 1 1 auto; gap: var(--space-8); min-width: 0; }
+.ds-snackbar__icon { display: inline-flex; flex: 0 0 20px; }
+.ds-snackbar__message { flex: 1 1 auto; font-size: 14px; line-height: 20px; min-width: 0; }
+.ds-snackbar__close { align-items: center; appearance: none; background: none; border: 0; color: inherit; cursor: pointer; display: inline-flex; flex: 0 0 20px; padding: 0; }
+.ds-snackbar__action { appearance: none; background: none; border: 0; color: var(--semantic-color-content-cta); cursor: pointer; flex: 0 0 auto; font-size: 14px; font-weight: var(--font-weight-bold); padding: 0; white-space: nowrap; }
+.ds-snackbar--white { background: var(--semantic-color-background-primary); color: var(--semantic-color-content-primary); }
+.ds-snackbar--warning { background: var(--semantic-color-states-warning); }
+.ds-snackbar--success { background: var(--semantic-color-states-success); }
+.ds-snackbar--error { background: var(--semantic-color-states-error); }
+.ds-snackbar--default { background: var(--semantic-color-content-primary); }
 
 .sr-only { clip: rect(0, 0, 0, 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; white-space: nowrap; width: 1px; }
 @keyframes ds-button-spin { to { transform: rotate(360deg); } }

@@ -30,6 +30,8 @@ export { VerticalTabs } from "./VerticalTabs.js";
 export type { VerticalTabsProps, VerticalTabItem } from "./VerticalTabs.js";
 export { SwipeIndicator } from "./SwipeIndicator.js";
 export type { SwipeIndicatorProps, SwipeIndicatorType, SwipeIndicatorSize } from "./SwipeIndicator.js";
+export { Snackbar } from "./Snackbar.js";
+export type { SnackbarProps, SnackbarType } from "./Snackbar.js";
 export { PageHeader, PageHeaderStatusBar } from "./PageHeader.js";
 export type { PageHeaderProps, PageHeaderTab, PageHeaderTextColour, PageHeaderType, PageHeaderUsage } from "./PageHeader.js";
 export { SuggestionChip } from "./SuggestionChip.js";
