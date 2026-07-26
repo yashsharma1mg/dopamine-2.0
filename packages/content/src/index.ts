@@ -252,31 +252,357 @@ export const componentManifests: ComponentManifest[] = [
       audit: "/audits/SuggestionChip.md",
       source: "/storybook/?path=/docs/components-suggestion-chip--docs"
     }
+  },
+  {
+    slug: "input-field",
+    name: "Input Field",
+    summary: "A labelled text field with a trailing action (APPLY or icon), plus 4- and 6-digit OTP inputs.",
+    category: "Forms",
+    status: "ready",
+    storyId: "components-input-field--playground",
+    packageName: "@dopamine2.0/ui",
+    importExample: 'import { InputField } from "@dopamine2.0/ui";',
+    anatomy: ["Floating label", "Input box", "Trailing CTA (APPLY text or icon)", "Helper / error text", "OTP cells"],
+    variants: ["Field with CTA text", "Field with CTA logo", "4 digit OTP", "6 digit OTP"],
+    sizes: ["Single (328px wide)"],
+    states: ["Default", "Typing", "Error", "Success", "Disable"],
+    usage: {
+      do: ["Reserve the helper line for errors so layout does not shift.", "Turn the CTA coral only once the field is engaged."],
+      dont: ["Do not use for multi-line entry — use a textarea.", "Do not signal state with border colour alone."]
+    },
+    accessibility: ["Uses a real input with an associated label.", "Error state exposes aria-invalid and describes the helper text.", "OTP renders a labelled group of single-character inputs."],
+    contentGuidance: ["Keep labels in sentence case.", "Error messages state what to fix, not just “invalid”."],
+    api: [
+      { name: "type", type: "Field with CTA text | Field with CTA logo | 4 digit OTP | 6 digit OTP", defaultValue: "Field with CTA text", description: "Figma type variant." },
+      { name: "state", type: "default | typing | error | success | disable", defaultValue: "default", description: "Figma state variant." },
+      { name: "label", type: "string", defaultValue: "—", description: "Floating label." },
+      { name: "helperText", type: "ReactNode", defaultValue: "—", description: "Helper / error line." },
+      { name: "ctaLabel", type: "string", defaultValue: "APPLY", description: "Trailing text CTA." }
+    ],
+    links: { figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6586-1340", specification: "/specs/InputField.md", audit: "/audits/InputField.md", source: "/storybook/?path=/docs/components-input-field--docs" }
+  },
+  {
+    slug: "toggle",
+    name: "Toggle",
+    summary: "A binary on/off switch for an immediate, self-applying setting.",
+    category: "Forms",
+    status: "ready",
+    storyId: "components-toggle--playground",
+    packageName: "@dopamine2.0/ui",
+    importExample: 'import { Toggle } from "@dopamine2.0/ui";',
+    anatomy: ["Track (pill)", "Thumb", "Tick (when on)"],
+    variants: ["Default", "Selected", "Disabled", "Disabled+selected"],
+    sizes: ["Single (40 × 24px)"],
+    states: ["Default", "Selected", "Disabled", "Disabled selected"],
+    usage: {
+      do: ["Apply the change immediately on toggle.", "Pair with a label describing the setting."],
+      dont: ["Do not use where a Save/Cancel step is expected.", "Do not rely on colour alone — thumb position also encodes state."]
+    },
+    accessibility: ["Renders role=switch with aria-checked.", "Needs an accessible name via label.", "Disabled sets the native disabled attribute."],
+    contentGuidance: ["Label the setting, not the action (“Notifications”, not “Turn on”)."],
+    api: [
+      { name: "checked", type: "boolean", defaultValue: "false", description: "On/off state (controlled)." },
+      { name: "disabled", type: "boolean", defaultValue: "false", description: "Disables the switch." },
+      { name: "onCheckedChange", type: "(checked: boolean) => void", defaultValue: "—", description: "Change handler." },
+      { name: "state", type: "Default | selected | disabled | disabled+selected", defaultValue: "Default", description: "Gallery convenience; maps the 4 Figma states." }
+    ],
+    links: { figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6356-403", specification: "/specs/Toggle.md", audit: "/audits/Toggle.md", source: "/storybook/?path=/docs/components-toggle--docs" }
+  },
+  {
+    slug: "checkbox",
+    name: "Checkbox",
+    summary: "A square on/off control with a checkmark, for multi-select or single opt-ins. Normal and Small.",
+    category: "Forms",
+    status: "ready",
+    storyId: "components-checkbox--playground",
+    packageName: "@dopamine2.0/ui",
+    importExample: 'import { Checkbox } from "@dopamine2.0/ui";',
+    anatomy: ["Box (radius 6)", "Tick (when checked)"],
+    variants: ["Default", "Selected", "Disable", "Disabled selected"],
+    sizes: ["Normal (24px)", "Small (20px)"],
+    states: ["Default", "Selected", "Disable", "Disabled selected"],
+    usage: {
+      do: ["Use for independent multi-select; each box toggles on its own.", "Keep disabled+selected grey."],
+      dont: ["Do not use where exactly one option must be chosen — that is Radio."]
+    },
+    accessibility: ["Renders role=checkbox with aria-checked.", "Needs an accessible name.", "Space toggles the box."],
+    contentGuidance: ["Pair with a clear label describing the option."],
+    api: [
+      { name: "checked", type: "boolean", defaultValue: "false", description: "Checked state (controlled)." },
+      { name: "disabled", type: "boolean", defaultValue: "false", description: "Disables the box." },
+      { name: "size", type: "Normal | Small", defaultValue: "Normal", description: "Figma size variant." },
+      { name: "state", type: "Default | Selected | Disable | Disabled selected", defaultValue: "Default", description: "Gallery convenience." }
+    ],
+    links: { figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6586-1536", specification: "/specs/Checkbox.md", audit: "/audits/Checkbox.md", source: "/storybook/?path=/docs/components-checkbox--docs" }
+  },
+  {
+    slug: "radio",
+    name: "Radio",
+    summary: "A single-select control; selected shows a coral donut or a checkmark. Default and Small.",
+    category: "Forms",
+    status: "ready",
+    storyId: "components-radio--playground",
+    packageName: "@dopamine2.0/ui",
+    importExample: 'import { Radio } from "@dopamine2.0/ui";',
+    anatomy: ["Ring / filled disc", "Indicator (white hole dot, or checkmark)"],
+    variants: ["Default", "Selected", "Disable", "Disable+select", "Select with icon", "Disable+select with icon"],
+    sizes: ["Default (24px)", "Small (20px)"],
+    states: ["Default", "Selected", "Disable", "Disable+select", "Select with icon", "Disable+select with icon"],
+    usage: {
+      do: ["Use inside a group where exactly one option is selectable.", "Keep disabled-selected grey."],
+      dont: ["Do not use a single radio for a yes/no — use Checkbox or Toggle.", "Do not mix dot and check indicators in one group."]
+    },
+    accessibility: ["Renders role=radio; single-select lives in the consuming radiogroup.", "Arrow keys move selection within the group."],
+    contentGuidance: ["Keep option labels parallel in phrasing."],
+    api: [
+      { name: "checked", type: "boolean", defaultValue: "false", description: "Selected state (controlled)." },
+      { name: "disabled", type: "boolean", defaultValue: "false", description: "Disables the radio." },
+      { name: "indicator", type: "dot | check", defaultValue: "dot", description: "Selected indicator style." },
+      { name: "size", type: "Default | Small", defaultValue: "Default", description: "Figma size variant." }
+    ],
+    links: { figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6586-1573", specification: "/specs/Radio.md", audit: "/audits/Radio.md", source: "/storybook/?path=/docs/components-radio--docs" }
+  },
+  {
+    slug: "search-bar",
+    name: "Search Bar",
+    summary: "A pill search field whose contents change by state, with an optional entry button.",
+    category: "Navigation",
+    status: "ready",
+    storyId: "components-search-bar--playground",
+    packageName: "@dopamine2.0/ui",
+    importExample: 'import { SearchBar } from "@dopamine2.0/ui";',
+    anatomy: ["Bar (pill)", "Leading back button (engaged states)", "Input / rotating hint", "Trailing search / mic / clear", "Optional entry button"],
+    variants: ["Bar Only", "Bar with entry"],
+    sizes: ["Single (328 × 52px)"],
+    states: ["Default", "selected", "typing"],
+    usage: {
+      do: ["Show the back arrow only once the bar is engaged.", "Swap the trailing control by state: search → mic → clear."],
+      dont: ["Do not show mic and clear at once."]
+    },
+    accessibility: ["Wrap in role=search with a labelled input.", "Every icon button needs an aria-label."],
+    contentGuidance: ["Use short, example-led placeholder hints."],
+    api: [
+      { name: "state", type: "Default | selected | typing", defaultValue: "Default", description: "Figma state variant." },
+      { name: "type", type: "Bar Only | Bar with entry", defaultValue: "Bar Only", description: "Adds a trailing entry button." },
+      { name: "placeholder", type: "string", defaultValue: "—", description: "Resting placeholder." }
+    ],
+    links: { figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6425-2956", specification: "/specs/SearchBar.md", audit: "/audits/SearchBar.md", source: "/storybook/?path=/docs/components-search-bar--docs" }
+  },
+  {
+    slug: "action-bar",
+    name: "Action Bar",
+    summary: "A sticky bottom bar that composes Button(s) with an optional billing summary.",
+    category: "Actions",
+    status: "ready",
+    storyId: "components-action-bar--playground",
+    packageName: "@dopamine2.0/ui",
+    importExample: 'import { ActionBar } from "@dopamine2.0/ui";',
+    anatomy: ["Container", "Optional billing summary", "Button(s)"],
+    variants: ["CTA with Billing (Pharma)", "CTA with Billing (Diagno)", "One Button", "2 Buttons", "2 Buttons Vertical"],
+    sizes: ["Single (360px wide)"],
+    states: ["Layout presets (not interaction states)"],
+    usage: {
+      do: ["Keep the primary (Fill) action visually dominant; secondary is Outline.", "Stack vertically when both labels are long."],
+      dont: ["Do not place more than two buttons.", "Do not recolour the composed buttons."]
+    },
+    accessibility: ["Render as a labelled region or footer.", "Primary action last (right / bottom) matching Figma."],
+    contentGuidance: ["One primary action per bar; keep button labels to 1–2 words."],
+    api: [
+      { name: "billing", type: "ReactNode", defaultValue: "—", description: "Optional left summary block." },
+      { name: "orientation", type: "horizontal | vertical", defaultValue: "horizontal", description: "Stack buttons vertically." },
+      { name: "children", type: "ReactNode", defaultValue: "—", description: "The Button(s)." }
+    ],
+    links: { figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6383-870", specification: "/specs/ActionBar.md", audit: "/audits/ActionBar.md", source: "/storybook/?path=/docs/components-action-bar--docs" }
+  },
+  {
+    slug: "event-banner",
+    name: "Event Banner",
+    summary: "A promotional card with a hero image, an optional item strip, and an optional message with dots.",
+    category: "Display",
+    status: "ready",
+    storyId: "components-event-banner--playground",
+    packageName: "@dopamine2.0/ui",
+    importExample: 'import { EventBanner } from "@dopamine2.0/ui";',
+    anatomy: ["Hero image area", "Dark overlay panel", "Item thumbnails", "Message row (icon + text + chevron)", "Pagination dots"],
+    variants: ["items: none / 1 / 2 / 3 / 4 / >4", "bottom message: none / 1 / 2"],
+    sizes: ["328px wide; 248 / 211 / 281px tall"],
+    states: ["Content configurations (not interaction states)"],
+    usage: {
+      do: ["Use the dots when the banner is one of a swipeable set.", "Keep the message to a single line."],
+      dont: ["Do not stuff more than 5 thumbnails — use “>4”."]
+    },
+    accessibility: ["Expose the action via the chevron button.", "Real images must carry meaningful alt text."],
+    contentGuidance: ["Title is the hook; the regular text is a short qualifier."],
+    api: [
+      { name: "items", type: "none | 1 | 2 | 3 | 4 | >4", defaultValue: "none", description: "Thumbnail count." },
+      { name: "bottomMessage", type: "none | 1 | 2", defaultValue: "2", description: "Message row + pagination dots." },
+      { name: "title", type: "string", defaultValue: "—", description: "Bold message title." }
+    ],
+    links: { figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6453-598", specification: "/specs/EventBanner.md", audit: "/audits/EventBanner.md", source: "/storybook/?path=/docs/components-event-banner--docs" }
+  },
+  {
+    slug: "navigation",
+    name: "Navigation",
+    summary: "A composite top header: location pill, profile/cart, a category tab strip, and a search row.",
+    category: "Navigation",
+    status: "ready",
+    storyId: "components-navigation--playground",
+    packageName: "@dopamine2.0/ui",
+    importExample: 'import { Navigation } from "@dopamine2.0/ui";',
+    anatomy: ["Location pill", "Profile", "Cart with badge", "Category tab strip", "Search row + context CTA"],
+    variants: ["labs", "pharmacy", "for you-no scroll", "CP-profile icon", "for you-scroll"],
+    sizes: ["361px wide"],
+    states: ["Per type: active tab, profile variant, trailing CTA"],
+    usage: {
+      do: ["Match the trailing CTA to the active surface.", "Keep exactly one active tab."],
+      dont: ["Do not show more than one primary trailing CTA.", "Do not recolour the CP avatar."]
+    },
+    accessibility: ["Tab strip is a tablist with roving arrow-key navigation.", "Location, profile, cart, search and CTA are all labelled buttons."],
+    contentGuidance: ["Keep the location detail short; tab labels are single words."],
+    api: [
+      { name: "type", type: "labs | pharmacy | for you-no scroll | CP-profile icon | for you-scroll", defaultValue: "for you-no scroll", description: "Sets active tab + profile + trailing CTA." },
+      { name: "cartCount", type: "number", defaultValue: "3", description: "Cart badge count." }
+    ],
+    links: { figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6466-4967", specification: "/specs/Navigation.md", audit: "/audits/Navigation.md", source: "/storybook/?path=/docs/components-navigation--docs" }
+  },
+  {
+    slug: "sticky",
+    name: "Sticky",
+    summary: "Sticky bottom bars: Redirection (status), Rating, Standard, and a floating Video pill.",
+    category: "Feedback",
+    status: "ready",
+    storyId: "components-sticky--playground",
+    packageName: "@dopamine2.0/ui",
+    importExample: 'import { Sticky } from "@dopamine2.0/ui";',
+    anatomy: ["Rounded-top container", "Leading media", "Title + subtitle", "Trailing chevron / Track / close", "Extras: stars, button, dots, +N more"],
+    variants: ["Redirection", "Rating", "Standard", "Video"],
+    sizes: ["360px wide (Video 160 × 320px)"],
+    states: ["Redirection: Default / Error / Delivery / 2 deliveries / Multiple Delivery"],
+    usage: {
+      do: ["Use Redirection for actionable status; Rating/Standard for a single dismissible prompt.", "Show “+N more” / dots only when deliveries stack."],
+      dont: ["Do not stack multiple sticky bars.", "Do not omit the dismiss on promo bars."]
+    },
+    accessibility: ["Close/Track/Rate are labelled buttons; the star row is a radiogroup.", "Check text-on-colour contrast for Rating/Standard."],
+    contentGuidance: ["Title ≤ ~34 chars; subtitle ellipsises."],
+    api: [
+      { name: "type", type: "Redirection | Rating | Standard | Video", defaultValue: "Redirection", description: "Figma type." },
+      { name: "state", type: "Default | Error | Delivery | 2 deliveries | Multiple Delivery | …", defaultValue: "Default", description: "Redirection state." }
+    ],
+    links: { figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6525-593", specification: "/specs/Sticky.md", audit: "/audits/Sticky.md", source: "/storybook/?path=/docs/components-sticky--docs" }
+  },
+  {
+    slug: "horizontal-tabs",
+    name: "Horizontal Tabs",
+    summary: "Horizontal tabs: underline (text or image chips) and highlighted segmented pills.",
+    category: "Navigation",
+    status: "ready",
+    storyId: "components-horizontal-tabs--playground",
+    packageName: "@dopamine2.0/ui",
+    importExample: 'import { HorizontalTabs } from "@dopamine2.0/ui";',
+    anatomy: ["Tab row / segment container", "Optional 64px image chip", "Label", "Underline or highlighted pill"],
+    variants: ["underline (text / with images)", "highlighted (2 tabs, optional icon + subtext)"],
+    sizes: ["Underline: 80px tabs · Highlighted: 328px"],
+    states: ["Active per index"],
+    usage: {
+      do: ["Use underline tabs for content sections; highlighted for a compact toggle.", "Keep exactly one active tab."],
+      dont: ["Do not use highlighted for more than a few short segments."]
+    },
+    accessibility: ["Renders a tablist of tabs with aria-selected.", "Add arrow-key roving tabindex and a tabpanel in the consumer."],
+    contentGuidance: ["Keep tab labels short."],
+    api: [
+      { name: "type", type: "underline | highlighted", defaultValue: "underline", description: "Tab style." },
+      { name: "items", type: "HorizontalTabItem[]", defaultValue: "—", description: "Tabs (label, subtext?, icon?)." },
+      { name: "activeIndex", type: "number", defaultValue: "0", description: "Selected tab (controlled)." },
+      { name: "withImages", type: "boolean", defaultValue: "false", description: "Underline: show 64px image chips." }
+    ],
+    links: { figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6428-2280", specification: "/specs/HorizontalTabs.md", audit: "/audits/HorizontalTabs.md", source: "/storybook/?path=/docs/components-horizontal-tabs--docs" }
+  },
+  {
+    slug: "vertical-tabs",
+    name: "Vertical Tabs",
+    summary: "An 88px vertical category rail; the selected item gets a dark chip, bold label and a right indicator bar.",
+    category: "Navigation",
+    status: "ready",
+    storyId: "components-vertical-tabs--playground",
+    packageName: "@dopamine2.0/ui",
+    importExample: 'import { VerticalTabs } from "@dopamine2.0/ui";',
+    anatomy: ["88px rail", "Per item: image chip + label", "Selected: white bg + dark chip + right bar"],
+    variants: ["Selected item (any index)"],
+    sizes: ["88px wide"],
+    states: ["Active per index"],
+    usage: {
+      do: ["Use for a category rail beside a content panel.", "Keep exactly one active item."],
+      dont: ["Do not use for a long flat list — it is a category switcher."]
+    },
+    accessibility: ["Renders a vertical tablist; add arrow-key navigation and panel association in the consumer."],
+    contentGuidance: ["Labels are short category names (wrap to 2 lines)."],
+    api: [
+      { name: "items", type: "VerticalTabItem[]", defaultValue: "—", description: "Items (label, icon?)." },
+      { name: "activeIndex", type: "number", defaultValue: "0", description: "Selected item (controlled)." },
+      { name: "onChange", type: "(index: number) => void", defaultValue: "—", description: "Change handler." }
+    ],
+    links: { figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6429-2319", specification: "/specs/VerticalTabs.md", audit: "/audits/VerticalTabs.md", source: "/storybook/?path=/docs/components-vertical-tabs--docs" }
+  },
+  {
+    slug: "swipe-indicator",
+    name: "Swipe Indicator",
+    summary: "A thin progress / pagination bar: line-filling or staggered, in Normal and Small.",
+    category: "Navigation",
+    status: "ready",
+    storyId: "components-swipe-indicator--playground",
+    packageName: "@dopamine2.0/ui",
+    importExample: 'import { SwipeIndicator } from "@dopamine2.0/ui";',
+    anatomy: ["Track (2px)", "Fill segment"],
+    variants: ["Line Filling", "Staggered"],
+    sizes: ["Normal (216px)", "Small (48px)"],
+    states: ["current step (1-based)"],
+    usage: {
+      do: ["Use line-filling for progress; staggered for carousel position."],
+      dont: ["Do not use for more steps than comfortably fit the width."]
+    },
+    accessibility: ["Renders role=progressbar with aria-valuemin/max/now."],
+    contentGuidance: ["—"],
+    api: [
+      { name: "type", type: "line-filling | staggered", defaultValue: "line-filling", description: "Fill behaviour." },
+      { name: "size", type: "Normal | Small", defaultValue: "Normal", description: "216px or 48px." },
+      { name: "total", type: "number", defaultValue: "4", description: "Total steps." },
+      { name: "current", type: "number", defaultValue: "1", description: "Current step (1-based)." }
+    ],
+    links: { figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6401-1174", specification: "/specs/SwipeIndicator.md", audit: "/audits/SwipeIndicator.md", source: "/storybook/?path=/docs/components-swipe-indicator--docs" }
+  },
+  {
+    slug: "snackbar",
+    name: "Snackbar",
+    summary: "A single-line transient message bar: White, Warning, Success, Error, Default, and Default + Action.",
+    category: "Feedback",
+    status: "ready",
+    storyId: "components-snackbar--playground",
+    packageName: "@dopamine2.0/ui",
+    importExample: 'import { Snackbar } from "@dopamine2.0/ui";',
+    anatomy: ["Container (rounded, coloured by type)", "Leading help icon", "Message", "Trailing close or action"],
+    variants: ["White", "Warning", "Success", "Error", "Default", "Default + Action"],
+    sizes: ["328px wide"],
+    states: ["Per type surface; close or action trailing"],
+    usage: {
+      do: ["Use the type that matches the message intent.", "Use Default + Action for an undoable action."],
+      dont: ["Do not omit the dismiss on promo/info snackbars.", "Do not stack multiple snackbars."]
+    },
+    accessibility: ["Renders role=status (polite live region); close is a labelled button.", "Auto-dismiss timing is the consumer's responsibility."],
+    contentGuidance: ["Keep the message to a single short line."],
+    api: [
+      { name: "type", type: "White | Warning | Success | Error | Default", defaultValue: "Default", description: "Surface / intent." },
+      { name: "message", type: "ReactNode", defaultValue: "—", description: "The message." },
+      { name: "action", type: "string", defaultValue: "—", description: "Trailing action label (replaces close)." },
+      { name: "dismissible", type: "boolean", defaultValue: "true", description: "Show the close (×)." }
+    ],
+    links: { figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6405-1125", specification: "/specs/Snackbar.md", audit: "/audits/Snackbar.md", source: "/storybook/?path=/docs/components-snackbar--docs" }
   }
 ];
 
 export const readyComponents = componentManifests.filter(({ status }) => status === "ready");
 
-// Components mapped from Figma and available in Storybook (specs/ + cache/) but not
-// yet promoted to a full manifest entry. Counted in library totals below.
-export const draftComponents = [
-  "Input Field",
-  "Toggle",
-  "Checkbox",
-  "Radio",
-  "Search Bar",
-  "Action Bar",
-  "Event Banner",
-  "Navigation",
-  "Sticky",
-  "Horizontal Tabs",
-  "Vertical Tabs",
-  "Swipe Indicator",
-  "Snackbar"
-] as const;
-
-// Every component in the library: fully-manifested + mapped-in-Storybook.
-export const trackedComponentCount = componentManifests.length + draftComponents.length;
+// Every component tracked in the library (all are fully manifested).
+export const trackedComponentCount = componentManifests.length;
 
 export function getComponent(slug: string) {
   return componentManifests.find((component) => component.slug === slug);
