@@ -719,17 +719,17 @@
 .ds-sticky__row { align-items: center; display: flex; gap: var(--space-12); }
 .ds-sticky__copy { display: flex; flex: 1 1 auto; flex-direction: column; gap: 2px; min-width: 0; }
 .ds-sticky__copy strong { align-items: center; display: flex; font-size: 14px; font-weight: var(--font-weight-bold); gap: var(--space-4); line-height: 20px; }
-.ds-sticky__copy span { font-size: 12px; line-height: 16px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ds-sticky__copy > span { font-size: 12px; line-height: 16px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 /* Redirection (white bar with upward shadow) */
 .ds-sticky--redirection { background: var(--semantic-color-background-primary); box-shadow: var(--shadow-level-2-inverse-y); }
 .ds-sticky--redirection .ds-sticky__copy strong { color: var(--semantic-color-content-primary); }
-.ds-sticky--redirection .ds-sticky__copy span { color: var(--base-color-cool-neutral-40); }   /* Figma default/error subtitle #4e5665 */
+.ds-sticky--redirection .ds-sticky__copy > span { color: var(--base-color-cool-neutral-40); }   /* Figma default/error subtitle #4e5665 */
 .ds-sticky--redirection .ds-sticky__copy strong.ds-sticky__title--success { color: var(--semantic-color-states-success); }
 .ds-sticky--redirection .ds-sticky__copy strong.ds-sticky__title--error { color: var(--semantic-color-states-error); }
 .ds-sticky--redirection .ds-sticky__title--success ~ span,
-.ds-sticky__lead--delivery ~ .ds-sticky__copy span { color: var(--base-color-cool-neutral-60); font-weight: var(--font-weight-medium); }  /* Figma Text/Tertiary #868e9e, Medium */
-.ds-sticky__bolt { color: var(--semantic-color-branding-1mg); display: inline-flex; }
+.ds-sticky__lead--delivery ~ .ds-sticky__copy > span { color: var(--base-color-cool-neutral-60); font-weight: var(--font-weight-medium); }  /* Figma Text/Tertiary #868e9e, Medium */
+.ds-sticky__bolt { color: var(--semantic-color-branding-rapid); display: inline-flex; }  /* Figma Rapid/quick-commerce purple #9d59a8 */
 .ds-sticky__lead { align-items: center; border-radius: var(--radius-8); display: inline-flex; flex: 0 0 40px; height: 40px; justify-content: center; width: 40px; }
 .ds-sticky__lead--rx { background: var(--base-color-comfort-pink-90, #f9cfe3); color: var(--semantic-color-content-secondary); }
 .ds-sticky__lead--delivery { background: var(--base-color-sunrise-glow-95); color: var(--base-color-sunrise-glow-50); }  /* Figma tile #fdd7c8 */
@@ -745,8 +745,8 @@
 .ds-sticky--standard { background: var(--base-color-comfort-pink-30); color: var(--semantic-color-content-inverse-primary); }
 .ds-sticky--rating .ds-sticky__copy strong,
 .ds-sticky--standard .ds-sticky__copy strong { color: var(--semantic-color-content-inverse-primary); font-weight: 800; }
-.ds-sticky--rating .ds-sticky__copy span,
-.ds-sticky--standard .ds-sticky__copy span { color: var(--semantic-color-content-inverse-primary); white-space: normal; }
+.ds-sticky--rating .ds-sticky__copy > span,
+.ds-sticky--standard .ds-sticky__copy > span { color: var(--semantic-color-content-inverse-primary); white-space: normal; }
 .ds-sticky__thumb { align-items: center; background: var(--semantic-color-background-primary); border-radius: var(--radius-8); color: var(--semantic-color-content-tertiary); display: inline-flex; flex: 0 0 48px; height: 48px; justify-content: center; overflow: hidden; width: 48px; }
 .ds-sticky__thumb--blank { color: transparent; }
 .ds-sticky__close { align-items: center; appearance: none; background: var(--base-color-white-alpha-60); border: none; border-radius: 999px; color: var(--semantic-color-content-secondary); cursor: pointer; display: inline-flex; flex: 0 0 28px; height: 28px; justify-content: center; padding: 0; width: 28px; }
