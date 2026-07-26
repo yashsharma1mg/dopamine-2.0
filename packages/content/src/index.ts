@@ -268,7 +268,11 @@ export const draftComponents = [
   "Action Bar",
   "Event Banner",
   "Navigation",
-  "Sticky"
+  "Sticky",
+  "Horizontal Tabs",
+  "Vertical Tabs",
+  "Swipe Indicator",
+  "Snackbar"
 ] as const;
 
 // Every component in the library: fully-manifested + mapped-in-Storybook.
