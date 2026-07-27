@@ -1,4 +1,4 @@
-import { type ButtonHTMLAttributes } from "react";
+import { useState, type ButtonHTMLAttributes, type MouseEventHandler } from "react";
 
 export type RadioSize = "Default" | "Small";
 export type RadioState =
@@ -34,11 +34,20 @@ export function Radio({
   state,
   label = "Option",
   className = "",
+  onClick,
   ...props
 }: RadioProps) {
-  const checked = state ? /select/i.test(state) : !!checkedProp;
+  const uncontrolled = checkedProp === undefined && state === undefined;
+  const [internal, setInternal] = useState(false);
+  const checked = state ? /select/i.test(state) : checkedProp ?? internal;
   const disabled = state ? /disable/i.test(state) : !!disabledProp;
   const ind = state ? (/icon/i.test(state) ? "check" : "dot") : indicator;
+
+  // Radios select on click; unselecting is the parent radiogroup's job.
+  const handleClick: MouseEventHandler<HTMLButtonElement> = (event) => {
+    if (uncontrolled) setInternal(true);
+    onClick?.(event);
+  };
 
   return (
     <button
@@ -52,6 +61,7 @@ export function Radio({
       data-disabled={disabled || undefined}
       data-indicator={ind}
       disabled={disabled}
+      onClick={handleClick}
       {...props}
     >
       {checked ? (ind === "check" ? check : <span className="ds-radio__hole" />) : null}

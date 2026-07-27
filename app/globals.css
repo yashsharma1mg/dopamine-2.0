@@ -623,6 +623,8 @@ main {
   width: 100%;
 }
 
+.story-frame--gallery { height: 560px; }
+
 .docs-layout {
   display: grid;
   gap: 72px;

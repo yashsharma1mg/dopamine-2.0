@@ -1,4 +1,4 @@
-import { type ButtonHTMLAttributes } from "react";
+import { useState, type ButtonHTMLAttributes, type MouseEventHandler } from "react";
 
 export type ToggleState = "Default" | "selected" | "disabled" | "disabled+selected";
 
@@ -25,10 +25,19 @@ export function Toggle({
   state,
   label = "Toggle",
   className = "",
+  onClick,
   ...props
 }: ToggleProps) {
-  const checked = state ? state === "selected" || state === "disabled+selected" : !!checkedProp;
+  const uncontrolled = checkedProp === undefined && state === undefined;
+  const [internal, setInternal] = useState(false);
+  const checked = state ? state === "selected" || state === "disabled+selected" : checkedProp ?? internal;
   const disabled = state ? state === "disabled" || state === "disabled+selected" : !!disabledProp;
+
+  const handleClick: MouseEventHandler<HTMLButtonElement> = (event) => {
+    if (uncontrolled) setInternal(!checked);
+    onCheckedChange?.(!checked);
+    onClick?.(event);
+  };
 
   return (
     <button
@@ -40,7 +49,7 @@ export function Toggle({
       data-checked={checked || undefined}
       data-disabled={disabled || undefined}
       disabled={disabled}
-      onClick={() => onCheckedChange?.(!checked)}
+      onClick={handleClick}
       {...props}
     >
       <span className="ds-toggle__thumb">{checked ? tick : null}</span>

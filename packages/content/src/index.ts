@@ -7,6 +7,8 @@ export type ComponentManifest = {
   category: string;
   status: ComponentStatus;
   storyId: string;
+  /** Storybook story showing every variant. Defaults to `components-<slug>--figma-variants`. */
+  galleryStoryId?: string;
   packageName: string;
   importExample: string;
   anatomy: string[];
@@ -260,6 +262,7 @@ export const componentManifests: ComponentManifest[] = [
     category: "Forms",
     status: "ready",
     storyId: "components-input-field--playground",
+    galleryStoryId: "components-input-field--all-variants",
     packageName: "@dopamine2.0/ui",
     importExample: 'import { InputField } from "@dopamine2.0/ui";',
     anatomy: ["Floating label", "Input box", "Trailing CTA (APPLY text or icon)", "Helper / error text", "OTP cells"],

@@ -17,6 +17,8 @@ export default async function ComponentDetailPage({ params }: { params: Promise<
   const component = getComponent(slug);
   if (!component || component.status !== "ready") notFound();
 
+  const galleryStoryId = component.galleryStoryId ?? `components-${component.slug}--figma-variants`;
+
   return (
     <main className="page">
       <header className="component-hero">
@@ -37,6 +39,18 @@ export default async function ComponentDetailPage({ params }: { params: Promise<
           className="story-frame"
           src={`/storybook/iframe.html?id=${component.storyId}&viewMode=story&shortcuts=false&singleStory=true`}
           title={`${component.name} interactive Storybook playground`}
+        />
+      </section>
+
+      <section className="story-frame-shell" aria-labelledby="variants-title">
+        <div className="story-frame-toolbar">
+          <strong id="variants-title">All variants</strong>
+          <Link href={`/storybook/?path=/story/${galleryStoryId}`} target="_blank">Open in Storybook ↗</Link>
+        </div>
+        <iframe
+          className="story-frame story-frame--gallery"
+          src={`/storybook/iframe.html?id=${galleryStoryId}&viewMode=story&shortcuts=false&singleStory=true`}
+          title={`${component.name} — all Figma variants`}
         />
       </section>
 

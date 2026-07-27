@@ -1,4 +1,4 @@
-import { type ButtonHTMLAttributes } from "react";
+import { useState, type ButtonHTMLAttributes, type MouseEventHandler } from "react";
 
 export type CheckboxSize = "Normal" | "Small";
 export type CheckboxState = "Default" | "Selected" | "Disable" | "Disabled selected";
@@ -28,10 +28,19 @@ export function Checkbox({
   state,
   label = "Checkbox",
   className = "",
+  onClick,
   ...props
 }: CheckboxProps) {
-  const checked = state ? state === "Selected" || state === "Disabled selected" : !!checkedProp;
+  const uncontrolled = checkedProp === undefined && state === undefined;
+  const [internal, setInternal] = useState(false);
+  const checked = state ? state === "Selected" || state === "Disabled selected" : checkedProp ?? internal;
   const disabled = state ? state === "Disable" || state === "Disabled selected" : !!disabledProp;
+
+  const handleClick: MouseEventHandler<HTMLButtonElement> = (event) => {
+    if (uncontrolled) setInternal(!checked);
+    onCheckedChange?.(!checked);
+    onClick?.(event);
+  };
 
   return (
     <button
@@ -44,7 +53,7 @@ export function Checkbox({
       data-checked={checked || undefined}
       data-disabled={disabled || undefined}
       disabled={disabled}
-      onClick={() => onCheckedChange?.(!checked)}
+      onClick={handleClick}
       {...props}
     >
       {checked ? tick : null}

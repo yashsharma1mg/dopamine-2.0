@@ -287,7 +287,9 @@
   font-weight: var(--font-weight-bold);
   line-height: var(--font-line-height-20);
   padding: 0;
+  transition: opacity 120ms ease, transform 120ms ease;
 }
+.ds-input__cta:active:not(:disabled) { opacity: 0.55; transform: scale(0.94); }
 .ds-input__helper {
   color: var(--semantic-color-content-tertiary);
   font-size: var(--font-size-tag-11);
@@ -806,7 +808,7 @@
 
 /* Snackbar */
 .ds-snackbar {
-  align-items: flex-start;
+  align-items: center;
   border-radius: var(--radius-8);
   box-shadow: var(--shadow-level-2);
   color: var(--semantic-color-content-inverse-primary);

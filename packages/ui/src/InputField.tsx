@@ -1,4 +1,4 @@
-import { type HTMLAttributes, type ReactNode } from "react";
+import { useRef, type HTMLAttributes, type ReactNode } from "react";
 
 export type InputFieldType = "Field with CTA text" | "Field with CTA logo" | "4 digit OTP" | "6 digit OTP";
 export type InputFieldState = "default" | "typing" | "error" | "success" | "disable";
@@ -40,6 +40,17 @@ export function InputField({
   ...props
 }: InputFieldProps) {
   const disabled = state === "disable";
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  // The logo CTA is a clear button — it always empties the field — then any caller
+  // handler runs. The text (APPLY) CTA just fires the caller handler.
+  const handleCta = () => {
+    if (type === "Field with CTA logo" && inputRef.current) {
+      inputRef.current.value = "";
+      inputRef.current.focus();
+    }
+    onCtaClick?.();
+  };
 
   if (isOtpType(type)) {
     const cells = type === "6 digit OTP" ? 6 : 4;
@@ -73,6 +84,7 @@ export function InputField({
       <span className="ds-input__label">{label}</span>
       <div className="ds-input__box">
         <input
+          ref={inputRef}
           className="ds-input__value"
           defaultValue={value}
           placeholder={placeholder}
@@ -81,7 +93,7 @@ export function InputField({
         <button
           type="button"
           className="ds-input__cta"
-          onClick={onCtaClick}
+          onClick={handleCta}
           disabled={disabled}
           aria-label={isLogo ? "Clear" : undefined}
         >
