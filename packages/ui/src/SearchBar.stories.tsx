@@ -5,7 +5,8 @@ const states: SearchState[] = ["Default", "selected", "typing"];
 const types: SearchType[] = ["Bar Only", "Bar with entry"];
 
 const meta = {
-  title: "Components/Search Bar",
+  id: "components-search-bar",
+  title: "Components/SearchBar",
   component: SearchBar,
   tags: ["autodocs", "test"],
   args: { state: "Default", type: "Bar Only" },

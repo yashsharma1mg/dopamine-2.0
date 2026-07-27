@@ -4,7 +4,8 @@ import { InputField, type InputFieldState, type InputFieldType } from "./InputFi
 const states: InputFieldState[] = ["default", "typing", "error", "success", "disable"];
 
 const meta = {
-  title: "Components/Input Field",
+  id: "components-input-field",
+  title: "Components/InputField",
   component: InputField,
   tags: ["autodocs", "test"],
   args: {

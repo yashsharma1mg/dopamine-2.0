@@ -5,7 +5,8 @@ const itemsOptions: EventBannerItems[] = ["none", "1", "2", "3", "4", ">4"];
 const bottomOptions: EventBannerBottomMessage[] = ["2", "1", "none"];
 
 const meta = {
-  title: "Components/Event Banner",
+  id: "components-event-banner",
+  title: "Components/EventBanner",
   component: EventBanner,
   tags: ["autodocs", "test"],
   args: { items: "none", bottomMessage: "2", title: "Lorem ispum.", text: "Lorem ipsum." },

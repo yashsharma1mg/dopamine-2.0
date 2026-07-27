@@ -165,7 +165,7 @@ export const componentManifests: ComponentManifest[] = [
   },
   {
     slug: "page-header",
-    name: "Page Header",
+    name: "PageHeader",
     summary: "A 360px mobile header for location, navigation, and Family Hub contexts.",
     category: "Navigation",
     status: "ready",
@@ -197,7 +197,7 @@ export const componentManifests: ComponentManifest[] = [
   },
   {
     slug: "floating-action-button",
-    name: "Floating Action Button",
+    name: "FloatingActionButton",
     summary: "A compact action control for add and added states.",
     category: "Actions",
     status: "ready",
@@ -224,7 +224,7 @@ export const componentManifests: ComponentManifest[] = [
   },
   {
     slug: "suggestion-chip",
-    name: "Suggestion Chip",
+    name: "SuggestionChip",
     summary: "A compact choice, filter, or timestamp control with a clear selected and disabled state.",
     category: "Selection",
     status: "ready",
@@ -257,7 +257,7 @@ export const componentManifests: ComponentManifest[] = [
   },
   {
     slug: "input-field",
-    name: "Input Field",
+    name: "InputField",
     summary: "A labelled text field with a trailing action (APPLY or icon), plus 4- and 6-digit OTP inputs.",
     category: "Forms",
     status: "ready",
@@ -367,7 +367,7 @@ export const componentManifests: ComponentManifest[] = [
   },
   {
     slug: "search-bar",
-    name: "Search Bar",
+    name: "SearchBar",
     summary: "A pill search field whose contents change by state, with an optional entry button.",
     category: "Navigation",
     status: "ready",
@@ -393,7 +393,7 @@ export const componentManifests: ComponentManifest[] = [
   },
   {
     slug: "action-bar",
-    name: "Action Bar",
+    name: "ActionBar",
     summary: "A sticky bottom bar that composes Button(s) with an optional billing summary.",
     category: "Actions",
     status: "ready",
@@ -419,7 +419,7 @@ export const componentManifests: ComponentManifest[] = [
   },
   {
     slug: "event-banner",
-    name: "Event Banner",
+    name: "EventBanner",
     summary: "A promotional card with a hero image, an optional item strip, and an optional message with dots.",
     category: "Display",
     status: "ready",
@@ -495,7 +495,7 @@ export const componentManifests: ComponentManifest[] = [
   },
   {
     slug: "horizontal-tabs",
-    name: "Horizontal Tabs",
+    name: "HorizontalTabs",
     summary: "Horizontal tabs: underline (text or image chips) and highlighted segmented pills.",
     category: "Navigation",
     status: "ready",
@@ -522,7 +522,7 @@ export const componentManifests: ComponentManifest[] = [
   },
   {
     slug: "vertical-tabs",
-    name: "Vertical Tabs",
+    name: "VerticalTabs",
     summary: "An 88px vertical category rail; the selected item gets a dark chip, bold label and a right indicator bar.",
     category: "Navigation",
     status: "ready",
@@ -548,7 +548,7 @@ export const componentManifests: ComponentManifest[] = [
   },
   {
     slug: "swipe-indicator",
-    name: "Swipe Indicator",
+    name: "SwipeIndicator",
     summary: "A thin progress / pagination bar: line-filling or staggered, in Normal and Small.",
     category: "Navigation",
     status: "ready",

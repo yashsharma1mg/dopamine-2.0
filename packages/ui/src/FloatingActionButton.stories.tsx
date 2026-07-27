@@ -6,7 +6,8 @@ import { Icon } from "./Icon";
 const icon = (name: string) => <Icon size={16} src={`/assets/dopamine/${name}.svg`} />;
 
 const meta = {
-  title: "Components/Floating Action Button",
+  id: "components-floating-action-button",
+  title: "Components/FloatingActionButton",
   component: FloatingActionButton,
   tags: ["autodocs", "test"],
   args: { icon: icon("fab-add"), onClick: fn(), state: "Default", type: "Add" },

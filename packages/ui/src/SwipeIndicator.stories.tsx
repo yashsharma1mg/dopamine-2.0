@@ -2,7 +2,8 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { SwipeIndicator, type SwipeIndicatorSize, type SwipeIndicatorType } from "./SwipeIndicator";
 
 const meta = {
-  title: "Components/Swipe Indicator",
+  id: "components-swipe-indicator",
+  title: "Components/SwipeIndicator",
   component: SwipeIndicator,
   tags: ["autodocs", "test"],
   args: { type: "line-filling", size: "Normal", total: 4, current: 1 },

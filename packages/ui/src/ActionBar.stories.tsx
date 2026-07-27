@@ -25,7 +25,8 @@ const diagnoBilling = (
 );
 
 const meta = {
-  title: "Components/Action Bar",
+  id: "components-action-bar",
+  title: "Components/ActionBar",
   component: ActionBar,
   tags: ["autodocs", "test"],
   args: { orientation: "horizontal" },

@@ -4,7 +4,8 @@ import { expect, fn } from "storybook/test";
 import { SuggestionChip } from "./SuggestionChip";
 
 const meta = {
-  title: "Components/Suggestion Chip",
+  id: "components-suggestion-chip",
+  title: "Components/SuggestionChip",
   component: SuggestionChip,
   tags: ["autodocs", "test"],
   args: { children: "Text here", counter: 1, onClick: fn(), showLeadingIcon: true, showTrailingCounter: true, size: "Default", state: "Primary" },

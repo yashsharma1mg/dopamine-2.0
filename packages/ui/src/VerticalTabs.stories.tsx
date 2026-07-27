@@ -10,7 +10,8 @@ const items = [
 ];
 
 const meta = {
-  title: "Components/Vertical Tabs",
+  id: "components-vertical-tabs",
+  title: "Components/VerticalTabs",
   component: VerticalTabs,
   tags: ["autodocs", "test"],
   args: { items, activeIndex: 0 },

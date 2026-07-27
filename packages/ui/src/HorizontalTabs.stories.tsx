@@ -5,7 +5,8 @@ import { HorizontalTabs } from "./HorizontalTabs";
 const items = [{ label: "For you" }, { label: "Pharmacy" }, { label: "Labs" }, { label: "Consults" }];
 
 const meta = {
-  title: "Components/Horizontal Tabs",
+  id: "components-horizontal-tabs",
+  title: "Components/HorizontalTabs",
   component: HorizontalTabs,
   tags: ["autodocs", "test"],
   args: { type: "underline", items, activeIndex: 0, withImages: false },
