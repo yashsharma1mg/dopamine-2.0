@@ -1,4 +1,5 @@
 import { type HTMLAttributes, type ReactNode } from "react";
+import { DsIcon } from "./icons.js";
 
 export type SearchState = "Default" | "selected" | "typing";
 export type SearchType = "Bar Only" | "Bar with entry";
@@ -17,31 +18,18 @@ export type SearchBarProps = Omit<HTMLAttributes<HTMLDivElement>, "onChange"> & 
   entryIcon?: ReactNode;
 };
 
-const svg = (d: string, extra?: ReactNode) => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-    <path d={d} stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-    {extra}
-  </svg>
-);
-
 const icons = {
-  search: svg("M21 21l-4.3-4.3", <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="1.8" />),
-  back: svg("M19 12H5M12 19l-7-7 7-7"),
-  close: svg("M18 6L6 18M6 6l12 12"),
+  search: <DsIcon name="search" size={20} />,
+  back: <DsIcon name="arrow-left" size={20} />,
+  close: <DsIcon name="cross" size={20} />,
+  // No mic asset in the iconography set — kept inline.
   mic: (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <rect x="9" y="3" width="6" height="11" rx="3" stroke="currentColor" strokeWidth="1.8" />
       <path d="M5 11a7 7 0 0 0 14 0M12 18v3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
     </svg>
   ),
-  category: (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <circle cx="7" cy="7" r="2.5" stroke="currentColor" strokeWidth="1.8" />
-      <circle cx="17" cy="7" r="2.5" stroke="currentColor" strokeWidth="1.8" />
-      <circle cx="7" cy="17" r="2.5" stroke="currentColor" strokeWidth="1.8" />
-      <circle cx="17" cy="17" r="2.5" stroke="currentColor" strokeWidth="1.8" />
-    </svg>
-  )
+  category: <DsIcon name="category" size={20} />
 };
 
 export function SearchBar({

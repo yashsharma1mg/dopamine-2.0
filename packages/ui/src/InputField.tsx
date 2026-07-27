@@ -1,4 +1,5 @@
 import { useRef, type HTMLAttributes, type ReactNode } from "react";
+import { DsIcon } from "./icons.js";
 
 export type InputFieldType = "Field with CTA text" | "Field with CTA logo" | "4 digit OTP" | "6 digit OTP";
 export type InputFieldState = "default" | "typing" | "error" | "success" | "disable";
@@ -17,11 +18,7 @@ export type InputFieldProps = Omit<HTMLAttributes<HTMLDivElement>, "onChange"> &
   digits?: string[];
 };
 
-const clearIcon = (
-  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-    <path d="M5 5l10 10M15 5L5 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-  </svg>
-);
+const clearIcon = <DsIcon name="cross" size={20} />;
 
 const isOtpType = (type: InputFieldType) => type === "4 digit OTP" || type === "6 digit OTP";
 

@@ -1,4 +1,5 @@
 import { useState, type ButtonHTMLAttributes, type MouseEventHandler } from "react";
+import { DsIcon } from "./icons.js";
 
 export type CheckboxSize = "Normal" | "Small";
 export type CheckboxState = "Default" | "Selected" | "Disable" | "Disabled selected";
@@ -13,12 +14,6 @@ export type CheckboxProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onCha
   /** Accessible name (a bare box has no visible label). */
   label?: string;
 };
-
-const tick = (
-  <svg className="ds-checkbox__tick" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-    <path d="M2.5 7.5 5.5 10.5 11.5 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
 
 export function Checkbox({
   checked: checkedProp,
@@ -56,7 +51,7 @@ export function Checkbox({
       onClick={handleClick}
       {...props}
     >
-      {checked ? tick : null}
+      {checked ? <DsIcon name="tick" size={size === "Small" ? 12 : 14} className="ds-checkbox__tick" /> : null}
     </button>
   );
 }

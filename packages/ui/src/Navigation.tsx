@@ -1,4 +1,5 @@
 import { type HTMLAttributes } from "react";
+import { DsIcon } from "./icons.js";
 
 export type NavigationType = "labs" | "pharmacy" | "for you-no scroll" | "CP-profile icon" | "for you-scroll";
 
@@ -23,30 +24,17 @@ const CONFIG: Record<NavigationType, Config> = {
 };
 
 const icons = {
-  location: (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 3 3 10.5l7 2.5 2.5 7L21 3Z" /></svg>
-  ),
-  chevronDown: (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
-  ),
-  person: (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="8" r="4" /><path d="M4 21a8 8 0 0 1 16 0Z" /></svg>
-  ),
-  bag: (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7Z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" /><path d="M9 7a3 3 0 0 1 6 0" stroke="currentColor" strokeWidth="1.8" /></svg>
-  ),
-  search: (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="1.8" /><path d="M21 21l-4.3-4.3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /></svg>
-  ),
-  upload: (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 16V4m0 0L7 9m5-5 5 5M5 20h14" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
-  ),
+  location: <DsIcon name="navigation" size={20} />,
+  chevronDown: <DsIcon name="chevron-down" size={20} />,
+  person: <DsIcon name="profile-user-person" size={20} />,
+  bag: <DsIcon name="bag" size={20} />,
+  search: <DsIcon name="search" size={20} />,
+  upload: <DsIcon name="document-upload" size={20} />,
+  // No sparkle asset in the iconography set — kept inline.
   sparkle: (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2 6 6 2-6 2-2 6-2-6-6-2 6-2 2-6Z" /></svg>
   ),
-  categories: (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="3" stroke="currentColor" strokeWidth="1.8" /><circle cx="17" cy="7" r="3" stroke="currentColor" strokeWidth="1.8" /><circle cx="7" cy="17" r="3" stroke="currentColor" strokeWidth="1.8" /><circle cx="17" cy="17" r="3" stroke="currentColor" strokeWidth="1.8" /></svg>
-  )
+  categories: <DsIcon name="category" size={16} />
 };
 
 export function Navigation({

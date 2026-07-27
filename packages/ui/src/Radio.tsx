@@ -1,4 +1,5 @@
 import { useState, type ButtonHTMLAttributes, type MouseEventHandler } from "react";
+import { DsIcon } from "./icons.js";
 
 export type RadioSize = "Default" | "Small";
 export type RadioState =
@@ -19,12 +20,6 @@ export type RadioProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange
   state?: RadioState;
   label?: string;
 };
-
-const check = (
-  <svg className="ds-radio__check" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-    <path d="M2.5 7.5 5.5 10.5 11.5 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
 
 export function Radio({
   checked: checkedProp,
@@ -64,7 +59,11 @@ export function Radio({
       onClick={handleClick}
       {...props}
     >
-      {checked ? (ind === "check" ? check : <span className="ds-radio__hole" />) : null}
+      {checked
+        ? ind === "check"
+          ? <DsIcon name="tick" size={size === "Small" ? 12 : 14} className="ds-radio__check" />
+          : <span className="ds-radio__hole" />
+        : null}
     </button>
   );
 }

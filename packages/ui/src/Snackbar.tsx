@@ -1,4 +1,5 @@
 import { type HTMLAttributes, type ReactNode } from "react";
+import { DsIcon } from "./icons.js";
 
 export type SnackbarType = "White" | "Warning" | "Success" | "Error" | "Default";
 
@@ -15,19 +16,8 @@ export type SnackbarProps = Omit<HTMLAttributes<HTMLDivElement>, "onChange"> & {
   dismissible?: boolean;
 };
 
-const helpIcon = (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-    <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.7" />
-    <path d="M9.6 9.3a2.5 2.5 0 0 1 4.7 1.2c0 1.7-2.3 1.9-2.3 3.3" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-    <circle cx="12" cy="17" r="1.1" fill="currentColor" />
-  </svg>
-);
-
-const crossIcon = (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-    <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-  </svg>
-);
+const helpIcon = <DsIcon name="help" size={20} />;
+const crossIcon = <DsIcon name="cross" size={20} />;
 
 export function Snackbar({
   type = "Default",

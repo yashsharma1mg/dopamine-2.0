@@ -1,4 +1,5 @@
 import { useState, type ButtonHTMLAttributes, type MouseEventHandler } from "react";
+import { DsIcon } from "./icons.js";
 
 export type ToggleState = "Default" | "selected" | "disabled" | "disabled+selected";
 
@@ -11,12 +12,6 @@ export type ToggleProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChang
   /** Accessible name (required — a bare switch has no visible label). */
   label?: string;
 };
-
-const tick = (
-  <svg className="ds-toggle__tick" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-    <path d="M2.5 7.5 5.5 10.5 11.5 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
 
 export function Toggle({
   checked: checkedProp,
@@ -52,7 +47,7 @@ export function Toggle({
       onClick={handleClick}
       {...props}
     >
-      <span className="ds-toggle__thumb">{checked ? tick : null}</span>
+      <span className="ds-toggle__thumb">{checked ? <DsIcon name="tick" size={12} className="ds-toggle__tick" /> : null}</span>
     </button>
   );
 }

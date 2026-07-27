@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { ActionBar } from "./ActionBar";
 import { Button } from "./Button";
 import { PageHeader } from "./PageHeader";
+import { DsIcon } from "./icons";
 
 const pharmaBilling = (
   <>
@@ -17,9 +18,7 @@ const diagnoBilling = (
     <span className="ds-action-bar__count">
       69
       <span className="ds-action-bar__badge" aria-hidden="true">
-        <svg width="12" height="12" viewBox="0 0 14 14" fill="none">
-          <path d="M3.5 8.5 7 5l3.5 3.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
+        <DsIcon name="chevron-up" size={12} />
       </span>
     </span>
   </>

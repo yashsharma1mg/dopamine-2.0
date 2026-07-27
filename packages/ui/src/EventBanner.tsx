@@ -1,4 +1,5 @@
 import { type HTMLAttributes } from "react";
+import { DsIcon } from "./icons.js";
 
 export type EventBannerItems = "none" | "1" | "2" | "3" | "4" | ">4";
 export type EventBannerBottomMessage = "none" | "1" | "2";
@@ -23,11 +24,7 @@ const imageIcon = (size: number) => (
   </svg>
 );
 
-const chevron = (
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-    <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
+const chevron = <DsIcon name="chevron-right" size={14} />;
 
 export function EventBanner({
   items = "none",
