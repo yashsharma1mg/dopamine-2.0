@@ -820,7 +820,7 @@
 }
 .ds-snackbar__body { align-items: center; display: flex; flex: 1 1 auto; gap: var(--space-8); min-width: 0; }
 .ds-snackbar__icon { display: inline-flex; flex: 0 0 20px; }
-.ds-snackbar__message { flex: 1 1 auto; font-size: 14px; line-height: 20px; min-width: 0; }
+.ds-snackbar__message { flex: 1 1 auto; font-size: 14px; font-weight: var(--font-weight-regular); line-height: 20px; margin: 0; min-width: 0; }
 .ds-snackbar__close { align-items: center; appearance: none; background: none; border: 0; color: inherit; cursor: pointer; display: inline-flex; flex: 0 0 20px; padding: 0; }
 .ds-snackbar__action { appearance: none; background: none; border: 0; color: var(--semantic-color-content-cta); cursor: pointer; flex: 0 0 auto; font-size: 14px; font-weight: var(--font-weight-bold); padding: 0; white-space: nowrap; }
 .ds-snackbar--white { background: var(--semantic-color-background-primary); color: var(--semantic-color-content-primary); }
