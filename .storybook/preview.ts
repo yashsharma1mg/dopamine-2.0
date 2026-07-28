@@ -19,6 +19,10 @@ const preview: Preview = {
     docs: {
       toc: true
     },
+    options: {
+      // Blade-style taxonomy order: learn → tokens → parts → compositions.
+      storySort: { order: ["Guides", "Foundations", "Components", "Patterns", "*"] }
+    },
     layout: "centered"
   }
 };
