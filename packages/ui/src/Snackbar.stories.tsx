@@ -7,12 +7,17 @@ const meta = {
   title: "Components/Snackbar",
   component: Snackbar,
   tags: ["autodocs", "test"],
-  args: { type: "Default", message: "Short message displayed here", leadingIcon: true, dismissible: true },
+  args: { type: "Default", message: "Short message displayed here", leadingIcon: true, dismissible: true, action: "None" },
   argTypes: {
     type: { control: "select", options: types },
     leadingIcon: { control: "boolean" },
     dismissible: { control: "boolean" },
-    action: { control: "text" }
+    action: {
+      description: "Trailing coral action label (replaces the close ✕).",
+      control: "inline-radio",
+      options: ["None", "Undo"],
+      mapping: { None: undefined, Undo: "Undo" }
+    }
   },
   parameters: {
     docs: { description: { component: "Figma variants for the Dopamine2.0 snackbar: White, Warning, Success, Error, Default, and Default + Action (coral action replaces the close button)." } },
