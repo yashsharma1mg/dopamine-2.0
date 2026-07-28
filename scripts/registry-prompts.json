@@ -1,0 +1,12 @@
+{
+  "_comment": "Retrieval keywords for components whose spec has no `prompts:` block (used by generate-registry.mts as a fallback). Spec prompts win when present.",
+  "Button": ["button", "primary button", "cta button", "submit button", "action button"],
+  "Stepper": ["stepper", "quantity stepper", "quantity selector", "add to cart quantity", "increment decrement control"],
+  "PageHeader": ["page header", "app bar", "top bar", "screen header", "navigation header", "location header"],
+  "FloatingActionButton": ["floating action button", "fab", "add button", "floating add button", "quick action button"],
+  "SuggestionChip": ["suggestion chip", "chip", "filter chip", "quick reply chip", "tag chip"],
+  "HorizontalTabs": ["horizontal tabs", "tab bar", "underline tabs", "segmented control", "tab navigation", "category tabs"],
+  "VerticalTabs": ["vertical tabs", "side tabs", "category rail", "vertical navigation rail", "left tab menu"],
+  "SwipeIndicator": ["swipe indicator", "progress bar", "carousel dots", "pagination indicator", "step progress", "onboarding progress"],
+  "Snackbar": ["snackbar", "toast", "notification bar", "inline alert", "success message", "error toast", "undo snackbar"]
+}

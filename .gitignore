@@ -47,3 +47,6 @@ next-env.d.ts
 /artifacts/
 /public/storybook/
 /packages/ui/dist/
+
+# nested workspace deps
+**/node_modules/

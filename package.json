@@ -11,7 +11,7 @@
   },
   "scripts": {
     "dev": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext dev",
-    "build": "npm run generate:tokens && npm run generate:icons && npm run build:ui && npm run build:storybook && WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext build",
+    "build": "npm run generate:tokens && npm run generate:icons && npm run generate:registry && npm run build:ui && npm run build:storybook && WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext build",
     "start": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext start",
     "deploy": "npm run build && wrangler deploy -c dist/server/wrangler.json",
     "storybook": "storybook dev -p 6006 --no-open",
@@ -19,6 +19,7 @@
     "test:storybook": "vitest run --project=storybook",
     "generate:tokens": "node scripts/generate-tokens.mjs",
     "generate:icons": "node scripts/generate-icon-data.mjs",
+    "generate:registry": "tsx scripts/generate-registry.mts",
     "check:tokens": "node scripts/generate-tokens.mjs --check",
     "build:ui": "tsc -p packages/ui/tsconfig.build.json && node scripts/copy-ui-css.mjs",
     "pack:ui": "node scripts/prepare-artifacts.mjs && npm pack ./packages/ui --pack-destination ./artifacts",

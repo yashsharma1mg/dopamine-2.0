@@ -1,0 +1,1807 @@
+[
+  {
+    "slug": "button",
+    "name": "Button",
+    "summary": "Triggers an immediate action or confirms a decision.",
+    "category": "Actions",
+    "status": "ready",
+    "package": "@dopamine2.0/ui",
+    "import": "import { Button } from \"@dopamine2.0/ui\";",
+    "storyId": "components-button--playground",
+    "figma": "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=4021-1652&t=2b3pGoo58LPx32e2-4",
+    "prompts": [
+      "button",
+      "primary button",
+      "cta button",
+      "submit button",
+      "action button"
+    ],
+    "variants": [
+      "Fill",
+      "Outline",
+      "Ghost",
+      "Text with icon",
+      "Underline"
+    ],
+    "sizes": [
+      "Medium",
+      "Large"
+    ],
+    "states": [
+      "Primary",
+      "Secondary",
+      "Inverse",
+      "Disabled",
+      "Loading"
+    ],
+    "usage": {
+      "do": [
+        "Use one primary action per decision area.",
+        "Use verbs that describe the action’s outcome.",
+        "Keep destructive actions visually and spatially distinct."
+      ],
+      "dont": [
+        "Use a button for navigation when a link is semantically correct.",
+        "Use disabled styling to hide permission or validation problems.",
+        "Place several primary buttons next to each other."
+      ]
+    },
+    "accessibility": [
+      "Uses the native button element and inherits its keyboard behavior.",
+      "Uses the Figma medium and large size contracts.",
+      "Shows a token-backed focus ring only for keyboard focus.",
+      "Loading sets aria-busy and prevents duplicate activation."
+    ],
+    "contentGuidance": [
+      "Lead with a clear verb: Save changes, Add patient, Continue.",
+      "Prefer one to three words; keep labels below 32 characters.",
+      "Avoid vague labels such as Click here, Yes, or Submit when a clearer outcome exists."
+    ],
+    "props": [
+      {
+        "name": "type",
+        "type": "\"Fill\" | \"Outline\" | \"Ghost\"",
+        "required": false,
+        "default": "Fill",
+        "description": "Figma visual container treatment."
+      },
+      {
+        "name": "htmlType",
+        "type": "\"button\" | \"reset\" | \"submit\"",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"Medium\" | \"Large\"",
+        "required": false,
+        "default": "Large",
+        "description": "Figma size variant."
+      },
+      {
+        "name": "state",
+        "type": "\"Primary\" | \"Secondary\" | \"Inverse\" | \"Disabled\"",
+        "required": false,
+        "default": "Primary",
+        "description": "Figma state variant."
+      },
+      {
+        "name": "loading",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Shows progress and prevents activation."
+      },
+      {
+        "name": "leadingIcon",
+        "type": "ReactNode",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "trailingIcon",
+        "type": "ReactNode",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "style",
+        "type": "Text Only | Icon + Text | Text + Icon | Underline",
+        "required": false,
+        "default": "Text Only",
+        "description": "Figma content construct."
+      }
+    ]
+  },
+  {
+    "slug": "stepper",
+    "name": "Stepper",
+    "summary": "Adds, reduces, and displays an item quantity.",
+    "category": "Actions",
+    "status": "ready",
+    "package": "@dopamine2.0/ui",
+    "import": "import { Stepper } from \"@dopamine2.0/ui\";",
+    "storyId": "components-stepper--playground",
+    "figma": "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=4023-1475&t=2b3pGoo58LPx32e2-4",
+    "prompts": [
+      "stepper",
+      "quantity stepper",
+      "quantity selector",
+      "add to cart quantity",
+      "increment decrement control"
+    ],
+    "variants": [
+      "Filled",
+      "Outline"
+    ],
+    "sizes": [
+      "Medium",
+      "Large"
+    ],
+    "states": [
+      "Add",
+      "Added number",
+      "Out of stock"
+    ],
+    "usage": {
+      "do": [
+        "Use for a bounded item quantity."
+      ],
+      "dont": [
+        "Use for an unbounded numeric input."
+      ]
+    },
+    "accessibility": [
+      "Uses labelled native buttons.",
+      "Announces quantity changes through a live output."
+    ],
+    "contentGuidance": [
+      "Use the supplied Add and Out of stock labels."
+    ],
+    "props": [
+      {
+        "name": "quantity",
+        "type": "number",
+        "required": true,
+        "default": "—",
+        "description": "Current item quantity."
+      },
+      {
+        "name": "onQuantityChange",
+        "type": "(quantity: number) => void",
+        "required": true,
+        "default": "—",
+        "description": "Receives quantity changes."
+      },
+      {
+        "name": "min",
+        "type": "number",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "max",
+        "type": "number",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "outOfStock",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Disables quantity actions."
+      },
+      {
+        "name": "size",
+        "type": "\"Medium\" | \"Large\"",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "state",
+        "type": "\"Add\" | \"Added- Text\" | \"Added- Number\"",
+        "required": false,
+        "default": "derived from quantity",
+        "description": "Figma state variant."
+      },
+      {
+        "name": "type",
+        "type": "\"Filled\" | \"Outline\"",
+        "required": false,
+        "default": "Filled",
+        "description": "Figma visual variant."
+      },
+      {
+        "name": "addIcon",
+        "type": "ReactNode",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "addedTextIcon",
+        "type": "ReactNode",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "disabledAddIcon",
+        "type": "ReactNode",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "disabledAddedTextIcon",
+        "type": "ReactNode",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "decrementIcon",
+        "type": "ReactNode",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "incrementIcon",
+        "type": "ReactNode",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "helperText",
+        "type": "ReactNode",
+        "required": false,
+        "default": "—",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "slug": "page-header",
+    "name": "PageHeader",
+    "summary": "A 360px mobile header for location, navigation, and Family Hub contexts.",
+    "category": "Navigation",
+    "status": "ready",
+    "package": "@dopamine2.0/ui",
+    "import": "import { PageHeader } from \"@dopamine2.0/ui\";",
+    "storyId": "components-page-header--playground",
+    "figma": "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6391-533&t=2b3pGoo58LPx32e2-4",
+    "prompts": [
+      "page header",
+      "app bar",
+      "top bar",
+      "screen header",
+      "navigation header",
+      "location header"
+    ],
+    "variants": [
+      "Floating",
+      "Location",
+      "Dropdown",
+      "HIH",
+      "FamilyHub"
+    ],
+    "sizes": [
+      "360px mobile width"
+    ],
+    "states": [
+      "Solid",
+      "Transparent",
+      "Black heading",
+      "No heading",
+      "You",
+      "Family"
+    ],
+    "usage": {
+      "do": [
+        "Use Floating or Location on the homepage.",
+        "Use Dropdown for transient pages.",
+        "Use the transparent Dropdown over a non-white surface."
+      ],
+      "dont": [
+        "Do not use this desktop-first or beyond its 360px mobile contract.",
+        "Do not replace the supplied icon assets with arbitrary glyphs."
+      ]
+    },
+    "accessibility": [
+      "All actions are labelled native buttons.",
+      "The Family Hub selector exposes tab semantics.",
+      "Keyboard focus uses the Dopamine focus-ring token."
+    ],
+    "contentGuidance": [
+      "Keep the heading brief and the subtitle to a single line.",
+      "Use concise location names and truncate long location detail naturally."
+    ],
+    "props": [
+      {
+        "name": "usage",
+        "type": "\"Floating\" | \"Location\" | \"Dropdown\" | \"HIH\" | \"FamilyHub\"",
+        "required": false,
+        "default": "Floating",
+        "description": "Figma header composition."
+      },
+      {
+        "name": "type",
+        "type": "\"Solid\" | \"Transparent\"",
+        "required": false,
+        "default": "Transparent",
+        "description": "Surface treatment used by Location."
+      },
+      {
+        "name": "textColour",
+        "type": "\"Black\" | \"No heading\"",
+        "required": false,
+        "default": "Black",
+        "description": "Shows or removes the Family Hub heading."
+      },
+      {
+        "name": "heading",
+        "type": "string",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "subtitle",
+        "type": "string",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "locationName",
+        "type": "string",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "locationDetail",
+        "type": "string",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "cartCount",
+        "type": "number",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "activeTab",
+        "type": "\"You\" | \"Family\"",
+        "required": false,
+        "default": "You",
+        "description": "Current Family Hub tab."
+      },
+      {
+        "name": "onBack",
+        "type": "() => void",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "onLocationClick",
+        "type": "() => void",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "onProfileClick",
+        "type": "() => void",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "onCartClick",
+        "type": "() => void",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "onMoreClick",
+        "type": "() => void",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "onUploadClick",
+        "type": "() => void",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "onTabChange",
+        "type": "(tab: PageHeaderTab) => void",
+        "required": false,
+        "default": "—",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "slug": "floating-action-button",
+    "name": "FloatingActionButton",
+    "summary": "A compact action control for add and added states.",
+    "category": "Actions",
+    "status": "ready",
+    "package": "@dopamine2.0/ui",
+    "import": "import { FloatingActionButton } from \"@dopamine2.0/ui\";",
+    "storyId": "components-floating-action-button--playground",
+    "figma": "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=4023-2838&t=2b3pGoo58LPx32e2-4",
+    "prompts": [
+      "floating action button",
+      "fab",
+      "add button",
+      "floating add button",
+      "quick action button"
+    ],
+    "variants": [
+      "Add",
+      "Added",
+      "FAB",
+      "Special button"
+    ],
+    "sizes": [
+      "32px action",
+      "40px FAB",
+      "56px labelled action"
+    ],
+    "states": [
+      "Default",
+      "Single added",
+      "Disabled"
+    ],
+    "usage": {
+      "do": [
+        "Use a concise accessible label for icon-only actions."
+      ],
+      "dont": [
+        "Use icon-only actions when the action is ambiguous."
+      ]
+    },
+    "accessibility": [
+      "Provides an accessible name for icon-only variants.",
+      "Uses a native button and visible focus state."
+    ],
+    "contentGuidance": [
+      "Keep the optional label short and action-oriented."
+    ],
+    "props": [
+      {
+        "name": "type",
+        "type": "\"FAB\" | \"Special button\" | \"Added\" | \"Add\"",
+        "required": false,
+        "default": "Add",
+        "description": "Figma component variant."
+      },
+      {
+        "name": "state",
+        "type": "\"Default\" | \"Disable\" | \"Single Added\"",
+        "required": false,
+        "default": "Default",
+        "description": "Figma state variant."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "default": "variant label",
+        "description": "Accessible or visible action label."
+      },
+      {
+        "name": "icon",
+        "type": "ReactNode",
+        "required": false,
+        "default": "+",
+        "description": "Optional action icon."
+      }
+    ]
+  },
+  {
+    "slug": "suggestion-chip",
+    "name": "SuggestionChip",
+    "summary": "A compact choice, filter, or timestamp control with a clear selected and disabled state.",
+    "category": "Selection",
+    "status": "ready",
+    "package": "@dopamine2.0/ui",
+    "import": "import { SuggestionChip } from \"@dopamine2.0/ui\";",
+    "storyId": "components-suggestion-chip--playground",
+    "figma": "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6353-389&t=2b3pGoo58LPx32e2-4",
+    "prompts": [
+      "suggestion chip",
+      "chip",
+      "filter chip",
+      "quick reply chip",
+      "tag chip"
+    ],
+    "variants": [
+      "Primary",
+      "Default",
+      "disable",
+      "disable+select",
+      "default timestamp",
+      "selected timestamp"
+    ],
+    "sizes": [
+      "Default (108 × 32px)",
+      "small (99 × 28px)",
+      "Timestamp (56 × 76px)"
+    ],
+    "states": [
+      "Primary",
+      "Default",
+      "Disabled",
+      "Disabled selected",
+      "Timestamp selected"
+    ],
+    "usage": {
+      "do": [
+        "Use a concise label that names a category, filter, or option.",
+        "Use timestamp chips only for date selection."
+      ],
+      "dont": [
+        "Do not use a suggestion chip for a primary page action.",
+        "Do not use the selected treatment when the option cannot be changed."
+      ]
+    },
+    "accessibility": [
+      "Uses a native button with a visible keyboard focus ring.",
+      "Disabled variants set the native disabled state.",
+      "Timestamp chips expose their selection through aria-pressed."
+    ],
+    "contentGuidance": [
+      "Keep standard labels to one short phrase.",
+      "Use a single digit counter where possible.",
+      "Keep day, date, and month abbreviations consistent across a date group."
+    ],
+    "props": [
+      {
+        "name": "counter",
+        "type": "number",
+        "required": false,
+        "default": "1",
+        "description": "Standard-chip counter value."
+      },
+      {
+        "name": "date",
+        "type": "string",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "day",
+        "type": "string",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "month",
+        "type": "string",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "showLeadingIcon",
+        "type": "boolean",
+        "required": false,
+        "default": "true",
+        "description": "Shows the Figma left-arrow asset."
+      },
+      {
+        "name": "showTrailingCounter",
+        "type": "boolean",
+        "required": false,
+        "default": "true",
+        "description": "Shows the 16px counter on standard chips."
+      },
+      {
+        "name": "size",
+        "type": "\"Default\" | \"small\" | \"Timestamp\"",
+        "required": false,
+        "default": "Default",
+        "description": "Figma size variant."
+      },
+      {
+        "name": "state",
+        "type": "\"Default\" | \"Primary\" | \"disable\" | \"disable+select\" | \"default\" | \"selected\"",
+        "required": false,
+        "default": "Primary",
+        "description": "Figma state variant."
+      }
+    ]
+  },
+  {
+    "slug": "input-field",
+    "name": "InputField",
+    "summary": "A labelled text field with a trailing action (APPLY or icon), plus 4- and 6-digit OTP inputs.",
+    "category": "Forms",
+    "status": "ready",
+    "package": "@dopamine2.0/ui",
+    "import": "import { InputField } from \"@dopamine2.0/ui\";",
+    "storyId": "components-input-field--playground",
+    "figma": "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6586-1340",
+    "prompts": [
+      "input field",
+      "text field with apply button",
+      "text input with cta",
+      "otp input",
+      "4 digit otp",
+      "6 digit otp",
+      "coupon code field"
+    ],
+    "variants": [
+      "Field with CTA text",
+      "Field with CTA logo",
+      "4 digit OTP",
+      "6 digit OTP"
+    ],
+    "sizes": [
+      "Single (328px wide)"
+    ],
+    "states": [
+      "Default",
+      "Typing",
+      "Error",
+      "Success",
+      "Disable"
+    ],
+    "usage": {
+      "do": [
+        "Reserve the helper line for errors so layout does not shift.",
+        "Turn the CTA coral only once the field is engaged."
+      ],
+      "dont": [
+        "Do not use for multi-line entry — use a textarea.",
+        "Do not signal state with border colour alone."
+      ]
+    },
+    "accessibility": [
+      "Uses a real input with an associated label.",
+      "Error state exposes aria-invalid and describes the helper text.",
+      "OTP renders a labelled group of single-character inputs."
+    ],
+    "contentGuidance": [
+      "Keep labels in sentence case.",
+      "Error messages state what to fix, not just “invalid”."
+    ],
+    "props": [
+      {
+        "name": "type",
+        "type": "\"Field with CTA text\" | \"Field with CTA logo\" | \"4 digit OTP\" | \"6 digit OTP\"",
+        "required": false,
+        "default": "Field with CTA text",
+        "description": "Figma type variant."
+      },
+      {
+        "name": "state",
+        "type": "\"default\" | \"typing\" | \"error\" | \"success\" | \"disable\"",
+        "required": false,
+        "default": "default",
+        "description": "Figma state variant."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "default": "—",
+        "description": "Floating label."
+      },
+      {
+        "name": "helperText",
+        "type": "ReactNode",
+        "required": false,
+        "default": "—",
+        "description": "Helper / error line."
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "ctaLabel",
+        "type": "string",
+        "required": false,
+        "default": "APPLY",
+        "description": "Trailing text CTA."
+      },
+      {
+        "name": "ctaIcon",
+        "type": "ReactNode",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "onCtaClick",
+        "type": "() => void",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "digits",
+        "type": "string[]",
+        "required": false,
+        "default": "—",
+        "description": "OTP only — per-cell characters. Length is clamped to the type's cell count."
+      }
+    ]
+  },
+  {
+    "slug": "toggle",
+    "name": "Toggle",
+    "summary": "A binary on/off switch for an immediate, self-applying setting.",
+    "category": "Forms",
+    "status": "ready",
+    "package": "@dopamine2.0/ui",
+    "import": "import { Toggle } from \"@dopamine2.0/ui\";",
+    "storyId": "components-toggle--playground",
+    "figma": "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6356-403",
+    "prompts": [
+      "toggle",
+      "switch",
+      "on off toggle",
+      "settings switch",
+      "enable disable toggle"
+    ],
+    "variants": [
+      "Default",
+      "Selected",
+      "Disabled",
+      "Disabled+selected"
+    ],
+    "sizes": [
+      "Single (40 × 24px)"
+    ],
+    "states": [
+      "Default",
+      "Selected",
+      "Disabled",
+      "Disabled selected"
+    ],
+    "usage": {
+      "do": [
+        "Apply the change immediately on toggle.",
+        "Pair with a label describing the setting."
+      ],
+      "dont": [
+        "Do not use where a Save/Cancel step is expected.",
+        "Do not rely on colour alone — thumb position also encodes state."
+      ]
+    },
+    "accessibility": [
+      "Renders role=switch with aria-checked.",
+      "Needs an accessible name via label.",
+      "Disabled sets the native disabled attribute."
+    ],
+    "contentGuidance": [
+      "Label the setting, not the action (“Notifications”, not “Turn on”)."
+    ],
+    "props": [
+      {
+        "name": "checked",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "On/off state (controlled)."
+      },
+      {
+        "name": "onCheckedChange",
+        "type": "(checked: boolean) => void",
+        "required": false,
+        "default": "—",
+        "description": "Change handler."
+      },
+      {
+        "name": "state",
+        "type": "\"disabled\" | \"Default\" | \"selected\" | \"disabled+selected\"",
+        "required": false,
+        "default": "Default",
+        "description": "Convenience for galleries — sets checked/disabled from a single Figma state. Overrides checked/disabled."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "default": "—",
+        "description": "Accessible name (required — a bare switch has no visible label)."
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Disables the switch."
+      }
+    ]
+  },
+  {
+    "slug": "checkbox",
+    "name": "Checkbox",
+    "summary": "A square on/off control with a checkmark, for multi-select or single opt-ins. Normal and Small.",
+    "category": "Forms",
+    "status": "ready",
+    "package": "@dopamine2.0/ui",
+    "import": "import { Checkbox } from \"@dopamine2.0/ui\";",
+    "storyId": "components-checkbox--playground",
+    "figma": "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6586-1536",
+    "prompts": [
+      "checkbox",
+      "check box",
+      "accept terms checkbox",
+      "multi select option",
+      "tick box"
+    ],
+    "variants": [
+      "Default",
+      "Selected",
+      "Disable",
+      "Disabled selected"
+    ],
+    "sizes": [
+      "Normal (24px)",
+      "Small (20px)"
+    ],
+    "states": [
+      "Default",
+      "Selected",
+      "Disable",
+      "Disabled selected"
+    ],
+    "usage": {
+      "do": [
+        "Use for independent multi-select; each box toggles on its own.",
+        "Keep disabled+selected grey."
+      ],
+      "dont": [
+        "Do not use where exactly one option must be chosen — that is Radio."
+      ]
+    },
+    "accessibility": [
+      "Renders role=checkbox with aria-checked.",
+      "Needs an accessible name.",
+      "Space toggles the box."
+    ],
+    "contentGuidance": [
+      "Pair with a clear label describing the option."
+    ],
+    "props": [
+      {
+        "name": "checked",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Checked state (controlled)."
+      },
+      {
+        "name": "onCheckedChange",
+        "type": "(checked: boolean) => void",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "size",
+        "type": "\"Normal\" | \"Small\"",
+        "required": false,
+        "default": "Normal",
+        "description": "Figma size variant."
+      },
+      {
+        "name": "state",
+        "type": "\"Default\" | \"Selected\" | \"Disable\" | \"Disabled selected\"",
+        "required": false,
+        "default": "Default",
+        "description": "Convenience for galleries — sets checked/disabled from a single Figma state. Overrides checked/disabled."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "default": "—",
+        "description": "Accessible name (a bare box has no visible label)."
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Disables the box."
+      }
+    ]
+  },
+  {
+    "slug": "radio",
+    "name": "Radio",
+    "summary": "A single-select control; selected shows a coral donut or a checkmark. Default and Small.",
+    "category": "Forms",
+    "status": "ready",
+    "package": "@dopamine2.0/ui",
+    "import": "import { Radio } from \"@dopamine2.0/ui\";",
+    "storyId": "components-radio--playground",
+    "figma": "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6586-1573",
+    "prompts": [
+      "radio button",
+      "radio group",
+      "single select option",
+      "choose one option"
+    ],
+    "variants": [
+      "Default",
+      "Selected",
+      "Disable",
+      "Disable+select",
+      "Select with icon",
+      "Disable+select with icon"
+    ],
+    "sizes": [
+      "Default (24px)",
+      "Small (20px)"
+    ],
+    "states": [
+      "Default",
+      "Selected",
+      "Disable",
+      "Disable+select",
+      "Select with icon",
+      "Disable+select with icon"
+    ],
+    "usage": {
+      "do": [
+        "Use inside a group where exactly one option is selectable.",
+        "Keep disabled-selected grey."
+      ],
+      "dont": [
+        "Do not use a single radio for a yes/no — use Checkbox or Toggle.",
+        "Do not mix dot and check indicators in one group."
+      ]
+    },
+    "accessibility": [
+      "Renders role=radio; single-select lives in the consuming radiogroup.",
+      "Arrow keys move selection within the group."
+    ],
+    "contentGuidance": [
+      "Keep option labels parallel in phrasing."
+    ],
+    "props": [
+      {
+        "name": "checked",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Selected state (controlled)."
+      },
+      {
+        "name": "indicator",
+        "type": "\"dot\" | \"check\"",
+        "required": false,
+        "default": "dot",
+        "description": "Selected indicator: a filled dot or a checkmark."
+      },
+      {
+        "name": "size",
+        "type": "\"Default\" | \"Small\"",
+        "required": false,
+        "default": "Default",
+        "description": "Figma size variant."
+      },
+      {
+        "name": "state",
+        "type": "\"Default\" | \"Selected\" | \"Disable\" | \"Disable+select\" | \"Select with icon\" | \"Disable+select with icon\"",
+        "required": false,
+        "default": "—",
+        "description": "Convenience for galleries — maps a single Figma state to checked/disabled/indicator. Overrides those."
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Disables the radio."
+      }
+    ]
+  },
+  {
+    "slug": "search-bar",
+    "name": "SearchBar",
+    "summary": "A pill search field whose contents change by state, with an optional entry button.",
+    "category": "Navigation",
+    "status": "ready",
+    "package": "@dopamine2.0/ui",
+    "import": "import { SearchBar } from \"@dopamine2.0/ui\";",
+    "storyId": "components-search-bar--playground",
+    "figma": "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6425-2956",
+    "prompts": [
+      "search bar",
+      "search input",
+      "search field with voice",
+      "search with back button"
+    ],
+    "variants": [
+      "Bar Only",
+      "Bar with entry"
+    ],
+    "sizes": [
+      "Single (328 × 52px)"
+    ],
+    "states": [
+      "Default",
+      "selected",
+      "typing"
+    ],
+    "usage": {
+      "do": [
+        "Show the back arrow only once the bar is engaged.",
+        "Swap the trailing control by state: search → mic → clear."
+      ],
+      "dont": [
+        "Do not show mic and clear at once."
+      ]
+    },
+    "accessibility": [
+      "Wrap in role=search with a labelled input.",
+      "Every icon button needs an aria-label."
+    ],
+    "contentGuidance": [
+      "Use short, example-led placeholder hints."
+    ],
+    "props": [
+      {
+        "name": "state",
+        "type": "\"Default\" | \"selected\" | \"typing\"",
+        "required": false,
+        "default": "Default",
+        "description": "Figma state variant."
+      },
+      {
+        "name": "type",
+        "type": "\"Bar Only\" | \"Bar with entry\"",
+        "required": false,
+        "default": "Bar Only",
+        "description": "Adds a trailing entry button."
+      },
+      {
+        "name": "placeholder",
+        "type": "string",
+        "required": false,
+        "default": "—",
+        "description": "Resting placeholder."
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "hint",
+        "type": "string",
+        "required": false,
+        "default": "—",
+        "description": "Rotating-hint text shown after \"Search for\" in the selected state."
+      },
+      {
+        "name": "onBack",
+        "type": "() => void",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "onClear",
+        "type": "() => void",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "onMic",
+        "type": "() => void",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "onEntry",
+        "type": "() => void",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "entryIcon",
+        "type": "ReactNode",
+        "required": false,
+        "default": "—",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "slug": "action-bar",
+    "name": "ActionBar",
+    "summary": "A sticky bottom bar that composes Button(s) with an optional billing summary.",
+    "category": "Actions",
+    "status": "ready",
+    "package": "@dopamine2.0/ui",
+    "import": "import { ActionBar } from \"@dopamine2.0/ui\";",
+    "storyId": "components-action-bar--playground",
+    "figma": "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6383-870",
+    "prompts": [
+      "action bar",
+      "sticky bottom bar",
+      "bottom cta bar",
+      "checkout action bar",
+      "bill summary with button"
+    ],
+    "variants": [
+      "CTA with Billing (Pharma)",
+      "CTA with Billing (Diagno)",
+      "One Button",
+      "2 Buttons",
+      "2 Buttons Vertical"
+    ],
+    "sizes": [
+      "Single (360px wide)"
+    ],
+    "states": [
+      "Layout presets (not interaction states)"
+    ],
+    "usage": {
+      "do": [
+        "Keep the primary (Fill) action visually dominant; secondary is Outline.",
+        "Stack vertically when both labels are long."
+      ],
+      "dont": [
+        "Do not place more than two buttons.",
+        "Do not recolour the composed buttons."
+      ]
+    },
+    "accessibility": [
+      "Render as a labelled region or footer.",
+      "Primary action last (right / bottom) matching Figma."
+    ],
+    "contentGuidance": [
+      "One primary action per bar; keep button labels to 1–2 words."
+    ],
+    "props": [
+      {
+        "name": "billing",
+        "type": "ReactNode",
+        "required": false,
+        "default": "—",
+        "description": "Optional left-side summary block (price / link / label) shown before the actions."
+      },
+      {
+        "name": "orientation",
+        "type": "\"horizontal\" | \"vertical\"",
+        "required": false,
+        "default": "horizontal",
+        "description": "Stack the action buttons vertically (full-width) instead of side by side."
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "default": "—",
+        "description": "The Button(s)."
+      }
+    ]
+  },
+  {
+    "slug": "event-banner",
+    "name": "EventBanner",
+    "summary": "A promotional card with a hero image, an optional item strip, and an optional message with dots.",
+    "category": "Display",
+    "status": "ready",
+    "package": "@dopamine2.0/ui",
+    "import": "import { EventBanner } from \"@dopamine2.0/ui\";",
+    "storyId": "components-event-banner--playground",
+    "figma": "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6453-598",
+    "prompts": [
+      "event banner",
+      "promo card",
+      "event promotion section",
+      "banner with thumbnails",
+      "carousel promo banner"
+    ],
+    "variants": [
+      "items: none / 1 / 2 / 3 / 4 / >4",
+      "bottom message: none / 1 / 2"
+    ],
+    "sizes": [
+      "328px wide; 248 / 211 / 281px tall"
+    ],
+    "states": [
+      "Content configurations (not interaction states)"
+    ],
+    "usage": {
+      "do": [
+        "Use the dots when the banner is one of a swipeable set.",
+        "Keep the message to a single line."
+      ],
+      "dont": [
+        "Do not stuff more than 5 thumbnails — use “>4”."
+      ]
+    },
+    "accessibility": [
+      "Expose the action via the chevron button.",
+      "Real images must carry meaningful alt text."
+    ],
+    "contentGuidance": [
+      "Title is the hook; the regular text is a short qualifier."
+    ],
+    "props": [
+      {
+        "name": "items",
+        "type": "\"none\" | \"1\" | \"2\" | \"3\" | \"4\" | \">4\"",
+        "required": false,
+        "default": "none",
+        "description": "Number of thumbnail items in the strip. \">4\" shows 5 (overflowing/clipped)."
+      },
+      {
+        "name": "bottomMessage",
+        "type": "\"none\" | \"1\" | \"2\"",
+        "required": false,
+        "default": "2",
+        "description": "none = no message row · 1 = message · 2 = message + pagination dots."
+      },
+      {
+        "name": "text",
+        "type": "string",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "onAction",
+        "type": "() => void",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "default": "—",
+        "description": "Bold message title."
+      }
+    ]
+  },
+  {
+    "slug": "navigation",
+    "name": "Navigation",
+    "summary": "A composite top header: location pill, profile/cart, a category tab strip, and a search row.",
+    "category": "Navigation",
+    "status": "ready",
+    "package": "@dopamine2.0/ui",
+    "import": "import { Navigation } from \"@dopamine2.0/ui\";",
+    "storyId": "components-navigation--playground",
+    "figma": "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6466-4967",
+    "prompts": [
+      "navigation header",
+      "top nav bar",
+      "app header with tabs",
+      "location search nav",
+      "category tab strip"
+    ],
+    "variants": [
+      "labs",
+      "pharmacy",
+      "for you-no scroll",
+      "CP-profile icon",
+      "for you-scroll"
+    ],
+    "sizes": [
+      "361px wide"
+    ],
+    "states": [
+      "Per type: active tab, profile variant, trailing CTA"
+    ],
+    "usage": {
+      "do": [
+        "Match the trailing CTA to the active surface.",
+        "Keep exactly one active tab."
+      ],
+      "dont": [
+        "Do not show more than one primary trailing CTA.",
+        "Do not recolour the CP avatar."
+      ]
+    },
+    "accessibility": [
+      "Tab strip is a tablist with roving arrow-key navigation.",
+      "Location, profile, cart, search and CTA are all labelled buttons."
+    ],
+    "contentGuidance": [
+      "Keep the location detail short; tab labels are single words."
+    ],
+    "props": [
+      {
+        "name": "type",
+        "type": "\"labs\" | \"pharmacy\" | \"for you-no scroll\" | \"CP-profile icon\" | \"for you-scroll\"",
+        "required": false,
+        "default": "for you-no scroll",
+        "description": "Sets active tab + profile + trailing CTA."
+      },
+      {
+        "name": "locationName",
+        "type": "string",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "locationDetail",
+        "type": "string",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "cartCount",
+        "type": "number",
+        "required": false,
+        "default": "3",
+        "description": "Cart badge count."
+      },
+      {
+        "name": "searchHint",
+        "type": "string",
+        "required": false,
+        "default": "—",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "slug": "sticky",
+    "name": "Sticky",
+    "summary": "Sticky bottom bars: Redirection (status), Rating, Standard, and a floating Video pill.",
+    "category": "Feedback",
+    "status": "ready",
+    "package": "@dopamine2.0/ui",
+    "import": "import { Sticky } from \"@dopamine2.0/ui\";",
+    "storyId": "components-sticky--playground",
+    "figma": "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6525-593",
+    "prompts": [
+      "sticky bar",
+      "bottom notification bar",
+      "delivery tracker sticky",
+      "rating prompt bar",
+      "floating video pill"
+    ],
+    "variants": [
+      "Redirection",
+      "Rating",
+      "Standard",
+      "Video"
+    ],
+    "sizes": [
+      "360px wide (Video 160 × 320px)"
+    ],
+    "states": [
+      "Redirection: Default / Error / Delivery / 2 deliveries / Multiple Delivery"
+    ],
+    "usage": {
+      "do": [
+        "Use Redirection for actionable status; Rating/Standard for a single dismissible prompt.",
+        "Show “+N more” / dots only when deliveries stack."
+      ],
+      "dont": [
+        "Do not stack multiple sticky bars.",
+        "Do not omit the dismiss on promo bars."
+      ]
+    },
+    "accessibility": [
+      "Close/Track/Rate are labelled buttons; the star row is a radiogroup.",
+      "Check text-on-colour contrast for Rating/Standard."
+    ],
+    "contentGuidance": [
+      "Title ≤ ~34 chars; subtitle ellipsises."
+    ],
+    "props": [
+      {
+        "name": "type",
+        "type": "\"Redirection\" | \"Rating\" | \"Standard\" | \"Video\"",
+        "required": false,
+        "default": "Redirection",
+        "description": "Figma type."
+      },
+      {
+        "name": "state",
+        "type": "\"Rating\" | \"Video\" | \"Default\" | \"Error\" | \"Delivery\" | \"2 deliveries\" | \"Multiple Delivery\" | \"1 button\"",
+        "required": false,
+        "default": "Default",
+        "description": "Redirection state."
+      },
+      {
+        "name": "subtitle",
+        "type": "string",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "onClose",
+        "type": "() => void",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "onAction",
+        "type": "() => void",
+        "required": false,
+        "default": "—",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "slug": "horizontal-tabs",
+    "name": "HorizontalTabs",
+    "summary": "Horizontal tabs: underline (text or image chips) and highlighted segmented pills.",
+    "category": "Navigation",
+    "status": "ready",
+    "package": "@dopamine2.0/ui",
+    "import": "import { HorizontalTabs } from \"@dopamine2.0/ui\";",
+    "storyId": "components-horizontal-tabs--playground",
+    "figma": "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6428-2280",
+    "prompts": [
+      "horizontal tabs",
+      "tab bar",
+      "underline tabs",
+      "segmented control",
+      "tab navigation",
+      "category tabs"
+    ],
+    "variants": [
+      "underline (text / with images)",
+      "highlighted (2 tabs, optional icon + subtext)"
+    ],
+    "sizes": [
+      "Underline: 80px tabs · Highlighted: 328px"
+    ],
+    "states": [
+      "Active per index"
+    ],
+    "usage": {
+      "do": [
+        "Use underline tabs for content sections; highlighted for a compact toggle.",
+        "Keep exactly one active tab."
+      ],
+      "dont": [
+        "Do not use highlighted for more than a few short segments."
+      ]
+    },
+    "accessibility": [
+      "Renders a tablist of tabs with aria-selected.",
+      "Add arrow-key roving tabindex and a tabpanel in the consumer."
+    ],
+    "contentGuidance": [
+      "Keep tab labels short."
+    ],
+    "props": [
+      {
+        "name": "type",
+        "type": "\"underline\" | \"highlighted\"",
+        "required": false,
+        "default": "underline",
+        "description": "Tab style."
+      },
+      {
+        "name": "items",
+        "type": "HorizontalTabItem[]",
+        "required": true,
+        "default": "—",
+        "description": "Tabs (label, subtext?, icon?)."
+      },
+      {
+        "name": "activeIndex",
+        "type": "number",
+        "required": false,
+        "default": "0",
+        "description": "Selected tab (controlled)."
+      },
+      {
+        "name": "onChange",
+        "type": "(index: number) => void",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "withImages",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "underline type only: show 64px image chips above the label."
+      }
+    ]
+  },
+  {
+    "slug": "vertical-tabs",
+    "name": "VerticalTabs",
+    "summary": "An 88px vertical category rail; the selected item gets a dark chip, bold label and a right indicator bar.",
+    "category": "Navigation",
+    "status": "ready",
+    "package": "@dopamine2.0/ui",
+    "import": "import { VerticalTabs } from \"@dopamine2.0/ui\";",
+    "storyId": "components-vertical-tabs--playground",
+    "figma": "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6429-2319",
+    "prompts": [
+      "vertical tabs",
+      "side tabs",
+      "category rail",
+      "vertical navigation rail",
+      "left tab menu"
+    ],
+    "variants": [
+      "Selected item (any index)"
+    ],
+    "sizes": [
+      "88px wide"
+    ],
+    "states": [
+      "Active per index"
+    ],
+    "usage": {
+      "do": [
+        "Use for a category rail beside a content panel.",
+        "Keep exactly one active item."
+      ],
+      "dont": [
+        "Do not use for a long flat list — it is a category switcher."
+      ]
+    },
+    "accessibility": [
+      "Renders a vertical tablist; add arrow-key navigation and panel association in the consumer."
+    ],
+    "contentGuidance": [
+      "Labels are short category names (wrap to 2 lines)."
+    ],
+    "props": [
+      {
+        "name": "items",
+        "type": "VerticalTabItem[]",
+        "required": true,
+        "default": "—",
+        "description": "Items (label, icon?)."
+      },
+      {
+        "name": "activeIndex",
+        "type": "number",
+        "required": false,
+        "default": "0",
+        "description": "Selected item (controlled)."
+      },
+      {
+        "name": "onChange",
+        "type": "(index: number) => void",
+        "required": false,
+        "default": "—",
+        "description": "Change handler."
+      }
+    ]
+  },
+  {
+    "slug": "swipe-indicator",
+    "name": "SwipeIndicator",
+    "summary": "A thin progress / pagination bar: line-filling or staggered, in Normal and Small.",
+    "category": "Navigation",
+    "status": "ready",
+    "package": "@dopamine2.0/ui",
+    "import": "import { SwipeIndicator } from \"@dopamine2.0/ui\";",
+    "storyId": "components-swipe-indicator--playground",
+    "figma": "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6401-1174",
+    "prompts": [
+      "swipe indicator",
+      "progress bar",
+      "carousel dots",
+      "pagination indicator",
+      "step progress",
+      "onboarding progress"
+    ],
+    "variants": [
+      "Line Filling",
+      "Staggered"
+    ],
+    "sizes": [
+      "Normal (216px)",
+      "Small (48px)"
+    ],
+    "states": [
+      "current step (1-based)"
+    ],
+    "usage": {
+      "do": [
+        "Use line-filling for progress; staggered for carousel position."
+      ],
+      "dont": [
+        "Do not use for more steps than comfortably fit the width."
+      ]
+    },
+    "accessibility": [
+      "Renders role=progressbar with aria-valuemin/max/now."
+    ],
+    "contentGuidance": [
+      "—"
+    ],
+    "props": [
+      {
+        "name": "type",
+        "type": "\"line-filling\" | \"staggered\"",
+        "required": false,
+        "default": "line-filling",
+        "description": "Fill behaviour."
+      },
+      {
+        "name": "size",
+        "type": "\"Normal\" | \"Small\"",
+        "required": false,
+        "default": "Normal",
+        "description": "216px or 48px."
+      },
+      {
+        "name": "total",
+        "type": "number",
+        "required": false,
+        "default": "4",
+        "description": "total number of steps/pages."
+      },
+      {
+        "name": "current",
+        "type": "number",
+        "required": false,
+        "default": "1",
+        "description": "current step, 1-based."
+      }
+    ]
+  },
+  {
+    "slug": "snackbar",
+    "name": "Snackbar",
+    "summary": "A single-line transient message bar: White, Warning, Success, Error, Default, and Default + Action.",
+    "category": "Feedback",
+    "status": "ready",
+    "package": "@dopamine2.0/ui",
+    "import": "import { Snackbar } from \"@dopamine2.0/ui\";",
+    "storyId": "components-snackbar--playground",
+    "figma": "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6405-1125",
+    "prompts": [
+      "snackbar",
+      "toast",
+      "notification bar",
+      "inline alert",
+      "success message",
+      "error toast",
+      "undo snackbar"
+    ],
+    "variants": [
+      "White",
+      "Warning",
+      "Success",
+      "Error",
+      "Default",
+      "Default + Action"
+    ],
+    "sizes": [
+      "328px wide"
+    ],
+    "states": [
+      "Per type surface; close or action trailing"
+    ],
+    "usage": {
+      "do": [
+        "Use the type that matches the message intent.",
+        "Use Default + Action for an undoable action."
+      ],
+      "dont": [
+        "Do not omit the dismiss on promo/info snackbars.",
+        "Do not stack multiple snackbars."
+      ]
+    },
+    "accessibility": [
+      "Renders role=status (polite live region); close is a labelled button.",
+      "Auto-dismiss timing is the consumer's responsibility."
+    ],
+    "contentGuidance": [
+      "Keep the message to a single short line."
+    ],
+    "props": [
+      {
+        "name": "type",
+        "type": "\"White\" | \"Warning\" | \"Success\" | \"Error\" | \"Default\"",
+        "required": false,
+        "default": "Default",
+        "description": "Surface / intent."
+      },
+      {
+        "name": "message",
+        "type": "ReactNode",
+        "required": true,
+        "default": "—",
+        "description": "The message."
+      },
+      {
+        "name": "leadingIcon",
+        "type": "boolean",
+        "required": false,
+        "default": "—",
+        "description": "Leading help/info icon."
+      },
+      {
+        "name": "action",
+        "type": "string",
+        "required": false,
+        "default": "—",
+        "description": "Trailing action label (e.g. \"Undo\") — replaces the close button when set."
+      },
+      {
+        "name": "onAction",
+        "type": "() => void",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "onClose",
+        "type": "() => void",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "dismissible",
+        "type": "boolean",
+        "required": false,
+        "default": "true",
+        "description": "Show the trailing close (✕). Ignored when `action` is set."
+      }
+    ]
+  }
+]
