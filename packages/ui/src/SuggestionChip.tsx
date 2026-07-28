@@ -1,4 +1,5 @@
 import { forwardRef, type ButtonHTMLAttributes, type ReactNode } from "react";
+import { iconData } from "./generated/icon-data.js";
 
 export type SuggestionChipSize = "Default" | "small" | "Timestamp";
 export type SuggestionChipState = "Primary" | "Default" | "disable" | "disable+select" | "default" | "selected";
@@ -17,16 +18,16 @@ export type SuggestionChipProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 
 
 const arrows = {
   Default: {
-    Primary: "/assets/dopamine/suggestion-chip-arrow-primary.svg",
-    Default: "/assets/dopamine/suggestion-chip-arrow-default.svg",
-    disable: "/assets/dopamine/suggestion-chip-arrow-disabled.svg",
-    "disable+select": "/assets/dopamine/suggestion-chip-arrow-disabled-selected.svg"
+    Primary: iconData["suggestion-chip-arrow-primary"],
+    Default: iconData["suggestion-chip-arrow-default"],
+    disable: iconData["suggestion-chip-arrow-disabled"],
+    "disable+select": iconData["suggestion-chip-arrow-disabled-selected"]
   },
   small: {
-    Primary: "/assets/dopamine/suggestion-chip-arrow-primary.svg",
-    Default: "/assets/dopamine/suggestion-chip-arrow-default.svg",
-    disable: "/assets/dopamine/suggestion-chip-arrow-disabled-small.svg",
-    "disable+select": "/assets/dopamine/suggestion-chip-arrow-disabled-selected.svg"
+    Primary: iconData["suggestion-chip-arrow-primary"],
+    Default: iconData["suggestion-chip-arrow-default"],
+    disable: iconData["suggestion-chip-arrow-disabled-small"],
+    "disable+select": iconData["suggestion-chip-arrow-disabled-selected"]
   }
 } as const;
 

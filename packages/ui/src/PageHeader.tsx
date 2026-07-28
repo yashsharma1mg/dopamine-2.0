@@ -1,6 +1,7 @@
 import { type HTMLAttributes, type ReactNode } from "react";
 
 import { Icon } from "./Icon.js";
+import { iconData } from "./generated/icon-data.js";
 
 export type PageHeaderUsage = "Floating" | "Location" | "Dropdown" | "HIH" | "FamilyHub";
 export type PageHeaderType = "Solid" | "Transparent";
@@ -27,19 +28,19 @@ export type PageHeaderProps = Omit<HTMLAttributes<HTMLDivElement>, "color"> & {
 };
 
 const assets = {
-  arrowLeft: "/assets/dopamine/page-header-arrow-left.svg",
-  bag: "/assets/dopamine/page-header-bag.svg",
-  chevron: "/assets/dopamine/page-header-chevron-down.svg",
-  kebab: "/assets/dopamine/page-header-kebab.svg",
-  location: "/assets/dopamine/page-header-location.svg",
-  locationChevron: "/assets/dopamine/page-header-location-chevron.svg",
-  locationInverse: "/assets/dopamine/page-header-location-inverse.svg",
-  profile: "/assets/dopamine/page-header-profile.svg",
-  statusBattery: "/assets/dopamine/page-header-status-battery-outline.svg",
-  statusBatteryEnd: "/assets/dopamine/page-header-status-battery-end.svg",
-  statusSignal: "/assets/dopamine/page-header-status-signal.svg",
-  statusWifi: "/assets/dopamine/page-header-status-wifi.svg",
-  upload: "/assets/dopamine/page-header-upload.svg"
+  arrowLeft: iconData["page-header-arrow-left"],
+  bag: iconData["page-header-bag"],
+  chevron: iconData["page-header-chevron-down"],
+  kebab: iconData["page-header-kebab"],
+  location: iconData["page-header-location"],
+  locationChevron: iconData["page-header-location-chevron"],
+  locationInverse: iconData["page-header-location-inverse"],
+  profile: iconData["page-header-profile"],
+  statusBattery: iconData["page-header-status-battery-outline"],
+  statusBatteryEnd: iconData["page-header-status-battery-end"],
+  statusSignal: iconData["page-header-status-signal"],
+  statusWifi: iconData["page-header-status-wifi"],
+  upload: iconData["page-header-upload"]
 } as const;
 
 type IconButtonProps = {
