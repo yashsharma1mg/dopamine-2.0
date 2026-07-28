@@ -16,34 +16,13 @@ const meta = {
     current: { control: { type: "number", min: 1, max: 8 } }
   },
   parameters: {
-    docs: { description: { component: "Figma variants for the Dopamine2.0 swipe/progress indicator: Line Filling (cumulative fill) and Staggered (sliding segment), in Normal (216px) and Small (48px)." } },
+    docs: { description: { component: "The Dopamine2.0 swipe/progress indicator: Line Filling (cumulative fill) and Staggered (sliding segment), in Normal (216px) and Small (48px). The Playground shows it tracking a real, draggable Event Banner carousel." } },
     layout: "padded"
   }
 } satisfies Meta<typeof SwipeIndicator>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
-
-export const Playground: Story = {};
-
-const row = (type: SwipeIndicatorType, size: SwipeIndicatorSize, label: string) => (
-  <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-    <span style={{ font: "600 12px/1.4 Figtree", color: "#626a7a" }}>{label}</span>
-    {[1, 2, 3, 4].map((c) => (
-      <SwipeIndicator key={c} type={type} size={size} total={4} current={c} />
-    ))}
-  </div>
-);
-
-export const FigmaVariants: Story = {
-  render: () => (
-    <div style={{ display: "flex", gap: 48, flexWrap: "wrap" }}>
-      {row("line-filling", "Normal", "Normal · Line Filling")}
-      {row("staggered", "Normal", "Normal · Staggered")}
-      {row("staggered", "Small", "Small · Default")}
-    </div>
-  )
-};
 
 const SLIDES = [
   { title: "Monsoon health sale", text: "Up to 40% off" },
@@ -53,14 +32,20 @@ const SLIDES = [
 ];
 
 // Real carousel: drag / swipe the Event Banners and the indicator tracks the active slide.
+// Banners are separated by the --space-16 (16px) design token.
 function SwipeableBanners({ type }: { type: SwipeIndicatorType }) {
   const [current, setCurrent] = useState(1);
   const track = useRef<HTMLDivElement>(null);
   const drag = useRef({ down: false, startX: 0, startLeft: 0 });
 
+  const stride = () => {
+    const el = track.current;
+    if (!el || el.children.length < 2) return el?.clientWidth ?? 1;
+    return (el.children[1] as HTMLElement).offsetLeft - (el.children[0] as HTMLElement).offsetLeft;
+  };
   const onScroll = () => {
     const el = track.current;
-    if (el) setCurrent(Math.round(el.scrollLeft / el.clientWidth) + 1);
+    if (el) setCurrent(Math.round(el.scrollLeft / stride()) + 1);
   };
   const onPointerDown = (e: ReactPointerEvent<HTMLDivElement>) => {
     const el = track.current!;
@@ -84,7 +69,7 @@ function SwipeableBanners({ type }: { type: SwipeIndicatorType }) {
         onPointerMove={onPointerMove}
         onPointerUp={end}
         onPointerCancel={end}
-        style={{ display: "flex", overflowX: "auto", scrollSnapType: "x mandatory", borderRadius: 16, cursor: "grab", scrollbarWidth: "none" }}
+        style={{ display: "flex", gap: "var(--space-16)", overflowX: "auto", scrollSnapType: "x mandatory", cursor: "grab", scrollbarWidth: "none" }}
       >
         {SLIDES.map((s, i) => (
           <div key={i} style={{ flex: "0 0 100%", scrollSnapAlign: "start" }}>
@@ -92,19 +77,34 @@ function SwipeableBanners({ type }: { type: SwipeIndicatorType }) {
           </div>
         ))}
       </div>
-      <div style={{ display: "flex", justifyContent: "center", marginTop: 12 }}>
+      <div style={{ display: "flex", justifyContent: "center", marginTop: "var(--space-16)" }}>
         <SwipeIndicator type={type} total={SLIDES.length} current={current} />
       </div>
     </div>
   );
 }
 
-export const Swipeable: Story = {
-  name: "Swipeable (Event Banner carousel)",
-  args: { type: "line-filling" },
-  argTypes: { size: { table: { disable: true } }, total: { table: { disable: true } }, current: { table: { disable: true } } },
-  render: (args) => <SwipeableBanners type={args.type ?? "line-filling"} />,
-  parameters: {
-    docs: { description: { story: "Drag or swipe the Event Banners left/right — the swipe indicator tracks the active slide. Switch the `type` control between line-filling and staggered." } }
-  }
+// Primary story shown at the top of the Documentation page: the indicator over real,
+// draggable content. Switch the `type` control between line-filling and staggered.
+export const Playground: Story = {
+  render: (args) => <SwipeableBanners type={args.type ?? "line-filling"} />
+};
+
+const row = (type: SwipeIndicatorType, size: SwipeIndicatorSize, label: string) => (
+  <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+    <span style={{ font: "600 12px/1.4 Figtree", color: "#626a7a" }}>{label}</span>
+    {[1, 2, 3, 4].map((c) => (
+      <SwipeIndicator key={c} type={type} size={size} total={4} current={c} />
+    ))}
+  </div>
+);
+
+export const FigmaVariants: Story = {
+  render: () => (
+    <div style={{ display: "flex", gap: 48, flexWrap: "wrap" }}>
+      {row("line-filling", "Normal", "Normal · Line Filling")}
+      {row("staggered", "Normal", "Normal · Staggered")}
+      {row("staggered", "Small", "Small · Default")}
+    </div>
+  )
 };
