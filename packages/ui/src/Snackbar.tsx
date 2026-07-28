@@ -17,7 +17,7 @@ export type SnackbarProps = Omit<HTMLAttributes<HTMLDivElement>, "onChange"> & {
 };
 
 const helpIcon = <DsIcon name="help" size={20} />;
-const crossIcon = <DsIcon name="cross" size={20} />;
+const crossIcon = <DsIcon name="cross" size={16} />;
 
 export function Snackbar({
   type = "Default",
