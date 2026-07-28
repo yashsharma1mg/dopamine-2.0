@@ -599,6 +599,60 @@ export const componentManifests: ComponentManifest[] = [
       { name: "dismissible", type: "boolean", defaultValue: "true", description: "Show the close (×)." }
     ],
     links: { figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6405-1125", specification: "/specs/Snackbar.md", audit: "/audits/Snackbar.md", source: "/storybook/?path=/docs/components-snackbar--docs" }
+  },
+  {
+    slug: "tag",
+    name: "Tag",
+    summary: "Compact labels and badges: coloured info badges, a notification count, a rating badge, and a NEW badge.",
+    category: "Display",
+    status: "ready",
+    storyId: "components-tag--playground",
+    packageName: "@dopamine2.0/ui",
+    importExample: 'import { Tag } from "@dopamine2.0/ui";',
+    anatomy: ["Container", "Label / count / value", "Optional star (rating)"],
+    variants: ["Info Badge (Purple / Yellow / Blue / Red / Orange / Green)", "Notification tag", "Rating Badge", "New Badge"],
+    sizes: ["Tag (11px)"],
+    states: ["Content variants (not interaction states)"],
+    usage: {
+      do: ["Use info badges to label status/category with a colour that carries meaning.", "Keep the label to one or two short words.", "Use the rating badge for a numeric score with the star."],
+      dont: ["Do not use a tag as a button — it is non-interactive.", "Do not put long text in a badge."]
+    },
+    accessibility: ["Renders inline text; ensure the colour is not the only signal of meaning.", "The notification count should be mirrored in an accessible label on its owning control."],
+    contentGuidance: ["Info-badge labels are nouns/adjectives (e.g. “Prescription”, “Bestseller”).", "New badge reads “NEW”."],
+    api: [
+      { name: "type", type: "info | notification | rating | new", defaultValue: "info", description: "Which tag family to render." },
+      { name: "color", type: "Purple | Yellow | Blue | Red | Orange | Green", defaultValue: "Purple", description: "Info-badge hue." },
+      { name: "count", type: "number", defaultValue: "1", description: "Notification count." },
+      { name: "value", type: "number | string", defaultValue: "4.2", description: "Rating value shown before the star." }
+    ],
+    links: { figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6394-1107", specification: "/specs/Tag.md", audit: "/audits/Tag.md", source: "/storybook/?path=/docs/components-tag--docs" }
+  },
+  {
+    slug: "tooltip",
+    name: "Tooltip",
+    summary: "A dark contextual bubble — lead icon, optional NEW pill, message, and close — with the tail on any of four corners.",
+    category: "Feedback",
+    status: "ready",
+    storyId: "components-tooltip--playground",
+    packageName: "@dopamine2.0/ui",
+    importExample: 'import { Tooltip } from "@dopamine2.0/ui";',
+    anatomy: ["Tail / arrow", "Bubble", "Lead icon", "NEW pill", "Message", "Close"],
+    variants: ["Top left", "Top right", "Bottom left", "Bottom right"],
+    sizes: ["Bubble (max 272px)"],
+    states: ["Tail placement; lead/pill/close toggles"],
+    usage: {
+      do: ["Point the tail at the element the tooltip explains.", "Keep the message to a single short line.", "Use the corner variant that keeps the bubble on-screen."],
+      dont: ["Do not put essential, always-needed information in a tooltip.", "Do not stack multiple tooltips."]
+    },
+    accessibility: ["Renders role=tooltip; the close is a labelled button.", "Trigger association (aria-describedby) is the consumer's responsibility."],
+    contentGuidance: ["One short sentence; no period needed."],
+    api: [
+      { name: "variant", type: "Top left | Top right | Bottom left | Bottom right", defaultValue: "Top left", description: "Tail placement." },
+      { name: "leadIcon", type: "boolean", defaultValue: "true", description: "Show the leading circular icon." },
+      { name: "newPill", type: "boolean", defaultValue: "true", description: "Show the green NEW pill." },
+      { name: "closeIcon", type: "boolean", defaultValue: "true", description: "Show the trailing close (✕)." }
+    ],
+    links: { figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6621-3120", specification: "/specs/Tooltip.md", audit: "/audits/Tooltip.md", source: "/storybook/?path=/docs/components-tooltip--docs" }
   }
 ];
 

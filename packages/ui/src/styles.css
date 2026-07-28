@@ -31,7 +31,11 @@
 .ds-vtabs *,
 .ds-swipe,
 .ds-snackbar,
-.ds-snackbar * {
+.ds-snackbar *,
+.ds-tag,
+.ds-tag *,
+.ds-tooltip,
+.ds-tooltip * {
   box-sizing: border-box;
   font-family: var(--font-family-body), system-ui, sans-serif;
 }
@@ -793,9 +797,11 @@
 .ds-htabs__seg[data-active] .ds-htabs__seg-sub { color: var(--semantic-color-content-inverse-primary); }
 
 /* Vertical Tabs */
-.ds-vtabs { background: var(--semantic-color-background-primary); border-radius: var(--radius-16) 0 0 0; display: flex; flex-direction: column; overflow: hidden; width: 88px; }
-.ds-vtabs__item { align-items: center; appearance: none; background: #f0f2f5; border: 0; cursor: pointer; display: flex; flex-direction: column; gap: var(--space-4); padding: var(--space-16) var(--space-8); position: relative; }
-.ds-vtabs__item[data-active] { background: var(--semantic-color-background-primary); }
+.ds-vtabs { background: #f0f2f5; border-radius: var(--radius-16) 0 0 var(--radius-16); display: flex; flex-direction: column; width: 88px; }
+.ds-vtabs__item { align-items: center; appearance: none; background: transparent; border: 0; cursor: pointer; display: flex; flex-direction: column; gap: var(--space-4); padding: var(--space-16) var(--space-8); position: relative; }
+/* Selected = white rounded card inset in the grey rail; its rounded corners reveal the
+   grey behind, producing the concave notch above/below (matches Figma 6429-2319). */
+.ds-vtabs__item[data-active] { background: var(--semantic-color-background-primary); border-radius: var(--radius-16); }
 .ds-vtabs__chip { align-items: center; background: var(--semantic-color-background-primary); border-radius: var(--radius-8); color: var(--semantic-color-content-tertiary); display: inline-flex; flex: 0 0 48px; height: 48px; justify-content: center; width: 48px; }
 .ds-vtabs__item[data-active] .ds-vtabs__chip { background: var(--semantic-color-content-primary); color: var(--semantic-color-content-inverse-primary); }
 .ds-vtabs__label { color: var(--semantic-color-content-primary); font-size: 11px; font-weight: var(--font-weight-medium); line-height: 16px; text-align: center; }
@@ -828,6 +834,35 @@
 .ds-snackbar--success { background: var(--semantic-color-states-success); }
 .ds-snackbar--error { background: var(--semantic-color-states-error); }
 .ds-snackbar--default { background: var(--semantic-color-content-primary); }
+
+/* Tags (node 6394-1107): info badge (6 hues, bg=hue/9x text=hue/40), notification, rating, new */
+.ds-tag { align-items: center; display: inline-flex; font-size: var(--font-size-tag-11); line-height: var(--font-line-height-16); white-space: nowrap; }
+.ds-tag--info { border-radius: var(--radius-4); font-weight: var(--font-weight-medium); padding: 2px 8px; }
+.ds-tag--info[data-color="Purple"] { background: var(--base-color-healing-mauve-97); color: var(--base-color-healing-mauve-40); }
+.ds-tag--info[data-color="Yellow"] { background: var(--base-color-sunshine-yellow-95); color: var(--base-color-sunshine-yellow-40); }
+.ds-tag--info[data-color="Blue"] { background: var(--base-color-corporate-horizon-blue-95); color: var(--base-color-corporate-horizon-blue-40); }
+.ds-tag--info[data-color="Red"] { background: var(--base-color-vital-red-95); color: var(--base-color-vital-red-40); }
+.ds-tag--info[data-color="Orange"] { background: var(--base-color-sunrise-glow-95); color: var(--base-color-sunrise-glow-40); }
+.ds-tag--info[data-color="Green"] { background: var(--base-color-wellness-green-95); color: var(--base-color-wellness-green-40); }
+.ds-tag--notification { background: var(--semantic-color-content-cta); border-radius: 999px; color: var(--semantic-color-content-inverse-primary); font-weight: var(--font-weight-bold); height: 16px; justify-content: center; min-width: 16px; padding: 0 4px; }
+.ds-tag--rating { background: var(--semantic-color-states-success); border-radius: var(--radius-4); color: var(--semantic-color-content-inverse-primary); font-weight: var(--font-weight-medium); gap: 2px; height: 16px; padding: 0 4px; }
+.ds-tag--new { background: var(--semantic-color-states-success); border-bottom: 1px solid var(--base-color-white-alpha-10); border-radius: 6px; color: var(--semantic-color-content-inverse-primary); font-weight: var(--font-weight-bold); padding: 2px 4px; }
+
+/* Tooltip (node 6621-3120): dark bubble + lead icon + NEW pill + text + close, arrow per variant */
+.ds-tooltip { display: inline-block; filter: drop-shadow(0 4px 12px rgba(39, 43, 51, 0.08)); }
+.ds-tooltip__bubble { align-items: center; background: var(--semantic-color-content-primary); border-radius: var(--radius-8); color: var(--semantic-color-content-inverse-primary); display: flex; gap: var(--space-8); max-width: 272px; padding: var(--space-8); position: relative; }
+.ds-tooltip__bubble::after { border: 6px solid transparent; content: ""; height: 0; position: absolute; width: 0; }
+.ds-tooltip[data-variant="Top left"] .ds-tooltip__bubble::after,
+.ds-tooltip[data-variant="Top right"] .ds-tooltip__bubble::after { border-bottom: 8px solid var(--semantic-color-content-primary); border-top: 0; top: -8px; }
+.ds-tooltip[data-variant="Bottom left"] .ds-tooltip__bubble::after,
+.ds-tooltip[data-variant="Bottom right"] .ds-tooltip__bubble::after { border-top: 8px solid var(--semantic-color-content-primary); border-bottom: 0; bottom: -8px; }
+.ds-tooltip[data-variant="Top left"] .ds-tooltip__bubble::after,
+.ds-tooltip[data-variant="Bottom left"] .ds-tooltip__bubble::after { left: 16px; }
+.ds-tooltip[data-variant="Top right"] .ds-tooltip__bubble::after,
+.ds-tooltip[data-variant="Bottom right"] .ds-tooltip__bubble::after { right: 16px; }
+.ds-tooltip__lead { align-items: center; background: var(--base-color-white-alpha-10); border-radius: 999px; color: var(--semantic-color-content-inverse-primary); display: inline-flex; flex: 0 0 22px; height: 22px; justify-content: center; width: 22px; }
+.ds-tooltip__text { flex: 1 1 auto; font-size: var(--font-size-tag-11); font-weight: var(--font-weight-medium); line-height: var(--font-line-height-16); margin: 0; min-width: 0; }
+.ds-tooltip__close { align-items: center; appearance: none; background: none; border: 0; color: var(--semantic-color-content-inverse-primary); cursor: pointer; display: inline-flex; flex: 0 0 14px; padding: 0; }
 
 .sr-only { clip: rect(0, 0, 0, 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; white-space: nowrap; width: 1px; }
 @keyframes ds-button-spin { to { transform: rotate(360deg); } }
