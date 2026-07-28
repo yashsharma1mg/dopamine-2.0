@@ -87,6 +87,7 @@ function SwipeableBanners({ type }: { type: SwipeIndicatorType }) {
 // Primary story shown at the top of the Documentation page: the indicator over real,
 // draggable content. Switch the `type` control between line-filling and staggered.
 export const Playground: Story = {
+  parameters: { layout: "centered" },
   render: (args) => <SwipeableBanners type={args.type ?? "line-filling"} />
 };
 
