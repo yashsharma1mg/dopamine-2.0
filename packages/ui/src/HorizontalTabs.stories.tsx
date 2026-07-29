@@ -32,6 +32,20 @@ function Controlled(props: Parameters<typeof HorizontalTabs>[0]) {
 
 export const Playground: Story = { render: (args) => <Controlled {...args} /> };
 
+// Circular 32px image placeholder, matching the Figma highlighted-tab variant.
+const imagePlaceholder = (
+  <span
+    style={{ alignItems: "center", background: "#f0f2f5", borderRadius: "50%", color: "#9aa2b1", display: "inline-flex", flex: "0 0 auto", height: 32, justifyContent: "center", width: 32 }}
+    aria-hidden="true"
+  >
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+      <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" strokeWidth="1.6" />
+      <circle cx="8.5" cy="10" r="1.5" fill="currentColor" />
+      <path d="M5 17l4.5-4 3 2.5L16 12l3 3.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  </span>
+);
+
 export const FigmaVariants: Story = {
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: 32, alignItems: "flex-start" }}>
@@ -45,8 +59,8 @@ export const FigmaVariants: Story = {
       <HorizontalTabs
         type="highlighted"
         items={[
-          { label: "Text", subtext: "Subtext of max 1 line", icon: <span style={{ width: 24, height: 24, display: "inline-block", borderRadius: 6, background: "currentColor", opacity: 0.25 }} /> },
-          { label: "Text", subtext: "Subtext of max 1 line", icon: <span style={{ width: 24, height: 24, display: "inline-block", borderRadius: 6, background: "currentColor", opacity: 0.25 }} /> }
+          { label: "Text", subtext: "Subtext of max 1 line", icon: imagePlaceholder },
+          { label: "Text", subtext: "Subtext of max 1 line", icon: imagePlaceholder }
         ]}
         activeIndex={1}
       />

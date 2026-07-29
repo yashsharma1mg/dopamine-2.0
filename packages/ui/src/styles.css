@@ -787,7 +787,7 @@
 /* highlighted (segmented pill) */
 .ds-htabs--highlighted { background: #f0f2f5; border-radius: 999px; width: 328px; }
 .ds-htabs__seg { align-items: center; appearance: none; background: transparent; border: 0; border-radius: 999px; cursor: pointer; display: inline-flex; flex: 1 1 0; gap: var(--space-8); justify-content: center; min-height: 40px; min-width: 0; padding: 0 var(--space-16); }
-.ds-htabs--highlighted[data-rich] .ds-htabs__seg { justify-content: flex-start; min-height: 56px; }
+.ds-htabs--highlighted[data-rich] .ds-htabs__seg { gap: var(--space-4); justify-content: flex-start; min-height: 56px; padding: 0 var(--space-8); }
 .ds-htabs__seg-icon { align-items: center; color: inherit; display: inline-flex; flex: 0 0 auto; }
 .ds-htabs__seg-body { display: flex; flex-direction: column; min-width: 0; }
 .ds-htabs__seg-label { color: #4e5665; font-size: 14px; font-weight: var(--font-weight-medium); line-height: 20px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
