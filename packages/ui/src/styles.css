@@ -851,15 +851,15 @@
 /* Tooltip (node 6621-3120): dark bubble + lead icon + NEW pill + text + close, arrow per variant */
 .ds-tooltip { display: inline-block; filter: drop-shadow(0 4px 12px rgba(39, 43, 51, 0.08)); }
 .ds-tooltip__bubble { align-items: center; background: var(--semantic-color-content-primary); border-radius: var(--radius-8); color: var(--semantic-color-content-inverse-primary); display: flex; gap: var(--space-8); max-width: 272px; padding: var(--space-8); position: relative; }
-.ds-tooltip__bubble::after { border: 6px solid transparent; content: ""; height: 0; position: absolute; width: 0; }
+.ds-tooltip__bubble::after { border: 8px solid transparent; content: ""; height: 0; position: absolute; width: 0; }
 .ds-tooltip[data-variant="Top left"] .ds-tooltip__bubble::after,
 .ds-tooltip[data-variant="Top right"] .ds-tooltip__bubble::after { border-bottom: 8px solid var(--semantic-color-content-primary); border-top: 0; top: -8px; }
 .ds-tooltip[data-variant="Bottom left"] .ds-tooltip__bubble::after,
 .ds-tooltip[data-variant="Bottom right"] .ds-tooltip__bubble::after { border-top: 8px solid var(--semantic-color-content-primary); border-bottom: 0; bottom: -8px; }
 .ds-tooltip[data-variant="Top left"] .ds-tooltip__bubble::after,
-.ds-tooltip[data-variant="Bottom left"] .ds-tooltip__bubble::after { left: 16px; }
+.ds-tooltip[data-variant="Bottom left"] .ds-tooltip__bubble::after { left: 12px; }
 .ds-tooltip[data-variant="Top right"] .ds-tooltip__bubble::after,
-.ds-tooltip[data-variant="Bottom right"] .ds-tooltip__bubble::after { right: 16px; }
+.ds-tooltip[data-variant="Bottom right"] .ds-tooltip__bubble::after { right: 12px; }
 .ds-tooltip__lead { align-items: center; background: var(--base-color-white-alpha-10); border-radius: 999px; color: var(--semantic-color-content-inverse-primary); display: inline-flex; flex: 0 0 22px; height: 22px; justify-content: center; width: 22px; }
 .ds-tooltip__text { flex: 1 1 auto; font-size: var(--font-size-tag-11); font-weight: var(--font-weight-medium); line-height: var(--font-line-height-16); margin: 0; min-width: 0; }
 .ds-tooltip__close { align-items: center; appearance: none; background: none; border: 0; color: var(--semantic-color-content-inverse-primary); cursor: pointer; display: inline-flex; flex: 0 0 14px; padding: 0; }

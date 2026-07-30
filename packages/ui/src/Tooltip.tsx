@@ -33,7 +33,7 @@ export function Tooltip({
       <div className="ds-tooltip__bubble">
         {leadIcon && (
           <span className="ds-tooltip__lead" aria-hidden="true">
-            <DsIcon name="insights" size={16} />
+            <DsIcon name="location-pin" size={14} />
           </span>
         )}
         {newPill && <Tag type="new" />}
