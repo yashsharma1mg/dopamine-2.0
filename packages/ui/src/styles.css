@@ -851,18 +851,29 @@
 /* Tooltip (node 6621-3120): dark bubble + lead icon + NEW pill + text + close, arrow per variant */
 .ds-tooltip { display: inline-block; filter: drop-shadow(0 4px 12px rgba(39, 43, 51, 0.08)); }
 .ds-tooltip__bubble { align-items: center; background: var(--semantic-color-content-primary); border-radius: var(--radius-8); color: var(--semantic-color-content-inverse-primary); display: flex; gap: var(--space-8); max-width: 272px; padding: var(--space-8); position: relative; }
-.ds-tooltip__bubble::after { border: 8px solid transparent; content: ""; height: 0; position: absolute; width: 0; }
+/* Beak with a rounded tip (Figma exports it as a filled shape, not a sharp
+   triangle). A masked box keeps the fill tokenized while the SVG gives the
+   rounded point. */
+.ds-tooltip__bubble::after {
+  background: var(--semantic-color-content-primary);
+  content: "";
+  height: 8px;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%208'%3E%3Cpath%20d='M0%200H16L9.4%206.8a2%202%200%200%201-2.8%200Z'%20fill='%23000'/%3E%3C/svg%3E") center / 16px 8px no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%208'%3E%3Cpath%20d='M0%200H16L9.4%206.8a2%202%200%200%201-2.8%200Z'%20fill='%23000'/%3E%3C/svg%3E") center / 16px 8px no-repeat;
+  position: absolute;
+  width: 16px;
+}
 .ds-tooltip[data-variant="Top left"] .ds-tooltip__bubble::after,
-.ds-tooltip[data-variant="Top right"] .ds-tooltip__bubble::after { border-bottom: 8px solid var(--semantic-color-content-primary); border-top: 0; top: -8px; }
+.ds-tooltip[data-variant="Top right"] .ds-tooltip__bubble::after { top: -8px; transform: scaleY(-1); }
 .ds-tooltip[data-variant="Bottom left"] .ds-tooltip__bubble::after,
-.ds-tooltip[data-variant="Bottom right"] .ds-tooltip__bubble::after { border-top: 8px solid var(--semantic-color-content-primary); border-bottom: 0; bottom: -8px; }
+.ds-tooltip[data-variant="Bottom right"] .ds-tooltip__bubble::after { bottom: -8px; }
 .ds-tooltip[data-variant="Top left"] .ds-tooltip__bubble::after,
 .ds-tooltip[data-variant="Bottom left"] .ds-tooltip__bubble::after { left: 12px; }
 .ds-tooltip[data-variant="Top right"] .ds-tooltip__bubble::after,
 .ds-tooltip[data-variant="Bottom right"] .ds-tooltip__bubble::after { right: 12px; }
 .ds-tooltip__lead { align-items: center; background: var(--base-color-white-alpha-10); border-radius: 999px; color: var(--semantic-color-content-inverse-primary); display: inline-flex; flex: 0 0 22px; height: 22px; justify-content: center; width: 22px; }
 .ds-tooltip__text { flex: 1 1 auto; font-size: var(--font-size-tag-11); font-weight: var(--font-weight-medium); line-height: var(--font-line-height-16); margin: 0; min-width: 0; }
-.ds-tooltip__close { align-items: center; appearance: none; background: none; border: 0; color: var(--semantic-color-content-inverse-primary); cursor: pointer; display: inline-flex; flex: 0 0 14px; padding: 0; }
+.ds-tooltip__close { align-items: center; appearance: none; background: none; border: 0; color: var(--semantic-color-content-inverse-primary); cursor: pointer; display: inline-flex; flex: 0 0 14px; justify-content: center; padding: 0; }
 
 .sr-only { clip: rect(0, 0, 0, 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; white-space: nowrap; width: 1px; }
 @keyframes ds-button-spin { to { transform: rotate(360deg); } }

@@ -40,7 +40,7 @@ export function Tooltip({
         <p className="ds-tooltip__text">{children ?? "Your order will be delivered here"}</p>
         {closeIcon && (
           <button type="button" className="ds-tooltip__close" aria-label="Dismiss" onClick={onClose}>
-            <DsIcon name="cross" size={14} />
+            <DsIcon name="cross" size={10} />
           </button>
         )}
       </div>
