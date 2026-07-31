@@ -43,6 +43,8 @@ export { AmountWidget } from "./AmountWidget.js";
 export type { AmountWidgetProps, AmountWidgetState } from "./AmountWidget.js";
 export { CarePlanCard } from "./CarePlanCard.js";
 export type { CarePlanCardProps, CarePlanCardType } from "./CarePlanCard.js";
+export { OrderStrip } from "./OrderStrip.js";
+export type { OrderStripProps, OrderStripType } from "./OrderStrip.js";
 export { PageHeader, PageHeaderStatusBar } from "./PageHeader.js";
 export type { PageHeaderProps, PageHeaderTab, PageHeaderTextColour, PageHeaderType, PageHeaderUsage } from "./PageHeader.js";
 export { SuggestionChip } from "./SuggestionChip.js";
