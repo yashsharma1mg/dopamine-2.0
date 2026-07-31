@@ -35,7 +35,9 @@
 .ds-tag,
 .ds-tag *,
 .ds-tooltip,
-.ds-tooltip * {
+.ds-tooltip *,
+.ds-saving-strip,
+.ds-saving-strip * {
   box-sizing: border-box;
   font-family: var(--font-family-body), system-ui, sans-serif;
 }
@@ -882,3 +884,20 @@
 .sr-only { clip: rect(0, 0, 0, 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; white-space: nowrap; width: 1px; }
 @keyframes ds-button-spin { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) { .ds-button__spinner { animation: none; } }
+
+/* ── Saving Strip (cart) ─────────────────────────────────────────────────── */
+.ds-saving-strip { max-width: 100%; padding: var(--space-4) var(--space-16); width: 360px; }
+.ds-saving-strip__inner { align-items: center; background: var(--base-color-wellness-green-97); border-radius: var(--radius-8); display: flex; gap: var(--space-4); justify-content: center; overflow: hidden; padding: var(--space-8); position: relative; }
+.ds-saving-strip__inner[data-oneline] { padding: var(--space-8) var(--space-12); }
+.ds-saving-strip__inner[data-payday] { justify-content: flex-start; padding: var(--space-8) var(--space-12); }
+.ds-saving-strip[data-variant="careplan-1line"] .ds-saving-strip__inner { justify-content: space-between; }
+.ds-saving-strip__stack { align-items: center; display: flex; flex-direction: column; gap: var(--space-4); }
+.ds-saving-strip__inner[data-payday] .ds-saving-strip__stack { align-items: flex-start; }
+.ds-saving-strip__line1 { align-items: center; color: var(--semantic-color-content-primary); display: inline-flex; flex-wrap: wrap; font-size: 14px; font-weight: var(--font-weight-bold); gap: 4px; line-height: 20px; }
+.ds-saving-strip__line2 { align-items: center; color: var(--semantic-color-content-secondary); display: inline-flex; flex-wrap: wrap; font-size: 12px; font-weight: var(--font-weight-medium); gap: 4px; line-height: 16px; }
+.ds-saving-strip__line2 b { color: var(--semantic-color-content-secondary); font-weight: var(--font-weight-bold); }
+.ds-saving-strip__amt { color: var(--semantic-color-states-success); font-weight: var(--font-weight-bold); }
+.ds-saving-strip__chev { color: var(--semantic-color-content-secondary); }
+/* Pay Day Sale gift-tag: gradient tag, dashed inner border, tilted; sits top-right. */
+.ds-saving-strip__payday { pointer-events: none; position: absolute; right: 10px; top: -2px; }
+.ds-saving-strip__payday-tag { background: linear-gradient(106deg, var(--base-color-precision-blue-50) 13%, var(--base-color-wellness-green-50) 41%, var(--base-color-wellness-green-30) 115%); border-radius: 3px; box-shadow: 0 2.5px 1.3px rgba(0, 0, 0, 0.08); color: #fff; display: inline-block; font-family: var(--font-family-display), var(--font-family-body), sans-serif; font-size: 11.4px; font-weight: 800; letter-spacing: 0.2px; outline: 0.6px dashed rgba(255, 255, 255, 0.85); outline-offset: -3px; padding: 8px 10px; transform: rotate(4deg); white-space: nowrap; }
