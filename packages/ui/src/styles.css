@@ -43,7 +43,9 @@
 .ds-careplan,
 .ds-careplan *,
 .ds-order,
-.ds-order * {
+.ds-order *,
+.ds-coupon,
+.ds-coupon * {
   box-sizing: border-box;
   font-family: var(--font-family-body), system-ui, sans-serif;
 }
@@ -1008,3 +1010,22 @@
 .ds-order__labs-price em { color: #208376; font-size: 12px; font-style: normal; font-weight: var(--font-weight-medium); line-height: 16px; }
 .ds-order__patient { align-items: center; display: flex; flex-direction: column; gap: 2px; }
 .ds-order__patient-lbl { color: #868e9e; font-size: 12px; line-height: 16px; }
+
+/* ── Coupon widget (cart) ────────────────────────────────────────────────── */
+.ds-coupon { align-items: center; background: var(--semantic-color-background-primary); color: var(--semantic-color-content-primary); display: flex; flex-direction: column; gap: var(--space-16); max-width: 100%; padding: var(--space-16); width: 360px; }
+.ds-coupon__row { align-items: flex-start; display: flex; gap: var(--space-8); width: 100%; }
+.ds-coupon__chip { align-items: center; border-radius: var(--radius-4); display: inline-flex; flex: 0 0 40px; height: 40px; justify-content: center; width: 40px; }
+.ds-coupon__chip--green { background: linear-gradient(0deg, #daffea 0%, #f8fffb 102%); color: var(--semantic-color-states-success); }
+.ds-coupon__chip--grey { background: linear-gradient(0deg, #eef1f5 0%, #f8f9fb 102%); color: var(--semantic-color-content-tertiary); }
+.ds-coupon__chip--party { background: linear-gradient(180deg, #fffdf2 0%, rgba(255, 244, 192, 0.5) 100%); }
+.ds-coupon__chip--party img { height: 24px; width: 24px; }
+.ds-coupon__text { display: flex; flex: 1 1 auto; flex-direction: column; gap: var(--space-4); min-width: 0; }
+.ds-coupon__title { align-items: center; color: var(--semantic-color-content-primary); display: inline-flex; flex-wrap: wrap; font-size: 16px; font-weight: var(--font-weight-bold); gap: 4px; line-height: 24px; }
+.ds-coupon__title--explore { flex: 1 1 auto; }
+.ds-coupon__sub { color: var(--semantic-color-content-secondary); font-size: 14px; font-weight: var(--font-weight-regular); line-height: 20px; }
+.ds-coupon__action { color: var(--semantic-color-content-cta); font-size: 14px; font-weight: var(--font-weight-bold); line-height: 20px; white-space: nowrap; }
+.ds-coupon__explore-chev { color: var(--semantic-color-content-secondary); flex: 0 0 20px; }
+.ds-coupon__divider { border: 0; border-top: 1px solid var(--semantic-color-border-subtle, #e3e7ed); margin: 0; width: 100%; }
+.ds-coupon__row2 { align-items: center; display: flex; gap: var(--space-8); width: 100%; }
+.ds-coupon__save120 { align-items: center; color: var(--semantic-color-content-primary); display: inline-flex; flex: 1 1 auto; font-size: 16px; font-weight: var(--font-weight-bold); gap: var(--space-4); line-height: 24px; }
+.ds-coupon__viewall { align-items: center; color: var(--semantic-color-content-cta); display: inline-flex; font-size: 14px; font-weight: var(--font-weight-bold); gap: var(--space-8); line-height: 20px; }
