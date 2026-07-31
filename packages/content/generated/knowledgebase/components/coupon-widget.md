@@ -6,7 +6,7 @@ Cart coupon widget covering the coupon lifecycle: explore, locked, applyable, ap
 - **Import:** `import { CouponWidget } from "@dopamine2.0/ui";`
 - Load the stylesheet once at your app root: `import "@dopamine2.0/ui/styles.css";`
 
-**Use when the user asks for:** coupon, coupon widget, promo code, discount code, apply coupon, cart coupon, offer widget
+**Use when the user asks for:** coupon, coupon widget, promo code, discount code, apply coupon, cart coupon, offer widget, explore coupons
 
 ## Props
 | Prop | Type | Required | Default | Description |

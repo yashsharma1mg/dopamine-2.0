@@ -6,7 +6,7 @@ Cart billing widget: a collapsed to-be-paid summary or an expanded delivery addr
 - **Import:** `import { AmountWidget } from "@dopamine2.0/ui";`
 - Load the stylesheet once at your app root: `import "@dopamine2.0/ui/styles.css";`
 
-**Use when the user asks for:** amount widget, bill summary, cart total, to be paid, payment breakdown, billing widget, order total
+**Use when the user asks for:** amount widget, bill summary, cart total, to be paid, payment breakdown, billing widget, order total, delivery address bill
 
 ## Props
 | Prop | Type | Required | Default | Description |

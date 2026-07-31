@@ -6,7 +6,7 @@ A green cart savings summary bar — one- or two-line, with Care Plan attributio
 - **Import:** `import { SavingStrip } from "@dopamine2.0/ui";`
 - Load the stylesheet once at your app root: `import "@dopamine2.0/ui/styles.css";`
 
-**Use when the user asks for:** saving strip, savings bar, total savings, cart savings, you're saving, pay day sale strip
+**Use when the user asks for:** saving strip, savings bar, total savings, cart savings, you're saving, pay day sale strip, order savings summary
 
 ## Props
 | Prop | Type | Required | Default | Description |

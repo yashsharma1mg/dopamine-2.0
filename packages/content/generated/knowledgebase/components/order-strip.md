@@ -6,7 +6,7 @@ Cart order strip: pharmacy delivery sections with SKU rows (Rx / non-Rx), compac
 - **Import:** `import { OrderStrip } from "@dopamine2.0/ui";`
 - Load the stylesheet once at your app root: `import "@dopamine2.0/ui/styles.css";`
 
-**Use when the user asks for:** order strip, cart item row, sku row, product row, pharmacy order, lab test card, delivery strip
+**Use when the user asks for:** order strip, cart item row, sku row, product row, pharmacy order, lab test card, diagnostics card, delivery strip
 
 ## Props
 | Prop | Type | Required | Default | Description |

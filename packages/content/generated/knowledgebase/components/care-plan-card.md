@@ -6,7 +6,7 @@ Care Plan upsell card (cream gradient) — added / updated benefit summaries or 
 - **Import:** `import { CarePlanCard } from "@dopamine2.0/ui";`
 - Load the stylesheet once at your app root: `import "@dopamine2.0/ui/styles.css";`
 
-**Use when the user asks for:** care plan card, careplan, membership upsell, plan card, subscription card, add plan
+**Use when the user asks for:** care plan card, careplan, membership upsell, plan card, subscription card, add plan, benefits card
 
 ## Props
 | Prop | Type | Required | Default | Description |

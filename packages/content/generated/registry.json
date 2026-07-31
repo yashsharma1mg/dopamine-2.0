@@ -1993,7 +1993,8 @@
       "discount code",
       "apply coupon",
       "cart coupon",
-      "offer widget"
+      "offer widget",
+      "explore coupons"
     ],
     "variants": [
       "No Coupon",
@@ -2052,7 +2053,8 @@
       "total savings",
       "cart savings",
       "you're saving",
-      "pay day sale strip"
+      "pay day sale strip",
+      "order savings summary"
     ],
     "variants": [
       "default",
@@ -2125,7 +2127,8 @@
       "to be paid",
       "payment breakdown",
       "billing widget",
-      "order total"
+      "order total",
+      "delivery address bill"
     ],
     "variants": [
       "Collapsed",
@@ -2179,7 +2182,8 @@
       "membership upsell",
       "plan card",
       "subscription card",
-      "add plan"
+      "add plan",
+      "benefits card"
     ],
     "variants": [
       "Added",
@@ -2242,6 +2246,7 @@
       "product row",
       "pharmacy order",
       "lab test card",
+      "diagnostics card",
       "delivery strip"
     ],
     "variants": [

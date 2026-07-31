@@ -676,7 +676,7 @@ export const componentManifests: ComponentManifest[] = [
     api: [
       { name: "state", type: "No Coupon | Not Available | Not Applicable | Applied | CarePlan Applied | CarePlan Not Applicable", defaultValue: "Not Applicable", description: "Which coupon lifecycle state to render." }
     ],
-    links: { figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6757-2345", specification: "", audit: "", source: "/storybook/?path=/docs/components-couponwidget--docs" }
+    links: { figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6757-2345", specification: "/specs/CouponWidget.md", audit: "", source: "/storybook/?path=/docs/components-couponwidget--docs" }
   },
   {
     slug: "saving-strip",
@@ -702,7 +702,7 @@ export const componentManifests: ComponentManifest[] = [
       { name: "amount", type: "string", defaultValue: "₹292", description: "Total saving amount." },
       { name: "careplanAmount", type: "string", defaultValue: "₹120", description: "Care Plan contribution (careplan two-line)." }
     ],
-    links: { figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6763-3519", specification: "", audit: "", source: "/storybook/?path=/docs/components-savingstrip--docs" }
+    links: { figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6763-3519", specification: "/specs/SavingStrip.md", audit: "", source: "/storybook/?path=/docs/components-savingstrip--docs" }
   },
   {
     slug: "amount-widget",
@@ -726,7 +726,7 @@ export const componentManifests: ComponentManifest[] = [
     api: [
       { name: "state", type: "Collapsed | Expanded", defaultValue: "Expanded", description: "Collapsed summary or expanded bill breakdown." }
     ],
-    links: { figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6763-4065", specification: "", audit: "", source: "/storybook/?path=/docs/components-amountwidget--docs" }
+    links: { figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6763-4065", specification: "/specs/AmountWidget.md", audit: "", source: "/storybook/?path=/docs/components-amountwidget--docs" }
   },
   {
     slug: "care-plan-card",
@@ -751,7 +751,7 @@ export const componentManifests: ComponentManifest[] = [
       { name: "type", type: "Added | Not Added | updated", defaultValue: "Added", description: "Care Plan card state." },
       { name: "onAction", type: "() => void", defaultValue: "—", description: "Add Plan / Remove handler." }
     ],
-    links: { figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6763-4245", specification: "", audit: "", source: "/storybook/?path=/docs/components-careplancard--docs" }
+    links: { figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6763-4245", specification: "/specs/CarePlanCard.md", audit: "", source: "/storybook/?path=/docs/components-careplancard--docs" }
   },
   {
     slug: "order-strip",
@@ -775,7 +775,7 @@ export const componentManifests: ComponentManifest[] = [
     api: [
       { name: "type", type: "Pharma Rx | Pharma non Rx | compact Rx | compact non Rx | Labs Rapid Report | Labs Default", defaultValue: "Pharma Rx", description: "Which order-strip variant to render." }
     ],
-    links: { figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6765-5494", specification: "", audit: "", source: "/storybook/?path=/docs/components-orderstrip--docs" }
+    links: { figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6765-5494", specification: "/specs/OrderStrip.md", audit: "", source: "/storybook/?path=/docs/components-orderstrip--docs" }
   }
 ];
 
