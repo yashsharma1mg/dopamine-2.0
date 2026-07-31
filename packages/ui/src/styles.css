@@ -39,7 +39,9 @@
 .ds-saving-strip,
 .ds-saving-strip *,
 .ds-amount-widget,
-.ds-amount-widget * {
+.ds-amount-widget *,
+.ds-careplan,
+.ds-careplan * {
   box-sizing: border-box;
   font-family: var(--font-family-body), system-ui, sans-serif;
 }
@@ -935,3 +937,26 @@
 .ds-amount-widget__free { color: #903e38; }
 .ds-amount-widget__divider { border: 0; border-top: 1px dashed var(--semantic-color-border-subtle, #e3e7ed); margin: 0; }
 .ds-amount-widget__row--total { color: var(--semantic-color-content-primary); font-size: 16px; font-weight: var(--font-weight-bold); line-height: 24px; }
+
+/* ── Care Plan card (cart) ───────────────────────────────────────────────── */
+.ds-careplan { background: linear-gradient(162deg, #fcf2e5 12%, #fff 89%); border-radius: var(--radius-8); color: var(--semantic-color-content-primary); display: flex; flex-direction: column; height: 243px; overflow: hidden; width: 328px; }
+.ds-careplan__head { align-items: center; border-bottom: 1px dashed #fbeedd; display: flex; gap: var(--space-8); padding: var(--space-8) var(--space-16); }
+.ds-careplan__title { align-items: center; color: var(--semantic-color-content-primary); display: inline-flex; flex-wrap: wrap; font-size: 18px; font-weight: var(--font-weight-bold); gap: 4px; line-height: 28px; }
+.ds-careplan__amt { color: var(--semantic-color-states-success); font-weight: var(--font-weight-bold); }
+.ds-careplan__with { font-weight: var(--font-weight-bold); }
+.ds-careplan__body { display: flex; flex: 1 1 auto; flex-direction: column; gap: var(--space-8); padding: var(--space-12) var(--space-16); }
+.ds-careplan[data-type="Not Added"] .ds-careplan__body { gap: var(--space-12); }
+.ds-careplan__applied { color: #d97c37; font-size: 14px; font-weight: var(--font-weight-medium); line-height: 21px; }
+.ds-careplan__benefit { align-items: center; display: flex; gap: var(--space-6, 6px); }
+.ds-careplan__tick { color: #208376; }
+.ds-careplan__benefit-txt { color: var(--semantic-color-content-primary); font-size: 14px; line-height: 21px; }
+.ds-careplan__benefit-txt--lg { font-size: 16px; font-weight: var(--font-weight-medium); line-height: 24px; }
+.ds-careplan__illo { flex: 0 0 32px; height: 32px; object-fit: contain; width: 32px; }
+.ds-careplan__more { align-items: center; color: #a65316; display: inline-flex; font-size: 14px; font-weight: var(--font-weight-bold); gap: var(--space-4); line-height: 20px; }
+.ds-careplan__more-chev { align-items: center; background: #a65316; border-radius: 999px; color: #fff; display: inline-flex; height: 14px; justify-content: center; width: 14px; }
+.ds-careplan__foot { align-items: center; background: linear-gradient(90deg, #fbeedd 0%, rgba(251, 238, 221, 0.08) 100%); border-top: 1px solid #fbeedd; display: flex; gap: var(--space-8); justify-content: space-between; padding: 0 var(--space-16); height: 60px; }
+.ds-careplan__price { color: var(--semantic-color-content-primary); font-size: 14px; font-weight: var(--font-weight-bold); line-height: 20px; }
+.ds-careplan__price s { text-decoration-thickness: 1px; }
+.ds-careplan__btn { appearance: none; border-radius: var(--radius-8); cursor: pointer; font-size: 14px; font-weight: var(--font-weight-bold); line-height: 20px; min-width: 104px; padding: 10px var(--space-16); }
+.ds-careplan__btn--remove { background: var(--semantic-color-background-primary); border: 1px solid var(--semantic-color-border-subtle, #dde2eb); color: var(--semantic-color-branding-1mg, #ff5443); }
+.ds-careplan__btn--add { background: var(--semantic-color-content-primary); border: 0; color: var(--semantic-color-content-inverse-primary); }
