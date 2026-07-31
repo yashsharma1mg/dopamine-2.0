@@ -39,6 +39,8 @@ export type { TooltipProps, TooltipVariant } from "./Tooltip.js";
 export { CarePlanBadge } from "./CarePlanBadge.js";
 export { SavingStrip } from "./SavingStrip.js";
 export type { SavingStripProps, SavingStripVariant } from "./SavingStrip.js";
+export { AmountWidget } from "./AmountWidget.js";
+export type { AmountWidgetProps, AmountWidgetState } from "./AmountWidget.js";
 export { PageHeader, PageHeaderStatusBar } from "./PageHeader.js";
 export type { PageHeaderProps, PageHeaderTab, PageHeaderTextColour, PageHeaderType, PageHeaderUsage } from "./PageHeader.js";
 export { SuggestionChip } from "./SuggestionChip.js";

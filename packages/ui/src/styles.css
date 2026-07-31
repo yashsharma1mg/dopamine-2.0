@@ -37,7 +37,9 @@
 .ds-tooltip,
 .ds-tooltip *,
 .ds-saving-strip,
-.ds-saving-strip * {
+.ds-saving-strip *,
+.ds-amount-widget,
+.ds-amount-widget * {
   box-sizing: border-box;
   font-family: var(--font-family-body), system-ui, sans-serif;
 }
@@ -901,3 +903,35 @@
 /* Pay Day Sale gift-tag: gradient tag, dashed inner border, tilted; sits top-right. */
 .ds-saving-strip__payday { pointer-events: none; position: absolute; right: 10px; top: -2px; }
 .ds-saving-strip__payday-tag { background: linear-gradient(106deg, var(--base-color-precision-blue-50) 13%, var(--base-color-wellness-green-50) 41%, var(--base-color-wellness-green-30) 115%); border-radius: 3px; box-shadow: 0 2.5px 1.3px rgba(0, 0, 0, 0.08); color: #fff; display: inline-block; font-family: var(--font-family-display), var(--font-family-body), sans-serif; font-size: 11.4px; font-weight: 800; letter-spacing: 0.2px; outline: 0.6px dashed rgba(255, 255, 255, 0.85); outline-offset: -3px; padding: 8px 10px; transform: rotate(4deg); white-space: nowrap; }
+
+/* ── Amount Widget (cart) ────────────────────────────────────────────────── */
+.ds-amount-widget { background: var(--semantic-color-background-primary); color: var(--semantic-color-content-primary); max-width: 100%; width: 360px; }
+.ds-amount-widget__circle { align-items: center; background: linear-gradient(180deg, rgba(240, 242, 245, 0) 0%, #f0f2f5 100%); border-radius: 999px; color: #868e9e; display: inline-flex; flex: 0 0 24px; height: 24px; justify-content: center; width: 24px; }
+.ds-amount-widget__circle--lg { flex-basis: 28px; height: 28px; width: 28px; }
+/* Collapsed */
+.ds-amount-widget--collapsed { padding: var(--space-16); }
+.ds-amount-widget__collapsed-row { align-items: center; display: flex; gap: var(--space-8); }
+.ds-amount-widget__topay { align-items: center; color: var(--semantic-color-content-primary); display: flex; flex: 1 1 auto; font-size: 14px; font-weight: var(--font-weight-regular); gap: var(--space-8); line-height: 20px; }
+.ds-amount-widget__topay b { font-weight: var(--font-weight-bold); }
+.ds-amount-widget__savings { background: var(--base-color-wellness-green-95); border-radius: var(--radius-4); color: var(--base-color-wellness-green-40); font-size: var(--font-size-tag-11); font-weight: var(--font-weight-bold); line-height: var(--font-line-height-16); padding: 2px var(--space-8); }
+.ds-amount-widget__chev-cta { color: var(--semantic-color-content-cta); }
+/* Location header */
+.ds-amount-widget__loc { align-items: flex-start; border-bottom: 1px dashed var(--semantic-color-border-subtle, #e3e7ed); display: flex; gap: var(--space-8); margin: 0 var(--space-16); padding: var(--space-16) 0; }
+.ds-amount-widget__addr { display: flex; flex: 1 1 auto; flex-direction: column; gap: var(--space-4); min-width: 0; }
+.ds-amount-widget__addr-1 { color: var(--semantic-color-content-primary); font-size: 14px; line-height: 20px; }
+.ds-amount-widget__addr-1 b { font-weight: var(--font-weight-bold); }
+.ds-amount-widget__addr-2 { color: var(--semantic-color-content-tertiary); font-size: 14px; line-height: 20px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* Bill summary */
+.ds-amount-widget__bill { display: flex; flex-direction: column; gap: var(--space-12); padding: var(--space-16); }
+.ds-amount-widget__title { color: var(--semantic-color-content-primary); font-size: 14px; font-weight: var(--font-weight-bold); line-height: 20px; margin: 0; }
+.ds-amount-widget__group { display: flex; flex-direction: column; gap: var(--space-8); }
+.ds-amount-widget__row { align-items: center; display: flex; gap: var(--space-16); justify-content: space-between; }
+.ds-amount-widget__label { align-items: center; color: var(--semantic-color-content-primary); display: inline-flex; font-size: 14px; gap: var(--space-4); line-height: 20px; }
+.ds-amount-widget__label[data-dotted] { border-bottom: 1px dotted var(--semantic-color-content-tertiary); align-self: flex-start; }
+.ds-amount-widget__label--green { color: var(--base-color-wellness-green-30); }
+.ds-amount-widget__value { color: var(--semantic-color-content-primary); font-size: 14px; line-height: 20px; text-align: right; white-space: nowrap; }
+.ds-amount-widget__value--green { color: var(--semantic-color-states-success); }
+.ds-amount-widget__value s { color: var(--semantic-color-content-primary); }
+.ds-amount-widget__free { color: #903e38; }
+.ds-amount-widget__divider { border: 0; border-top: 1px dashed var(--semantic-color-border-subtle, #e3e7ed); margin: 0; }
+.ds-amount-widget__row--total { color: var(--semantic-color-content-primary); font-size: 16px; font-weight: var(--font-weight-bold); line-height: 24px; }
