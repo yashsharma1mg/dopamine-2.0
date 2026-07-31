@@ -653,6 +653,129 @@ export const componentManifests: ComponentManifest[] = [
       { name: "closeIcon", type: "boolean", defaultValue: "true", description: "Show the trailing close (✕)." }
     ],
     links: { figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6621-3120", specification: "/specs/Tooltip.md", audit: "/audits/Tooltip.md", source: "/storybook/?path=/docs/components-tooltip--docs" }
+  },
+  {
+    slug: "coupon-widget",
+    name: "CouponWidget",
+    summary: "Cart coupon widget covering the coupon lifecycle: explore, locked, applyable, applied, and the Care Plan stacks.",
+    category: "Cart",
+    status: "ready",
+    storyId: "components-couponwidget--playground",
+    packageName: "@dopamine2.0/ui",
+    importExample: 'import { CouponWidget } from "@dopamine2.0/ui";',
+    anatomy: ["Icon chip (discount / party)", "Title + subtitle", "Apply / Applied action", "Divider", "View all coupons"],
+    variants: ["No Coupon", "Not Available", "Not Applicable", "Applied", "CarePlan Applied", "CarePlan Not Applicable"],
+    sizes: ["360px cart width"],
+    states: ["Locked / applyable / applied; Non-CP vs Care Plan user"],
+    usage: {
+      do: ["Show the unlock threshold in the subtitle when a coupon is not yet applicable.", "Use the party icon only for applied savings."],
+      dont: ["Do not hide the View-all-coupons entry point.", "Do not mix Care Plan and Non-CP messaging in one row."]
+    },
+    accessibility: ["Apply / Applied are text actions — wire them to real buttons in product.", "Care Plan badge carries an accessible label."],
+    contentGuidance: ["Titles read like coupon codes (e.g. “1MG ALL | 10% off locked”)."],
+    api: [
+      { name: "state", type: "No Coupon | Not Available | Not Applicable | Applied | CarePlan Applied | CarePlan Not Applicable", defaultValue: "Not Applicable", description: "Which coupon lifecycle state to render." }
+    ],
+    links: { figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6757-2345", specification: "", audit: "", source: "/storybook/?path=/docs/components-couponwidget--docs" }
+  },
+  {
+    slug: "saving-strip",
+    name: "SavingStrip",
+    summary: "A green cart savings summary bar — one- or two-line, with Care Plan attribution or a Pay Day Sale badge.",
+    category: "Cart",
+    status: "ready",
+    storyId: "components-savingstrip--playground",
+    packageName: "@dopamine2.0/ui",
+    importExample: 'import { SavingStrip } from "@dopamine2.0/ui";',
+    anatomy: ["Green surface", "Amount(s)", "Care Plan badge / Pay Day Sale tag", "Optional chevron"],
+    variants: ["default", "careplan-1line", "careplan", "careplan-chevron", "payday", "payday-chevron"],
+    sizes: ["360px cart width"],
+    states: ["1-line vs 2-line; plain / Care Plan / Pay Day"],
+    usage: {
+      do: ["Lead with the total saving amount in success green.", "Add the chevron only when the strip is tappable."],
+      dont: ["Do not use the Pay Day tag outside a Pay Day sale.", "Do not overflow the strip past two lines."]
+    },
+    accessibility: ["Amounts should be readable by screen readers as part of the sentence."],
+    contentGuidance: ["“Total Savings of ₹x”, “₹x saved on this order”."],
+    api: [
+      { name: "variant", type: "default | careplan-1line | careplan | careplan-chevron | payday | payday-chevron", defaultValue: "careplan", description: "Which saving-strip layout to render." },
+      { name: "amount", type: "string", defaultValue: "₹292", description: "Total saving amount." },
+      { name: "careplanAmount", type: "string", defaultValue: "₹120", description: "Care Plan contribution (careplan two-line)." }
+    ],
+    links: { figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6763-3519", specification: "", audit: "", source: "/storybook/?path=/docs/components-savingstrip--docs" }
+  },
+  {
+    slug: "amount-widget",
+    name: "AmountWidget",
+    summary: "Cart billing widget: a collapsed to-be-paid summary or an expanded delivery address + full bill breakdown.",
+    category: "Cart",
+    status: "ready",
+    storyId: "components-amountwidget--playground",
+    packageName: "@dopamine2.0/ui",
+    importExample: 'import { AmountWidget } from "@dopamine2.0/ui";',
+    anatomy: ["Receipt / home icon", "Delivery address", "Bill rows", "Dashed dividers", "Total amount"],
+    variants: ["Collapsed", "Expanded"],
+    sizes: ["360px cart width"],
+    states: ["Collapsed summary / expanded breakdown"],
+    usage: {
+      do: ["Show the savings pill next to the payable amount when collapsed.", "Mark discounts and NeuCoins in success green."],
+      dont: ["Do not hide the total amount.", "Do not omit the delivery fee strike-through when it is free."]
+    },
+    accessibility: ["Bill rows are label/value pairs; keep reading order label→value."],
+    contentGuidance: ["Row labels are nouns (“Item total (MRP)”, “Delivery fee”)."],
+    api: [
+      { name: "state", type: "Collapsed | Expanded", defaultValue: "Expanded", description: "Collapsed summary or expanded bill breakdown." }
+    ],
+    links: { figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6763-4065", specification: "", audit: "", source: "/storybook/?path=/docs/components-amountwidget--docs" }
+  },
+  {
+    slug: "care-plan-card",
+    name: "CarePlanCard",
+    summary: "Care Plan upsell card (cream gradient) — added / updated benefit summaries or a not-added illustrated pitch.",
+    category: "Cart",
+    status: "ready",
+    storyId: "components-careplancard--playground",
+    packageName: "@dopamine2.0/ui",
+    importExample: 'import { CarePlanCard } from "@dopamine2.0/ui";',
+    anatomy: ["Header (savings + Care Plan badge)", "Benefits list", "More benefits", "Footer (price + action)"],
+    variants: ["Added", "Not Added", "updated"],
+    sizes: ["328px card"],
+    states: ["Plan added / updated (Remove) vs not added (Add Plan)"],
+    usage: {
+      do: ["Show the extra saving amount in the header for added/not-added.", "Use the dark Add Plan button only in the not-added state."],
+      dont: ["Do not show Remove when the plan is not added."]
+    },
+    accessibility: ["Add Plan / Remove are real buttons; wire onAction.", "Benefit ticks are decorative — text carries the meaning."],
+    contentGuidance: ["“Saved ₹x extra with Care Plan”, “Cart updated with Care Plan”."],
+    api: [
+      { name: "type", type: "Added | Not Added | updated", defaultValue: "Added", description: "Care Plan card state." },
+      { name: "onAction", type: "() => void", defaultValue: "—", description: "Add Plan / Remove handler." }
+    ],
+    links: { figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6763-4245", specification: "", audit: "", source: "/storybook/?path=/docs/components-careplancard--docs" }
+  },
+  {
+    slug: "order-strip",
+    name: "OrderStrip",
+    summary: "Cart order strip: pharmacy delivery sections with SKU rows (Rx / non-Rx), compact rows, and diagnostics/labs cards.",
+    category: "Cart",
+    status: "ready",
+    storyId: "components-orderstrip--playground",
+    packageName: "@dopamine2.0/ui",
+    importExample: 'import { OrderStrip } from "@dopamine2.0/ui";',
+    anatomy: ["Delivery header", "SKU row (image, name, qty, price)", "Labs card (test, fasting, price, patients)"],
+    variants: ["Pharma Rx", "Pharma non Rx", "compact Rx", "compact non Rx", "Labs Rapid Report", "Labs Default"],
+    sizes: ["360px (pharma/labs)", "328px (compact)"],
+    states: ["Rx vs non-Rx; rapid-report vs default labs"],
+    usage: {
+      do: ["Show the Rx tab only on prescription products.", "Group products under their delivery-time header."],
+      dont: ["Do not omit the strike-through MRP next to the discounted price."]
+    },
+    accessibility: ["Quantity/patient steppers must be operable controls in product.", "Product images are decorative; the name carries meaning."],
+    contentGuidance: ["Delivery headers read as times (“30 Minutes”, “10 PM, Today”)."],
+    api: [
+      { name: "type", type: "Pharma Rx | Pharma non Rx | compact Rx | compact non Rx | Labs Rapid Report | Labs Default", defaultValue: "Pharma Rx", description: "Which order-strip variant to render." }
+    ],
+    links: { figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6765-5494", specification: "", audit: "", source: "/storybook/?path=/docs/components-orderstrip--docs" }
   }
 ];
 

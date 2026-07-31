@@ -8,5 +8,10 @@
   "HorizontalTabs": ["horizontal tabs", "tab bar", "underline tabs", "segmented control", "tab navigation", "category tabs"],
   "VerticalTabs": ["vertical tabs", "side tabs", "category rail", "vertical navigation rail", "left tab menu"],
   "SwipeIndicator": ["swipe indicator", "progress bar", "carousel dots", "pagination indicator", "step progress", "onboarding progress"],
-  "Snackbar": ["snackbar", "toast", "notification bar", "inline alert", "success message", "error toast", "undo snackbar"]
+  "Snackbar": ["snackbar", "toast", "notification bar", "inline alert", "success message", "error toast", "undo snackbar"],
+  "CouponWidget": ["coupon", "coupon widget", "promo code", "discount code", "apply coupon", "cart coupon", "offer widget"],
+  "SavingStrip": ["saving strip", "savings bar", "total savings", "cart savings", "you're saving", "pay day sale strip"],
+  "AmountWidget": ["amount widget", "bill summary", "cart total", "to be paid", "payment breakdown", "billing widget", "order total"],
+  "CarePlanCard": ["care plan card", "careplan", "membership upsell", "plan card", "subscription card", "add plan"],
+  "OrderStrip": ["order strip", "cart item row", "sku row", "product row", "pharmacy order", "lab test card", "delivery strip"]
 }
