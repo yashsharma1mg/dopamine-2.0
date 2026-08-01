@@ -11,7 +11,7 @@ A 360px mobile header for location, navigation, and Family Hub contexts.
 ## Props
 | Prop | Type | Required | Default | Description |
 |---|---|---|---|---|
-| `usage` | `"Floating" \| "Location" \| "Dropdown" \| "HIH" \| "FamilyHub"` | no | `Floating` | Figma header composition. |
+| `usage` | `"Floating" \| "Location" \| "Cart" \| "Dropdown" \| "HIH" \| "FamilyHub"` | no | `Floating` | Figma header composition. |
 | `type` | `"Solid" \| "Transparent"` | no | `Transparent` | Surface treatment used by Location. |
 | `textColour` | `"Black" \| "No heading"` | no | `Black` | Shows or removes the Family Hub heading. |
 | `heading` | `string` | no |  |  |
@@ -24,12 +24,13 @@ A 360px mobile header for location, navigation, and Family Hub contexts.
 | `onLocationClick` | `() => void` | no |  |  |
 | `onProfileClick` | `() => void` | no |  |  |
 | `onCartClick` | `() => void` | no |  |  |
+| `onSearchClick` | `() => void` | no |  |  |
 | `onMoreClick` | `() => void` | no |  |  |
 | `onUploadClick` | `() => void` | no |  |  |
 | `onTabChange` | `(tab: PageHeaderTab) => void` | no |  |  |
 
 ## Variants / sizes / states
-- **Variants:** Floating, Location, Dropdown, HIH, FamilyHub
+- **Variants:** Floating, Location, Cart, Dropdown, HIH, FamilyHub
 - **Sizes:** 360px mobile width
 - **States:** Solid, Transparent, Black heading, No heading, You, Family
 

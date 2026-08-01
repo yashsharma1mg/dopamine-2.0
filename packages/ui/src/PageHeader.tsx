@@ -3,7 +3,7 @@ import { type HTMLAttributes, type ReactNode } from "react";
 import { Icon } from "./Icon.js";
 import { iconData } from "./generated/icon-data.js";
 
-export type PageHeaderUsage = "Floating" | "Location" | "Dropdown" | "HIH" | "FamilyHub";
+export type PageHeaderUsage = "Floating" | "Location" | "Cart" | "Dropdown" | "HIH" | "FamilyHub";
 export type PageHeaderType = "Solid" | "Transparent";
 export type PageHeaderTextColour = "Black" | "No heading";
 export type PageHeaderTab = "You" | "Family";
@@ -22,6 +22,7 @@ export type PageHeaderProps = Omit<HTMLAttributes<HTMLDivElement>, "color"> & {
   onLocationClick?: () => void;
   onProfileClick?: () => void;
   onCartClick?: () => void;
+  onSearchClick?: () => void;
   onMoreClick?: () => void;
   onUploadClick?: () => void;
   onTabChange?: (tab: PageHeaderTab) => void;
@@ -36,6 +37,7 @@ const assets = {
   locationChevron: iconData["page-header-location-chevron"],
   locationInverse: iconData["page-header-location-inverse"],
   profile: iconData["page-header-profile"],
+  search: iconData["page-header-search"],
   statusBattery: iconData["page-header-status-battery-outline"],
   statusBatteryEnd: iconData["page-header-status-battery-end"],
   statusSignal: iconData["page-header-status-signal"],
@@ -110,6 +112,7 @@ export function PageHeader({
   onLocationClick,
   onMoreClick,
   onProfileClick,
+  onSearchClick,
   onTabChange,
   onUploadClick,
   subtitle = "subtitle",
@@ -137,6 +140,26 @@ export function PageHeader({
             <HeaderIconButton label="Profile" onClick={onProfileClick}><Icon src={assets.profile} /></HeaderIconButton>
             <CartButton cartCount={cartCount} onCartClick={onCartClick} />
           </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (usage === "Cart") {
+    return (
+      <div className={`ds-page-header ds-page-header--cart ${className}`.trim()} data-usage="Cart" data-type="Transparent" {...props}>
+        <PageHeaderStatusBar />
+        <div className="ds-page-header__cart-row">
+          <HeaderIconButton label="Go back" onClick={onBack}><Icon src={assets.arrowLeft} /></HeaderIconButton>
+          <button type="button" className="ds-page-header__cart-search" onClick={onLocationClick}>
+            <Icon className="ds-page-header__cart-pin" src={assets.location} />
+            <span className="ds-page-header__cart-loc">
+              <strong>{locationName ?? "Office"}</strong>
+              <span>{locationDetail.replace(" building, Gurugram", "...")}</span>
+            </span>
+            <Icon className="ds-page-header__cart-chevron" src={assets.chevron} />
+          </button>
+          <HeaderIconButton label="Search" onClick={onSearchClick}><Icon src={assets.search} /></HeaderIconButton>
         </div>
       </div>
     );

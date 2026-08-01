@@ -173,7 +173,7 @@ export const componentManifests: ComponentManifest[] = [
     packageName: "@dopamine2.0/ui",
     importExample: 'import { PageHeader } from "@dopamine2.0/ui";',
     anatomy: ["Status bar", "Leading navigation or location action", "Title and subtitle", "Contextual actions"],
-    variants: ["Floating", "Location", "Dropdown", "HIH", "FamilyHub"],
+    variants: ["Floating", "Location", "Cart", "Dropdown", "HIH", "FamilyHub"],
     sizes: ["360px mobile width"],
     states: ["Solid", "Transparent", "Black heading", "No heading", "You", "Family"],
     usage: {
@@ -183,7 +183,7 @@ export const componentManifests: ComponentManifest[] = [
     accessibility: ["All actions are labelled native buttons.", "The Family Hub selector exposes tab semantics.", "Keyboard focus uses the Dopamine focus-ring token."],
     contentGuidance: ["Keep the heading brief and the subtitle to a single line.", "Use concise location names and truncate long location detail naturally."],
     api: [
-      { name: "usage", type: "Floating | Location | Dropdown | HIH | FamilyHub", defaultValue: "Floating", description: "Figma header composition." },
+      { name: "usage", type: "Floating | Location | Cart | Dropdown | HIH | FamilyHub", defaultValue: "Floating", description: "Figma header composition." },
       { name: "type", type: "Solid | Transparent", defaultValue: "Transparent", description: "Surface treatment used by Location." },
       { name: "textColour", type: "Black | No heading", defaultValue: "Black", description: "Shows or removes the Family Hub heading." },
       { name: "activeTab", type: "You | Family", defaultValue: "You", description: "Current Family Hub tab." }

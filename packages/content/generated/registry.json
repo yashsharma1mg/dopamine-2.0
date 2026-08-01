@@ -290,6 +290,7 @@
     "variants": [
       "Floating",
       "Location",
+      "Cart",
       "Dropdown",
       "HIH",
       "FamilyHub"
@@ -328,7 +329,7 @@
     "props": [
       {
         "name": "usage",
-        "type": "\"Floating\" | \"Location\" | \"Dropdown\" | \"HIH\" | \"FamilyHub\"",
+        "type": "\"Floating\" | \"Location\" | \"Cart\" | \"Dropdown\" | \"HIH\" | \"FamilyHub\"",
         "required": false,
         "default": "Floating",
         "description": "Figma header composition."
@@ -412,6 +413,13 @@
       },
       {
         "name": "onCartClick",
+        "type": "() => void",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "onSearchClick",
         "type": "() => void",
         "required": false,
         "default": "—",

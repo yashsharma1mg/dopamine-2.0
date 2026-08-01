@@ -180,14 +180,23 @@
 .ds-page-header--floating { background: var(--semantic-color-background-primary); width: 360px; }
 .ds-page-header__floating-inner { padding: 0 var(--space-16); }
 .ds-page-header__floating-row { align-items: center; display: flex; gap: var(--space-8); padding: var(--space-8) 0; }
-.ds-page-header__floating-location { align-items: center; appearance: none; background: var(--base-color-sunrise-glow-99); border: 1px solid var(--base-color-sunrise-glow-97); border-radius: 30px; color: var(--semantic-color-content-primary); cursor: pointer; display: flex; flex: 1 1 auto; gap: 4px; height: 40px; min-width: 0; padding: 10px 8px; text-align: left; }
+.ds-page-header__floating-location { align-items: center; appearance: none; background: var(--base-color-sunrise-glow-99); border: 1px solid var(--base-color-sunrise-glow-97); border-radius: 30px; color: var(--semantic-color-content-primary); cursor: pointer; display: flex; flex: 1 1 auto; gap: 4px; height: 40px; min-width: 0; overflow: hidden; padding: 10px 8px; text-align: left; }
 .ds-page-header__floating-location > .ds-icon { color: var(--semantic-color-branding-1mg); flex: 0 0 20px; }
 .ds-page-header__floating-location-content { align-items: center; display: flex; flex: 1 1 auto; gap: 4px; min-width: 0; overflow: hidden; white-space: nowrap; }
 .ds-page-header__floating-location-content strong { font-size: var(--font-size-body-14); font-weight: var(--font-weight-bold); line-height: var(--font-line-height-20); }
-.ds-page-header__floating-location-content span { color: var(--base-color-cool-neutral-40); font-size: var(--font-size-body-14); line-height: var(--font-line-height-20); overflow: hidden; text-overflow: ellipsis; }
+.ds-page-header__floating-location-content span { color: var(--base-color-cool-neutral-40); font-size: var(--font-size-body-14); line-height: var(--font-line-height-20); overflow: visible; text-overflow: clip; }
 .ds-page-header__location-chevron { color: var(--semantic-color-content-primary); flex: 0 0 20px; }
 .ds-page-header__cart { display: inline-flex; flex: 0 0 40px; position: relative; }
 .ds-page-header__count { align-items: center; background: var(--semantic-color-branding-1mg); border-radius: var(--radius-8); color: var(--semantic-color-content-inverse-primary); display: flex; font-size: 10px; font-weight: var(--font-weight-bold); height: 16px; justify-content: center; line-height: 12px; min-width: 16px; padding: 2px 4px; position: absolute; right: -4px; top: -4px; }
+/* Cart header: back circle + location search pill + search circle. */
+.ds-page-header--cart { background: linear-gradient(180deg, var(--semantic-color-background-primary) 0%, rgba(255, 255, 255, 0) 100%); display: flex; flex-direction: column; padding: var(--space-8) var(--space-16); width: 360px; }
+.ds-page-header__cart-row { align-items: center; display: flex; gap: var(--space-8); }
+.ds-page-header__cart-search { align-items: center; appearance: none; background: var(--semantic-color-background-primary); border: 1px solid var(--semantic-color-stroke-subtle); border-radius: 30px; color: var(--semantic-color-content-primary); cursor: pointer; display: flex; flex: 1 1 auto; gap: 4px; min-width: 0; overflow: hidden; padding: 10px var(--space-8); text-align: left; }
+.ds-page-header__cart-pin { color: var(--semantic-color-branding-1mg); flex: 0 0 20px; }
+.ds-page-header__cart-loc { align-items: center; display: flex; flex: 1 1 auto; gap: 4px; min-width: 0; overflow: hidden; white-space: nowrap; }
+.ds-page-header__cart-loc strong { flex: 0 0 auto; font-size: var(--font-size-body-14); font-weight: var(--font-weight-bold); line-height: var(--font-line-height-20); }
+.ds-page-header__cart-loc span { color: var(--base-color-cool-neutral-40); font-size: var(--font-size-body-14); line-height: var(--font-line-height-20); overflow: visible; text-overflow: clip; }
+.ds-page-header__cart-chevron { color: var(--semantic-color-content-primary); flex: 0 0 20px; }
 .ds-page-header--location { display: flex; flex-direction: column; }
 .ds-page-header--solid { background: var(--semantic-color-background-primary); }
 .ds-page-header__location-row { align-items: center; border-bottom: 1px solid var(--base-color-cool-neutral-95); display: flex; gap: var(--space-16); padding: var(--space-16); width: 360px; }

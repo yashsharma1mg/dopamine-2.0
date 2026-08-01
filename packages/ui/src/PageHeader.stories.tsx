@@ -18,7 +18,7 @@ const meta = {
     cartCount: 3
   },
   argTypes: {
-    usage: { control: "select", options: ["Floating", "Location", "Dropdown", "HIH", "FamilyHub"] },
+    usage: { control: "select", options: ["Floating", "Location", "Cart", "Dropdown", "HIH", "FamilyHub"] },
     type: { control: "select", options: ["Solid", "Transparent"] },
     textColour: { control: "select", options: ["Black", "No heading"] },
     activeTab: { control: "inline-radio", options: ["You", "Family"] }
@@ -37,6 +37,7 @@ export const FigmaVariants: Story = {
       <div className="ds-page-header-variants__surface"><PageHeader usage="Floating" /></div>
       <div className="ds-page-header-variants__surface"><PageHeader usage="Location" type="Transparent" /></div>
       <div className="ds-page-header-variants__surface"><PageHeader usage="Location" type="Solid" /></div>
+      <div className="ds-page-header-variants__surface"><PageHeader usage="Cart" /></div>
       <div className="ds-page-header-variants__surface"><PageHeader usage="Dropdown" /></div>
       <div className="ds-page-header-variants__surface ds-page-header-variants__surface--glass"><PageHeader usage="HIH" /></div>
       <div className="ds-page-header-variants__surface ds-page-header-variants__surface--glass"><PageHeader usage="FamilyHub" textColour="Black" /></div>
