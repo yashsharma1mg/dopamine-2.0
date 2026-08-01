@@ -999,7 +999,7 @@
 /* Qty box */
 .ds-order__qty { align-items: center; background: var(--semantic-color-background-primary); border: 1px solid var(--semantic-color-border-subtle, #dde2eb); border-radius: var(--radius-8); box-shadow: 0 4px 2px rgba(0, 0, 0, 0.08); display: inline-flex; gap: var(--space-4); padding: 6px var(--space-8); }
 .ds-order__qty-n { color: var(--semantic-color-content-cta); font-size: 14px; font-weight: var(--font-weight-bold); line-height: 20px; min-width: 20px; text-align: center; }
-.ds-order__qty-chev { color: var(--semantic-color-content-secondary); }
+.ds-order__qty-chev { color: var(--semantic-color-content-cta); }
 /* Labs */
 .ds-order__labs { display: flex; flex-direction: column; padding-bottom: var(--space-16); }
 .ds-order__labs[data-rapid] { background: linear-gradient(180deg, #fff 0%, #fceaff 100%); gap: var(--space-12); }

@@ -29,6 +29,23 @@ function ReceiptGlyph() {
   );
 }
 
+// Filled grey house glyph for the expanded delivery header (multi-fill → inlined).
+function HomeGlyph() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 13.4608 13.2504" fill="none" aria-hidden="true" style={{ display: "block" }}>
+      <path d="M6.36629 0.128302C6.57921 -0.042745 6.88192 -0.0427898 7.09481 0.128302L13.2188 5.0492C13.4985 5.27392 13.5411 5.68688 13.3184 5.96815C13.0938 6.25184 12.6782 6.30261 12.3956 6.07654L11.9991 5.76014V12.5482C11.999 12.936 11.6848 13.2504 11.297 13.2504H2.16512C1.77732 13.2504 1.46307 12.936 1.46297 12.5482V7.79432L1.462 7.7699V5.76014L1.06551 6.07654C0.783001 6.30266 0.367375 6.25173 0.142661 5.96815C-0.0799717 5.68692 -0.0382269 5.27394 0.241294 5.0492L6.36629 0.128302Z" fill="url(#ds-home-grad)" />
+      <circle cx="6.7588" cy="4.9967" r="1.4718" fill="#fff" />
+      <defs>
+        <linearGradient id="ds-home-grad" x1="6.82" y1="14.88" x2="6.63" y2="1.29" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#868E9E" />
+          <stop offset="0.36" stopColor="#A2A9B8" />
+          <stop offset="1" stopColor="#BEC5D1" />
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+}
+
 function Row({ label, value, valueClass, labelClass, dotted }: { label: React.ReactNode; value: React.ReactNode; valueClass?: string; labelClass?: string; dotted?: boolean }) {
   return (
     <div className="ds-amount-widget__row">
@@ -58,7 +75,7 @@ export function AmountWidget({ state = "Expanded", className = "", ...props }: A
     <div className={`ds-amount-widget ${className}`.trim()} {...props}>
       <div className="ds-amount-widget__loc">
         <span className="ds-amount-widget__circle ds-amount-widget__circle--lg" aria-hidden="true">
-          <DsIcon name="home" size={18} />
+          <HomeGlyph />
         </span>
         <span className="ds-amount-widget__addr">
           <span className="ds-amount-widget__addr-1">Delivering to <b>DLF Colony</b></span>

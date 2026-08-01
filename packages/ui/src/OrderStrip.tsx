@@ -19,7 +19,7 @@ function QtyBox() {
   return (
     <span className="ds-order__qty">
       <span className="ds-order__qty-n">1</span>
-      <DsIcon name="chevron-down" size={16} className="ds-order__qty-chev" />
+      <DsIcon name="chevron-down" size={10} className="ds-order__qty-chev" />
     </span>
   );
 }
