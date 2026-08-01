@@ -157,7 +157,7 @@ export function PageHeader({
               <strong>{locationName ?? "Office"}</strong>
               <span>{locationDetail.replace(" building, Gurugram", "...")}</span>
             </span>
-            <Icon className="ds-page-header__cart-chevron" src={assets.chevron} />
+            <Icon className="ds-page-header__cart-chevron" src={assets.chevron} size={12} />
           </button>
           <HeaderIconButton label="Search" onClick={onSearchClick}><Icon src={assets.search} /></HeaderIconButton>
         </div>
