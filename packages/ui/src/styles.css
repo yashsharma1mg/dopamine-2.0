@@ -978,6 +978,7 @@
 .ds-order { background: var(--semantic-color-background-primary); color: var(--semantic-color-content-primary); max-width: 100%; width: 360px; }
 .ds-order[data-type^="compact"] { width: 328px; }
 .ds-order__section { display: flex; flex-direction: column; gap: var(--space-16); padding: var(--space-8) var(--space-16) var(--space-16); }
+.ds-order__thick { background: var(--base-color-cool-neutral-95); height: 8px; }
 .ds-order__dotted { border: 0; border-top: 1px dashed var(--semantic-color-border-subtle, #dde2eb); margin: 0; }
 /* Delivery header */
 .ds-order__delivery { align-items: center; display: flex; gap: var(--space-8); }

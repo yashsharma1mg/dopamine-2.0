@@ -117,11 +117,20 @@ export function OrderStrip({ type = "Pharma Rx", className = "", ...props }: Ord
   }
 
   // Pharma section: delivery header + two SKU rows.
+  // Two delivery slots (Figma 6765-5327/5333) separated by a thick section divider.
   const rx = type === "Pharma Rx";
   return (
     <div className={cls} data-type={type} {...props}>
       <div className="ds-order__section">
-        <DeliveryHeader time={rx ? "30 Minutes" : "10 PM, Today"} change={rx} />
+        <DeliveryHeader time="30 Minutes" change />
+        <hr className="ds-order__dotted" />
+        <SkuRow rx={rx} />
+        <hr className="ds-order__dotted" />
+        <SkuRow rx={rx} />
+      </div>
+      <div className="ds-order__thick" />
+      <div className="ds-order__section">
+        <DeliveryHeader time="10 PM, Today" />
         <hr className="ds-order__dotted" />
         <SkuRow rx={rx} />
         <hr className="ds-order__dotted" />
