@@ -52,7 +52,7 @@ function DeliveryHeader({ time, change }: { time: string; change?: boolean }) {
       <span className="ds-order__time">{time}</span>
       {change && (
         <span className="ds-order__change">
-          Change <DsIcon name="chevron-right" size={16} />
+          Change <DsIcon name="chevron-right" size={11} />
         </span>
       )}
     </div>

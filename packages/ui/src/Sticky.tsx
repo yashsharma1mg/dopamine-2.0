@@ -22,7 +22,7 @@ export type StickyProps = HTMLAttributes<HTMLDivElement> & {
 };
 
 const icons = {
-  chevron: <DsIcon name="chevron-right" size={20} />,
+  chevron: <DsIcon name="chevron-right" size={12} />,
   cross: <DsIcon name="cross" size={16} />,
   bolt: <DsIcon name="rapid" size={14} />,
   star: <DsIcon name="rating-star" size={28} />,

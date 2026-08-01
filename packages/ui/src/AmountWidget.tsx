@@ -65,7 +65,7 @@ export function AmountWidget({ state = "Expanded", className = "", ...props }: A
             To be paid: <b>₹42700</b>
             <span className="ds-amount-widget__savings">Savings: ₹4000</span>
           </span>
-          <DsIcon name="chevron-right" size={16} className="ds-amount-widget__chev-cta" />
+          <DsIcon name="chevron-right" size={12} className="ds-amount-widget__chev-cta" />
         </div>
       </div>
     );
@@ -81,7 +81,7 @@ export function AmountWidget({ state = "Expanded", className = "", ...props }: A
           <span className="ds-amount-widget__addr-1">Delivering to <b>DLF Colony</b></span>
           <span className="ds-amount-widget__addr-2">Sector 14, Gurugram</span>
         </span>
-        <DsIcon name="chevron-right" size={16} className="ds-amount-widget__chev-cta" />
+        <DsIcon name="chevron-right" size={12} className="ds-amount-widget__chev-cta" />
       </div>
       <div className="ds-amount-widget__bill">
         <p className="ds-amount-widget__title">Bill summary</p>

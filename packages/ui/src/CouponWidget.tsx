@@ -45,7 +45,7 @@ const apply = <span className="ds-coupon__action">Apply</span>;
 const applied = <span className="ds-coupon__action">Applied</span>;
 const viewAll = (
   <div className="ds-coupon__viewall">
-    View all coupons <DsIcon name="chevron-right" size={16} />
+    View all coupons <DsIcon name="chevron-right" size={10} />
   </div>
 );
 
@@ -58,7 +58,7 @@ export function CouponWidget({ state = "Not Applicable", className = "", ...prop
         <div className="ds-coupon__row">
           <Chip kind="green" />
           <span className="ds-coupon__title ds-coupon__title--explore">Explore coupons</span>
-          <DsIcon name="chevron-right" size={20} className="ds-coupon__explore-chev" />
+          <DsIcon name="chevron-right" size={12} className="ds-coupon__explore-chev" />
         </div>
       </div>
     );

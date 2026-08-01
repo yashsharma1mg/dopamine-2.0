@@ -25,7 +25,7 @@ const CONFIG: Record<NavigationType, Config> = {
 
 const icons = {
   location: <DsIcon name="navigation" size={20} />,
-  chevronDown: <DsIcon name="chevron-down" size={20} />,
+  chevronDown: <DsIcon name="chevron-down" size={12} />,
   person: <DsIcon name="profile-user-person" size={20} />,
   bag: <DsIcon name="bag" size={20} />,
   search: <DsIcon name="search" size={20} />,

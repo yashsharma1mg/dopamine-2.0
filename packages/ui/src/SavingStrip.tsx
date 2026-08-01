@@ -18,7 +18,7 @@ export type SavingStripProps = HTMLAttributes<HTMLDivElement> & {
   careplanAmount?: string;
 };
 
-const chevron = <DsIcon name="chevron-right" size={14} className="ds-saving-strip__chev" />;
+const chevron = <DsIcon name="chevron-right" size={9} className="ds-saving-strip__chev" />;
 
 // Decorative Pay Day Sale gift-tag (gradient + dashed inner border, tilted).
 function PayDayTag() {

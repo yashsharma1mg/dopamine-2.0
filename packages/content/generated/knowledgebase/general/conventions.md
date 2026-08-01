@@ -24,3 +24,11 @@ Follow these when composing UI so generated code matches the design system.
   click when no `checked` is passed, and still fire their change callback.
 - Composition (multiple components into a screen/pattern) is documented under **patterns** —
   use `list_patterns` / `get_pattern_docs`.
+
+## Icon sizing (chevrons especially)
+- `DsIcon`/`Icon` render the glyph at the given `size` with **no built-in padding** — the glyph
+  fills the box. Figma icon instances, by contrast, inset the glyph inside a larger frame
+  (e.g. a chevron in a 16px frame is only a ~9px glyph). So **size an icon to its visible glyph,
+  not the Figma frame** — otherwise chevrons come out oversized with a heavy stroke.
+- Rule of thumb: `DsIcon size ≈ Figma frame × 0.6`. Inline row-affordance chevrons (savings/coupon
+  rows, "Change", location dropdowns, cart header) land around **9–12px**; never 16–20px.
