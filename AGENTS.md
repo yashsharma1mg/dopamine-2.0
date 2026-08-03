@@ -10,7 +10,9 @@ truth — do not guess component APIs.
 2. **Read the contract** — `get_component_docs "<Name>"` before using a component. It returns the
    real props (extracted from TypeScript), variants/states, do/don't, accessibility, and an
    example. Use only documented props and their literal union values.
-3. **Compose** — for multi-component screens, check `list_patterns` / `get_pattern_docs`.
+3. **Preview** — `preview_component "<Name>"` / `preview_pattern "<name>"` return a self-contained
+   HTML render (every variant) to view as an artifact before/after you write code.
+4. **Compose** — for multi-component screens, check `list_patterns` / `get_pattern_docs`.
 4. **Tokens & setup** — `get_general_docs "install"`, `"theming-tokens"`, `"conventions"`;
    `get_tokens` for exact values.
 

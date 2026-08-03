@@ -11,7 +11,10 @@
   },
   "scripts": {
     "dev": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext dev",
-    "build": "npm run generate:tokens && npm run generate:icons && npm run generate:registry && npm run build:ui && npm run build:storybook && WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext build",
+    "build": "npm run generate:tokens && npm run generate:icons && npm run generate:registry && npm run prerender:previews && npm run bundle:mcp && npm run build:mcp && npm run build:ui && npm run build:storybook && WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext build",
+    "prerender:previews": "tsx scripts/prerender-previews.mjs",
+    "bundle:mcp": "node scripts/bundle-mcp.mjs",
+    "build:mcp": "tsc -p packages/mcp/tsconfig.build.json",
     "start": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext start",
     "deploy": "npm run build && wrangler deploy -c dist/server/wrangler.json",
     "storybook": "storybook dev -p 6006 --no-open",

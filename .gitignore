@@ -48,5 +48,9 @@ next-env.d.ts
 /public/storybook/
 /packages/ui/dist/
 
+# generated MCP package artifacts (rebuilt by `npm run build`)
+/packages/mcp/dist/
+/packages/mcp/data/
+
 # nested workspace deps
 **/node_modules/

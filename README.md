@@ -24,17 +24,24 @@ npm run pack:ui
 
 ## MCP — generate UI with any coding agent
 
-A Model Context Protocol server (`packages/mcp/`) serves the design system to coding agents
-(Cursor, Claude Code, …) so they generate correct Dopamine2.0 UI.
+A Model Context Protocol server (`packages/mcp/`) serves the design system to any Claude surface
+so it can **discover, document, and preview** Dopamine2.0 UI. It ships two ways from one
+`npm run build`: a self-contained local package (`dist/` + bundled `data/`) and a remote endpoint
+on the site Worker (`app/mcp/route.ts` → `/mcp`). Both serve the same 10 tools — see
+[packages/mcp/README.md](packages/mcp/README.md) for how to add it to claude.ai web, Claude
+Desktop, and Claude Code.
 
-- Source of truth: `scripts/generate-registry.mts` (`npm run generate:registry`) extracts real
-  prop types from the TypeScript components (react-docgen-typescript), merges the curated
-  manifest prose + spec retrieval keywords, and emits `packages/content/generated/registry.json`
-  plus an LLM knowledgebase under `packages/content/generated/knowledgebase/`.
-- Server tools: `list_components`, `search_components`, `get_component_docs`, `list_patterns`,
-  `get_pattern_docs`, `get_general_docs`, `get_tokens`, `get_agent_rules`.
-- This repo ships `.mcp.json` (auto-discovered by Claude Code) and `AGENTS.md` (drop-in agent
-  rules). Run standalone with `npm --prefix packages/mcp start`.
+- Source of truth: `scripts/generate-registry.mts` extracts real prop types from the TypeScript
+  components, merges the curated manifest prose + spec retrieval keywords, and emits
+  `packages/content/generated/registry.json` + an LLM knowledgebase. `scripts/prerender-previews.mjs`
+  SSRs each component's variants (+ the cart pattern) to self-contained HTML, and
+  `scripts/bundle-mcp.mjs` copies it all into the package (`data/`) and one `edge-bundle.json` for
+  the Worker — so the local package and remote endpoint never drift.
+- Tools: `list_components`, `search_components`, `get_component_docs`, `list_patterns`,
+  `get_pattern_docs`, `get_general_docs`, `get_tokens`, `get_agent_rules`, `preview_component`,
+  `preview_pattern`.
+- The remote `/mcp` endpoint is gated by a bearer token — `wrangler secret put MCP_TOKEN` (returns
+  `503` until set). This repo ships `.mcp.json` (auto-discovered by Claude Code) and `AGENTS.md`.
 - Deferred: Figma Code Connect (frame→component) and the project scaffolder.
 
 ## Component release
