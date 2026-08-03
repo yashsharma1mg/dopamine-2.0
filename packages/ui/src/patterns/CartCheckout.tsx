@@ -24,10 +24,11 @@ const shell: CSSProperties = {
   background: "var(--semantic-color-background-primary)",
   border: "1px solid var(--semantic-color-stroke-subtle)",
   borderRadius: 20,
+  boxSizing: "border-box",
   display: "flex",
   flexDirection: "column",
-  height: 760,
-  maxHeight: "80vh",
+  height: 780,
+  margin: "0 auto",
   overflow: "hidden",
   width: 360
 };

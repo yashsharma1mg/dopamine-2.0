@@ -31,10 +31,12 @@ const meta = {
   component: CartCheckout,
   tags: ["autodocs"],
   parameters: {
-    layout: "centered",
+    layout: "fullscreen",
     docs: { description: { component: description } },
     a11y: { config: { rules: [{ id: "color-contrast", enabled: false }] } }
-  }
+  },
+  // Render the pattern's canvas at a phone viewport so it reads as a real device.
+  globals: { viewport: { value: "phone", isRotated: false } }
 } satisfies Meta<typeof CartCheckout>;
 
 export default meta;

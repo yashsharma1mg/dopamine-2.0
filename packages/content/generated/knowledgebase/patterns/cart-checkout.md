@@ -31,9 +31,12 @@ import {
 } from "@dopamine2.0/ui";
 
 export function CartCheckout() {
+  // 360×780 phone frame (a "basic mobile phone" height). In Storybook the story
+  // uses layout:"fullscreen" + a `phone` viewport global so the canvas is a device.
   const shell: React.CSSProperties = {
-    width: 360, height: 760, maxHeight: "80vh", display: "flex", flexDirection: "column",
-    overflow: "hidden", background: "var(--semantic-color-background-primary)",
+    width: 360, height: 780, margin: "0 auto", boxSizing: "border-box",
+    display: "flex", flexDirection: "column", overflow: "hidden",
+    background: "var(--semantic-color-background-primary)",
     border: "1px solid var(--semantic-color-stroke-subtle)", borderRadius: 20
   };
   const sticky: React.CSSProperties = {
