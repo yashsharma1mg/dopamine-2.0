@@ -1059,6 +1059,8 @@
 .ds-bottomsheet__controls { align-items: center; display: flex; gap: var(--space-8); justify-content: flex-end; padding: 0 10px 10px; }
 .ds-bottomsheet__controls[data-back] { justify-content: space-between; }
 .ds-bottomsheet__sheet { background: var(--semantic-color-background-primary); border-radius: var(--radius-16) var(--radius-16) 0 0; display: flex; flex-direction: column; gap: var(--space-16); max-height: 600px; min-height: 128px; overflow-y: auto; padding: var(--space-16); }
+.ds-bottomsheet__grip { align-items: center; cursor: ns-resize; display: flex; flex: 0 0 auto; justify-content: center; margin-bottom: -12px; margin-top: -6px; padding: 6px 0; touch-action: none; }
+.ds-bottomsheet__grip-bar { background: var(--semantic-color-stroke-moderate); border-radius: 999px; height: 4px; width: 36px; }
 .ds-bottomsheet__header { display: flex; flex-direction: column; }
 .ds-bottomsheet__title { color: var(--semantic-color-content-primary); font-size: 16px; font-weight: var(--font-weight-extrabold); line-height: 24px; }
 .ds-bottomsheet__sub { color: var(--semantic-color-content-tertiary); font-size: 14px; font-weight: var(--font-weight-regular); line-height: 20px; }

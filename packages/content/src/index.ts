@@ -780,13 +780,13 @@ export const componentManifests: ComponentManifest[] = [
   {
     slug: "bottomsheet",
     name: "Bottomsheet",
-    summary: "A sheet that slides up from the bottom over a scrim, with floating close (and optional back) controls.",
+    summary: "A draggable sheet that slides up from the bottom over a scrim, with floating close (and optional back) controls.",
     category: "Feedback",
     status: "ready",
     storyId: "components-bottomsheet--playground",
     packageName: "@dopamine2.0/ui",
     importExample: 'import { Bottomsheet } from "@dopamine2.0/ui";',
-    anatomy: ["Scrim", "Floating close (and optional back)", "Rounded-top sheet", "Optional header (title + subtitle) + divider", "Content slot"],
+    anatomy: ["Scrim", "Floating close (and optional back)", "Rounded-top sheet with a drag handle", "Optional header (title + subtitle) + divider", "Content slot"],
     variants: ["default", "with subheading"],
     sizes: ["360px width"],
     states: ["No header vs title + subtitle; back button optional"],
@@ -800,6 +800,8 @@ export const componentManifests: ComponentManifest[] = [
       { name: "title", type: "string", defaultValue: "—", description: "Header title (adds the header + divider)." },
       { name: "subtitle", type: "string", defaultValue: "—", description: "Subheading under the title." },
       { name: "backButton", type: "boolean", defaultValue: "false", description: "Show the floating back button." },
+      { name: "height", type: "number", defaultValue: "—", description: "Fixed sheet height in px (clamped 128–600). Omit for content-driven sizing." },
+      { name: "draggable", type: "boolean", defaultValue: "true", description: "Allow drag-to-resize via the top handle." },
       { name: "children", type: "ReactNode", defaultValue: "—", description: "Sheet body." }
     ],
     links: { figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6703-6222", specification: "/specs/Bottomsheet.md", audit: "", source: "/storybook/?path=/docs/components-bottomsheet--docs" }

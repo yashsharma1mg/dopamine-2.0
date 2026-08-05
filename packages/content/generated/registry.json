@@ -2301,7 +2301,7 @@
   {
     "slug": "bottomsheet",
     "name": "Bottomsheet",
-    "summary": "A sheet that slides up from the bottom over a scrim, with floating close (and optional back) controls.",
+    "summary": "A draggable sheet that slides up from the bottom over a scrim, with floating close (and optional back) controls.",
     "category": "Feedback",
     "status": "ready",
     "package": "@dopamine2.0/ui",
@@ -2360,6 +2360,13 @@
         "description": "Show the floating back button (top-left)."
       },
       {
+        "name": "height",
+        "type": "number",
+        "required": false,
+        "default": "—",
+        "description": "Fixed sheet height in px (clamped 128–600). Omit for content-driven sizing."
+      },
+      {
         "name": "onClose",
         "type": "() => void",
         "required": false,
@@ -2379,6 +2386,13 @@
         "required": false,
         "default": "—",
         "description": "Header title (adds the header + divider)."
+      },
+      {
+        "name": "draggable",
+        "type": "boolean",
+        "required": false,
+        "default": "true",
+        "description": "Allow drag-to-resize via the top handle."
       },
       {
         "name": "children",

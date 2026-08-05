@@ -1,6 +1,6 @@
 # Bottomsheet
 
-A sheet that slides up from the bottom over a scrim, with floating close (and optional back) controls.
+A draggable sheet that slides up from the bottom over a scrim, with floating close (and optional back) controls.
 
 - **Package:** `@dopamine2.0/ui` · **Status:** ready · **Category:** Feedback
 - **Import:** `import { Bottomsheet } from "@dopamine2.0/ui";`
@@ -13,9 +13,11 @@ A sheet that slides up from the bottom over a scrim, with floating close (and op
 |---|---|---|---|---|
 | `subtitle` | `string` | no |  | Optional subheading under the title (body-14, tertiary). |
 | `backButton` | `boolean` | no | `false` | Show the floating back button (top-left). |
+| `height` | `number` | no |  | Fixed sheet height in px (clamped 128–600). Omit for content-driven sizing. |
 | `onClose` | `() => void` | no |  |  |
 | `onBack` | `() => void` | no |  |  |
 | `title` | `string` | no |  | Header title (adds the header + divider). |
+| `draggable` | `boolean` | no | `true` | Allow drag-to-resize via the top handle. |
 | `children` | `ReactNode` | no |  | Sheet body. |
 
 ## Variants / sizes / states

@@ -39,7 +39,7 @@ export type { TooltipProps, TooltipVariant } from "./Tooltip.js";
 export { CarePlanBadge } from "./CarePlanBadge.js";
 export { SavingStrip } from "./SavingStrip.js";
 export type { SavingStripProps, SavingStripVariant } from "./SavingStrip.js";
-export { Bottomsheet } from "./Bottomsheet.js";
+export { Bottomsheet, BOTTOMSHEET_MIN_HEIGHT, BOTTOMSHEET_MAX_HEIGHT } from "./Bottomsheet.js";
 export type { BottomsheetProps } from "./Bottomsheet.js";
 export { Dialog } from "./Dialog.js";
 export type { DialogProps, DialogVariant } from "./Dialog.js";

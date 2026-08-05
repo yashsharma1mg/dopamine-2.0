@@ -15,8 +15,12 @@ const meta = {
   title: "Components/Bottomsheet",
   component: Bottomsheet,
   tags: ["autodocs", "test"],
-  args: { title: "Samples required", subtitle: "Samples required", backButton: true },
-  argTypes: { backButton: { control: "boolean" } },
+  args: { title: "Samples required", subtitle: "Samples required", backButton: true, draggable: true, height: 320 },
+  argTypes: {
+    backButton: { control: "boolean" },
+    draggable: { control: "boolean" },
+    height: { control: { type: "range", min: 128, max: 600, step: 4 }, description: "Fixed sheet height (px). Drag the handle to resize." }
+  },
   parameters: {
     layout: "centered",
     docs: { description: { component: "A sheet that slides up from the bottom over a scrim, with floating close (and optional back) controls. States: default (no header) and with subheading." } },
