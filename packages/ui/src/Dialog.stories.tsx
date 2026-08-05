@@ -4,7 +4,7 @@ import { Dialog, type DialogVariant } from "./Dialog";
 const frame: React.CSSProperties = {
   position: "relative",
   width: 360,
-  height: 560,
+  height: 780,
   overflow: "hidden",
   borderRadius: 24,
   border: "1px solid #dde2eb",

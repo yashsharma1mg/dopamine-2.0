@@ -4,7 +4,7 @@ import { Bottomsheet } from "./Bottomsheet";
 const frame: React.CSSProperties = {
   position: "relative",
   width: 360,
-  height: 680,
+  height: 780,
   overflow: "hidden",
   borderRadius: 24,
   border: "1px solid #dde2eb",
