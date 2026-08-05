@@ -2301,7 +2301,7 @@
   {
     "slug": "bottomsheet",
     "name": "Bottomsheet",
-    "summary": "A draggable sheet that slides up from the bottom over a scrim, with floating close (and optional back) controls.",
+    "summary": "A sheet that slides up from the bottom over a scrim, with floating close (and optional back) controls.",
     "category": "Feedback",
     "status": "ready",
     "package": "@dopamine2.0/ui",
@@ -2386,13 +2386,6 @@
         "required": false,
         "default": "—",
         "description": "Header title (adds the header + divider)."
-      },
-      {
-        "name": "draggable",
-        "type": "boolean",
-        "required": false,
-        "default": "true",
-        "description": "Allow drag-to-resize via the top handle."
       },
       {
         "name": "children",

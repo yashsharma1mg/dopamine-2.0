@@ -15,11 +15,10 @@ const meta = {
   title: "Components/Bottomsheet",
   component: Bottomsheet,
   tags: ["autodocs", "test"],
-  args: { title: "Samples required", subtitle: "Samples required", backButton: true, draggable: true, height: 320 },
+  args: { title: "Samples required", subtitle: "Samples required", backButton: true, height: 320 },
   argTypes: {
     backButton: { control: "boolean" },
-    draggable: { control: "boolean" },
-    height: { control: { type: "range", min: 128, max: 600, step: 4 }, description: "Fixed sheet height (px). Drag the handle to resize." }
+    height: { control: { type: "range", min: 128, max: 600, step: 4 }, description: "Fixed sheet height (px). 128 = min, 600 = max." }
   },
   parameters: {
     layout: "centered",
@@ -33,14 +32,26 @@ type Story = StoryObj<typeof meta>;
 
 export const Playground: Story = { decorators: [(S) => <div style={frame}>{S()}</div>] };
 
+const label: React.CSSProperties = { font: "600 12px/1.4 Figtree", color: "#626a7a", marginBottom: 8 };
+
 export const FigmaVariants: Story = {
   render: () => (
-    <div style={{ display: "flex", gap: 32, flexWrap: "wrap" }}>
-      <div style={frame}>
-        <Bottomsheet />
+    <div style={{ display: "flex", gap: 32, flexWrap: "wrap", alignItems: "flex-start" }}>
+      <div>
+        <div style={label}>Default</div>
+        <div style={frame}><Bottomsheet /></div>
       </div>
-      <div style={frame}>
-        <Bottomsheet title="Samples required" subtitle="Samples required" backButton />
+      <div>
+        <div style={label}>With subheading</div>
+        <div style={frame}><Bottomsheet title="Samples required" subtitle="Samples required" backButton /></div>
+      </div>
+      <div>
+        <div style={label}>Min height · 128px</div>
+        <div style={frame}><Bottomsheet height={128} title="Samples required" subtitle="Samples required" /></div>
+      </div>
+      <div>
+        <div style={label}>Max height · 600px</div>
+        <div style={frame}><Bottomsheet height={600} title="Samples required" subtitle="Samples required" /></div>
       </div>
     </div>
   )

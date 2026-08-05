@@ -28,9 +28,8 @@ Two states:
 - **with subheading** — a header block (title `title-16` extrabold `content.primary`; subtitle
   `body-14` regular `content.tertiary`) closed by a full-bleed `divider.subtle` rule, then content.
 
-The sheet carries a **drag handle** (`stroke.moderate` pill) at the top and is **draggable to
-resize** between 128px and 600px. `height` sets a fixed height (clamped to the same range);
-`draggable={false}` disables the handle.
+The sheet is content-driven between **128px (min)** and **600px (max)**; the `height` prop pins it
+to a fixed height (clamped to that range) — the Storybook variants show the min and max heights.
 
 ### When to use
 - Contextual content or a set of actions surfaced without leaving the screen.
