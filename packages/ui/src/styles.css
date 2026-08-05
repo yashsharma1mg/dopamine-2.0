@@ -45,7 +45,15 @@
 .ds-order,
 .ds-order *,
 .ds-coupon,
-.ds-coupon * {
+.ds-coupon *,
+.ds-bottomsheet,
+.ds-bottomsheet *,
+.ds-dialog,
+.ds-dialog *,
+.ds-qsel,
+.ds-qsel *,
+.ds-pack,
+.ds-pack * {
   box-sizing: border-box;
   font-family: var(--font-family-body), system-ui, sans-serif;
 }
@@ -1039,3 +1047,65 @@
 .ds-coupon__row2 { align-items: center; display: flex; gap: var(--space-8); width: 100%; }
 .ds-coupon__save120 { align-items: center; color: var(--semantic-color-content-primary); display: inline-flex; flex: 1 1 auto; font-size: 16px; font-weight: var(--font-weight-bold); gap: var(--space-4); line-height: 24px; }
 .ds-coupon__viewall { align-items: center; color: var(--semantic-color-content-cta); display: inline-flex; font-size: 14px; font-weight: var(--font-weight-bold); gap: var(--space-8); line-height: 20px; }
+
+/* ── Overlay chrome (Bottomsheet / Dialog / QuantitySelector / PackOfMultiples) ─────────── */
+.ds-overlay-btn { align-items: center; appearance: none; background: var(--semantic-color-background-primary); border: 0; border-radius: 50%; box-shadow: var(--shadow-level-2); color: var(--semantic-color-content-primary); cursor: pointer; display: inline-flex; flex: 0 0 40px; height: 40px; justify-content: center; padding: 0; width: 40px; }
+.ds-select-radio { align-items: center; background: var(--semantic-color-background-primary); border: 1.5px solid var(--semantic-color-stroke-moderate); border-radius: 50%; color: #fff; display: inline-flex; flex: 0 0 auto; height: 21.6px; justify-content: center; width: 21.6px; }
+.ds-select-radio[data-selected] { background: var(--semantic-color-content-cta); border-color: var(--semantic-color-content-cta); }
+.ds-remove-btn { align-items: center; appearance: none; background: var(--semantic-color-background-primary); border: 0; border-top: 1px solid var(--semantic-color-stroke-moderate); color: #c50f1f; cursor: pointer; display: flex; flex: 0 0 auto; font-size: 16px; font-weight: var(--font-weight-extrabold); gap: var(--space-4); height: 72px; justify-content: center; line-height: 24px; width: 100%; }
+
+/* ── Bottomsheet ────────────────────────────────────────────────────────────────────────── */
+.ds-bottomsheet { background: rgba(0, 0, 0, 0.6); bottom: 0; display: flex; flex-direction: column; justify-content: flex-end; left: 0; position: absolute; right: 0; top: 0; }
+.ds-bottomsheet__controls { align-items: center; display: flex; gap: var(--space-8); justify-content: flex-end; padding: 0 10px 10px; }
+.ds-bottomsheet__controls[data-back] { justify-content: space-between; }
+.ds-bottomsheet__sheet { background: var(--semantic-color-background-primary); border-radius: var(--radius-16) var(--radius-16) 0 0; display: flex; flex-direction: column; gap: var(--space-16); max-height: 78%; overflow-y: auto; padding: var(--space-16); }
+.ds-bottomsheet__header { display: flex; flex-direction: column; }
+.ds-bottomsheet__title { color: var(--semantic-color-content-primary); font-size: 16px; font-weight: var(--font-weight-extrabold); line-height: 24px; }
+.ds-bottomsheet__sub { color: var(--semantic-color-content-tertiary); font-size: 14px; font-weight: var(--font-weight-regular); line-height: 20px; }
+.ds-bottomsheet__divider { background: none; border: 0; border-top: 1px solid var(--semantic-color-divider-subtle); height: 0; margin: 0 calc(-1 * var(--space-16)); }
+.ds-bottomsheet__content { min-height: 96px; }
+
+/* ── Dialog ─────────────────────────────────────────────────────────────────────────────── */
+.ds-dialog { align-items: center; background: rgba(0, 0, 0, 0.6); bottom: 0; display: flex; justify-content: center; left: 0; padding: 0 var(--space-16); position: absolute; right: 0; top: 0; }
+.ds-dialog__stage { align-items: flex-end; display: flex; flex-direction: column; gap: var(--space-16); max-width: 100%; width: 328px; }
+.ds-dialog__card { align-items: center; background: var(--semantic-color-background-primary); border-radius: var(--radius-16); display: flex; flex-direction: column; gap: var(--space-12); overflow: hidden; padding: var(--space-24) 0; width: 100%; }
+.ds-dialog__image { background: #d9d9d9; border-radius: var(--radius-8); display: block; flex: 0 0 auto; height: 64px; overflow: hidden; width: 64px; }
+.ds-dialog__image > * { border-radius: inherit; height: 100%; object-fit: cover; width: 100%; }
+.ds-dialog__body { align-items: center; display: flex; flex-direction: column; gap: var(--space-24); width: 100%; }
+.ds-dialog__text { align-items: center; display: flex; flex-direction: column; gap: var(--space-4); padding: 0 var(--space-24); text-align: center; }
+.ds-dialog__heading { color: var(--semantic-color-content-primary); font-size: 16px; font-weight: var(--font-weight-extrabold); line-height: 24px; }
+.ds-dialog__desc { color: var(--semantic-color-content-secondary); font-size: 14px; font-weight: var(--font-weight-regular); line-height: 20px; max-width: 280px; }
+.ds-dialog__actions { display: flex; flex-direction: column; gap: var(--space-24); padding: 0 var(--space-24); width: 100%; }
+.ds-dialog__divider { background: none; border: 0; border-top: 1px solid var(--semantic-color-divider-subtle); height: 0; margin: 0; }
+.ds-dialog__btns { display: flex; flex-direction: column; gap: var(--space-16); width: 100%; }
+.ds-dialog__btns .ds-button { width: 100%; }
+
+/* ── Quantity Selector ──────────────────────────────────────────────────────────────────── */
+.ds-qsel { align-items: center; background: rgba(0, 0, 0, 0.6); bottom: 0; display: flex; justify-content: center; left: 0; padding: 0 var(--space-16); position: absolute; right: 0; top: 0; }
+.ds-qsel__stage { align-items: flex-end; display: flex; flex-direction: column; gap: var(--space-16); max-width: 100%; width: 328px; }
+.ds-qsel__card { background: var(--semantic-color-background-primary); border-radius: var(--radius-16); display: flex; flex-direction: column; max-height: 72vh; overflow: hidden; width: 100%; }
+.ds-qsel__header { align-items: center; border-bottom: 1px solid var(--semantic-color-stroke-moderate); color: var(--semantic-color-content-primary); display: flex; flex: 0 0 72px; font-size: 16px; font-weight: var(--font-weight-extrabold); justify-content: center; line-height: 24px; }
+.ds-qsel__list { flex: 1 1 auto; overflow-y: auto; }
+.ds-qsel__row { align-items: center; appearance: none; background: var(--semantic-color-background-primary); border: 0; color: #000; cursor: pointer; display: flex; font-size: 16px; font-weight: var(--font-weight-regular); justify-content: space-between; line-height: 24px; padding: var(--space-16) var(--space-24); text-align: left; width: 100%; }
+.ds-qsel__row[data-selected] { background: var(--base-color-sunrise-glow-97); }
+
+/* ── Pack of multiples ──────────────────────────────────────────────────────────────────── */
+.ds-pack { align-items: center; background: rgba(0, 0, 0, 0.6); bottom: 0; display: flex; justify-content: center; left: 0; padding: 0 var(--space-16); position: absolute; right: 0; top: 0; }
+.ds-pack__stage { align-items: flex-end; display: flex; flex-direction: column; gap: var(--space-16); max-width: 100%; width: 328px; }
+.ds-pack__card { background: var(--semantic-color-background-primary); border-radius: var(--radius-16); display: flex; flex-direction: column; max-height: 72vh; overflow: hidden; width: 100%; }
+.ds-pack__header { align-items: center; border-bottom: 1px solid var(--semantic-color-stroke-moderate); color: var(--semantic-color-content-primary); display: flex; flex: 0 0 72px; font-size: 16px; font-weight: var(--font-weight-extrabold); justify-content: center; line-height: 24px; }
+.ds-pack__list { flex: 1 1 auto; overflow-y: auto; }
+.ds-pack__row { align-items: center; appearance: none; background: var(--semantic-color-background-primary); border: 0; cursor: pointer; display: flex; gap: var(--space-16); overflow: hidden; padding: var(--space-16); position: relative; width: 100%; }
+.ds-pack__row[data-selected] { background: var(--base-color-sunrise-glow-97); }
+.ds-pack__row[data-recommended] { min-height: 80px; }
+.ds-pack__row[data-recommended]:not([data-selected]) { background: var(--base-color-wellness-green-97); }
+.ds-pack__ribbon { background: var(--base-color-healing-mauve-50); border-radius: 0 0 var(--radius-4) 0; color: #fff; font-size: 11px; font-weight: var(--font-weight-bold); left: 0; line-height: 16px; padding: 2px 12px 2px 12px; position: absolute; top: 0; }
+.ds-pack__chip { align-items: center; background: var(--semantic-color-divider-subtle); border-radius: var(--radius-4); color: var(--semantic-color-content-primary); display: inline-flex; flex: 0 0 auto; font-size: 14px; font-weight: var(--font-weight-bold); gap: 6px; height: 32px; line-height: 20px; padding-right: 6px; }
+.ds-pack__chip-box { background: var(--semantic-color-background-primary); border: 1px solid var(--semantic-color-stroke-moderate); border-radius: var(--radius-4); flex: 0 0 32px; height: 32px; width: 32px; }
+.ds-pack__mid { align-items: center; display: flex; flex: 1 1 auto; justify-content: space-between; }
+.ds-pack__info { display: flex; flex-direction: column; gap: 2px; }
+.ds-pack__prices { align-items: center; display: flex; gap: var(--space-8); }
+.ds-pack__prices s { color: var(--semantic-color-content-disabled); font-size: 12px; font-weight: var(--font-weight-regular); line-height: 16px; }
+.ds-pack__prices b { color: var(--semantic-color-content-primary); font-size: 16px; font-weight: var(--font-weight-bold); line-height: 24px; }
+.ds-pack__off { align-items: center; background: var(--semantic-color-states-offer); border-radius: var(--radius-4); color: #fff; display: inline-flex; font-size: 12px; font-weight: var(--font-weight-bold); line-height: 16px; padding: 4px; }
+.ds-pack__extra { color: var(--base-color-wellness-green-30); font-size: 12px; font-weight: var(--font-weight-bold); line-height: 16px; text-align: right; }

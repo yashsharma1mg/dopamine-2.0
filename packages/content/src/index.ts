@@ -776,6 +776,117 @@ export const componentManifests: ComponentManifest[] = [
       { name: "type", type: "Pharma Rx | Pharma non Rx | compact Rx | compact non Rx | Labs Rapid Report | Labs Default", defaultValue: "Pharma Rx", description: "Which order-strip variant to render." }
     ],
     links: { figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6765-5494", specification: "/specs/OrderStrip.md", audit: "", source: "/storybook/?path=/docs/components-orderstrip--docs" }
+  },
+  {
+    slug: "bottomsheet",
+    name: "Bottomsheet",
+    summary: "A sheet that slides up from the bottom over a scrim, with floating close (and optional back) controls.",
+    category: "Feedback",
+    status: "ready",
+    storyId: "components-bottomsheet--playground",
+    packageName: "@dopamine2.0/ui",
+    importExample: 'import { Bottomsheet } from "@dopamine2.0/ui";',
+    anatomy: ["Scrim", "Floating close (and optional back)", "Rounded-top sheet", "Optional header (title + subtitle) + divider", "Content slot"],
+    variants: ["default", "with subheading"],
+    sizes: ["360px width"],
+    states: ["No header vs title + subtitle; back button optional"],
+    usage: {
+      do: ["Use for contextual content/actions without leaving the screen.", "Keep the sheet body scrollable when content overflows."],
+      dont: ["Do not stack multiple bottom sheets.", "Do not use for a simple confirmation — use Dialog."]
+    },
+    accessibility: ["role=dialog, aria-modal.", "The close and back controls are labelled buttons."],
+    contentGuidance: ["Title is a short noun phrase; subtitle adds one supporting line."],
+    api: [
+      { name: "title", type: "string", defaultValue: "—", description: "Header title (adds the header + divider)." },
+      { name: "subtitle", type: "string", defaultValue: "—", description: "Subheading under the title." },
+      { name: "backButton", type: "boolean", defaultValue: "false", description: "Show the floating back button." },
+      { name: "children", type: "ReactNode", defaultValue: "—", description: "Sheet body." }
+    ],
+    links: { figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6703-6222", specification: "/specs/Bottomsheet.md", audit: "", source: "/storybook/?path=/docs/components-bottomsheet--docs" }
+  },
+  {
+    slug: "dialog",
+    name: "Dialog",
+    summary: "A centred modal card over a scrim with a floating close — heading, description, and one or two CTAs.",
+    category: "Feedback",
+    status: "ready",
+    storyId: "components-dialog--playground",
+    packageName: "@dopamine2.0/ui",
+    importExample: 'import { Dialog } from "@dopamine2.0/ui";',
+    anatomy: ["Scrim", "Floating close", "Card (optional 64px image, heading, description, divider, buttons)"],
+    variants: ["cta", "image-cta", "image-2cta"],
+    sizes: ["328px width"],
+    states: ["1 CTA (Fill) or 2 CTA (Fill + Outline); with or without image"],
+    usage: {
+      do: ["Use for a focused decision or confirmation.", "Lead the primary action with a Fill Button."],
+      dont: ["Do not use for long or scrollable content — use Bottomsheet."]
+    },
+    accessibility: ["role=dialog, aria-modal.", "Actions are the DS Button component."],
+    contentGuidance: ["Heading is a short outcome; description ≤ 2 lines."],
+    api: [
+      { name: "variant", type: "cta | image-cta | image-2cta", defaultValue: "image-2cta", description: "Which dialog layout to render." },
+      { name: "heading", type: "string", defaultValue: "Heading", description: "Dialog title." },
+      { name: "description", type: "ReactNode", defaultValue: "—", description: "Supporting copy." },
+      { name: "primaryLabel", type: "string", defaultValue: "Button", description: "Fill button label." },
+      { name: "secondaryLabel", type: "string", defaultValue: "Button", description: "Outline button label (2-CTA variant)." }
+    ],
+    links: { figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6703-6311", specification: "/specs/Dialog.md", audit: "", source: "/storybook/?path=/docs/components-dialog--docs" }
+  },
+  {
+    slug: "quantity-selector",
+    name: "QuantitySelector",
+    summary: "A modal single-select quantity picker over a scrim: a heading, a scrollable radio list, and an optional Remove footer.",
+    category: "Selection",
+    status: "ready",
+    storyId: "components-quantityselector--playground",
+    packageName: "@dopamine2.0/ui",
+    importExample: 'import { QuantitySelector } from "@dopamine2.0/ui";',
+    anatomy: ["Scrim + floating close", "Heading", "Scrollable radio list (selected = coral tint + coral tick)", "Optional Remove footer"],
+    variants: ["without remove button", "with remove button"],
+    sizes: ["328px width"],
+    states: ["Selected row; Remove footer optional"],
+    usage: {
+      do: ["Use to pick one quantity/option from a bounded list.", "Add the Remove footer when the item can be removed entirely."],
+      dont: ["Do not use for multi-select — this is single-select."]
+    },
+    accessibility: ["role=radiogroup with aria-checked rows.", "Remove is a labelled button."],
+    contentGuidance: ["Options are short (numbers or brief labels)."],
+    api: [
+      { name: "heading", type: "string", defaultValue: "Heading", description: "Card heading." },
+      { name: "options", type: "Array<string | number>", defaultValue: "[1..6]", description: "Selectable values." },
+      { name: "selectedIndex", type: "number", defaultValue: "0", description: "Index of the selected option." },
+      { name: "removeButton", type: "boolean", defaultValue: "false", description: "Show the Remove footer." },
+      { name: "onSelect", type: "(index: number) => void", defaultValue: "—", description: "Selection callback." }
+    ],
+    links: { figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6703-6776", specification: "/specs/QuantitySelector.md", audit: "", source: "/storybook/?path=/docs/components-quantityselector--docs" }
+  },
+  {
+    slug: "pack-of-multiples",
+    name: "PackOfMultiples",
+    summary: "A modal 'Select Quantity' picker for buying packs — each row shows the multiple, MRP, price and discount, with an optional Recommended row.",
+    category: "Cart",
+    status: "ready",
+    storyId: "components-packofmultiples--playground",
+    packageName: "@dopamine2.0/ui",
+    importExample: 'import { PackOfMultiples } from "@dopamine2.0/ui";',
+    anatomy: ["Scrim + floating close", "'Select Quantity' heading", "Pack rows (qty chip, MRP, price, discount tag, radio)", "Recommended ribbon + extra-discount line", "Optional Remove footer"],
+    variants: ["selected recommendation", "not selected recommendation", "no recommendation"],
+    sizes: ["328px width"],
+    states: ["Recommended row (selected = coral tint, not selected = green tint); plain rows"],
+    usage: {
+      do: ["Use to sell packs/multiples with per-pack pricing.", "Mark at most one row Recommended."],
+      dont: ["Do not omit the struck MRP beside the pack price."]
+    },
+    accessibility: ["role=radiogroup with aria-checked rows.", "Prices read in order MRP → price → discount."],
+    contentGuidance: ["Discount tags read like '55% off'; the extra-discount line is short."],
+    api: [
+      { name: "heading", type: "string", defaultValue: "Select Quantity", description: "Card heading." },
+      { name: "options", type: "PackOption[]", defaultValue: "sample packs", description: "Pack rows (qty, mrp, price, discount, recommended?, extra?)." },
+      { name: "selectedIndex", type: "number", defaultValue: "0", description: "Index of the selected pack." },
+      { name: "removeButton", type: "boolean", defaultValue: "false", description: "Show the Remove footer." },
+      { name: "onSelect", type: "(index: number) => void", defaultValue: "—", description: "Selection callback." }
+    ],
+    links: { figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6703-6807", specification: "/specs/PackOfMultiples.md", audit: "", source: "/storybook/?path=/docs/components-packofmultiples--docs" }
   }
 ];
 

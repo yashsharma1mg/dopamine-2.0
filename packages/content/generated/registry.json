@@ -2297,5 +2297,403 @@
         "description": "Which order-strip variant to render."
       }
     ]
+  },
+  {
+    "slug": "bottomsheet",
+    "name": "Bottomsheet",
+    "summary": "A sheet that slides up from the bottom over a scrim, with floating close (and optional back) controls.",
+    "category": "Feedback",
+    "status": "ready",
+    "package": "@dopamine2.0/ui",
+    "import": "import { Bottomsheet } from \"@dopamine2.0/ui\";",
+    "storyId": "components-bottomsheet--playground",
+    "figma": "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6703-6222",
+    "prompts": [
+      "bottom sheet",
+      "bottomsheet",
+      "slide up sheet",
+      "action sheet",
+      "drawer",
+      "modal sheet",
+      "half sheet"
+    ],
+    "variants": [
+      "default",
+      "with subheading"
+    ],
+    "sizes": [
+      "360px width"
+    ],
+    "states": [
+      "No header vs title + subtitle; back button optional"
+    ],
+    "usage": {
+      "do": [
+        "Use for contextual content/actions without leaving the screen.",
+        "Keep the sheet body scrollable when content overflows."
+      ],
+      "dont": [
+        "Do not stack multiple bottom sheets.",
+        "Do not use for a simple confirmation — use Dialog."
+      ]
+    },
+    "accessibility": [
+      "role=dialog, aria-modal.",
+      "The close and back controls are labelled buttons."
+    ],
+    "contentGuidance": [
+      "Title is a short noun phrase; subtitle adds one supporting line."
+    ],
+    "props": [
+      {
+        "name": "subtitle",
+        "type": "string",
+        "required": false,
+        "default": "—",
+        "description": "Optional subheading under the title (body-14, tertiary)."
+      },
+      {
+        "name": "backButton",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Show the floating back button (top-left)."
+      },
+      {
+        "name": "onClose",
+        "type": "() => void",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "onBack",
+        "type": "() => void",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "default": "—",
+        "description": "Header title (adds the header + divider)."
+      },
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "default": "—",
+        "description": "Sheet body."
+      }
+    ]
+  },
+  {
+    "slug": "dialog",
+    "name": "Dialog",
+    "summary": "A centred modal card over a scrim with a floating close — heading, description, and one or two CTAs.",
+    "category": "Feedback",
+    "status": "ready",
+    "package": "@dopamine2.0/ui",
+    "import": "import { Dialog } from \"@dopamine2.0/ui\";",
+    "storyId": "components-dialog--playground",
+    "figma": "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6703-6311",
+    "prompts": [
+      "dialog",
+      "dialog box",
+      "modal",
+      "alert",
+      "confirmation dialog",
+      "popup",
+      "confirm modal"
+    ],
+    "variants": [
+      "cta",
+      "image-cta",
+      "image-2cta"
+    ],
+    "sizes": [
+      "328px width"
+    ],
+    "states": [
+      "1 CTA (Fill) or 2 CTA (Fill + Outline); with or without image"
+    ],
+    "usage": {
+      "do": [
+        "Use for a focused decision or confirmation.",
+        "Lead the primary action with a Fill Button."
+      ],
+      "dont": [
+        "Do not use for long or scrollable content — use Bottomsheet."
+      ]
+    },
+    "accessibility": [
+      "role=dialog, aria-modal.",
+      "Actions are the DS Button component."
+    ],
+    "contentGuidance": [
+      "Heading is a short outcome; description ≤ 2 lines."
+    ],
+    "props": [
+      {
+        "name": "variant",
+        "type": "\"cta\" | \"image-cta\" | \"image-2cta\"",
+        "required": false,
+        "default": "image-2cta",
+        "description": "Which dialog layout to render."
+      },
+      {
+        "name": "heading",
+        "type": "string",
+        "required": false,
+        "default": "Heading",
+        "description": "Dialog title."
+      },
+      {
+        "name": "description",
+        "type": "ReactNode",
+        "required": false,
+        "default": "—",
+        "description": "Supporting copy."
+      },
+      {
+        "name": "image",
+        "type": "ReactNode",
+        "required": false,
+        "default": "—",
+        "description": "Optional 64px media slot (image variants). Defaults to a placeholder box."
+      },
+      {
+        "name": "primaryLabel",
+        "type": "string",
+        "required": false,
+        "default": "Button",
+        "description": "Fill button label."
+      },
+      {
+        "name": "secondaryLabel",
+        "type": "string",
+        "required": false,
+        "default": "Button",
+        "description": "Outline button label (2-CTA variant)."
+      },
+      {
+        "name": "onClose",
+        "type": "() => void",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "onPrimary",
+        "type": "() => void",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "onSecondary",
+        "type": "() => void",
+        "required": false,
+        "default": "—",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "slug": "quantity-selector",
+    "name": "QuantitySelector",
+    "summary": "A modal single-select quantity picker over a scrim: a heading, a scrollable radio list, and an optional Remove footer.",
+    "category": "Selection",
+    "status": "ready",
+    "package": "@dopamine2.0/ui",
+    "import": "import { QuantitySelector } from \"@dopamine2.0/ui\";",
+    "storyId": "components-quantityselector--playground",
+    "figma": "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6703-6776",
+    "prompts": [
+      "quantity selector",
+      "quantity picker",
+      "select quantity",
+      "number picker",
+      "option picker",
+      "single select list",
+      "radio list sheet"
+    ],
+    "variants": [
+      "without remove button",
+      "with remove button"
+    ],
+    "sizes": [
+      "328px width"
+    ],
+    "states": [
+      "Selected row; Remove footer optional"
+    ],
+    "usage": {
+      "do": [
+        "Use to pick one quantity/option from a bounded list.",
+        "Add the Remove footer when the item can be removed entirely."
+      ],
+      "dont": [
+        "Do not use for multi-select — this is single-select."
+      ]
+    },
+    "accessibility": [
+      "role=radiogroup with aria-checked rows.",
+      "Remove is a labelled button."
+    ],
+    "contentGuidance": [
+      "Options are short (numbers or brief labels)."
+    ],
+    "props": [
+      {
+        "name": "heading",
+        "type": "string",
+        "required": false,
+        "default": "Heading",
+        "description": "Card heading."
+      },
+      {
+        "name": "options",
+        "type": "(string | number)[]",
+        "required": false,
+        "default": "[1..6]",
+        "description": "Selectable values. Defaults to 1–6."
+      },
+      {
+        "name": "selectedIndex",
+        "type": "number",
+        "required": false,
+        "default": "0",
+        "description": "Index of the selected option."
+      },
+      {
+        "name": "removeButton",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Show the Remove footer."
+      },
+      {
+        "name": "onSelect",
+        "type": "(index: number) => void",
+        "required": false,
+        "default": "—",
+        "description": "Selection callback."
+      },
+      {
+        "name": "onRemove",
+        "type": "() => void",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "onClose",
+        "type": "() => void",
+        "required": false,
+        "default": "—",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "slug": "pack-of-multiples",
+    "name": "PackOfMultiples",
+    "summary": "A modal 'Select Quantity' picker for buying packs — each row shows the multiple, MRP, price and discount, with an optional Recommended row.",
+    "category": "Cart",
+    "status": "ready",
+    "package": "@dopamine2.0/ui",
+    "import": "import { PackOfMultiples } from \"@dopamine2.0/ui\";",
+    "storyId": "components-packofmultiples--playground",
+    "figma": "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6703-6807",
+    "prompts": [
+      "pack of multiples",
+      "select quantity packs",
+      "buy in bulk",
+      "multi pack selector",
+      "bulk pricing picker",
+      "pack size selector",
+      "quantity discount sheet"
+    ],
+    "variants": [
+      "selected recommendation",
+      "not selected recommendation",
+      "no recommendation"
+    ],
+    "sizes": [
+      "328px width"
+    ],
+    "states": [
+      "Recommended row (selected = coral tint, not selected = green tint); plain rows"
+    ],
+    "usage": {
+      "do": [
+        "Use to sell packs/multiples with per-pack pricing.",
+        "Mark at most one row Recommended."
+      ],
+      "dont": [
+        "Do not omit the struck MRP beside the pack price."
+      ]
+    },
+    "accessibility": [
+      "role=radiogroup with aria-checked rows.",
+      "Prices read in order MRP → price → discount."
+    ],
+    "contentGuidance": [
+      "Discount tags read like '55% off'; the extra-discount line is short."
+    ],
+    "props": [
+      {
+        "name": "heading",
+        "type": "string",
+        "required": false,
+        "default": "Select Quantity",
+        "description": "Card heading."
+      },
+      {
+        "name": "options",
+        "type": "PackOption[]",
+        "required": false,
+        "default": "sample packs",
+        "description": "Pack rows (qty, mrp, price, discount, recommended?, extra?)."
+      },
+      {
+        "name": "selectedIndex",
+        "type": "number",
+        "required": false,
+        "default": "0",
+        "description": "Index of the selected pack."
+      },
+      {
+        "name": "removeButton",
+        "type": "boolean",
+        "required": false,
+        "default": "false",
+        "description": "Show the Remove footer."
+      },
+      {
+        "name": "onSelect",
+        "type": "(index: number) => void",
+        "required": false,
+        "default": "—",
+        "description": "Selection callback."
+      },
+      {
+        "name": "onRemove",
+        "type": "() => void",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "onClose",
+        "type": "() => void",
+        "required": false,
+        "default": "—",
+        "description": ""
+      }
+    ]
   }
 ]
