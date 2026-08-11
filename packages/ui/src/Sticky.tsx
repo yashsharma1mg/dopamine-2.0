@@ -24,7 +24,7 @@ export type StickyProps = HTMLAttributes<HTMLDivElement> & {
 };
 
 // Prescription thumbnail exported from Figma (served from public/assets).
-const rxThumb = <img className="ds-sticky__rx-img" src="/assets/dopamine/illustrations/rx-thumb.png" alt="" />;
+const rxThumb = <img className="ds-sticky__rx-img" src="/assets/dopamine/illustrations/rx-tile.png" alt="" />;
 
 const icons = {
   chevron: <DsIcon name="chevron-right" size={12} />,

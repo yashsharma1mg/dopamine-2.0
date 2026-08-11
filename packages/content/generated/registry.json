@@ -1402,6 +1402,27 @@
         "required": false,
         "default": "—",
         "description": ""
+      },
+      {
+        "name": "statusBar",
+        "type": "boolean",
+        "required": false,
+        "default": "—",
+        "description": "Show the phone status bar (time + signal/wifi/battery) above the header."
+      },
+      {
+        "name": "statusTime",
+        "type": "string",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "batteryLevel",
+        "type": "number",
+        "required": false,
+        "default": "—",
+        "description": ""
       }
     ]
   },

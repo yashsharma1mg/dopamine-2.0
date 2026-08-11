@@ -645,6 +645,13 @@
   padding: var(--space-8) 0;
   width: 360px;
 }
+/* Row 0 — phone status bar */
+.ds-nav__statusbar { align-items: center; color: var(--semantic-color-content-primary); display: flex; justify-content: space-between; padding: 2px var(--space-16) 4px; }
+.ds-nav__status-time { font-size: 15px; font-weight: var(--font-weight-bold); letter-spacing: 0.2px; }
+.ds-nav__status-icons { align-items: center; display: flex; gap: 5px; }
+.ds-nav__status-battery { align-items: center; display: inline-flex; position: relative; }
+.ds-nav__status-batt-pct { color: var(--semantic-color-content-inverse-primary); font-size: 8px; font-weight: var(--font-weight-bold); left: 3px; line-height: 1; position: absolute; top: 50%; transform: translateY(-50%); }
+
 /* Row 1 */
 .ds-nav__top { align-items: center; display: flex; gap: var(--space-8); padding: 0 var(--space-16); }
 .ds-nav__location {

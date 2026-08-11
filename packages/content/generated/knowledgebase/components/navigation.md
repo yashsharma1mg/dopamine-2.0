@@ -16,6 +16,9 @@ A composite top header: location pill, profile/cart, a category tab strip, and a
 | `locationDetail` | `string` | no |  |  |
 | `cartCount` | `number` | no | `3` | Cart badge count. |
 | `searchHint` | `string` | no |  |  |
+| `statusBar` | `boolean` | no |  | Show the phone status bar (time + signal/wifi/battery) above the header. |
+| `statusTime` | `string` | no |  |  |
+| `batteryLevel` | `number` | no |  |  |
 
 ## Variants / sizes / states
 - **Variants:** labs, pharmacy, for you-no scroll, CP-profile icon, for you-scroll
