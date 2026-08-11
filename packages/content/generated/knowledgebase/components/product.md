@@ -11,7 +11,8 @@ PDP product hero: an image carousel, then title / brand / composition, and an op
 ## Props
 | Prop | Type | Required | Default | Description |
 |---|---|---|---|---|
-| `images` | `ReactNode[]` | no | `2 placeholders` | Product image slots (rendered in a horizontal carousel). Defaults to 2 placeholders. |
+| `numberOfImages` | `1 \| 2 \| 3` | no |  | How many placeholder image slots to render when `images` is not provided (Figma 1/2/3). |
+| `images` | `ReactNode[]` | no | `2 placeholders` | Explicit image slots (overrides `numberOfImages`). Rendered in a swipeable carousel. |
 | `brand` | `string` | no |  | Manufacturer. |
 | `composition` | `string` | no |  |  |
 | `compositionValue` | `string` | no | `Telmisartan (40mg)` | Underlined composition. |

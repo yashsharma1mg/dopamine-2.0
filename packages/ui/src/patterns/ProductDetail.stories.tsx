@@ -26,7 +26,7 @@ pinned. **Don't** — rebuild sections by hand or hard-code colours; every compo
 `;
 
 const meta = {
-  title: "Patterns/Product detail",
+  title: "Patterns/PDP",
   component: ProductDetail,
   tags: ["autodocs"],
   parameters: {

@@ -1,8 +1,10 @@
-import { type HTMLAttributes, type ReactNode } from "react";
+import { useRef, type HTMLAttributes, type PointerEvent as ReactPointerEvent, type ReactNode } from "react";
 import { DsIcon } from "./icons.js";
 
 export type ProductProps = HTMLAttributes<HTMLDivElement> & {
-  /** Product image slots (rendered in a horizontal carousel). Defaults to 2 placeholders. */
+  /** How many placeholder image slots to render when `images` is not provided (Figma 1/2/3). */
+  numberOfImages?: 1 | 2 | 3;
+  /** Explicit image slots (overrides `numberOfImages`). Rendered in a swipeable carousel. */
   images?: ReactNode[];
   title?: string;
   brand?: string;
@@ -15,10 +17,11 @@ export type ProductProps = HTMLAttributes<HTMLDivElement> & {
 };
 
 /**
- * PDP product hero: a swipeable image carousel, then title / brand / composition, and an optional
- * green "save with alternative" pill.
+ * PDP product hero: a drag-to-swipe image carousel (1–3 image slots), then title / brand /
+ * composition, and an optional green "save with alternative" pill.
  */
 export function Product({
+  numberOfImages = 2,
   images,
   title = "Telma 40 Tablet",
   brand = "La Renon Healthcare Pvt. Ltd",
@@ -34,10 +37,31 @@ export function Product({
   className = "",
   ...props
 }: ProductProps) {
-  const slots = images ?? [<span key="a" />, <span key="b" />];
+  const slots = images ?? Array.from({ length: numberOfImages }, (_, i) => <span key={i} />);
+
+  const track = useRef<HTMLDivElement>(null);
+  const drag = useRef({ down: false, startX: 0, startLeft: 0 });
+  const onPointerDown = (e: ReactPointerEvent<HTMLDivElement>) => {
+    const el = track.current!;
+    drag.current = { down: true, startX: e.clientX, startLeft: el.scrollLeft };
+    el.setPointerCapture(e.pointerId);
+  };
+  const onPointerMove = (e: ReactPointerEvent<HTMLDivElement>) => {
+    if (!drag.current.down) return;
+    track.current!.scrollLeft = drag.current.startLeft - (e.clientX - drag.current.startX);
+  };
+  const endDrag = () => (drag.current.down = false);
+
   return (
     <div className={`ds-product ${className}`.trim()} {...props}>
-      <div className="ds-product__carousel">
+      <div
+        ref={track}
+        className="ds-product__carousel"
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={endDrag}
+        onPointerCancel={endDrag}
+      >
         {slots.map((img, i) => (
           <span key={i} className="ds-product__image">{img}</span>
         ))}

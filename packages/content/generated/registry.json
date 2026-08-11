@@ -2749,11 +2749,18 @@
     ],
     "props": [
       {
+        "name": "numberOfImages",
+        "type": "1 | 2 | 3",
+        "required": false,
+        "default": "—",
+        "description": "How many placeholder image slots to render when `images` is not provided (Figma 1/2/3)."
+      },
+      {
         "name": "images",
         "type": "ReactNode[]",
         "required": false,
         "default": "2 placeholders",
-        "description": "Product image slots (rendered in a horizontal carousel). Defaults to 2 placeholders."
+        "description": "Explicit image slots (overrides `numberOfImages`). Rendered in a swipeable carousel."
       },
       {
         "name": "brand",

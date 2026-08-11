@@ -1,4 +1,4 @@
-# Pattern: Product Detail (PDP)
+# Pattern: PDP (Product Detail Page)
 
 The 1mg product detail page, composed entirely from Dopamine2.0 components (Figma 6822-4510):
 a sticky header, the product hero, a feature strip, the price + ADD bar, an offers section, and an

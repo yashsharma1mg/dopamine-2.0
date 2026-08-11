@@ -1122,16 +1122,17 @@
 
 /* ── PDP: Product hero ──────────────────────────────────────────────────────────────────── */
 .ds-product { background: var(--semantic-color-background-primary); display: flex; flex-direction: column; gap: var(--space-16); max-width: 100%; overflow: hidden; padding: var(--space-16); width: 360px; }
-.ds-product__carousel { display: flex; gap: 10px; overflow-x: auto; scrollbar-width: none; }
+.ds-product__carousel { cursor: grab; display: flex; gap: 10px; overflow-x: auto; scrollbar-width: none; touch-action: pan-y; user-select: none; }
+.ds-product__carousel:active { cursor: grabbing; }
 .ds-product__carousel::-webkit-scrollbar { display: none; }
 .ds-product__image { background: var(--semantic-color-background-primary); border: 1px solid var(--semantic-color-stroke-moderate); border-radius: var(--radius-8); flex: 0 0 201px; height: 200px; overflow: hidden; width: 201px; }
-.ds-product__image > * { display: block; height: 100%; object-fit: cover; width: 100%; }
+.ds-product__image > * { display: block; height: 100%; object-fit: cover; pointer-events: none; width: 100%; }
 .ds-product__info { display: flex; flex-direction: column; gap: var(--space-8); }
-.ds-product__title { color: var(--semantic-color-content-primary); font-size: 22px; font-weight: var(--font-weight-extrabold); line-height: 28px; }
-.ds-product__brand { color: var(--semantic-color-content-secondary); font-size: 14px; font-weight: var(--font-weight-medium); line-height: 20px; }
+.ds-product__title { color: var(--semantic-color-content-primary); font-size: 22px; font-weight: var(--font-weight-extrabold); line-height: 28px; margin: 0; }
+.ds-product__brand { color: var(--semantic-color-content-secondary); font-size: 14px; font-weight: var(--font-weight-medium); line-height: 20px; margin: 0; }
 .ds-product__composition { display: flex; flex-direction: column; }
-.ds-product__comp-label { color: var(--semantic-color-content-secondary); font-size: 14px; font-weight: var(--font-weight-medium); line-height: 20px; }
-.ds-product__comp-value { align-self: flex-start; border-bottom: 1px solid var(--semantic-color-stroke-moderate); color: var(--semantic-color-content-primary); font-size: 14px; font-weight: var(--font-weight-bold); line-height: 20px; }
+.ds-product__comp-label { color: var(--semantic-color-content-secondary); font-size: 14px; font-weight: var(--font-weight-medium); line-height: 20px; margin: 0; }
+.ds-product__comp-value { align-self: flex-start; border-bottom: 1px solid var(--semantic-color-stroke-moderate); color: var(--semantic-color-content-primary); font-size: 14px; font-weight: var(--font-weight-bold); line-height: 20px; margin: 0; }
 .ds-product__alt { align-items: center; align-self: flex-start; appearance: none; background: var(--semantic-color-background-primary); border: 2px solid #afe3c5; border-radius: var(--radius-8); color: var(--semantic-color-content-primary); cursor: pointer; display: inline-flex; font-size: 12px; gap: var(--space-4); line-height: 16px; padding: 12px; }
 .ds-product__alt b { font-weight: var(--font-weight-bold); }
 .ds-product__alt .ds-icon { color: var(--semantic-color-states-success); }
@@ -1166,7 +1167,7 @@
 .ds-offer__banner > * { background: var(--base-color-cool-neutral-90); border-radius: var(--radius-12); display: block; height: 164px; width: 100%; }
 .ds-offer__band { background: var(--base-color-cool-neutral-95); height: 8px; }
 .ds-offer__card { display: flex; flex-direction: column; gap: var(--space-16); padding: var(--space-16); }
-.ds-offer__heading { color: var(--semantic-color-content-primary); font-size: 16px; font-weight: var(--font-weight-bold); line-height: 24px; }
+.ds-offer__heading { color: var(--semantic-color-content-primary); font-size: 16px; font-weight: var(--font-weight-bold); line-height: 24px; margin: 0; }
 .ds-offer__list { display: flex; flex-direction: column; gap: var(--space-16); }
 .ds-offer__row { align-items: center; appearance: none; background: none; border: 0; cursor: pointer; display: flex; gap: var(--space-12); padding: 0; text-align: left; width: 100%; }
 .ds-offer__row-icon { align-items: center; background: var(--base-color-cool-neutral-95); border-radius: 50%; color: var(--semantic-color-content-secondary); display: inline-flex; flex: 0 0 36px; height: 36px; justify-content: center; width: 36px; }
