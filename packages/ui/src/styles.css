@@ -53,7 +53,17 @@
 .ds-qsel,
 .ds-qsel *,
 .ds-pack,
-.ds-pack * {
+.ds-pack *,
+.ds-product,
+.ds-product *,
+.ds-plabel,
+.ds-plabel *,
+.ds-atc,
+.ds-atc *,
+.ds-offer,
+.ds-offer *,
+.ds-pinfo,
+.ds-pinfo * {
   box-sizing: border-box;
   font-family: var(--font-family-body), system-ui, sans-serif;
 }
@@ -1109,3 +1119,78 @@
 .ds-pack__prices b { color: var(--semantic-color-content-primary); font-size: 16px; font-weight: var(--font-weight-bold); line-height: 24px; }
 .ds-pack__off { align-items: center; background: var(--semantic-color-states-offer); border-radius: var(--radius-4); color: #fff; display: inline-flex; font-size: 12px; font-weight: var(--font-weight-bold); line-height: 16px; padding: 4px; }
 .ds-pack__extra { color: var(--base-color-wellness-green-30); font-size: 12px; font-weight: var(--font-weight-bold); line-height: 16px; text-align: right; }
+
+/* ── PDP: Product hero ──────────────────────────────────────────────────────────────────── */
+.ds-product { background: var(--semantic-color-background-primary); display: flex; flex-direction: column; gap: var(--space-16); max-width: 100%; overflow: hidden; padding: var(--space-16); width: 360px; }
+.ds-product__carousel { display: flex; gap: 10px; overflow-x: auto; scrollbar-width: none; }
+.ds-product__carousel::-webkit-scrollbar { display: none; }
+.ds-product__image { background: var(--semantic-color-background-primary); border: 1px solid var(--semantic-color-stroke-moderate); border-radius: var(--radius-8); flex: 0 0 201px; height: 200px; overflow: hidden; width: 201px; }
+.ds-product__image > * { display: block; height: 100%; object-fit: cover; width: 100%; }
+.ds-product__info { display: flex; flex-direction: column; gap: var(--space-8); }
+.ds-product__title { color: var(--semantic-color-content-primary); font-size: 22px; font-weight: var(--font-weight-extrabold); line-height: 28px; }
+.ds-product__brand { color: var(--semantic-color-content-secondary); font-size: 14px; font-weight: var(--font-weight-medium); line-height: 20px; }
+.ds-product__composition { display: flex; flex-direction: column; }
+.ds-product__comp-label { color: var(--semantic-color-content-secondary); font-size: 14px; font-weight: var(--font-weight-medium); line-height: 20px; }
+.ds-product__comp-value { align-self: flex-start; border-bottom: 1px solid var(--semantic-color-stroke-moderate); color: var(--semantic-color-content-primary); font-size: 14px; font-weight: var(--font-weight-bold); line-height: 20px; }
+.ds-product__alt { align-items: center; align-self: flex-start; appearance: none; background: var(--semantic-color-background-primary); border: 2px solid #afe3c5; border-radius: var(--radius-8); color: var(--semantic-color-content-primary); cursor: pointer; display: inline-flex; font-size: 12px; gap: var(--space-4); line-height: 16px; padding: 12px; }
+.ds-product__alt b { font-weight: var(--font-weight-bold); }
+.ds-product__alt .ds-icon { color: var(--semantic-color-states-success); }
+
+/* ── PDP: Product Label strip ───────────────────────────────────────────────────────────── */
+.ds-plabel { background: var(--semantic-color-background-primary); display: flex; justify-content: center; padding: var(--space-8) var(--space-16); width: 360px; max-width: 100%; }
+.ds-plabel__row { align-items: center; display: flex; gap: var(--space-16); justify-content: space-between; overflow-x: auto; scrollbar-width: none; width: 100%; }
+.ds-plabel__row::-webkit-scrollbar { display: none; }
+.ds-plabel__group { align-items: center; display: flex; flex: 0 0 auto; gap: var(--space-16); }
+.ds-plabel__divider { background: var(--semantic-color-divider-subtle); flex: 0 0 1px; height: 36px; width: 1px; }
+.ds-plabel__item { align-items: center; display: flex; flex-direction: column; gap: var(--space-4); }
+.ds-plabel__head { align-items: center; display: flex; gap: var(--space-4); }
+.ds-plabel__icon { align-items: center; color: var(--semantic-color-content-primary); display: inline-flex; }
+.ds-plabel__title { color: var(--semantic-color-content-primary); font-size: 14px; font-weight: var(--font-weight-bold); line-height: 20px; white-space: nowrap; }
+.ds-plabel__desc { color: var(--semantic-color-content-secondary); font-size: 14px; font-weight: var(--font-weight-regular); line-height: 20px; white-space: nowrap; }
+.ds-plabel__desc[data-underline] { border-bottom: 1px dashed var(--semantic-color-stroke-moderate); }
+
+/* ── PDP: Add to cart pill ──────────────────────────────────────────────────────────────── */
+.ds-atc { background: var(--semantic-color-background-primary); display: flex; flex-direction: column; gap: var(--space-16); padding: var(--space-8) var(--space-16) var(--space-16); width: 360px; max-width: 100%; }
+.ds-atc--sticky { align-items: center; flex-direction: row; gap: var(--space-16); justify-content: space-between; padding: var(--space-12) var(--space-16); }
+.ds-atc__prices { align-items: baseline; display: flex; gap: var(--space-4); }
+.ds-atc__price { color: var(--semantic-color-content-primary); font-size: 22px; font-weight: var(--font-weight-extrabold); line-height: 28px; }
+.ds-atc__mrp { color: var(--semantic-color-content-tertiary); font-size: 16px; font-weight: var(--font-weight-regular); line-height: 24px; }
+.ds-atc__off { color: var(--semantic-color-states-success); font-size: 16px; font-weight: var(--font-weight-bold); line-height: 24px; }
+.ds-atc__row { align-items: center; display: flex; justify-content: space-between; width: 100%; }
+.ds-atc__unit { color: var(--semantic-color-content-tertiary); display: flex; flex-direction: column; font-size: 12px; line-height: 18px; }
+.ds-atc__btn { min-width: 104px; }
+
+/* ── PDP: Offer ─────────────────────────────────────────────────────────────────────────── */
+.ds-offer { background: var(--semantic-color-background-primary); display: flex; flex-direction: column; width: 360px; max-width: 100%; }
+.ds-offer__banner { padding: var(--space-16); }
+.ds-offer__banner > * { background: var(--base-color-cool-neutral-90); border-radius: var(--radius-12); display: block; height: 164px; width: 100%; }
+.ds-offer__band { background: var(--base-color-cool-neutral-95); height: 8px; }
+.ds-offer__card { display: flex; flex-direction: column; gap: var(--space-16); padding: var(--space-16); }
+.ds-offer__heading { color: var(--semantic-color-content-primary); font-size: 16px; font-weight: var(--font-weight-bold); line-height: 24px; }
+.ds-offer__list { display: flex; flex-direction: column; gap: var(--space-16); }
+.ds-offer__row { align-items: center; appearance: none; background: none; border: 0; cursor: pointer; display: flex; gap: var(--space-12); padding: 0; text-align: left; width: 100%; }
+.ds-offer__row-icon { align-items: center; background: var(--base-color-cool-neutral-95); border-radius: 50%; color: var(--semantic-color-content-secondary); display: inline-flex; flex: 0 0 36px; height: 36px; justify-content: center; width: 36px; }
+.ds-offer__row-text { display: flex; flex: 1 1 auto; flex-direction: column; min-width: 0; }
+.ds-offer__row-title { color: var(--semantic-color-content-primary); font-size: 14px; font-weight: var(--font-weight-bold); line-height: 20px; }
+.ds-offer__row-sub { color: var(--semantic-color-content-tertiary); font-size: 12px; line-height: 16px; }
+.ds-offer__row-chev { color: var(--semantic-color-content-tertiary); flex: 0 0 auto; }
+.ds-offer__seeall { appearance: none; background: var(--semantic-color-background-primary); border: 1px solid var(--semantic-color-content-cta); border-radius: var(--radius-8); color: var(--semantic-color-content-cta); cursor: pointer; font-size: 14px; font-weight: var(--font-weight-bold); line-height: 20px; padding: var(--space-12); text-align: center; width: 100%; }
+
+/* ── PDP: Product Information accordion ─────────────────────────────────────────────────── */
+.ds-pinfo { background: var(--semantic-color-background-primary); display: flex; flex-direction: column; width: 360px; max-width: 100%; }
+.ds-pinfo__band { background: var(--base-color-cool-neutral-95); height: 8px; }
+.ds-pinfo__inner { padding: var(--space-16); }
+.ds-pinfo__header { align-items: center; appearance: none; background: none; border: 0; cursor: pointer; display: flex; gap: var(--space-8); padding: 0; width: 100%; }
+.ds-pinfo__title { color: var(--semantic-color-content-primary); flex: 1 1 auto; font-size: 16px; font-weight: var(--font-weight-extrabold); line-height: 24px; text-align: left; }
+.ds-pinfo__chev { align-items: center; color: var(--semantic-color-content-primary); display: inline-flex; flex: 0 0 auto; justify-content: center; transition: transform 0.2s ease; }
+.ds-pinfo__chev[data-open] { transform: rotate(90deg); }
+.ds-pinfo__body { display: flex; flex-direction: column; gap: var(--space-8); padding-top: var(--space-8); }
+.ds-pinfo__content { color: var(--semantic-color-content-primary); font-size: 14px; font-weight: var(--font-weight-regular); line-height: 20px; }
+.ds-pinfo__content[data-clamped] { max-height: 140px; overflow: hidden; }
+.ds-pinfo__content > p { margin: 0 0 8px; }
+.ds-pinfo__content > p:last-child { margin-bottom: 0; }
+.ds-pinfo__bullets { display: flex; flex-direction: column; gap: 6px; margin: 0; padding-left: 18px; }
+.ds-pinfo__faqs { display: flex; flex-direction: column; gap: var(--space-16); }
+.ds-pinfo__q { color: var(--semantic-color-content-primary); font-size: 14px; font-weight: var(--font-weight-bold); line-height: 20px; margin: 0 0 2px; }
+.ds-pinfo__a { color: var(--semantic-color-content-secondary); font-size: 14px; font-weight: var(--font-weight-regular); line-height: 20px; margin: 0; }
+.ds-pinfo__more { align-self: flex-start; appearance: none; background: none; border: 0; color: var(--semantic-color-content-primary); cursor: pointer; font-size: 14px; font-weight: var(--font-weight-bold); padding: 0; text-decoration: underline; }

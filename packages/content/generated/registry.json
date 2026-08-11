@@ -2702,5 +2702,393 @@
         "description": ""
       }
     ]
+  },
+  {
+    "slug": "product",
+    "name": "Product",
+    "summary": "PDP product hero: an image carousel, then title / brand / composition, and an optional green alternative pill.",
+    "category": "Display",
+    "status": "ready",
+    "package": "@dopamine2.0/ui",
+    "import": "import { Product } from \"@dopamine2.0/ui\";",
+    "storyId": "components-product--playground",
+    "figma": "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6825-4912",
+    "prompts": [
+      "product hero",
+      "pdp hero",
+      "product card",
+      "product image carousel",
+      "product title brand composition",
+      "generic alternative"
+    ],
+    "variants": [
+      "with alternative pill",
+      "without"
+    ],
+    "sizes": [
+      "360px width"
+    ],
+    "states": [
+      "alternative on/off"
+    ],
+    "usage": {
+      "do": [
+        "Lead with the product image carousel and title.",
+        "Use the alternative pill to surface a cheaper generic."
+      ],
+      "dont": [
+        "Do not omit the composition on a medicine PDP."
+      ]
+    },
+    "accessibility": [
+      "Carousel scrolls horizontally.",
+      "The alternative pill is a labelled button."
+    ],
+    "contentGuidance": [
+      "Title is the product name; brand is the manufacturer."
+    ],
+    "props": [
+      {
+        "name": "images",
+        "type": "ReactNode[]",
+        "required": false,
+        "default": "2 placeholders",
+        "description": "Product image slots (rendered in a horizontal carousel). Defaults to 2 placeholders."
+      },
+      {
+        "name": "brand",
+        "type": "string",
+        "required": false,
+        "default": "—",
+        "description": "Manufacturer."
+      },
+      {
+        "name": "composition",
+        "type": "string",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "compositionValue",
+        "type": "string",
+        "required": false,
+        "default": "Telmisartan (40mg)",
+        "description": "Underlined composition."
+      },
+      {
+        "name": "alternative",
+        "type": "boolean",
+        "required": false,
+        "default": "true",
+        "description": "Show the green \"generic alternative\" CTA pill."
+      },
+      {
+        "name": "alternativeText",
+        "type": "ReactNode",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "onAlternative",
+        "type": "() => void",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "default": "Telma 40 Tablet",
+        "description": "Product name."
+      }
+    ]
+  },
+  {
+    "slug": "product-label",
+    "name": "ProductLabel",
+    "summary": "PDP feature strip: a row of trust/feature badges (icon + bold title / secondary description), separated by dividers.",
+    "category": "Display",
+    "status": "ready",
+    "package": "@dopamine2.0/ui",
+    "import": "import { ProductLabel } from \"@dopamine2.0/ui\";",
+    "storyId": "components-productlabel--playground",
+    "figma": "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6825-4914",
+    "prompts": [
+      "product label",
+      "feature strip",
+      "trust badges",
+      "genuine prescription badge",
+      "pdp feature row",
+      "highlight strip"
+    ],
+    "variants": [
+      "configurable items"
+    ],
+    "sizes": [
+      "360px width"
+    ],
+    "states": [
+      "optional dotted underline per item"
+    ],
+    "usage": {
+      "do": [
+        "Use for trust/feature signals (Genuine, Prescription, popularity)."
+      ],
+      "dont": [
+        "Do not overload with more than 3–4 items."
+      ]
+    },
+    "accessibility": [
+      "Icons are decorative; titles carry meaning."
+    ],
+    "contentGuidance": [
+      "Keep titles to one or two words."
+    ],
+    "props": [
+      {
+        "name": "items",
+        "type": "ProductLabelItem[]",
+        "required": false,
+        "default": "Genuine / Prescription / popularity",
+        "description": "Feature badges (icon, title, description, underline?)."
+      }
+    ]
+  },
+  {
+    "slug": "add-to-cart-pill",
+    "name": "AddToCartPill",
+    "summary": "PDP add-to-cart bar: price (effective / struck MRP / discount) and an ADD button; default or compact sticky.",
+    "category": "Cart",
+    "status": "ready",
+    "package": "@dopamine2.0/ui",
+    "import": "import { AddToCartPill } from \"@dopamine2.0/ui\";",
+    "storyId": "components-addtocartpill--playground",
+    "figma": "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6825-6198",
+    "prompts": [
+      "add to cart",
+      "add to cart pill",
+      "pdp price bar",
+      "buy bar",
+      "sticky add to cart",
+      "price and add button"
+    ],
+    "variants": [
+      "default",
+      "sticky"
+    ],
+    "sizes": [
+      "360px width"
+    ],
+    "states": [
+      "default (with pack/tax note) vs sticky (compact)"
+    ],
+    "usage": {
+      "do": [
+        "Use `sticky` for the pinned bottom bar.",
+        "Keep the struck MRP next to the price."
+      ],
+      "dont": [
+        "Do not hide the effective price."
+      ]
+    },
+    "accessibility": [
+      "ADD is the DS Button."
+    ],
+    "contentGuidance": [
+      "Discount reads like '7% off'."
+    ],
+    "props": [
+      {
+        "name": "state",
+        "type": "\"default\" | \"sticky\"",
+        "required": false,
+        "default": "default",
+        "description": "Layout variant."
+      },
+      {
+        "name": "price",
+        "type": "string",
+        "required": false,
+        "default": "₹371",
+        "description": "Effective price, e.g. \"₹371\"."
+      },
+      {
+        "name": "mrp",
+        "type": "string",
+        "required": false,
+        "default": "₹100",
+        "description": "Struck MRP, e.g. \"₹100\"."
+      },
+      {
+        "name": "discount",
+        "type": "string",
+        "required": false,
+        "default": "7% off",
+        "description": "Discount, e.g. \"7% off\"."
+      },
+      {
+        "name": "unit",
+        "type": "string",
+        "required": false,
+        "default": "—",
+        "description": "Pack unit line, e.g. \"30 tablets\" (default state only)."
+      },
+      {
+        "name": "taxNote",
+        "type": "string",
+        "required": false,
+        "default": "—",
+        "description": "Tax note, e.g. \"(inclusive of all taxes)\" (default state only)."
+      },
+      {
+        "name": "addLabel",
+        "type": "string",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "onAdd",
+        "type": "() => void",
+        "required": false,
+        "default": "—",
+        "description": "ADD callback."
+      }
+    ]
+  },
+  {
+    "slug": "offer",
+    "name": "Offer",
+    "summary": "PDP offers section: an optional promo banner and a 'Save more with additional offers' list, closed by a See-all action.",
+    "category": "Display",
+    "status": "ready",
+    "package": "@dopamine2.0/ui",
+    "import": "import { Offer } from \"@dopamine2.0/ui\";",
+    "storyId": "components-offer--playground",
+    "figma": "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6825-5309",
+    "prompts": [
+      "offers section",
+      "additional offers",
+      "bank offers",
+      "cashback offers list",
+      "pdp offers",
+      "see all offers"
+    ],
+    "variants": [
+      "with banner",
+      "list only"
+    ],
+    "sizes": [
+      "360px width"
+    ],
+    "states": [
+      "banner optional"
+    ],
+    "usage": {
+      "do": [
+        "Use to surface payment/cashback offers on the PDP."
+      ],
+      "dont": [
+        "Do not bury the primary price below the offers."
+      ]
+    },
+    "accessibility": [
+      "Offer rows and See-all are buttons."
+    ],
+    "contentGuidance": [
+      "Row title is the offer; subtitle repeats the detail."
+    ],
+    "props": [
+      {
+        "name": "banner",
+        "type": "ReactNode",
+        "required": false,
+        "default": "—",
+        "description": "Optional promo banner (a 328×164 media slot)."
+      },
+      {
+        "name": "heading",
+        "type": "string",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "offers",
+        "type": "OfferRow[]",
+        "required": false,
+        "default": "3 sample offers",
+        "description": "Offer rows (icon, title, subtitle)."
+      },
+      {
+        "name": "seeAllLabel",
+        "type": "string",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "onSeeAll",
+        "type": "() => void",
+        "required": false,
+        "default": "—",
+        "description": "See-all callback."
+      }
+    ]
+  },
+  {
+    "slug": "product-information",
+    "name": "ProductInformation",
+    "summary": "PDP information accordion: collapsible sections (title + rotating chevron) with an optional See more / See less read-more.",
+    "category": "Display",
+    "status": "ready",
+    "package": "@dopamine2.0/ui",
+    "import": "import { ProductInformation } from \"@dopamine2.0/ui\";",
+    "storyId": "components-productinformation--playground",
+    "figma": "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6933-2425",
+    "prompts": [
+      "product information",
+      "pdp accordion",
+      "collapsible sections",
+      "dosage key usage faq accordion",
+      "expandable content sections",
+      "see more see less"
+    ],
+    "variants": [
+      "configurable sections"
+    ],
+    "sizes": [
+      "360px width"
+    ],
+    "states": [
+      "expanded / collapsed per section; read-more clamped / expanded"
+    ],
+    "usage": {
+      "do": [
+        "Use for long PDP content split into named sections.",
+        "Mark long sections `readMore`."
+      ],
+      "dont": [
+        "Do not open every section by default."
+      ]
+    },
+    "accessibility": [
+      "Headers are buttons with aria-expanded; the chevron rotates on expand."
+    ],
+    "contentGuidance": [
+      "Section titles are short nouns (Dosage, Key Usage)."
+    ],
+    "props": [
+      {
+        "name": "sections",
+        "type": "ProductInfoSection[]",
+        "required": false,
+        "default": "7 sample sections",
+        "description": "Sections { title, content, defaultOpen?, readMore? }."
+      }
+    ]
   }
 ]
