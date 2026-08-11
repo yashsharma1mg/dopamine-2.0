@@ -999,6 +999,30 @@ export const componentManifests: ComponentManifest[] = [
     contentGuidance: ["Section titles are short nouns (Dosage, Key Usage)."],
     api: [{ name: "sections", type: "ProductInfoSection[]", defaultValue: "7 sample sections", description: "Sections { title, content, defaultOpen?, readMore? }." }],
     links: { figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6933-2425", specification: "/specs/ProductInformation.md", audit: "", source: "/storybook/?path=/docs/components-productinformation--docs" }
+  },
+  {
+    slug: "quick-links",
+    name: "QuickLinks",
+    summary: "Homepage quick links: a row of shortcut tiles plus a delivery promo (For you) or two outline pills (Labs).",
+    category: "Navigation",
+    status: "ready",
+    storyId: "components-quicklinks--playground",
+    packageName: "@dopamine2.0/ui",
+    importExample: 'import { QuickLinks } from "@dopamine2.0/ui";',
+    anatomy: ["Four shortcut tiles (icon + label)", "For you: delivery promo card + divider", "Labs: two outline pills"],
+    variants: ["For you", "Labs"],
+    sizes: ["360px width"],
+    states: ["For you (icon tiles + delivery) vs Labs (labelled tiles + pills)"],
+    usage: { do: ["Use directly under the homepage header.", "Keep to four tiles per row."], dont: ["Do not mix For-you and Labs tiles in one strip."] },
+    accessibility: ["Tiles, pills and the delivery card are buttons."],
+    contentGuidance: ["Tile labels are one or two short words."],
+    api: [
+      { name: "type", type: "For you | Labs", defaultValue: "For you", description: "Which quick-links layout to render." },
+      { name: "items", type: "QuickLinkTile[]", defaultValue: "sample tiles", description: "The four shortcut tiles (icon, label, careplan?)." },
+      { name: "actions", type: "QuickLinkAction[]", defaultValue: "Family hub / Insights", description: "Labs: the two outline pills." },
+      { name: "delivery", type: "{ text, count?, pages? }", defaultValue: "30-min promo", description: "For you: the delivery promo card." }
+    ],
+    links: { figma: "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6934-4002", specification: "/specs/QuickLinks.md", audit: "", source: "/storybook/?path=/docs/components-quicklinks--docs" }
   }
 ];
 

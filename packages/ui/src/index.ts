@@ -57,6 +57,8 @@ export { Offer } from "./Offer.js";
 export type { OfferProps, OfferRow } from "./Offer.js";
 export { ProductInformation } from "./ProductInformation.js";
 export type { ProductInformationProps, ProductInfoSection } from "./ProductInformation.js";
+export { QuickLinks } from "./QuickLinks.js";
+export type { QuickLinksProps, QuickLinksType, QuickLinkTile, QuickLinkAction } from "./QuickLinks.js";
 export { AmountWidget } from "./AmountWidget.js";
 export type { AmountWidgetProps, AmountWidgetState } from "./AmountWidget.js";
 export { CarePlanCard } from "./CarePlanCard.js";

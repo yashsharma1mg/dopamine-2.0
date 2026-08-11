@@ -45,7 +45,6 @@
 - **hover** not defined.
 
 ## Correction (post-review)
-
 - First implementation was WRONG for the dot states: rendered thin-ring+dot (Selected) and filled-disc+dot (Disable+select). Figma actually shows a **donut** — a filled coral/grey disc with a **white centre hole**. Fixed: a checked radio is a filled disc; `dot` = white hole knockout, `check` = white checkmark. Verified against per-node Figma renders.
 
 ## Notes

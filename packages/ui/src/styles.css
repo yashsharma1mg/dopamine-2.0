@@ -63,7 +63,9 @@
 .ds-offer,
 .ds-offer *,
 .ds-pinfo,
-.ds-pinfo * {
+.ds-pinfo *,
+.ds-qlinks,
+.ds-qlinks * {
   box-sizing: border-box;
   font-family: var(--font-family-body), system-ui, sans-serif;
 }
@@ -1195,3 +1197,38 @@
 .ds-pinfo__q { color: var(--semantic-color-content-primary); font-size: 14px; font-weight: var(--font-weight-bold); line-height: 20px; margin: 0 0 2px; }
 .ds-pinfo__a { color: var(--semantic-color-content-secondary); font-size: 14px; font-weight: var(--font-weight-regular); line-height: 20px; margin: 0; }
 .ds-pinfo__more { align-self: flex-start; appearance: none; background: none; border: 0; color: var(--semantic-color-content-primary); cursor: pointer; font-size: 14px; font-weight: var(--font-weight-bold); padding: 0; text-decoration: underline; }
+
+/* ── QuickLinks (homepage) ──────────────────────────────────────────────────────────────── */
+.ds-qlinks { background: var(--semantic-color-background-primary); display: flex; flex-direction: column; width: 360px; max-width: 100%; }
+.ds-qlinks--foryou { gap: var(--space-12); }
+.ds-qlinks--labs { gap: var(--space-8); }
+.ds-qlinks__tiles { display: flex; gap: var(--space-8); padding: 0 var(--space-16); }
+/* For you: icon tile + label below */
+.ds-qlinks__col { appearance: none; background: none; border: 0; cursor: pointer; display: flex; flex: 1 1 0; flex-direction: column; gap: var(--space-8); min-width: 0; padding: 0; }
+.ds-qlinks__tile { align-items: center; background: var(--semantic-color-background-subtle); border-radius: var(--radius-16); color: var(--semantic-color-content-primary); display: flex; height: 48px; justify-content: center; width: 100%; }
+.ds-qlinks__tile[data-careplan] { background: var(--base-color-brand-care-plan); color: #fff; }
+.ds-qlinks__label { color: var(--semantic-color-content-primary); font-size: 12px; font-weight: var(--font-weight-regular); line-height: 16px; text-align: center; }
+/* For you: 30-min delivery promo card */
+.ds-qlinks__delivery-wrap { padding: 0 var(--space-16); }
+.ds-qlinks__delivery { align-items: center; appearance: none; background: var(--semantic-color-background-subtle); border: 0; border-radius: var(--radius-16); cursor: pointer; display: flex; gap: var(--space-12); padding: var(--space-12); text-align: left; width: 100%; }
+.ds-qlinks__bolt { align-items: center; color: var(--semantic-color-branding-rapid); display: inline-flex; flex: 0 0 40px; height: 40px; justify-content: center; width: 40px; }
+.ds-qlinks__delivery-text { color: var(--semantic-color-content-primary); flex: 1 1 auto; font-size: 12px; font-weight: var(--font-weight-bold); line-height: 16px; min-width: 0; }
+.ds-qlinks__delivery-text b { color: var(--semantic-color-branding-rapid); font-weight: var(--font-weight-bold); }
+.ds-qlinks__delivery-sub { color: var(--semantic-color-content-secondary); font-weight: var(--font-weight-regular); }
+.ds-qlinks__delivery-cta { align-items: center; background: var(--semantic-color-content-cta); border-radius: 50%; color: #fff; display: inline-flex; flex: 0 0 24px; height: 24px; justify-content: center; width: 24px; }
+.ds-qlinks__pager { align-items: flex-end; display: flex; flex: 0 0 auto; flex-direction: column; gap: 2px; }
+.ds-qlinks__pager-count { color: var(--semantic-color-content-primary); font-size: 11px; line-height: 16px; }
+.ds-qlinks__dots { display: flex; gap: 2px; }
+.ds-qlinks__dots > span { background: var(--semantic-color-stroke-moderate); border-radius: 50%; height: 4px; width: 4px; }
+.ds-qlinks__dots > span[data-active] { background: var(--semantic-color-content-cta); }
+.ds-qlinks__divider { background: var(--semantic-color-background-subtle); height: 1px; width: 100%; }
+/* Labs: full tile with inside label */
+.ds-qlinks__labs-tile { align-items: center; appearance: none; background: var(--semantic-color-background-subtle); border: 0; border-radius: var(--radius-8); cursor: pointer; display: flex; flex: 1 1 0; flex-direction: column; gap: var(--space-4); height: 104px; justify-content: center; min-width: 0; padding: var(--space-4); }
+.ds-qlinks__labs-icon { align-items: center; color: var(--semantic-color-content-primary); display: inline-flex; height: 40px; justify-content: center; }
+.ds-qlinks__labs-label { color: var(--semantic-color-content-secondary); font-size: 12px; font-weight: var(--font-weight-regular); line-height: 16px; text-align: center; }
+.ds-qlinks__labs-label b { color: var(--semantic-color-content-primary); font-weight: var(--font-weight-bold); }
+/* Labs: outline pills */
+.ds-qlinks__pills { display: flex; gap: var(--space-8); padding: 0 var(--space-16); }
+.ds-qlinks__pill { align-items: center; appearance: none; background: var(--semantic-color-background-primary); border: 1px solid var(--semantic-color-stroke-subtle); border-radius: var(--radius-12); color: var(--semantic-color-content-primary); cursor: pointer; display: flex; flex: 1 1 0; gap: var(--space-4); justify-content: center; min-width: 0; padding: var(--space-8); }
+.ds-qlinks__pill-icon { align-items: center; color: var(--semantic-color-content-primary); display: inline-flex; }
+.ds-qlinks__pill span:last-child { font-size: 14px; font-weight: var(--font-weight-medium); line-height: 20px; }

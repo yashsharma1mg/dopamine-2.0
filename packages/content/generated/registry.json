@@ -3097,5 +3097,101 @@
         "description": "Sections { title, content, defaultOpen?, readMore? }."
       }
     ]
+  },
+  {
+    "slug": "quick-links",
+    "name": "QuickLinks",
+    "summary": "Homepage quick links: a row of shortcut tiles plus a delivery promo (For you) or two outline pills (Labs).",
+    "category": "Navigation",
+    "status": "ready",
+    "package": "@dopamine2.0/ui",
+    "import": "import { QuickLinks } from \"@dopamine2.0/ui\";",
+    "storyId": "components-quicklinks--playground",
+    "figma": "https://www.figma.com/design/BsQQUym4xOYfOs419MpBBX/Components-%7C-Dopamine-2.0?node-id=6934-4002",
+    "prompts": [
+      "quick links",
+      "homepage shortcuts",
+      "shortcut tiles",
+      "quick actions row",
+      "home quick links",
+      "reorder health plans tiles",
+      "labs quick links"
+    ],
+    "variants": [
+      "For you",
+      "Labs"
+    ],
+    "sizes": [
+      "360px width"
+    ],
+    "states": [
+      "For you (icon tiles + delivery) vs Labs (labelled tiles + pills)"
+    ],
+    "usage": {
+      "do": [
+        "Use directly under the homepage header.",
+        "Keep to four tiles per row."
+      ],
+      "dont": [
+        "Do not mix For-you and Labs tiles in one strip."
+      ]
+    },
+    "accessibility": [
+      "Tiles, pills and the delivery card are buttons."
+    ],
+    "contentGuidance": [
+      "Tile labels are one or two short words."
+    ],
+    "props": [
+      {
+        "name": "type",
+        "type": "\"For you\" | \"Labs\"",
+        "required": false,
+        "default": "For you",
+        "description": "Which quick-links layout to render."
+      },
+      {
+        "name": "items",
+        "type": "QuickLinkTile[]",
+        "required": false,
+        "default": "sample tiles",
+        "description": "The four shortcut tiles."
+      },
+      {
+        "name": "actions",
+        "type": "QuickLinkAction[]",
+        "required": false,
+        "default": "Family hub / Insights",
+        "description": "Labs only: the two trailing outline pills."
+      },
+      {
+        "name": "delivery",
+        "type": "{ text: ReactNode; count?: string; pages?: number; }",
+        "required": false,
+        "default": "30-min promo",
+        "description": "For you only: the delivery promo (text + pager count e.g. \"1/4\")."
+      },
+      {
+        "name": "onTile",
+        "type": "(index: number) => void",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "onAction",
+        "type": "(index: number) => void",
+        "required": false,
+        "default": "—",
+        "description": ""
+      },
+      {
+        "name": "onDelivery",
+        "type": "() => void",
+        "required": false,
+        "default": "—",
+        "description": ""
+      }
+    ]
   }
 ]
