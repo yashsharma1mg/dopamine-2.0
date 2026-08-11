@@ -783,7 +783,8 @@
 .ds-sticky__lead--delivery ~ .ds-sticky__copy > span { color: var(--base-color-cool-neutral-60); font-weight: var(--font-weight-medium); }  /* Figma Text/Tertiary #868e9e, Medium */
 .ds-sticky__bolt { color: var(--semantic-color-branding-rapid); display: inline-flex; }  /* Figma Rapid/quick-commerce purple #9d59a8 */
 .ds-sticky__lead { align-items: center; border-radius: var(--radius-8); display: inline-flex; flex: 0 0 40px; height: 40px; justify-content: center; width: 40px; }
-.ds-sticky__lead--rx { background: var(--base-color-comfort-pink-90, #f9cfe3); color: var(--semantic-color-content-secondary); }
+.ds-sticky__lead--rx { background: transparent; color: var(--semantic-color-content-secondary); overflow: hidden; padding: 0; }
+.ds-sticky__rx-img { border-radius: var(--radius-8); height: 40px; object-fit: cover; width: 40px; }
 .ds-sticky__lead--delivery { background: var(--base-color-sunrise-glow-95); color: var(--base-color-sunrise-glow-50); }  /* Figma tile #fdd7c8 */
 .ds-sticky__chevron { appearance: none; background: none; border: none; color: var(--semantic-color-content-primary); cursor: pointer; display: inline-flex; flex: 0 0 auto; padding: 0; }
 .ds-sticky__track { appearance: none; background: var(--base-color-cool-neutral-99); border: 1px solid var(--base-color-cool-neutral-60); border-radius: var(--radius-8); color: var(--semantic-color-content-primary); cursor: pointer; flex: 0 0 auto; font-size: 12px; font-weight: var(--font-weight-bold); line-height: 16px; padding: var(--space-8) var(--space-16); }
@@ -1206,7 +1207,10 @@
 /* For you: icon tile + label below */
 .ds-qlinks__col { appearance: none; background: none; border: 0; cursor: pointer; display: flex; flex: 1 1 0; flex-direction: column; gap: var(--space-8); min-width: 0; padding: 0; }
 .ds-qlinks__tile { align-items: center; background: var(--semantic-color-background-subtle); border-radius: var(--radius-16); color: var(--semantic-color-content-primary); display: flex; height: 48px; justify-content: center; width: 100%; }
-.ds-qlinks__tile[data-careplan] { background: var(--base-color-brand-care-plan); color: #fff; }
+.ds-qlinks__tile[data-careplan] { background: var(--base-color-brand-care-plan); color: #fff; flex-direction: column; gap: 1px; }
+.ds-qlinks__illus { height: 44px; width: 44px; object-fit: contain; }
+.ds-qlinks__illus--disc { height: 28px; width: 28px; }
+.ds-qlinks__careplan-tag { color: #f6ddd4; font-size: 9px; font-style: italic; font-weight: var(--font-weight-bold); line-height: 12px; }
 .ds-qlinks__label { color: var(--semantic-color-content-primary); font-size: 12px; font-weight: var(--font-weight-regular); line-height: 16px; text-align: center; }
 /* For you: 30-min delivery promo card */
 .ds-qlinks__delivery-wrap { padding: 0 var(--space-16); }

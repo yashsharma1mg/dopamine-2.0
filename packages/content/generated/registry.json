@@ -1474,6 +1474,13 @@
         "description": ""
       },
       {
+        "name": "image",
+        "type": "ReactNode",
+        "required": false,
+        "default": "—",
+        "description": "Redirection thumbnail; defaults to the Figma prescription tile."
+      },
+      {
         "name": "onClose",
         "type": "() => void",
         "required": false,

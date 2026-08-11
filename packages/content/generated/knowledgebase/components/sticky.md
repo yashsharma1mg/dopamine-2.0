@@ -14,6 +14,7 @@ Sticky bottom bars: Redirection (status), Rating, Standard, and a floating Video
 | `type` | `"Redirection" \| "Rating" \| "Standard" \| "Video"` | no | `Redirection` | Figma type. |
 | `state` | `"Rating" \| "Video" \| "Default" \| "Error" \| "Delivery" \| "2 deliveries" \| "Multiple Delivery" \| "1 button"` | no | `Default` | Redirection state. |
 | `subtitle` | `string` | no |  |  |
+| `image` | `ReactNode` | no |  | Redirection thumbnail; defaults to the Figma prescription tile. |
 | `onClose` | `() => void` | no |  |  |
 | `onAction` | `() => void` | no |  |  |
 

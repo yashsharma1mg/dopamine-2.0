@@ -25,11 +25,24 @@ export type QuickLinksProps = Omit<HTMLAttributes<HTMLDivElement>, "onSelect"> &
   onDelivery?: () => void;
 };
 
+// Bespoke tile illustrations exported from Figma (served from public/assets).
+const ILLUS = "/assets/dopamine/illustrations";
+const illus = (name: string) => <img className="ds-qlinks__illus" src={`${ILLUS}/${name}.png`} alt="" />;
+
 const FORYOU_ITEMS: QuickLinkTile[] = [
-  { icon: <DsIcon name="reorder" size={24} />, label: "Re-order medicines" },
-  { icon: <DsIcon name="health-plan" size={24} />, label: "Health plans" },
-  { icon: <DsIcon name="insights" size={24} />, label: "Health insights" },
-  { icon: <DsIcon name="discount" size={24} />, label: "More discounts", careplan: true }
+  { icon: illus("reorder"), label: "Re-order medicines" },
+  { icon: illus("health-plans"), label: "Health plans" },
+  { icon: illus("health-insights"), label: "Health insights" },
+  {
+    icon: (
+      <>
+        <span className="ds-qlinks__careplan-tag">Care Plan</span>
+        <img className="ds-qlinks__illus ds-qlinks__illus--disc" src={`${ILLUS}/more-discounts.png`} alt="" />
+      </>
+    ),
+    label: "More discounts",
+    careplan: true
+  }
 ];
 const LABS_ITEMS: QuickLinkTile[] = [
   { icon: <DsIcon name="lab-test" size={28} />, label: <>Full body <b>Packages</b></> },

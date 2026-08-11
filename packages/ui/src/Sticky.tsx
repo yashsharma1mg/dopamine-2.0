@@ -17,9 +17,14 @@ export type StickyProps = HTMLAttributes<HTMLDivElement> & {
   state?: StickyState;
   title?: string;
   subtitle?: string;
+  /** Redirection thumbnail; defaults to the Figma prescription tile. */
+  image?: ReactNode;
   onClose?: () => void;
   onAction?: () => void;
 };
+
+// Prescription thumbnail exported from Figma (served from public/assets).
+const rxThumb = <img className="ds-sticky__rx-img" src="/assets/dopamine/illustrations/rx-thumb.png" alt="" />;
 
 const icons = {
   chevron: <DsIcon name="chevron-right" size={12} />,
@@ -37,7 +42,7 @@ const closeButton = (onClose?: () => void) => (
   <button type="button" className="ds-sticky__close" aria-label="Dismiss" onClick={onClose}>{icons.cross}</button>
 );
 
-export function Sticky({ type = "Redirection", state = "Default", title, subtitle, onClose, onAction, className = "", ...props }: StickyProps) {
+export function Sticky({ type = "Redirection", state = "Default", title, subtitle, image, onClose, onAction, className = "", ...props }: StickyProps) {
   const root = (extra: string, children: ReactNode) => (
     <div className={`ds-sticky ds-sticky--${extra} ${className}`.trim()} data-type={type} data-state={state} {...props}>{children}</div>
   );
@@ -102,7 +107,7 @@ export function Sticky({ type = "Redirection", state = "Default", title, subtitl
         <span className="ds-sticky__more">+ 3 more {icons.caretUp}</span>
       )}
       <div className="ds-sticky__row">
-        <span className={`ds-sticky__lead ${isDelivery ? "ds-sticky__lead--delivery" : "ds-sticky__lead--rx"}`} aria-hidden="true">{icons.image}</span>
+        <span className={`ds-sticky__lead ${isDelivery ? "ds-sticky__lead--delivery" : "ds-sticky__lead--rx"}`} aria-hidden="true">{isDelivery ? icons.image : (image ?? rxThumb)}</span>
         <div className="ds-sticky__copy">
           <strong className={isDelivery ? "ds-sticky__title--success" : isError ? "ds-sticky__title--error" : ""}>
             {title ?? defaults.t}
