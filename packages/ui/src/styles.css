@@ -1222,16 +1222,16 @@
 /* For you: 30-min delivery promo card */
 .ds-qlinks__delivery-wrap { padding: 0 var(--space-16); }
 .ds-qlinks__delivery { align-items: center; appearance: none; background: var(--semantic-color-background-subtle); border: 0; border-radius: var(--radius-16); cursor: pointer; display: flex; gap: var(--space-12); padding: var(--space-12); text-align: left; width: 100%; }
-.ds-qlinks__bolt { align-items: center; color: var(--semantic-color-branding-rapid); display: inline-flex; flex: 0 0 40px; height: 40px; justify-content: center; width: 40px; }
+.ds-qlinks__bolt { align-items: center; display: inline-flex; flex: 0 0 40px; height: 40px; justify-content: center; width: 40px; }
 .ds-qlinks__delivery-text { color: var(--semantic-color-content-primary); flex: 1 1 auto; font-size: 12px; font-weight: var(--font-weight-bold); line-height: 16px; min-width: 0; }
 .ds-qlinks__delivery-text b { color: var(--semantic-color-branding-rapid); font-weight: var(--font-weight-bold); }
 .ds-qlinks__delivery-sub { color: var(--semantic-color-content-secondary); font-weight: var(--font-weight-regular); }
-.ds-qlinks__delivery-cta { align-items: center; background: var(--semantic-color-content-cta); border-radius: 50%; color: #fff; display: inline-flex; flex: 0 0 24px; height: 24px; justify-content: center; width: 24px; }
+.ds-qlinks__delivery-cta { align-items: center; background: var(--semantic-color-branding-rapid); border-radius: 50%; color: #fff; display: inline-flex; flex: 0 0 24px; height: 24px; justify-content: center; width: 24px; }
 .ds-qlinks__pager { align-items: flex-end; display: flex; flex: 0 0 auto; flex-direction: column; gap: 2px; }
 .ds-qlinks__pager-count { color: var(--semantic-color-content-primary); font-size: 11px; line-height: 16px; }
 .ds-qlinks__dots { display: flex; gap: 2px; }
 .ds-qlinks__dots > span { background: var(--semantic-color-stroke-moderate); border-radius: 50%; height: 4px; width: 4px; }
-.ds-qlinks__dots > span[data-active] { background: var(--semantic-color-content-cta); }
+.ds-qlinks__dots > span[data-active] { background: var(--semantic-color-branding-1mg); }
 .ds-qlinks__divider { background: var(--semantic-color-background-subtle); height: 1px; width: 100%; }
 /* Labs: full tile with inside label */
 .ds-qlinks__labs-tile { align-items: center; appearance: none; background: var(--semantic-color-background-subtle); border: 0; border-radius: var(--radius-8); cursor: pointer; display: flex; flex: 1 1 0; flex-direction: column; gap: var(--space-4); height: 104px; justify-content: center; min-width: 0; padding: var(--space-4); }

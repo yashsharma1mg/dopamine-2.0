@@ -29,6 +29,20 @@ export type QuickLinksProps = Omit<HTMLAttributes<HTMLDivElement>, "onSelect"> &
 const ILLUS = "/assets/dopamine/illustrations";
 const illus = (name: string) => <img className="ds-qlinks__illus" src={`${ILLUS}/${name}.png`} alt="" />;
 
+// Quick-commerce bolt tile — exact Figma vector (gradient #EBB5F5→#AE66BA, bolt #F9D4FF).
+const deliveryBolt = (
+  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+    <rect width="40" height="40" rx="8" fill="url(#ql-bolt-grad)" />
+    <path d="M25.1624 8.09368C25.5224 8.09 25.7507 8.47895 25.5725 8.79193L20.8899 17.0156L21.8342 16.9579L28.4583 16.5566C28.8569 16.5324 29.0997 16.9879 28.8577 17.3056L17.4885 32.2285C17.1691 32.6478 16.5079 32.2988 16.6741 31.7988L19.9641 21.9199L11.6428 22.2978C11.271 22.3145 11.0303 21.9109 11.2219 21.5917L13.7024 17.4609L13.7034 17.4599L19.1467 8.38372C19.2301 8.24473 19.3792 8.15904 19.5413 8.15716L25.1624 8.09368Z" fill="#F9D4FF" />
+    <defs>
+      <linearGradient id="ql-bolt-grad" x1="20" y1="0" x2="20" y2="40" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#EBB5F5" />
+        <stop offset="1" stopColor="#AE66BA" />
+      </linearGradient>
+    </defs>
+  </svg>
+);
+
 const FORYOU_ITEMS: QuickLinkTile[] = [
   { icon: illus("reorder"), label: "Re-order medicines" },
   { icon: illus("health-plans"), label: "Health plans" },
@@ -117,7 +131,7 @@ export function QuickLinks({
       </div>
       <div className="ds-qlinks__delivery-wrap">
         <button type="button" className="ds-qlinks__delivery" onClick={onDelivery}>
-          <span className="ds-qlinks__bolt" aria-hidden="true"><DsIcon name="rapid" size={22} /></span>
+          <span className="ds-qlinks__bolt" aria-hidden="true">{deliveryBolt}</span>
           <span className="ds-qlinks__delivery-text">{delivery.text}</span>
           <span className="ds-qlinks__delivery-cta" aria-hidden="true"><DsIcon name="chevron-right" size={11} /></span>
           {delivery.count && (
