@@ -3,6 +3,7 @@
 // claude.ai web / Claude Desktop / Claude Code as a Connector URL. Gated by a bearer token
 // (Worker secret MCP_TOKEN) since the design system is private.
 import { TOOL_DEFS, createHandlers } from "@/packages/mcp/src/tools";
+import { verifyToken, timingSafeEqual } from "@/app/oauth/oauth";
 import { data } from "./data.edge";
 
 const handlers = createHandlers(data);
@@ -11,31 +12,44 @@ const PROTOCOL_VERSION = "2024-11-05";
 const rpc = (id: unknown, result: unknown) => ({ jsonrpc: "2.0", id, result });
 const rpcError = (id: unknown, code: number, message: string) => ({ jsonrpc: "2.0", id, error: { code, message } });
 
-function authorized(request: Request): boolean {
+// Accept either the raw MCP_TOKEN (Claude Desktop/Code/curl paste it directly) or an OAuth access
+// token minted by /oauth/token (claude.ai web, which only speaks OAuth). Both are validated
+// against the same MCP_TOKEN secret.
+async function authorized(request: Request): Promise<boolean> {
   const token = process.env.MCP_TOKEN;
   if (!token) return false; // secure by default — deny until the secret is configured
-  const header = request.headers.get("authorization") ?? "";
-  const match = header.match(/^Bearer\s+(.+)$/i);
+  const match = (request.headers.get("authorization") ?? "").match(/^Bearer\s+(.+)$/i);
   if (!match) return false;
   const provided = match[1];
-  if (provided.length !== token.length) return false;
-  let diff = 0;
-  for (let i = 0; i < token.length; i++) diff |= provided.charCodeAt(i) ^ token.charCodeAt(i);
-  return diff === 0;
+  if (timingSafeEqual(provided, token)) return true;
+  const payload = await verifyToken(provided, token);
+  return payload?.t === "access";
+}
+
+const cors = { "access-control-allow-origin": "*", "access-control-allow-methods": "POST, GET, OPTIONS", "access-control-allow-headers": "authorization, content-type", "access-control-expose-headers": "WWW-Authenticate" };
+
+export function OPTIONS() {
+  return new Response(null, { status: 204, headers: cors });
 }
 
 export async function GET() {
   return new Response(
-    "Dopamine2.0 MCP endpoint. POST JSON-RPC 2.0 (initialize / tools/list / tools/call) with header `Authorization: Bearer <MCP_TOKEN>`. Add this URL as a custom connector in Claude.",
-    { status: 200, headers: { "content-type": "text/plain; charset=utf-8" } }
+    "Dopamine2.0 MCP endpoint. Add this URL as a custom connector in Claude (claude.ai web authorizes via OAuth; Desktop/Code can send Authorization: Bearer <MCP_TOKEN>). POST JSON-RPC 2.0: initialize / tools/list / tools/call.",
+    { status: 200, headers: { "content-type": "text/plain; charset=utf-8", ...cors } }
   );
 }
 
 export async function POST(request: Request) {
-  if (!authorized(request)) {
+  if (!(await authorized(request))) {
     const configured = Boolean(process.env.MCP_TOKEN);
-    return Response.json(rpcError(null, -32001, configured ? "Unauthorized." : "Endpoint not configured: set the MCP_TOKEN Worker secret."), {
-      status: configured ? 401 : 503
+    if (!configured) {
+      return Response.json(rpcError(null, -32001, "Endpoint not configured: set the MCP_TOKEN Worker secret."), { status: 503 });
+    }
+    // Point unauthenticated clients at the OAuth flow (claude.ai web reads this header to discover it).
+    const origin = new URL(request.url).origin;
+    return Response.json(rpcError(null, -32001, "Unauthorized."), {
+      status: 401,
+      headers: { ...cors, "WWW-Authenticate": `Bearer resource_metadata="${origin}/.well-known/oauth-protected-resource"` }
     });
   }
 

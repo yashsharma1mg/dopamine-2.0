@@ -32,6 +32,12 @@ const text = (t: string): ToolResult => ({ content: [{ type: "text", text: t }] 
 const err = (t: string): ToolResult => ({ content: [{ type: "text", text: t }], isError: true });
 const noArgs = { type: "object", properties: {}, additionalProperties: false };
 
+// Deployed origin so preview "View live" links and the bundled previews' asset/storybook URLs
+// resolve from claude.ai web — relative paths are dead once the preview leaves this origin.
+// Override via MCP_SITE_URL if the domain changes.
+const SITE_URL = (typeof process !== "undefined" && process.env?.MCP_SITE_URL) || "https://dopamine2-0.dopamine-ds.workers.dev";
+const absolutize = (html: string): string => html.replace(/(src|href)="\/(assets|storybook)\//g, `$1="${SITE_URL}/$2/`);
+
 export const GENERAL_TOPICS = ["install", "theming-tokens", "conventions"] as const;
 const TOKEN_CATEGORIES = ["base", "semantic", "component", "space", "radius", "layout", "font", "shadow"] as const;
 
@@ -145,15 +151,15 @@ export function createHandlers(data: McpData): Record<string, Handler> {
       const html = data.previews[entry.slug];
       if (!html) return err(`No preview bundled for "${entry.name}".`);
       const story = galleryStoryId(entry);
-      const live = story ? `> View live: \`/storybook/iframe.html?id=${story}\`\n\n` : "";
-      return text(`${live}Rendered preview of **${entry.name}** (all variants):\n\n\`\`\`html\n${html}\n\`\`\``);
+      const live = story ? `> View live: ${SITE_URL}/storybook/iframe.html?id=${story}\n\n` : "";
+      return text(`${live}Rendered preview of **${entry.name}** (all variants):\n\n\`\`\`html\n${absolutize(html)}\n\`\`\``);
     },
 
     preview_pattern: (args) => {
       const name = slugify(String(args.name ?? ""));
       const html = data.patternPreviews[name];
       if (!html) return err(`No pattern preview "${args.name}". Try \`list_patterns\`.`);
-      return text(`> View live: \`/storybook/iframe.html?id=patterns-${name}--screen\`\n\nRendered preview of the **${name}** pattern:\n\n\`\`\`html\n${html}\n\`\`\``);
+      return text(`> View live: ${SITE_URL}/storybook/iframe.html?id=patterns-${name}--screen\n\nRendered preview of the **${name}** pattern:\n\n\`\`\`html\n${absolutize(html)}\n\`\`\``);
     }
   };
 }
