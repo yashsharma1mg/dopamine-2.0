@@ -25,15 +25,16 @@ the same generated source of truth:
 
 ## Add it to Claude
 
-**claude.ai web / Desktop (remote):** add `https://<site>/mcp` as a custom connector. Gate it with
-a bearer token — `wrangler secret put MCP_TOKEN` on the Worker, then send
-`Authorization: Bearer <token>`. Unset ⇒ `503` (secure by default).
+**claude.ai web / Desktop (remote):** add `https://<site>/mcp` as a custom connector. It uses OAuth
+2.1 — Claude opens a login page; enter the shared access key (the `MCP_TOKEN` Worker secret, set via
+`wrangler secret put MCP_TOKEN`). Desktop/Code may instead send `Authorization: Bearer <MCP_TOKEN>`.
+Unset ⇒ `503` (secure by default). Note: claude.ai web gates custom connectors behind an org policy.
 
 **Claude Desktop (local):** `claude_desktop_config.json` →
-`{ "mcpServers": { "dopamine2": { "command": "node", "args": ["/abs/.../packages/mcp/dist/index.js"] } } }`
+`{ "mcpServers": { "dopamine2-local": { "command": "node", "args": ["/abs/.../packages/mcp/dist/index.js"] } } }`
 
-**Claude Code:** `claude mcp add dopamine2 -- node /abs/.../packages/mcp/dist/index.js`
-(auto-discovered via repo `.mcp.json` inside this repo).
+**Claude Code:** `claude mcp add dopamine2-local -- node /abs/.../packages/mcp/dist/index.js`
+(auto-discovered via repo `.mcp.json` inside this repo, where it is named `dopamine2-local`).
 
 ## Architecture
 

@@ -53,19 +53,22 @@ endpoint on the design-system Worker.
 
 ### claude.ai web + Claude Desktop (remote connector)
 
-Add the hosted endpoint as a custom connector — one URL, works in web chat and Desktop:
+Add the hosted endpoint as a custom connector — one URL:
 
 - **URL:** `https://<your-dopamine-site>/mcp`
-- **Auth:** it is gated by a bearer token. Set it once: `wrangler secret put MCP_TOKEN`, then give
-  the connector an `Authorization: Bearer <token>` header. Until the secret is set the endpoint
-  returns `503` (secure by default).
+- **Auth:** OAuth 2.1. On first connect Claude opens a "Connect Dopamine 2.0" page; enter the shared
+  access key to authorize. The key is the `MCP_TOKEN` Worker secret — set it once with
+  `wrangler secret put MCP_TOKEN` (until it is set the endpoint returns `503`, secure by default).
+  Claude Desktop / Code can alternatively send `Authorization: Bearer <MCP_TOKEN>` directly.
+- **Team/Enterprise note:** claude.ai web gates custom connectors behind an org policy — a workspace
+  admin must enable them (or add this as an org connector). Claude Code and Desktop are not gated.
 
 ### Claude Desktop (local, no server)
 
 In `claude_desktop_config.json`:
 
 ```json
-{ "mcpServers": { "dopamine2": { "command": "node",
+{ "mcpServers": { "dopamine2-local": { "command": "node",
   "args": ["/abs/path/to/packages/mcp/dist/index.js"] } } }
 ```
 
@@ -74,7 +77,7 @@ In `claude_desktop_config.json`:
 ### Claude Code
 
 ```bash
-claude mcp add dopamine2 -- node /abs/path/to/packages/mcp/dist/index.js
+claude mcp add dopamine2-local -- node /abs/path/to/packages/mcp/dist/index.js
 ```
 
 Inside this repo it is auto-discovered via `.mcp.json` (run `npm run build` first so `dist/` exists).

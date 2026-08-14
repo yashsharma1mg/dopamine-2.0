@@ -1,6 +1,6 @@
 {
   "mcpServers": {
-    "dopamine2": {
+    "dopamine2-local": {
       "command": "node",
       "args": ["packages/mcp/dist/index.js"]
     }
